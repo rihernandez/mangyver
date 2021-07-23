@@ -1,0 +1,7 @@
+MSSQL_HOST=techsupply.database.windows.net
+MSSQL_PORT=1433
+MSSQL_USER=techsupplycnd
+MSSQL_PASSWORD=Cnd12345*
+MSSQL_DB=AF_Maint_APP
+API_VERSION=/api/v1
+PORT=4990

@@ -1,0 +1,301 @@
+{
+    "sections": [
+       {
+        "id": "section1",
+        "initInThis": true,
+        "nextSectionId": null,
+        "fields": [
+          {
+            "dataField": "type",
+            "label": "Elige el proceso",
+            "fieldType": "select",
+            "optionsEndpoint": "https://endpoing.com",
+            "options": [
+              "M3-Aviso deribado de una orden",
+              "M1-Crear tarjeta",
+              "M2-Notificación de falla"
+            ],
+            "validations": [
+              "required"
+            ],
+            "childSections": [
+              {
+                "toMatch": "M3-Aviso deribado de una orden",
+                "id": "section4"
+              },
+              {
+                "toMatch": "M1-Crear tarjeta",
+                "id": "section5"
+  
+              },
+              {
+                "toMatch": "M2-Notificación de falla",
+                "id": "section9"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section4",
+        "nextSectionId": "section6",
+        "fields": [
+          {
+            "dataField":"Code",
+            "label": "No. de OT",
+            "fieldType": "text",
+            "validations": [
+              "required"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section5",
+        "nextSectionId": "section7",
+        "fields": [
+          {
+            "dataField": "type",
+            "label": "¿Se realizó la tarea?",
+            "fieldType": "select",
+            "optionsEndpoint": "https://endpoing.com",
+            "options": [
+              "si",
+              "No"
+            ],
+            "validations": [
+              "required"
+            ],
+            "childSections": [
+              {
+                "toMatch": "si",
+                "id": "section9"
+              },
+              {
+                "toMatch": "no",
+                "id": "section7"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section9",
+        "nextSectionId": "section7",
+        "fields": [
+          {
+            "dataField": "type",
+            "label": "Duración de la falla",
+            "fieldType": "numeric",
+            "validations": [
+              "required"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section7",
+        "nextSectionId": "section8",
+        "fields": [
+          {
+            "dataField": "type",
+            "label": "Departamento",
+            "fieldType": "select",
+            "validations": [
+              "required"
+            ],
+            "optionsEndpoint": "https://endpoing.com",
+            "options": [
+              "Envasado",
+              "Otras áreas"
+            ],
+            "childSections": [
+              {
+                "toMatch": "Envasado",
+                "id": "section8"
+              },
+              {
+                "toMatch": "Otras áreas",
+                "id": "section10"
+  
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section10",
+        "nextSectionId": "section6",
+        "fields": [
+          {
+            "dataField": "type",
+            "label": "Código de equipo",
+            "fieldType": "select",
+            "validations": [
+              "required"
+            ],
+            "optionsEndpoint": "https://endpoing.com",
+            "options": [
+              "RD-0515",
+              "RD-0895",
+              "RD-0445"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section8",
+        "nextSectionId": "section6",
+        "fields": [
+          {
+            "dataField": "type",
+            "label": "Línea",
+            "fieldType": "select",
+            "validations": [
+              "required"
+            ],
+            "optionsEndpoint": "https://endpoing.com",
+            "options": [
+              "Linea 1",
+              "Linea 2",
+              "Linea 3"
+            ]
+          },
+          {
+            "label": "Tipo de Equipo",
+            "fieldType": "select",
+            "validations": [
+              "required"
+            ],
+            "optionsEndpoint": "https://endpoing.com",
+            "options": [
+              "Tipo A",
+              "Tipo B",
+              "Tipo C"
+            ]
+          },
+          {
+            "label": "Consecutivo",
+            "fieldType": "select",
+            "validations": [
+              "required"
+            ],
+            "optionsEndpoint": "https://endpoing.com",
+            "options": [
+              "Consecutivo 1",
+              "Consecutivo 2",
+              "Consecutivo 3"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "section6",
+        "nextSectionId": "section6",
+        "finishAfterThis" : true,
+        "fields": [
+          {
+            "dataField": "type",
+            "label": "Tipo de tarjeta",
+            "fieldType": "select",
+            "validations": [
+              "required"
+            ],
+            "optionsEndpoint": "https://endpoing.com",
+            "options": [
+              "Tipo 1",
+              "Tipo 2",
+              "Tipo 3"
+            ]
+          },
+          {
+            "label": "Título de la tarjeta",
+            "fieldType": "text",
+            "validations": [
+              "required"
+            ]
+          },
+          {
+            "label": "Prioridad",
+            "fieldType": "select",
+            "validations": [
+              "required"
+            ],
+            "optionsEndpoint": "https://endpoing.com",
+            "options": [
+              "Baja",
+              "Media",
+              "Alta",
+              "Muy alta"
+            ]
+          },
+          {
+            "label": "Componente dañado",
+            "fieldType": "select",
+            "validations": [
+              "required"
+            ],
+            "optionsEndpoint": "https://endpoing.com",
+            "options": [
+              "Componente rojo",
+              "Componente azul",
+              "Componente amarillo"
+            ]
+          },
+          {
+            "label": "Causa Avería",
+            "fieldType": "text",
+            "validations": [
+              "required"
+            ]
+          },
+          {
+            "label": "Tipo de falla",
+            "fieldType": "select",
+            "validations": [
+              "required"
+            ],
+            "optionsEndpoint": "https://endpoing.com",
+            "options": [
+              "Tipo 1",
+              "Tipo 2",
+              "Tipo 3"
+            ]
+          },
+          {
+            "label": "Descripción de la tarjeta",
+            "fieldType": "text",
+            "validations": [
+              "required"
+            ]
+          },
+          {
+            "label": "Afecta A",
+            "fieldType": "select",
+            "validations": [
+              "required"
+            ],
+            "optionsEndpoint": "https://endpoing.com",
+            "options": [
+              "Afecta a equipo",
+              "Afecta la planta",
+              "Afecta a personas"
+            ]
+          },
+          {
+            "label": "Afecta a",
+            "fieldType": "select",
+            "validations": [
+              "required"
+            ],
+            "optionsEndpoint": "https://endpoing.com",
+            "options": [
+              "Afecta a equipo",
+              "Afecta la planta",
+              "Afecta a personas"
+            ]
+          }
+        ]
+      }
+    ]
+  }
