@@ -14,26 +14,19 @@ import { ILoginPayload } from "src/repositories/login.repository";
 class AuthController {
 
 
-
-  @Get("/")
-  public async getHello(): Promise<String> {
-    return "hello"
-  }
-
-  public static async login (req: Request, res: Response): Promise<String> {
+  public static async login (req: Request, res: Response) {
     //Check if username and password are set
     
+  
     let { username, password } = req.body;
     if (!(username && password)) {
       res.status(400).send();
     }
-
     //Get user from database
     const userRepository = getRepository(User);
     let user: User;
 
     user = await userRepository.findOneOrFail({ where: { username } });
-
     // try {
     //   user = await userRepository.findOneOrFail({ where: { username } });
     // } catch (error) {
@@ -54,8 +47,8 @@ class AuthController {
     );
 
     //Send the jwt in the response
-    //res.send(token);
-    return token;
+    res.send(token);
+    // return token;
   };
 
   // @Post("/")

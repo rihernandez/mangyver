@@ -738,28 +738,6 @@
 				]
 			}
 		},
-		"/auth": {
-			"get": {
-				"operationId": "GetHello",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"type": "string"
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"Auth"
-				],
-				"security": [],
-				"parameters": []
-			}
-		},
 		"/buses": {
 			"get": {
 				"operationId": "GetAllBus",
