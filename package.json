@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node build/index.js",
+    "start": "node build/src/index.js",
     "predev": "npm run swagger",
     "prebuild": "npm run swagger",
     "build": "tsc",
@@ -47,6 +47,9 @@
     "swagger-ui-express": "^4.1.4",
     "tsoa": "^3.3.0",
     "typeorm": "^0.2.29"
+  },
+  "engines": {
+    "node": "12.18.3"
   },
   "nodemonConfig": {
     "watch": [
