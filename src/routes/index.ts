@@ -7,7 +7,7 @@ import BusRouter from "./bus.router";
 import ZoneRouter from "./zone.router";
 import AreaRouter from "./area.router";
 import EquipmentRouter from "./equipment.router";
-import NotificationRouter from "./notification.router";
+import NoticeRouter from "./notice.router";
 import OperationRouter from "./operation.router";
 import SubareaRouter from "./subarea.router";
 import UbicationRouter from "./ubication.router";
@@ -31,7 +31,7 @@ router.use("/zones", ZoneRouter);
 router.use("/areas", AreaRouter);
 router.use("/subareas", SubareaRouter);
 router.use("/equipments", EquipmentRouter);
-router.use("/notifications", NotificationRouter);
+router.use("/notices", NoticeRouter);
 router.use("/operations", OperationRouter);
 router.use("/ubications", UbicationRouter);
 router.use("/fields", FieldRouter)

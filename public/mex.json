@@ -8,8 +8,8 @@
           {
             "dataField": "type",
             "label": "Elige el proceso",
-            "fieldType": "select",
-            "optionsEndpoint": "https://endpoing.com",
+            "type": "select",
+            "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/notices",
             "options": [
               "M3-Aviso deribado de una orden",
               "M1-Crear tarjeta",
@@ -43,7 +43,7 @@
           {
             "dataField":"Code",
             "label": "No. de OT",
-            "fieldType": "text",
+            "type": "text",
             "validations": [
               "required"
             ]
@@ -57,8 +57,8 @@
           {
             "dataField": "type",
             "label": "¿Se realizó la tarea?",
-            "fieldType": "select",
-            "optionsEndpoint": "https://endpoing.com",
+            "type": "select",
+            "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/notices",
             "options": [
               "si",
               "No"
@@ -86,7 +86,7 @@
           {
             "dataField": "type",
             "label": "Duración de la falla",
-            "fieldType": "numeric",
+            "type": "numeric",
             "validations": [
               "required"
             ]
@@ -100,11 +100,11 @@
           {
             "dataField": "type",
             "label": "Departamento",
-            "fieldType": "select",
+            "type": "select",
             "validations": [
               "required"
             ],
-            "optionsEndpoint": "https://endpoing.com",
+            "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/notices",
             "options": [
               "Envasado",
               "Otras áreas"
@@ -130,11 +130,11 @@
           {
             "dataField": "type",
             "label": "Código de equipo",
-            "fieldType": "select",
+            "type": "select",
             "validations": [
               "required"
             ],
-            "optionsEndpoint": "https://endpoing.com",
+            "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/notices",
             "options": [
               "RD-0515",
               "RD-0895",
@@ -150,11 +150,11 @@
           {
             "dataField": "type",
             "label": "Línea",
-            "fieldType": "select",
+            "type": "select",
             "validations": [
               "required"
             ],
-            "optionsEndpoint": "https://endpoing.com",
+            "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/notices",
             "options": [
               "Linea 1",
               "Linea 2",
@@ -163,11 +163,11 @@
           },
           {
             "label": "Tipo de Equipo",
-            "fieldType": "select",
+            "type": "select",
             "validations": [
               "required"
             ],
-            "optionsEndpoint": "https://endpoing.com",
+            "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/notices",
             "options": [
               "Tipo A",
               "Tipo B",
@@ -176,11 +176,11 @@
           },
           {
             "label": "Consecutivo",
-            "fieldType": "select",
+            "type": "select",
             "validations": [
               "required"
             ],
-            "optionsEndpoint": "https://endpoing.com",
+            "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/notices",
             "options": [
               "Consecutivo 1",
               "Consecutivo 2",
@@ -197,11 +197,11 @@
           {
             "dataField": "type",
             "label": "Tipo de tarjeta",
-            "fieldType": "select",
+            "type": "select",
             "validations": [
               "required"
             ],
-            "optionsEndpoint": "https://endpoing.com",
+            "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/notices",
             "options": [
               "Tipo 1",
               "Tipo 2",
@@ -210,18 +210,18 @@
           },
           {
             "label": "Título de la tarjeta",
-            "fieldType": "text",
+            "type": "text",
             "validations": [
               "required"
             ]
           },
           {
             "label": "Prioridad",
-            "fieldType": "select",
+            "type": "select",
             "validations": [
               "required"
             ],
-            "optionsEndpoint": "https://endpoing.com",
+            "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/notices",
             "options": [
               "Baja",
               "Media",
@@ -231,11 +231,11 @@
           },
           {
             "label": "Componente dañado",
-            "fieldType": "select",
+            "type": "select",
             "validations": [
               "required"
             ],
-            "optionsEndpoint": "https://endpoing.com",
+            "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/notices",
             "options": [
               "Componente rojo",
               "Componente azul",
@@ -244,18 +244,18 @@
           },
           {
             "label": "Causa Avería",
-            "fieldType": "text",
+            "type": "text",
             "validations": [
               "required"
             ]
           },
           {
             "label": "Tipo de falla",
-            "fieldType": "select",
+            "type": "select",
             "validations": [
               "required"
             ],
-            "optionsEndpoint": "https://endpoing.com",
+            "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/notices",
             "options": [
               "Tipo 1",
               "Tipo 2",
@@ -264,18 +264,18 @@
           },
           {
             "label": "Descripción de la tarjeta",
-            "fieldType": "text",
+            "type": "text",
             "validations": [
               "required"
             ]
           },
           {
             "label": "Afecta A",
-            "fieldType": "select",
+            "type": "select",
             "validations": [
               "required"
             ],
-            "optionsEndpoint": "https://endpoing.com",
+            "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/notices",
             "options": [
               "Afecta a equipo",
               "Afecta la planta",
@@ -284,11 +284,11 @@
           },
           {
             "label": "Afecta a",
-            "fieldType": "select",
+            "type": "select",
             "validations": [
               "required"
             ],
-            "optionsEndpoint": "https://endpoing.com",
+            "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/notices",
             "options": [
               "Afecta a equipo",
               "Afecta la planta",

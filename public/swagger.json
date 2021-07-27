@@ -296,56 +296,114 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"Notification": {
+			"Notice": {
 				"properties": {
 					"id": {
 						"type": "number",
 						"format": "double"
 					},
-					"name": {
+					"type": {
 						"type": "string"
 					},
-					"code": {
+					"order": {
+						"type": "number",
+						"format": "double"
+					},
+					"ubication": {
+						"type": "string"
+					},
+					"equipment": {
+						"type": "string"
+					},
+					"analysis": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"user": {
+						"type": "number",
+						"format": "double"
+					},
+					"priority": {
 						"type": "string"
 					},
 					"isActive": {
 						"type": "boolean"
 					},
-					"createdAt": {
+					"created": {
 						"type": "string",
 						"format": "date-time"
 					}
 				},
 				"required": [
 					"id",
-					"name",
-					"code",
+					"type",
+					"order",
+					"ubication",
+					"equipment",
+					"analysis",
+					"description",
+					"user",
+					"priority",
 					"isActive",
-					"createdAt"
+					"created"
 				],
 				"type": "object",
 				"additionalProperties": false
 			},
-			"INotificationPayload": {
+			"INoticePayload": {
 				"properties": {
-					"name": {
+					"id": {
+						"type": "number",
+						"format": "double"
+					},
+					"type": {
 						"type": "string"
 					},
-					"password": {
+					"order": {
+						"type": "number",
+						"format": "double"
+					},
+					"ubication": {
 						"type": "string"
 					},
-					"email": {
+					"equipment": {
+						"type": "string"
+					},
+					"analysis": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"user": {
+						"type": "number",
+						"format": "double"
+					},
+					"priority": {
 						"type": "string"
 					},
 					"isActive": {
 						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
-					"name",
-					"password",
-					"email",
-					"isActive"
+					"id",
+					"type",
+					"order",
+					"ubication",
+					"equipment",
+					"analysis",
+					"description",
+					"user",
+					"priority",
+					"isActive",
+					"created"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1102,9 +1160,9 @@
 				]
 			}
 		},
-		"/notifications": {
+		"/notices": {
 			"get": {
-				"operationId": "GetNotifications",
+				"operationId": "GetNotices",
 				"responses": {
 					"200": {
 						"description": "Ok",
@@ -1112,7 +1170,7 @@
 							"application/json": {
 								"schema": {
 									"items": {
-										"$ref": "#/components/schemas/Notification"
+										"$ref": "#/components/schemas/Notice"
 									},
 									"type": "array"
 								}
@@ -1121,27 +1179,27 @@
 					}
 				},
 				"tags": [
-					"Notification"
+					"Notice"
 				],
 				"security": [],
 				"parameters": []
 			},
 			"post": {
-				"operationId": "CreateNotification",
+				"operationId": "CreateNotice",
 				"responses": {
 					"200": {
 						"description": "Ok",
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/Notification"
+									"$ref": "#/components/schemas/Notice"
 								}
 							}
 						}
 					}
 				},
 				"tags": [
-					"Notification"
+					"Notice"
 				],
 				"security": [],
 				"parameters": [],
@@ -1150,16 +1208,16 @@
 					"content": {
 						"application/json": {
 							"schema": {
-								"$ref": "#/components/schemas/INotificationPayload"
+								"$ref": "#/components/schemas/INoticePayload"
 							}
 						}
 					}
 				}
 			}
 		},
-		"/notifications/{id}": {
+		"/notices/{id}": {
 			"get": {
-				"operationId": "GetNotification",
+				"operationId": "GetNotice",
 				"responses": {
 					"200": {
 						"description": "Ok",
@@ -1168,7 +1226,7 @@
 								"schema": {
 									"allOf": [
 										{
-											"$ref": "#/components/schemas/Notification"
+											"$ref": "#/components/schemas/Notice"
 										}
 									],
 									"nullable": true
@@ -1178,7 +1236,7 @@
 					}
 				},
 				"tags": [
-					"Notification"
+					"Notice"
 				],
 				"security": [],
 				"parameters": [

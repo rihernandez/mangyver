@@ -6,7 +6,7 @@ import { Subarea } from "./subarea";
 import { Ubication } from "./ubication";
 import { Equipment } from "./equipment";
 import { Area } from "./area";
-import { Notification } from "./notification";
+import { Notice } from "./notice";
 import { Login } from "./login";
 import { Field, Ichildfield } from "./field";
 import { Section } from "./section";
@@ -23,6 +23,6 @@ export {
   Field,
   Section,
   Ichildfield,
-  Notification,
+  Notice,
   Login
 };
