@@ -14,6 +14,7 @@ import UbicationRouter from "./ubication.router";
 import FieldRouter from "./field.router";
 import SectionRouter from "./section.router";
 import { checkJwt } from "../middlewares/checkJwt";
+import ProfileRouter from "./profile.router";
 
 const router = express.Router();
 
@@ -27,6 +28,7 @@ const metadata = router.get(`/metadata/forms/notices`, async (req, res) => {
 
 router.use("/auth", AuthRouter);
 router.use("/users",[checkJwt],UserRouter);
+router.use("/profiles", ProfileRouter);
 router.use("/bus", [checkJwt], BusRouter);
 router.use("/zones",[checkJwt], ZoneRouter);
 router.use("/areas", [checkJwt], AreaRouter);
