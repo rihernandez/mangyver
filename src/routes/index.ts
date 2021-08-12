@@ -13,6 +13,7 @@ import SubareaRouter from "./subarea.router";
 import UbicationRouter from "./ubication.router";
 import FieldRouter from "./field.router";
 import SectionRouter from "./section.router";
+import { checkJwt } from "../middlewares/checkJwt";
 
 const router = express.Router();
 
@@ -24,18 +25,18 @@ const metadata = router.get(`/metadata/forms/notices`, async (req, res) => {
   res.send(data);
 });
 
-router.use("/auth", AuthRouter);
-router.use("/users", UserRouter);
-router.use("/bus", BusRouter);
-router.use("/zones", ZoneRouter);
-router.use("/areas", AreaRouter);
-router.use("/subareas", SubareaRouter);
-router.use("/equipments", EquipmentRouter);
-router.use("/notices", NoticeRouter);
-router.use("/operations", OperationRouter);
-router.use("/ubications", UbicationRouter);
-router.use("/fields", FieldRouter)
-router.use("/sections", SectionRouter)
+router.use("/auth", [checkJwt], AuthRouter);
+router.use("/users",[checkJwt],UserRouter);
+router.use("/bus", [checkJwt], BusRouter);
+router.use("/zones",[checkJwt], ZoneRouter);
+router.use("/areas", [checkJwt], AreaRouter);
+router.use("/subareas", [checkJwt], SubareaRouter);
+router.use("/equipments", [checkJwt], EquipmentRouter);
+router.use("/notices", [checkJwt], NoticeRouter);
+router.use("/operations", [checkJwt], OperationRouter);
+router.use("/ubications", [checkJwt], UbicationRouter);
+router.use("/fields", [checkJwt], FieldRouter)
+router.use("/sections", [checkJwt], SectionRouter)
 
 
 
