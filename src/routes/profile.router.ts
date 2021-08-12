@@ -7,6 +7,7 @@ import { getUser } from '../repositories/user.repository'
 const router = express.Router();
 
 router.get("/", async (_req, res) => {
+  try {
     const headers = _req.headers;
     const token = headers.auth;
     const decoded : object = jwt_decode(JSON.stringify(token));
@@ -17,6 +18,10 @@ router.get("/", async (_req, res) => {
        profile
     }
   return res.send(response);
+    
+  } catch (error) {
+    res.send({msg : "not token have been provided!"});
+  }
 });
 
 export default router;
