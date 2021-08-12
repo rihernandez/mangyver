@@ -25,7 +25,7 @@ const metadata = router.get(`/metadata/forms/notices`, async (req, res) => {
   res.send(data);
 });
 
-router.use("/auth", [checkJwt], AuthRouter);
+router.use("/auth", AuthRouter);
 router.use("/users",[checkJwt],UserRouter);
 router.use("/bus", [checkJwt], BusRouter);
 router.use("/zones",[checkJwt], ZoneRouter);

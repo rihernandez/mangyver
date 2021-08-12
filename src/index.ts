@@ -6,8 +6,6 @@ import swaggerUi from "swagger-ui-express";
 import * as dotenv from "dotenv";
 import cors from "cors";
 
-
-
 import Router, { initRoute, metadata } from "./routes";
 import dbConfig from "./config/database";
 
@@ -31,9 +29,6 @@ export default class App {
       swaggerUi.serve,
       swaggerUi.setup(undefined, {
         swaggerOptions: {
-
-
-          
           url: "/swagger.json",
         },
       })
