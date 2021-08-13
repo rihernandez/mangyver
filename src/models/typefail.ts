@@ -2,22 +2,20 @@ import {
     Entity,
     PrimaryGeneratedColumn,
     Column,
-    CreateDateColumn,
-    OneToMany,
-    UpdateDateColumn,
+    CreateDateColumn
   } from "typeorm";
   
-  @Entity("Zone")
-  export class Zone {
-    @Column({ name: "ZoneID" })
-    @PrimaryGeneratedColumn("uuid")
-    id!: number;
+  @Entity("TypeFail")
+  export class TypeFail {
+    @Column({ name: "AreaID" })
+    @PrimaryGeneratedColumn()
+    typeFailId!: number;
   
-    @Column({ name: "Name", length: 300 })
+    @Column({ name: "Name" })
     name!: string;
   
-    @Column({ name: "Code" })
-    code!: string;
+    @Column({ name: "SAPCode" })
+    SAPCode!: string;
   
     @Column({ name: "Status", default: true })
     isActive!: boolean;
@@ -26,5 +24,3 @@ import {
     @CreateDateColumn()
     created!: Date;
   }
-
-

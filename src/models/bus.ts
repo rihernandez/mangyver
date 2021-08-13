@@ -33,5 +33,5 @@ export class Bus {
 
   @Column({ nullable: true, name: "Created" })
   @CreateDateColumn()
-  createdAt!: Date;
+  created!: Date;
 }

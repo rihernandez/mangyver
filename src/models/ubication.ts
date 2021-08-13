@@ -27,7 +27,7 @@ import { Subarea } from "./subarea";
 
     @Column({ nullable: true, name: "Created" })
     @CreateDateColumn()
-    createdAt!: Date;
+    created!: Date;
   }
 
 

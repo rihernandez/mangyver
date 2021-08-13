@@ -5,17 +5,17 @@ import {
     CreateDateColumn
   } from "typeorm";
   
-  @Entity("Area")
-  export class Area {
-    @Column({ name: "AreaID" })
-    @PrimaryGeneratedColumn("uuid")
-    id!: number;
+  @Entity("Consecutive")
+  export class Consecutive {
+    @Column({ name: "ConsecutiveID" })
+    @PrimaryGeneratedColumn()
+    consecutiveId!: number;
   
-    @Column({ name: "Name", length: 300 })
+    @Column({ name: "Name" })
     name!: string;
   
-    @Column({ name: "Code" })
-    code!: string;
+    @Column({ name: "SAPCode" })
+    SAPCode!: string;
   
     @Column({ name: "Status", default: true })
     isActive!: boolean;
@@ -24,5 +24,3 @@ import {
     @CreateDateColumn()
     created!: Date;
   }
-
-

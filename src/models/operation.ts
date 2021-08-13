@@ -29,7 +29,7 @@ import { Bus } from "./bus";
 
     @Column({ nullable: true, name: "Created" })
     @CreateDateColumn()
-    createdAt!: Date;
+    created!: Date;
   }
 
 

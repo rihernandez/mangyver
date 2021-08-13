@@ -7,27 +7,26 @@ import {
   } from "typeorm";
 import { Area } from "./area";
   
-  @Entity("SubArea")
-  export class Subarea {
-    @Column({ name: "SubAreaID" })
-    @PrimaryGeneratedColumn("uuid")
-    id!: number;
+  @Entity("Line")
+  export class Line {
+    @Column({ name: "LineaId" })
+    @PrimaryGeneratedColumn()
+    lineId!: number;
   
-    @Column({ name: "Name", length: 300 })
+    @ManyToOne(() => Area, area => area.id)
+    areaId!: Area;
+  
+    @Column({ name: "Name" })
     name!: string;
   
-    @Column({ name: "Code" })
-    code!: string;
+    @Column({ name: "SAPCode" })
+    SAPCode!: string;
   
     @Column({ name: "Status", default: true })
     isActive!: boolean;
-
-    @ManyToOne((type) => Area, (area) => area.id)
-    area!: Area;
 
     @Column({ nullable: true, name: "Created" })
     @CreateDateColumn()
     created!: Date;
   }
-
 

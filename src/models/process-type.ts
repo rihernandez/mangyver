@@ -2,29 +2,22 @@ import {
     Entity,
     PrimaryGeneratedColumn,
     Column,
-    CreateDateColumn,
-    OneToMany,
-    UpdateDateColumn,
+    CreateDateColumn
   } from "typeorm";
   
-  @Entity("Zone")
-  export class Zone {
-    @Column({ name: "ZoneID" })
-    @PrimaryGeneratedColumn("uuid")
-    id!: number;
+  @Entity("ProcessType")
+  export class ProcessType {
+    @PrimaryGeneratedColumn()
+    processTypeId!: number;
   
     @Column({ name: "Name", length: 300 })
     name!: string;
   
-    @Column({ name: "Code" })
-    code!: string;
-  
     @Column({ name: "Status", default: true })
     isActive!: boolean;
-  
+
     @Column({ nullable: true, name: "Created" })
     @CreateDateColumn()
     created!: Date;
   }
-
 

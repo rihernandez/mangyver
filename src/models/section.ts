@@ -19,7 +19,7 @@ import { Field } from "./field";
     fields!: Field;
   
     @CreateDateColumn()
-    Created!: Date;
+    created!: Date;
 
   }
  

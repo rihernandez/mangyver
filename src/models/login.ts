@@ -22,6 +22,6 @@ import {
   
     @Column({ nullable: true, name: "Logged" })
     @CreateDateColumn()
-    LoginAt!: Date;
+    Login!: Date;
   }
 

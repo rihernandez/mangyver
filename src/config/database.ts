@@ -9,9 +9,17 @@ import { Subarea } from "../models";
 import { Ubication } from "../models";
 import { User } from "../models";
 import { Zone } from "../models";
-import {Field} from "../models";
-import {Section} from "../models";
-
+import { Field } from "../models";
+import { Section } from "../models";
+import { Card } from "../models";
+import { Component } from "../models";
+import { Consecutive } from "../models";
+import { Line } from "../models";
+import { LineMachine } from "../models";
+import { Priority } from "../models";
+import { ProcessType } from "../models";
+import { TypeFail } from "../models";
+import { Process } from "../models";
 dotenv.config();
 
 const config: ConnectionOptions = {
@@ -21,7 +29,12 @@ const config: ConnectionOptions = {
   username: process.env.MSSQL_USER || "admin",
   password: process.env.MSSQL_PASSWORD || "1234",
   database: process.env.MSSQL_DB || "fixmaint",
-  entities: [User, Zone, Bus, Ubication, Subarea, Operation, Equipment, Area, Notice, Field, Section],
+  entities: [
+    User, Zone, Bus, Ubication, Subarea, Operation, 
+    Equipment, Area, Notice, Field, Section, Card, Component,
+    Consecutive,Line,LineMachine,Priority, Process, ProcessType,
+    TypeFail
+  ],
   synchronize: true,
 };
 

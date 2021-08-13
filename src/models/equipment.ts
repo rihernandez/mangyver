@@ -22,7 +22,7 @@ import {
 
     @Column({ nullable: true, name: "Created" })
     @CreateDateColumn()
-    createdAt!: Date;
+    created!: Date;
   }
 
 

@@ -30,7 +30,7 @@
 					"isActive": {
 						"type": "boolean"
 					},
-					"Created": {
+					"created": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -43,7 +43,7 @@
 					"email",
 					"role",
 					"isActive",
-					"Created"
+					"created"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -95,7 +95,7 @@
 					"isActive": {
 						"type": "boolean"
 					},
-					"createdAt": {
+					"created": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -105,7 +105,7 @@
 					"name",
 					"code",
 					"isActive",
-					"createdAt"
+					"created"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -128,7 +128,7 @@
 					"isActive": {
 						"type": "boolean"
 					},
-					"createdAt": {
+					"created": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -139,7 +139,7 @@
 					"name",
 					"code",
 					"isActive",
-					"createdAt"
+					"created"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -203,7 +203,7 @@
 					"isActive": {
 						"type": "boolean"
 					},
-					"createdAt": {
+					"created": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -213,7 +213,7 @@
 					"name",
 					"code",
 					"isActive",
-					"createdAt"
+					"created"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -257,7 +257,7 @@
 					"isActive": {
 						"type": "boolean"
 					},
-					"createdAt": {
+					"created": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -267,7 +267,7 @@
 					"name",
 					"code",
 					"isActive",
-					"createdAt"
+					"created"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -426,7 +426,7 @@
 					"isActive": {
 						"type": "boolean"
 					},
-					"createdAt": {
+					"created": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -437,7 +437,7 @@
 					"bus",
 					"code",
 					"isActive",
-					"createdAt"
+					"created"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -492,7 +492,7 @@
 					"area": {
 						"$ref": "#/components/schemas/Area"
 					},
-					"createdAt": {
+					"created": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -503,7 +503,7 @@
 					"code",
 					"isActive",
 					"area",
-					"createdAt"
+					"created"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -550,7 +550,7 @@
 					"isActive": {
 						"type": "boolean"
 					},
-					"createdAt": {
+					"created": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -561,7 +561,7 @@
 					"code",
 					"subarea",
 					"isActive",
-					"createdAt"
+					"created"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -660,7 +660,7 @@
 					"fields": {
 						"$ref": "#/components/schemas/Field"
 					},
-					"Created": {
+					"created": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -668,7 +668,7 @@
 				"required": [
 					"id",
 					"fields",
-					"Created"
+					"created"
 				],
 				"type": "object",
 				"additionalProperties": false

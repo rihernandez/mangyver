@@ -22,7 +22,7 @@ import {
     isActive!: boolean;
   
     @CreateDateColumn()
-    Created!: Date;
+    created!: Date;
 
   }
   

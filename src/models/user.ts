@@ -41,7 +41,7 @@ export class User {
   isActive!: boolean;
 
   @CreateDateColumn()
-  Created!: Date;
+  created!: Date;
 
   hashPassword() {
     this.password = bcrypt.hashSync(this.password, 8);
