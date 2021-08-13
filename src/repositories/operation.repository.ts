@@ -12,7 +12,8 @@ export interface IOperationPayload {
 
 export const getOperations = async (): Promise<Array<Operation>> => {
   const operationRepository = getRepository(Operation);
-  return operationRepository.find();
+  return operationRepository.find({
+    select: ['id', 'name']});
 };
 
 export const createOperation = async (payload: IOperationPayload): Promise<Operation> => {
