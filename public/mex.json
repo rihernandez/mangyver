@@ -9,7 +9,7 @@
           "label": "Elige el proceso",
           "fieldData": "eligeElProceso",
           "type": "select",
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options":
           [
             {
@@ -82,7 +82,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "Tipo 1",
@@ -113,7 +113,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "low",
@@ -140,7 +140,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "Componente rojo",
@@ -171,7 +171,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "Tipo 1",
@@ -202,7 +202,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "Afecta a equipo",
@@ -234,8 +234,7 @@
           "label": "¿Se realizó la tarea?",
           "fieldData": "seRealizoLaTarea",
           "type": "select",
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
-          "options": [
+          "staticOptions": [
             {
               "id": "si",
               "name": "Si"
@@ -277,7 +276,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "Envasado",
@@ -317,7 +316,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "Linea 1",
@@ -340,7 +339,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "Tipo A",
@@ -363,7 +362,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "Consecutivo 1",
@@ -396,7 +395,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "RD-0515",
@@ -430,7 +429,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "Tipo 1",
@@ -461,7 +460,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "low",
@@ -488,7 +487,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "Componente rojo",
@@ -519,7 +518,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "Tipo 1",
@@ -550,7 +549,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "Afecta a equipo",
@@ -602,7 +601,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "Envasado",
@@ -642,7 +641,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "Linea 1",
@@ -665,7 +664,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "Tipo A",
@@ -688,7 +687,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "Consecutivo 1",
@@ -721,7 +720,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "RD-0515",
@@ -755,7 +754,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "Tipo 1",
@@ -786,7 +785,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "low",
@@ -813,7 +812,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "Componente rojo",
@@ -844,7 +843,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "Tipo 1",
@@ -875,7 +874,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "https://mangyver.herokuapp.com/api/v1/operations",
+          "optionsEndpoint": "/operations",
           "options": [
             {
               "id": "Afecta a equipo",
