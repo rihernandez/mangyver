@@ -24,14 +24,14 @@ class AuthController {
     }
     //Get user from database
     const userRepository = getRepository(User);
-    let user: User;
+    let user = new User();
 
-    user = await userRepository.findOneOrFail({ where: { username } });
-    // try {
-    //   user = await userRepository.findOneOrFail({ where: { username } });
-    // } catch (error) {
-    //   res.status(401).send();
-    // }
+    // user = await userRepository.findOneOrFail({ where: { username } });
+    try {
+      user = await userRepository.findOneOrFail({ where: { username } });
+    } catch (error) {
+      res.status(401).send();
+    }
 
     //Check if encrypted password match
     if (!user.checkIfUnencryptedPasswordIsValid(password)) {
