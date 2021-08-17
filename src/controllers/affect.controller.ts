@@ -2,7 +2,7 @@ import { Get, Route, Tags,  Post, Body, Path } from "tsoa";
 import {Affect} from '../models'
 import {getAffects, createAffect, IAffectPayload, getAffect} from '../repositories/affect.repository'
 
-@Route("Affects")
+@Route("affects")
 @Tags("Affect")
 export default class AffectController {
   @Get("/")
