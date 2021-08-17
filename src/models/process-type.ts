@@ -8,7 +8,7 @@ import {
   @Entity("ProcessType")
   export class ProcessType {
     @PrimaryGeneratedColumn()
-    processTypeId!: number;
+    id!: number;
   
     @Column({ name: "Name", length: 300 })
     name!: string;

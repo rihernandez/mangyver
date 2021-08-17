@@ -13,7 +13,7 @@ import { Line } from "./line";
   export class LineMachine {
     @Column({ name: "MachineID" })
     @PrimaryGeneratedColumn()
-    machineId!: number;
+    id!: number;
 
     // @ManyToOne(() => Line, line => line.lineId)
     // @JoinTable({
@@ -26,7 +26,7 @@ import { Line } from "./line";
     // LineID: Line;
 
     @Column({ name: "LineID" })
-    LineID!: number;
+    Line!: number;
 
     @Column({ name: "Name" })
     name!: string;

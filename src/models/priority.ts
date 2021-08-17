@@ -9,7 +9,7 @@ import {
   export class Priority {
     @Column({ name: "PriorityID" })
     @PrimaryGeneratedColumn()
-    priorityId!: number;
+    id!: number;
   
     @Column({ name: "Name" })
     name!: string;

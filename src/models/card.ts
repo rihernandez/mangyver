@@ -9,7 +9,7 @@ import {
   export class Card {
     @Column({ name: "CardId" })
     @PrimaryGeneratedColumn()
-    cardId!: number;
+    id!: number;
   
     @Column({ name: "Name" })
     name!: string;

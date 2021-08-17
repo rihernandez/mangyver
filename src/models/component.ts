@@ -10,10 +10,10 @@ import { LineMachine } from "./line-machine";
   @Entity("Component")
   export class Component {
     @PrimaryGeneratedColumn()
-    componentId!: number;
+    id!: number;
 
     @ManyToOne(() => LineMachine, machine => machine.machineId)
-    machineId!: LineMachine;
+    machine!: LineMachine;
   
     @Column({ name: "Name" })
     name!: string;

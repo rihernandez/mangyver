@@ -9,7 +9,7 @@ import {
   export class TypeFail {
     @Column({ name: "AreaID" })
     @PrimaryGeneratedColumn()
-    typeFailId!: number;
+    id!: number;
   
     @Column({ name: "Name" })
     name!: string;

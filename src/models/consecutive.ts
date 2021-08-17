@@ -8,8 +8,8 @@ import {
   @Entity("Consecutive")
   export class Consecutive {
     @Column({ name: "ConsecutiveID" })
-    @PrimaryGeneratedColumn()
-    consecutiveId!: number;
+    @PrimaryGeneratedColumn({name: "ConsecutiveID"})
+    id!: number;
   
     @Column({ name: "Name" })
     name!: string;

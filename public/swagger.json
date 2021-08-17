@@ -732,48 +732,15 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"Line": {
-				"properties": {
-					"lineId": {
-						"type": "number",
-						"format": "double"
-					},
-					"areaId": {
-						"$ref": "#/components/schemas/Area"
-					},
-					"name": {
-						"type": "string"
-					},
-					"SAPCode": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"lineId",
-					"areaId",
-					"name",
-					"SAPCode",
-					"isActive",
-					"created"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
 			"LineMachine": {
 				"properties": {
 					"machineId": {
 						"type": "number",
 						"format": "double"
 					},
-					"lineID": {
-						"$ref": "#/components/schemas/Line"
+					"LineID": {
+						"type": "number",
+						"format": "double"
 					},
 					"name": {
 						"type": "string"
@@ -791,7 +758,7 @@
 				},
 				"required": [
 					"machineId",
-					"lineID",
+					"LineID",
 					"name",
 					"SAPCode",
 					"isActive",
@@ -904,6 +871,40 @@
 					"name",
 					"SAPCode",
 					"isActive"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Line": {
+				"properties": {
+					"lineId": {
+						"type": "number",
+						"format": "double"
+					},
+					"areaId": {
+						"$ref": "#/components/schemas/Area"
+					},
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"lineId",
+					"areaId",
+					"name",
+					"SAPCode",
+					"isActive",
+					"created"
 				],
 				"type": "object",
 				"additionalProperties": false

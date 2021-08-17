@@ -10,10 +10,10 @@ import { Area } from "./area";
   @Entity("Line")
   export class Line {
     @PrimaryGeneratedColumn({name: "LineID" })
-    lineId!: number;
+    id!: number;
   
     @ManyToOne(() => Area, area => area.id)
-    areaId!: Area;
+    area!: Area;
   
     @Column({ name: "Name" })
     name!: string;
