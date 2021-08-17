@@ -692,7 +692,7 @@
 			},
 			"Card": {
 				"properties": {
-					"cardId": {
+					"id": {
 						"type": "number",
 						"format": "double"
 					},
@@ -708,7 +708,7 @@
 					}
 				},
 				"required": [
-					"cardId",
+					"id",
 					"name",
 					"isActive",
 					"created"
@@ -734,11 +734,11 @@
 			},
 			"LineMachine": {
 				"properties": {
-					"machineId": {
+					"id": {
 						"type": "number",
 						"format": "double"
 					},
-					"LineID": {
+					"Line": {
 						"type": "number",
 						"format": "double"
 					},
@@ -757,8 +757,8 @@
 					}
 				},
 				"required": [
-					"machineId",
-					"LineID",
+					"id",
+					"Line",
 					"name",
 					"SAPCode",
 					"isActive",
@@ -769,11 +769,11 @@
 			},
 			"Component": {
 				"properties": {
-					"componentId": {
+					"id": {
 						"type": "number",
 						"format": "double"
 					},
-					"machineId": {
+					"machine": {
 						"$ref": "#/components/schemas/LineMachine"
 					},
 					"name": {
@@ -791,8 +791,8 @@
 					}
 				},
 				"required": [
-					"componentId",
-					"machineId",
+					"id",
+					"machine",
 					"name",
 					"SAPCode",
 					"isActive",
@@ -803,7 +803,7 @@
 			},
 			"IComponentPayload": {
 				"properties": {
-					"machineId": {
+					"machine": {
 						"$ref": "#/components/schemas/LineMachine"
 					},
 					"name": {
@@ -817,7 +817,7 @@
 					}
 				},
 				"required": [
-					"machineId",
+					"machine",
 					"name",
 					"SAPCode",
 					"isActive"
@@ -827,7 +827,7 @@
 			},
 			"Consecutive": {
 				"properties": {
-					"consecutiveId": {
+					"id": {
 						"type": "number",
 						"format": "double"
 					},
@@ -846,7 +846,7 @@
 					}
 				},
 				"required": [
-					"consecutiveId",
+					"id",
 					"name",
 					"SAPCode",
 					"isActive",
@@ -877,11 +877,11 @@
 			},
 			"Line": {
 				"properties": {
-					"lineId": {
+					"id": {
 						"type": "number",
 						"format": "double"
 					},
-					"areaId": {
+					"area": {
 						"$ref": "#/components/schemas/Area"
 					},
 					"name": {
@@ -899,8 +899,8 @@
 					}
 				},
 				"required": [
-					"lineId",
-					"areaId",
+					"id",
+					"area",
 					"name",
 					"SAPCode",
 					"isActive",
@@ -911,7 +911,7 @@
 			},
 			"ILinePayload": {
 				"properties": {
-					"areaId": {
+					"area": {
 						"$ref": "#/components/schemas/Area"
 					},
 					"name": {
@@ -925,7 +925,7 @@
 					}
 				},
 				"required": [
-					"areaId",
+					"area",
 					"name",
 					"SAPCode",
 					"isActive"
@@ -935,7 +935,7 @@
 			},
 			"ILineMachinePayload": {
 				"properties": {
-					"lineID": {
+					"line": {
 						"$ref": "#/components/schemas/Line"
 					},
 					"name": {
@@ -949,7 +949,7 @@
 					}
 				},
 				"required": [
-					"lineID",
+					"line",
 					"name",
 					"SAPCode",
 					"isActive"
@@ -959,7 +959,7 @@
 			},
 			"Priority": {
 				"properties": {
-					"priorityId": {
+					"id": {
 						"type": "number",
 						"format": "double"
 					},
@@ -978,7 +978,7 @@
 					}
 				},
 				"required": [
-					"priorityId",
+					"id",
 					"name",
 					"SAPCode",
 					"isActive",
@@ -1009,7 +1009,7 @@
 			},
 			"ProcessType": {
 				"properties": {
-					"processTypeId": {
+					"id": {
 						"type": "number",
 						"format": "double"
 					},
@@ -1025,7 +1025,7 @@
 					}
 				},
 				"required": [
-					"processTypeId",
+					"id",
 					"name",
 					"isActive",
 					"created"
@@ -1051,7 +1051,7 @@
 			},
 			"TypeFail": {
 				"properties": {
-					"typeFailId": {
+					"id": {
 						"type": "number",
 						"format": "double"
 					},
@@ -1070,7 +1070,7 @@
 					}
 				},
 				"required": [
-					"typeFailId",
+					"id",
 					"name",
 					"SAPCode",
 					"isActive",
@@ -1101,11 +1101,11 @@
 			},
 			"Process": {
 				"properties": {
-					"processId": {
+					"id": {
 						"type": "number",
 						"format": "double"
 					},
-					"processTypeId": {
+					"processType": {
 						"$ref": "#/components/schemas/ProcessType"
 					},
 					"name": {
@@ -1123,8 +1123,8 @@
 					}
 				},
 				"required": [
-					"processId",
-					"processTypeId",
+					"id",
+					"processType",
 					"name",
 					"SAPCode",
 					"isActive",
@@ -1135,7 +1135,7 @@
 			},
 			"IProcessPayload": {
 				"properties": {
-					"processTypeId": {
+					"processType": {
 						"$ref": "#/components/schemas/ProcessType"
 					},
 					"name": {
@@ -1149,7 +1149,7 @@
 					}
 				},
 				"required": [
-					"processTypeId",
+					"processType",
 					"name",
 					"SAPCode",
 					"isActive"

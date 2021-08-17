@@ -12,7 +12,7 @@ import { LineMachine } from "./line-machine";
     @PrimaryGeneratedColumn()
     id!: number;
 
-    @ManyToOne(() => LineMachine, machine => machine.machineId)
+    @ManyToOne(() => LineMachine, machine => machine.id)
     machine!: LineMachine;
   
     @Column({ name: "Name" })

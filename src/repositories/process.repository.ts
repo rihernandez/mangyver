@@ -2,7 +2,7 @@ import { getRepository } from "typeorm";
 import { Process, ProcessType } from "../models";
 
 export interface IProcessPayload {
-  processTypeId: ProcessType;
+  processType: ProcessType;
   name: string;
   SAPCode: string;
   isActive: boolean;
@@ -25,7 +25,7 @@ export const createProcess = async (payload: IProcessPayload): Promise<Process> 
 
 export const getProcess = async (id: number): Promise<Process | null> => {
   const repository = getRepository(Process);
-  const process = await repository.findOne({ processId: id });
+  const process = await repository.findOne({ id: id });
   if (!process) return null;
   return process;
 };

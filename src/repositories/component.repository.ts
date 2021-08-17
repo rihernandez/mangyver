@@ -2,7 +2,7 @@ import { getRepository } from "typeorm";
 import { Component, LineMachine } from "../models";
 
 export interface IComponentPayload {
-  machineId: LineMachine;
+  machine: LineMachine;
   name: string;
   SAPCode: string;
   isActive: boolean;
@@ -24,7 +24,7 @@ export const createComponent = async (payload: IComponentPayload): Promise<Compo
 
 export const getComponent = async (id: number): Promise<Component | null> => {
   const repository = getRepository(Component);
-  const component = await repository.findOne({ componentId: id });
+  const component = await repository.findOne({ id: id });
   if (!component) return null;
   return component;
 };

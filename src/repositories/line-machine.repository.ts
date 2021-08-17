@@ -2,7 +2,7 @@ import { getRepository } from "typeorm";
 import { LineMachine, Line } from "../models";
 
 export interface ILineMachinePayload {
-  lineID: Line;
+  line: Line;
   name: string;
   SAPCode: string;
   isActive: boolean;
@@ -25,7 +25,7 @@ export const createLineMachine = async (payload: ILineMachinePayload): Promise<L
 
 export const getLineMachine = async (id: number): Promise<LineMachine | null> => {
   const repository = getRepository(LineMachine);
-  const lineMachine = await repository.findOne({ machineId: id });
+  const lineMachine = await repository.findOne({ id: id });
   if (!lineMachine) return null;
   return lineMachine;
 };

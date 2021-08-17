@@ -23,7 +23,7 @@ export const createProcessType = async (payload: IProcessTypePayload): Promise<P
 
 export const getProcessType = async (id: number): Promise<ProcessType | null> => {
   const repository = getRepository(ProcessType);
-  const processType = await repository.findOne({ processTypeId: id });
+  const processType = await repository.findOne({ id: id });
   if (!processType) return null;
   return processType;
 };

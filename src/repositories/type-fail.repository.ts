@@ -23,7 +23,7 @@ export const createTypeFail = async (payload: ITypeFailPayload): Promise<TypeFai
 
 export const getTypeFail = async (id: number): Promise<TypeFail | null> => {
   const repository = getRepository(TypeFail);
-  const typeFail = await repository.findOne({ typeFailId: id });
+  const typeFail = await repository.findOne({ id: id });
   if (!typeFail) return null;
   return typeFail;
 };

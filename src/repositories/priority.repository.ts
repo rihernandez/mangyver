@@ -23,7 +23,7 @@ export const createPriority = async (payload: IPriorityPayload): Promise<Priorit
 
 export const getPriority = async (id: number): Promise<Priority | null> => {
   const repository = getRepository(Priority);
-  const priority = await repository.findOne({ priorityId: id });
+  const priority = await repository.findOne({ id: id });
   if (!priority) return null;
   return priority;
 };

@@ -22,7 +22,7 @@ export const createCard = async (payload: ICardPayload): Promise<Card> => {
 
 export const getCard = async (id: number): Promise<Card | null> => {
   const repository = getRepository(Card);
-  const card = await repository.findOne({ cardId: id });
+  const card = await repository.findOne({ id: id });
   if (!card) return null;
   return card;
 };

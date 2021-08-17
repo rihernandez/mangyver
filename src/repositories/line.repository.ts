@@ -2,7 +2,7 @@ import { getRepository } from "typeorm";
 import { Line, Area } from "../models";
 
 export interface ILinePayload {
-  areaId: Area;
+  area: Area;
   name: string;
   SAPCode: string;
   isActive: boolean;
