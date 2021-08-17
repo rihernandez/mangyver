@@ -9,8 +9,7 @@ import { Area } from "./area";
   
   @Entity("Line")
   export class Line {
-    @Column({ name: "LineaId" })
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn({name: "LineID" })
     lineId!: number;
   
     @ManyToOne(() => Area, area => area.id)

@@ -1,6 +1,6 @@
 import { Get, Route, Tags,  Post, Body, Path } from "tsoa";
 import {Component} from '../models'
-import {getComponents, createComponent, IComponentPayload, getComponent} from '../repositories/Component.repository'
+import {getComponents, createComponent, IComponentPayload, getComponent} from '../repositories/component.repository'
 
 @Route("components")
 @Tags("Component")

@@ -30,7 +30,7 @@ class AuthController {
     try {
       user = await userRepository.findOneOrFail({ where: { username } });
     } catch (error) {
-      res.status(401).send();
+      res.status(401).send({msg: "Usuario o Contraseña incorrectos" });
     }
 
     //Check if encrypted password match

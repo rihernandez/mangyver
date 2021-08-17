@@ -1,9 +1,11 @@
+import { name } from "faker";
 import {
     Entity,
     PrimaryGeneratedColumn,
     Column,
     CreateDateColumn,
-    ManyToOne
+    ManyToOne,
+    JoinColumn
   } from "typeorm";
 import { Line } from "./line";
   
@@ -13,9 +15,19 @@ import { Line } from "./line";
     @PrimaryGeneratedColumn()
     machineId!: number;
 
-    @ManyToOne(() => Line, line => line.lineId)
-    lineID!: Line;
-  
+    // @ManyToOne(() => Line, line => line.lineId)
+    // @JoinTable({
+    //   name: "LineID"
+    // })
+    // lineID!: Line;
+
+    // @ManyToOne(type => Line, {cascadeAll: true })
+    // @JoinColumn({ name: "LineID" })
+    // LineID: Line;
+
+    @Column({ name: "LineID" })
+    LineID!: number;
+
     @Column({ name: "Name" })
     name!: string;
   

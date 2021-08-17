@@ -1,6 +1,6 @@
 import { Get, Route, Tags,  Post, Body, Path } from "tsoa";
 import {Consecutive} from '../models'
-import {getConsecutives, createConsecutive, IConsecutivePayload, getConsecutive} from '../repositories/Consecutive.repository'
+import {getConsecutives, createConsecutive, IConsecutivePayload, getConsecutive} from '../repositories/consecutive.repository'
 
 @Route("consecutives")
 @Tags("Consecutive")
