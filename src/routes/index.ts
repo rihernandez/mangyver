@@ -24,7 +24,7 @@ import PriorityRouter from "./priority.router"
 import ProcessTypeRouter from "./process-type.router"
 import TypeFailRouter from "./type-fail.router"
 import ProcessRouter from "./process.router"
-import AffectRouter from "./process.router"
+import AffectRouter from "./affect.router"
 
 const router = express.Router();
 

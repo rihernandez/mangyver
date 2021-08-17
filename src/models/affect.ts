@@ -5,7 +5,6 @@ import {
     CreateDateColumn,
     ManyToOne
   } from "typeorm";
-import { Area } from "./area";
   
   @Entity("Affect")
   export class Affect {
