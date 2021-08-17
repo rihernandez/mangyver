@@ -1,6 +1,6 @@
 import { Get, Route, Tags,  Post, Body, Path } from "tsoa";
 import {Card} from '../models'
-import {getCards, createCard, ICardPayload, getCard} from '../repositories/Card.repository'
+import {getCards, createCard, ICardPayload, getCard} from '../repositories/card.repository'
 
 @Route("cards")
 @Tags("Card")
