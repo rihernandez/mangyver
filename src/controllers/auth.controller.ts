@@ -20,7 +20,7 @@ class AuthController {
   
     let { username, password } = req.body;
     if (!(username && password)) {
-      res.status(400).send({msg:"Formato de solicitud incorrecta"});
+      res.status(400).send({message:"Formato de solicitud incorrecta"});
     }
     //Get user from database
     const userRepository = getRepository(User);
@@ -30,7 +30,7 @@ class AuthController {
     try {
       user = await userRepository.findOneOrFail({ where: { username } });
     } catch (error) {
-      res.status(401).send({msg: "Usuario o Contraseña incorrectos" });
+      res.status(401).send({message: "Usuario o Contraseña incorrectos" });
     }
 
     //Check if encrypted password match
