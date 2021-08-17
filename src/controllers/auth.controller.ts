@@ -20,7 +20,7 @@ class AuthController {
   
     let { username, password } = req.body;
     if (!(username && password)) {
-      res.status(400).send();
+      res.status(400).send({msg:"Formato de solicitud incorrecta"});
     }
     //Get user from database
     const userRepository = getRepository(User);
