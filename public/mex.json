@@ -1,5 +1,4 @@
 {
-  "version" : "1.0",
   "sections": [
      {
       "id": "section1",
@@ -10,7 +9,7 @@
           "label": "Elige el proceso",
           "fieldData": "eligeElProceso",
           "type": "select",
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/proceses",
           "options":
           [
             {
@@ -83,7 +82,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/cards",
           "options": [
             {
               "id": "Tipo 1",
@@ -114,7 +113,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/priorities",
           "options": [
             {
               "id": "low",
@@ -141,7 +140,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/components",
           "options": [
             {
               "id": "Componente rojo",
@@ -172,7 +171,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/type-fails",
           "options": [
             {
               "id": "Tipo 1",
@@ -203,7 +202,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/affects",
           "options": [
             {
               "id": "Afecta a equipo",
@@ -277,7 +276,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/areas",
           "options": [
             {
               "id": "Envasado",
@@ -317,7 +316,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/lines",
           "options": [
             {
               "id": "Linea 1",
@@ -340,7 +339,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/machines",
           "options": [
             {
               "id": "Tipo A",
@@ -363,7 +362,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/consecutives",
           "options": [
             {
               "id": "Consecutivo 1",
@@ -396,7 +395,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/equipments",
           "options": [
             {
               "id": "RD-0515",
@@ -430,7 +429,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/cards",
           "options": [
             {
               "id": "Tipo 1",
@@ -461,7 +460,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/priorities",
           "options": [
             {
               "id": "low",
@@ -488,7 +487,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/components",
           "options": [
             {
               "id": "Componente rojo",
@@ -519,7 +518,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/type-fails",
           "options": [
             {
               "id": "Tipo 1",
@@ -550,7 +549,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/affects",
           "options": [
             {
               "id": "Afecta a equipo",
@@ -602,7 +601,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/areas",
           "options": [
             {
               "id": "Envasado",
@@ -642,7 +641,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/lines",
           "options": [
             {
               "id": "Linea 1",
@@ -665,7 +664,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/machines",
           "options": [
             {
               "id": "Tipo A",
@@ -688,7 +687,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/consecutives",
           "options": [
             {
               "id": "Consecutivo 1",
@@ -721,7 +720,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/equipments",
           "options": [
             {
               "id": "RD-0515",
@@ -755,7 +754,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/cards",
           "options": [
             {
               "id": "Tipo 1",
@@ -786,7 +785,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/priorities",
           "options": [
             {
               "id": "low",
@@ -813,7 +812,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/components",
           "options": [
             {
               "id": "Componente rojo",
@@ -844,7 +843,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/type-fails",
           "options": [
             {
               "id": "Tipo 1",
@@ -875,7 +874,7 @@
           "validations": [
             "required"
           ],
-          "optionsEndpoint": "/operations",
+          "optionsEndpoint": "/affects",
           "options": [
             {
               "id": "Afecta a equipo",
