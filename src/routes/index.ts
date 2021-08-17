@@ -15,6 +15,15 @@ import FieldRouter from "./field.router";
 import SectionRouter from "./section.router";
 import { checkJwt } from "../middlewares/checkJwt";
 import ProfileRouter from "./profile.router";
+import CardRouter from "./card.router"
+import ComponentRouter from "./component.router"
+import ConsecutiveRouter from "./consecutive.router"
+import LineRouter from "./line.router"
+import LineMachineRouter from "./line-machine.router"
+import PriorityRouter from "./priority.router"
+import ProcessTypeRouter from "./process-type.router"
+import TypeFailRouter from "./type-fail.router"
+import ProcessRouter from "./process.router"
 
 const router = express.Router();
 
@@ -39,7 +48,15 @@ router.use("/operations", [checkJwt], OperationRouter);
 router.use("/ubications", [checkJwt], UbicationRouter);
 router.use("/fields", [checkJwt], FieldRouter)
 router.use("/sections", [checkJwt], SectionRouter)
-
+router.use("/cards", [checkJwt], CardRouter)
+router.use("/components", [checkJwt], ComponentRouter)
+router.use("/consecutives", [checkJwt], ConsecutiveRouter)
+router.use("/lines", [checkJwt], LineRouter)
+router.use("/machines", [checkJwt], LineMachineRouter)
+router.use("/priorities", [checkJwt], PriorityRouter)
+router.use("/process-types", [checkJwt], ProcessTypeRouter)
+router.use("/type-fails", [checkJwt], TypeFailRouter)
+router.use("/proceses", [checkJwt], ProcessRouter)
 
 
 export default router;

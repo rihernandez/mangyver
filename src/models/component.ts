@@ -9,7 +9,6 @@ import { LineMachine } from "./line-machine";
   
   @Entity("Component")
   export class Component {
-    @Column({ name: "ComponentID" })
     @PrimaryGeneratedColumn()
     componentId!: number;
 
