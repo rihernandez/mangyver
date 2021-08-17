@@ -24,6 +24,7 @@ import PriorityRouter from "./priority.router"
 import ProcessTypeRouter from "./process-type.router"
 import TypeFailRouter from "./type-fail.router"
 import ProcessRouter from "./process.router"
+import AffectRouter from "./process.router"
 
 const router = express.Router();
 
@@ -57,6 +58,7 @@ router.use("/priorities", [checkJwt], PriorityRouter)
 router.use("/process-types", [checkJwt], ProcessTypeRouter)
 router.use("/type-fails", [checkJwt], TypeFailRouter)
 router.use("/proceses", [checkJwt], ProcessRouter)
+router.use("/affects", [checkJwt], AffectRouter)
 
 
 export default router;

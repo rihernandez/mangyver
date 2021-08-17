@@ -19,7 +19,7 @@ import { Priority } from "./priority";
 import { ProcessType } from "./process-type";
 import { TypeFail } from "./typefail";
 import { Process } from "./process";
-
+import { Affect } from "./affect";
 export {
   User,
   Bus,
@@ -42,5 +42,6 @@ export {
   Priority,
   ProcessType,
   TypeFail,
-  Process
+  Process,
+  Affect
 };
