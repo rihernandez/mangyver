@@ -349,8 +349,7 @@
 			"INoticePayload": {
 				"properties": {
 					"id": {
-						"type": "number",
-						"format": "double"
+						"type": "string"
 					},
 					"type": {
 						"type": "string"
@@ -664,16 +663,11 @@
 			},
 			"ISectionPayload": {
 				"properties": {
-					"id": {
-						"type": "number",
-						"format": "double"
-					},
 					"fields": {
 						"$ref": "#/components/schemas/Field"
 					}
 				},
 				"required": [
-					"id",
 					"fields"
 				],
 				"type": "object",

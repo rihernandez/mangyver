@@ -2,7 +2,7 @@ import { getRepository } from "typeorm";
 import { Notice } from "../models";
 
 export interface INoticePayload {
-  id: number;
+  id: string;
   type: string;
   order: number;
   ubication: string;

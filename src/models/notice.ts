@@ -8,7 +8,6 @@ import {
   
   @Entity("Notice")
   export class Notice {
-    @Column({ name: "NoticeID" })
     @PrimaryGeneratedColumn("uuid")
     id!: string;
     @Column({ name: "Type" })

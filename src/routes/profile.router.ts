@@ -12,7 +12,7 @@ router.get("/", async (_req, res) => {
     const token = headers.auth;
     const decoded : object = jwt_decode(JSON.stringify(token));
     const objectValues = Object.values(decoded);
-    const profile = await getUser(Number(objectValues[0]));
+    const profile = await getUser((objectValues[0]));
     const response = {
       ...headers ,
        profile

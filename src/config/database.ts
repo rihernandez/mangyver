@@ -32,7 +32,7 @@ const config: ConnectionOptions = {
   database: process.env.MSSQL_DB || "fixmaint",
   entities: [
     User, Zone, Bus, Ubication, Subarea, Operation, 
-    Equipment, Area, Notice, Field, Section, Card, Component,
+    Equipment, Area, Field, Section, Card, Component,
     Consecutive,Line,LineMachine,Priority, Process, ProcessType,
     TypeFail, Affect
   ],

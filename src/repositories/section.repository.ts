@@ -3,7 +3,6 @@ import { getRepository } from "typeorm";
 import { Field, Section } from "../models";
 
 export interface ISectionPayload {
-    id: number;
     fields: Field;
 }
 
