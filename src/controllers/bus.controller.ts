@@ -17,6 +17,6 @@ export default class BusController {
 
   @Get("/:id")
   public async getBus(@Path() id: string): Promise<Bus | null> {
-    return getBus(Number(id))
+    return getBus(id)
   }
 }

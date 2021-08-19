@@ -39,7 +39,7 @@ const metadata = router.get(`/metadata/forms/notices`, async (req, res) => {
 router.use("/auth", AuthRouter);
 router.use("/users",[checkJwt],UserRouter);
 router.use("/profiles", ProfileRouter);
-router.use("/bus", [checkJwt], BusRouter);
+router.use("/buses", [checkJwt], BusRouter);
 router.use("/zones",[checkJwt], ZoneRouter);
 router.use("/areas", [checkJwt], AreaRouter);
 router.use("/subareas", [checkJwt], SubareaRouter);

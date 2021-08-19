@@ -14,7 +14,7 @@ import { Zone } from "./zone";
 export class Bus {
   @Column({ name: "BusID" })
   @PrimaryGeneratedColumn("uuid")
-  id!: number;
+  id!: string;
 
   //   @Column({ name: "ZoneID", nullable: false })
   //   zone!: string;

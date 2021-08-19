@@ -23,7 +23,7 @@ export const createBus = async (payload: IBusPayload): Promise<Bus> => {
   });
 };
 
-export const getBus = async (id: number): Promise<Bus | null> => {
+export const getBus = async (id: string): Promise<Bus | null> => {
   const busRepository = getRepository(Bus);
   const bus = await busRepository.findOne({ id: id });
   if (!bus) return null;
