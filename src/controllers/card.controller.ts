@@ -1,4 +1,4 @@
-import { Get, Route, Tags,  Post, Body, Path } from "tsoa";
+import { Get, Route, Tags,  Post, Body, Path, Put } from "tsoa";
 import {Card} from '../models'
 import {getCards, createCard, ICardPayload, getCard} from '../repositories/card.repository'
 
