@@ -57,7 +57,7 @@ router.use("/machines", [checkJwt], LineMachineRouter)
 router.use("/priorities", [checkJwt], PriorityRouter)
 router.use("/process-types", [checkJwt], ProcessTypeRouter)
 router.use("/type-fails", [checkJwt], TypeFailRouter)
-router.use("/proceses", [checkJwt], ProcessRouter)
+router.use("/processes", [checkJwt], ProcessRouter)
 router.use("/affects", [checkJwt], AffectRouter)
 
 

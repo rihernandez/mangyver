@@ -2,7 +2,7 @@ import { Get, Route, Tags,  Post, Body, Path } from "tsoa";
 import {Process} from '../models'
 import {getProcesss, createProcess, IProcessPayload, getProcess} from '../repositories/process.repository'
 
-@Route("proceses")
+@Route("processes")
 @Tags("Process")
 export default class ProcessController {
   @Get("/")

@@ -9,7 +9,7 @@
           "label": "Elige el proceso",
           "fieldData": "eligeElProceso",
           "type": "select",
-          "optionsEndpoint": "/proceses",
+          "optionsEndpoint": "/processes",
           "options":
           [
             {
