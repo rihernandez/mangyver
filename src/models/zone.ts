@@ -9,7 +9,6 @@ import {
   
   @Entity("Zone")
   export class Zone {
-    @Column({ name: "ZoneID" })
     @PrimaryGeneratedColumn("uuid")
     id!: string;
   

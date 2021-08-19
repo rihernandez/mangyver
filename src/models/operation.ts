@@ -11,7 +11,6 @@ import { Bus } from "./bus";
   
   @Entity("Operation")
   export class Operation {
-    @Column({ name: "OperationID" })
     @PrimaryGeneratedColumn("uuid")
     id!: string;
   

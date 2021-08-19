@@ -11,8 +11,7 @@ import { Field } from "./field";
   
   @Entity("Section")
   export class Section {
-    @Column("uuid",{ name: "RoleID" })
-    @PrimaryColumn()
+    @PrimaryColumn("uuid",{ name: "RoleID" })
     id!: string;
 
     @ManyToOne((type) => Field, (field) => field.id)

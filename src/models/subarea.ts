@@ -9,7 +9,6 @@ import { Area } from "./area";
   
   @Entity("SubArea")
   export class Subarea {
-    @Column({ name: "SubAreaID" })
     @PrimaryGeneratedColumn("uuid")
     id!: string;
   

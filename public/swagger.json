@@ -9,8 +9,7 @@
 			"User": {
 				"properties": {
 					"id": {
-						"type": "number",
-						"format": "double"
+						"type": "string"
 					},
 					"name": {
 						"type": "string"
@@ -83,8 +82,7 @@
 			"Zone": {
 				"properties": {
 					"id": {
-						"type": "number",
-						"format": "double"
+						"type": "string"
 					},
 					"name": {
 						"type": "string"
@@ -190,8 +188,7 @@
 			"Area": {
 				"properties": {
 					"id": {
-						"type": "number",
-						"format": "double"
+						"type": "string"
 					},
 					"name": {
 						"type": "string"
@@ -244,8 +241,7 @@
 			"Equipment": {
 				"properties": {
 					"id": {
-						"type": "number",
-						"format": "double"
+						"type": "string"
 					},
 					"name": {
 						"type": "string"
@@ -298,8 +294,7 @@
 			"Notice": {
 				"properties": {
 					"id": {
-						"type": "number",
-						"format": "double"
+						"type": "string"
 					},
 					"type": {
 						"type": "string"
@@ -410,8 +405,7 @@
 			"Operation": {
 				"properties": {
 					"id": {
-						"type": "number",
-						"format": "double"
+						"type": "string"
 					},
 					"name": {
 						"type": "string"
@@ -476,8 +470,7 @@
 			"Subarea": {
 				"properties": {
 					"id": {
-						"type": "number",
-						"format": "double"
+						"type": "string"
 					},
 					"name": {
 						"type": "string"
@@ -534,8 +527,7 @@
 			"Ubication": {
 				"properties": {
 					"id": {
-						"type": "number",
-						"format": "double"
+						"type": "string"
 					},
 					"name": {
 						"type": "string"
@@ -592,8 +584,7 @@
 			"Field": {
 				"properties": {
 					"id": {
-						"type": "number",
-						"format": "double"
+						"type": "string"
 					},
 					"fieldType": {
 						"type": "string"
@@ -653,8 +644,7 @@
 			"Section": {
 				"properties": {
 					"id": {
-						"type": "number",
-						"format": "double"
+						"type": "string"
 					},
 					"fields": {
 						"$ref": "#/components/schemas/Field"
@@ -692,8 +682,7 @@
 			"Card": {
 				"properties": {
 					"id": {
-						"type": "number",
-						"format": "double"
+						"type": "string"
 					},
 					"name": {
 						"type": "string"
@@ -734,8 +723,7 @@
 			"LineMachine": {
 				"properties": {
 					"id": {
-						"type": "number",
-						"format": "double"
+						"type": "string"
 					},
 					"Line": {
 						"type": "number",
@@ -769,8 +757,7 @@
 			"Component": {
 				"properties": {
 					"id": {
-						"type": "number",
-						"format": "double"
+						"type": "string"
 					},
 					"machine": {
 						"$ref": "#/components/schemas/LineMachine"
@@ -827,8 +814,7 @@
 			"Consecutive": {
 				"properties": {
 					"id": {
-						"type": "number",
-						"format": "double"
+						"type": "string"
 					},
 					"name": {
 						"type": "string"
@@ -877,8 +863,7 @@
 			"Line": {
 				"properties": {
 					"id": {
-						"type": "number",
-						"format": "double"
+						"type": "string"
 					},
 					"area": {
 						"$ref": "#/components/schemas/Area"
@@ -959,8 +944,7 @@
 			"Priority": {
 				"properties": {
 					"id": {
-						"type": "number",
-						"format": "double"
+						"type": "string"
 					},
 					"name": {
 						"type": "string"
@@ -1009,8 +993,7 @@
 			"ProcessType": {
 				"properties": {
 					"id": {
-						"type": "number",
-						"format": "double"
+						"type": "string"
 					},
 					"name": {
 						"type": "string"
@@ -1051,8 +1034,7 @@
 			"TypeFail": {
 				"properties": {
 					"id": {
-						"type": "number",
-						"format": "double"
+						"type": "string"
 					},
 					"name": {
 						"type": "string"
@@ -1101,8 +1083,7 @@
 			"Process": {
 				"properties": {
 					"id": {
-						"type": "number",
-						"format": "double"
+						"type": "string"
 					},
 					"processType": {
 						"$ref": "#/components/schemas/ProcessType"
@@ -1159,8 +1140,7 @@
 			"Affect": {
 				"properties": {
 					"id": {
-						"type": "number",
-						"format": "double"
+						"type": "string"
 					},
 					"name": {
 						"type": "string"
@@ -2950,7 +2930,7 @@
 				]
 			}
 		},
-		"/proceses": {
+		"/processes": {
 			"get": {
 				"operationId": "GetProceses",
 				"responses": {
@@ -3005,7 +2985,7 @@
 				}
 			}
 		},
-		"/proceses/{id}": {
+		"/processes/{id}": {
 			"get": {
 				"operationId": "GetProcess",
 				"responses": {

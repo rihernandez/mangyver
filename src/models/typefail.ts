@@ -7,7 +7,6 @@ import {
   
   @Entity("TypeFail")
   export class TypeFail {
-    @Column({ name: "AreaID" })
     @PrimaryGeneratedColumn("uuid")
     id!: string;
   

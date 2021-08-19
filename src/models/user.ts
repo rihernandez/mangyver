@@ -15,7 +15,6 @@ import * as bcrypt from "bcryptjs";
 
 @Entity("User")
 export class User {
-  @Column({ name: "UserID" })
   @PrimaryGeneratedColumn("uuid")
   id!: string;
 

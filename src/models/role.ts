@@ -8,8 +8,7 @@ import {
   
   @Entity("Role")
   export class Role {
-    @Column("uuid",{ name: "RoleID" })
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn("uuid",{ name: "RoleID" })
     id!: string;
   
     @Column({ nullable: false, name: "Role" })

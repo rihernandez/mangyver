@@ -9,7 +9,6 @@ import { Subarea } from "./subarea";
   
   @Entity("Ubication")
   export class Ubication {
-    @Column({ name: "UbicationID" })
     @PrimaryGeneratedColumn("uuid")
     id!: string;
   
