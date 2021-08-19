@@ -1,7 +1,7 @@
 import { ConnectionOptions } from "typeorm";
 import * as dotenv from "dotenv";
 dotenv.config();
-import { Area, Notice } from "../models";
+import { Area } from "../models";
 import { Bus } from "../models";
 import { Equipment } from "../models";
 import { Operation } from "../models";
@@ -21,7 +21,9 @@ import { ProcessType } from "../models";
 import { TypeFail } from "../models";
 import { Process } from "../models";
 import { Affect } from "../models";
-import { Breakdown } from "../models"
+import { Breakdown } from "../models";
+import { Notice } from "../models";
+
 dotenv.config();
 
 const config: ConnectionOptions = {
@@ -35,7 +37,7 @@ const config: ConnectionOptions = {
     User, Zone, Bus, Ubication, Subarea, Operation, 
     Equipment, Area, Field, Section, Card, Component,
     Consecutive,Line,LineMachine,Priority, Process, ProcessType,
-    TypeFail, Affect,Breakdown
+    TypeFail, Affect,Breakdown, Notice
   ],
   synchronize: true,
 };

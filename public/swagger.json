@@ -291,35 +291,18 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"Notice": {
+			"Line": {
 				"properties": {
 					"id": {
 						"type": "string"
 					},
-					"type": {
+					"area": {
+						"$ref": "#/components/schemas/Area"
+					},
+					"name": {
 						"type": "string"
 					},
-					"order": {
-						"type": "number",
-						"format": "double"
-					},
-					"ubication": {
-						"type": "string"
-					},
-					"equipment": {
-						"type": "string"
-					},
-					"analysis": {
-						"type": "string"
-					},
-					"description": {
-						"type": "string"
-					},
-					"user": {
-						"type": "number",
-						"format": "double"
-					},
-					"priority": {
+					"SAPCode": {
 						"type": "string"
 					},
 					"isActive": {
@@ -332,14 +315,331 @@
 				},
 				"required": [
 					"id",
-					"type",
-					"order",
-					"ubication",
-					"equipment",
-					"analysis",
-					"description",
-					"user",
+					"area",
+					"name",
+					"SAPCode",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Consecutive": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"SAPCode",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Card": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Priority": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"SAPCode",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"LineMachine": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"Line": {
+						"type": "number",
+						"format": "double"
+					},
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"Line",
+					"name",
+					"SAPCode",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Component": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"machine": {
+						"$ref": "#/components/schemas/LineMachine"
+					},
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"machine",
+					"name",
+					"SAPCode",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Breakdown": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"TypeFail": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"SAPCode",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Affect": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"SAPCode",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Notice": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"OTCode": {
+						"type": "string"
+					},
+					"didCard": {
+						"type": "string"
+					},
+					"failureTime": {
+						"type": "string"
+					},
+					"department": {
+						"type": "string"
+					},
+					"equipmentCode": {
+						"type": "string"
+					},
+					"line": {
+						"$ref": "#/components/schemas/Line"
+					},
+					"equipmentType": {
+						"type": "string"
+					},
+					"consecutive": {
+						"$ref": "#/components/schemas/Consecutive"
+					},
+					"cardType": {
+						"$ref": "#/components/schemas/Card"
+					},
+					"cardTittle": {
+						"type": "string"
+					},
+					"priority": {
+						"$ref": "#/components/schemas/Priority"
+					},
+					"components": {
+						"$ref": "#/components/schemas/Component"
+					},
+					"breakdown": {
+						"$ref": "#/components/schemas/Breakdown"
+					},
+					"failureType": {
+						"$ref": "#/components/schemas/TypeFail"
+					},
+					"affects": {
+						"$ref": "#/components/schemas/Affect"
+					},
+					"affectsFile": {
+						"type": "string"
+					},
+					"cardDescription": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"OTCode",
+					"didCard",
+					"failureTime",
+					"department",
+					"equipmentCode",
+					"line",
+					"equipmentType",
+					"consecutive",
+					"cardType",
+					"cardTittle",
 					"priority",
+					"components",
+					"breakdown",
+					"failureType",
+					"affects",
+					"affectsFile",
+					"cardDescription",
 					"isActive",
 					"created"
 				],
@@ -348,55 +648,80 @@
 			},
 			"INoticePayload": {
 				"properties": {
-					"id": {
+					"OTCode": {
 						"type": "string"
 					},
-					"type": {
+					"didCard": {
 						"type": "string"
 					},
-					"order": {
-						"type": "number",
-						"format": "double"
-					},
-					"ubication": {
+					"failureTime": {
 						"type": "string"
 					},
-					"equipment": {
+					"department": {
 						"type": "string"
 					},
-					"analysis": {
+					"equipmentCode": {
 						"type": "string"
 					},
-					"description": {
+					"line": {
+						"$ref": "#/components/schemas/Line"
+					},
+					"equipmentType": {
 						"type": "string"
 					},
-					"user": {
-						"type": "number",
-						"format": "double"
+					"consecutive": {
+						"$ref": "#/components/schemas/Consecutive"
+					},
+					"cardType": {
+						"$ref": "#/components/schemas/Card"
+					},
+					"cardTittle": {
+						"type": "string"
 					},
 					"priority": {
+						"$ref": "#/components/schemas/Priority"
+					},
+					"components": {
+						"$ref": "#/components/schemas/Component"
+					},
+					"breakdown": {
+						"$ref": "#/components/schemas/Breakdown"
+					},
+					"failureType": {
+						"$ref": "#/components/schemas/TypeFail"
+					},
+					"affects": {
+						"$ref": "#/components/schemas/Affect"
+					},
+					"affectsFile": {
 						"type": "string"
 					},
 					"isActive": {
 						"type": "boolean"
 					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
+					"cardDescription": {
+						"type": "string"
 					}
 				},
 				"required": [
-					"id",
-					"type",
-					"order",
-					"ubication",
-					"equipment",
-					"analysis",
-					"description",
-					"user",
+					"OTCode",
+					"didCard",
+					"failureTime",
+					"department",
+					"equipmentCode",
+					"line",
+					"equipmentType",
+					"consecutive",
+					"cardType",
+					"cardTittle",
 					"priority",
+					"components",
+					"breakdown",
+					"failureType",
+					"affects",
+					"affectsFile",
 					"isActive",
-					"created"
+					"cardDescription"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -673,31 +998,6 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"Card": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"isActive",
-					"created"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
 			"ICardPayload": {
 				"properties": {
 					"name": {
@@ -710,73 +1010,6 @@
 				"required": [
 					"name",
 					"isActive"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"LineMachine": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"Line": {
-						"type": "number",
-						"format": "double"
-					},
-					"name": {
-						"type": "string"
-					},
-					"SAPCode": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"Line",
-					"name",
-					"SAPCode",
-					"isActive",
-					"created"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"Component": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"machine": {
-						"$ref": "#/components/schemas/LineMachine"
-					},
-					"name": {
-						"type": "string"
-					},
-					"SAPCode": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"machine",
-					"name",
-					"SAPCode",
-					"isActive",
-					"created"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -805,35 +1038,6 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"Consecutive": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"SAPCode": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"SAPCode",
-					"isActive",
-					"created"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
 			"IConsecutivePayload": {
 				"properties": {
 					"name": {
@@ -850,39 +1054,6 @@
 					"name",
 					"SAPCode",
 					"isActive"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"Line": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"area": {
-						"$ref": "#/components/schemas/Area"
-					},
-					"name": {
-						"type": "string"
-					},
-					"SAPCode": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"area",
-					"name",
-					"SAPCode",
-					"isActive",
-					"created"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -931,35 +1102,6 @@
 					"name",
 					"SAPCode",
 					"isActive"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"Priority": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"SAPCode": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"SAPCode",
-					"isActive",
-					"created"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1021,35 +1163,6 @@
 				"required": [
 					"name",
 					"isActive"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"TypeFail": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"SAPCode": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"SAPCode",
-					"isActive",
-					"created"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1131,35 +1244,6 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"Affect": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"SAPCode": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"SAPCode",
-					"isActive",
-					"created"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
 			"IAffectPayload": {
 				"properties": {
 					"name": {
@@ -1176,31 +1260,6 @@
 					"name",
 					"SAPCode",
 					"isActive"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"Breakdown": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"isActive",
-					"created"
 				],
 				"type": "object",
 				"additionalProperties": false

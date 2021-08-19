@@ -1,18 +1,35 @@
 import { getRepository } from "typeorm";
-import { Notice } from "../models";
+import {
+  Affect,
+  Breakdown,
+  Card,
+  Component,
+  Consecutive,
+  Line,
+  Notice,
+  Priority,
+  TypeFail,
+} from "../models";
 
 export interface INoticePayload {
-  id: string;
-  type: string;
-  order: number;
-  ubication: string;
-  equipment: string;
-  analysis: string;
-  description: string;
-  user: number;
-  priority: string;
+  OTCode: string;
+  didCard : string;
+  failureTime: string;
+  department: string;
+  equipmentCode: string;
+  line: Line;
+  equipmentType: string;
+  consecutive: Consecutive;
+  cardType: Card;
+  cardTittle: string;
+  priority: Priority;
+  components: Component;
+  breakdown:Breakdown;
+  failureType: TypeFail;
+  affects: Affect;
+  affectsFile: string;
   isActive: boolean;
-  created: Date;
+  cardDescription: string;
 }
 
 export const getNotices = async (): Promise<Array<Notice>> => {

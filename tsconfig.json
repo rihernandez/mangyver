@@ -1,18 +1,18 @@
 {
-    "compilerOptions": {
-      "target": "es6",
-      "module": "commonjs",
-      "outDir": "./build",
-      "strict": true,
-      "esModuleInterop": true,
-      "resolveJsonModule": true,
-      "experimentalDecorators": true,
-      "emitDecoratorMetadata": true,
-      "baseUrl": "./",
-      "paths": {
-        "test/*": ["test/*"]
-      }
-    },
-    "include": [ "src/**/*", "src/repositories/.repository.ts"],
-    "exclude" : ["src/**/*.test.ts"]
-  }
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "./build",
+    "strict": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "baseUrl": "./",
+    "paths": {
+      "test/*": ["test/*"]
+    }
+  },
+  "include": [ "src/**/*", "src/repositories/.repository.ts"],
+  "exclude" : ["src/**/*.test.ts"]
+}
