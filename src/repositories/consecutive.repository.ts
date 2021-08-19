@@ -21,7 +21,7 @@ export const createConsecutive = async (payload: IConsecutivePayload): Promise<C
   });
 };
 
-export const getConsecutive = async (id: number): Promise<Consecutive | null> => {
+export const getConsecutive = async (id: string): Promise<Consecutive | null> => {
   const repository = getRepository(Consecutive);
   const consecutive = await repository.findOne({ id: id });
   if (!consecutive) return null;

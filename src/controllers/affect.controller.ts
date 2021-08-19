@@ -17,6 +17,6 @@ export default class AffectController {
 
   @Get("/:id")
   public async getAffect(@Path() id: string): Promise<Affect | null> {
-    return getAffect(Number(id))
+    return getAffect(id)
   }
 }

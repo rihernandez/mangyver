@@ -20,7 +20,7 @@ export const createLogin = async (payload: ILoginPayload): Promise<Login> => {
   });
 };
 
-export const getLogin = async (id: number): Promise<Login | null> => {
+export const getLogin = async (id: string): Promise<Login | null> => {
   const loginRepository = getRepository(Login);
   const login = await loginRepository.findOne({ id: id });
   if (!login) return null;

@@ -22,7 +22,7 @@ export const createSubarea = async (payload: ISubareaPayload): Promise<Subarea> 
   });
 };
 
-export const getSubarea = async (id: number): Promise<Subarea | null> => {
+export const getSubarea = async (id: string): Promise<Subarea | null> => {
   const subareaRepository = getRepository(Subarea);
   const subarea = await subareaRepository.findOne({ id: id });
   if (!subarea) return null;

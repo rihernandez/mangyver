@@ -8,8 +8,8 @@ import {
   @Entity("Card")
   export class Card {
     @Column({ name: "CardId" })
-    @PrimaryGeneratedColumn()
-    id!: number;
+    @PrimaryGeneratedColumn("uuid")
+    id!: string;
   
     @Column({ name: "Name" })
     name!: string;

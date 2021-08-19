@@ -17,6 +17,6 @@ export default class ZoneController {
 
   @Get("/:id")
   public async getZone(@Path() id: string): Promise<Zone | null> {
-    return getZone(Number(id))
+    return getZone(id)
   }
 }

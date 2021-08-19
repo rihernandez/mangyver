@@ -46,8 +46,8 @@ import { Section } from "./section";
   @Entity("Field")
   export class Field {
     @Column({ name: "ID" })
-    @PrimaryGeneratedColumn()
-    id!: number;
+    @PrimaryGeneratedColumn("uuid")
+    id!: string;
   
     @Column({ name: "FieldType" })
     fieldType!: string;

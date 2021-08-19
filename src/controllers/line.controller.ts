@@ -17,6 +17,6 @@ export default class LineController {
 
   @Get("/:id")
   public async getLine(@Path() id: string): Promise<Line | null> {
-    return getLine(Number(id))
+    return getLine(id)
   }
 }

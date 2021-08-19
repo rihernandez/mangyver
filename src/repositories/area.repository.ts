@@ -22,7 +22,7 @@ export const createArea = async (payload: IAreaPayload): Promise<Area> => {
   });
 };
 
-export const getArea = async (id: number): Promise<Area | null> => {
+export const getArea = async (id: string): Promise<Area | null> => {
   const areaRepository = getRepository(Area);
   const area = await areaRepository.findOne({ id: id });
   if (!area) return null;

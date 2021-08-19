@@ -23,7 +23,7 @@ export const createLineMachine = async (payload: ILineMachinePayload): Promise<L
   });
 };
 
-export const getLineMachine = async (id: number): Promise<LineMachine | null> => {
+export const getLineMachine = async (id: string): Promise<LineMachine | null> => {
   const repository = getRepository(LineMachine);
   const lineMachine = await repository.findOne({ id: id });
   if (!lineMachine) return null;

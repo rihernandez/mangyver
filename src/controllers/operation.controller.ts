@@ -17,6 +17,6 @@ export default class OperationController {
 
   @Get("/:id")
   public async getOperation(@Path() id: string): Promise<Operation | null> {
-    return getOperation(Number(id))
+    return getOperation(id)
   }
 }

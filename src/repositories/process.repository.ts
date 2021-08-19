@@ -23,7 +23,7 @@ export const createProcess = async (payload: IProcessPayload): Promise<Process> 
   });
 };
 
-export const getProcess = async (id: number): Promise<Process | null> => {
+export const getProcess = async (id: string): Promise<Process | null> => {
   const repository = getRepository(Process);
   const process = await repository.findOne({ id: id });
   if (!process) return null;

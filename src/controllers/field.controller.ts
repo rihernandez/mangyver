@@ -17,6 +17,6 @@ export default class FieldController {
 
   @Get("/:id")
   public async getField(@Path() id: string): Promise<Field | null> {
-    return getField(Number(id))
+    return getField(id)
   }
 }

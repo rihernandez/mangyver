@@ -21,7 +21,7 @@ export const createZone = async (payload: IZonePayload): Promise<Zone> => {
   });
 };
 
-export const getZone = async (id: number): Promise<Zone | null> => {
+export const getZone = async (id: string): Promise<Zone | null> => {
   const zoneRepository = getRepository(Zone);
   const zone = await zoneRepository.findOne({ id: id });
   if (!zone) return null;

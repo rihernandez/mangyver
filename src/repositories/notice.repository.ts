@@ -31,7 +31,7 @@ export const createNotice = async (
   });
 };
 
-export const getNotice = async (id: number): Promise<Notice | null> => {
+export const getNotice = async (id: string): Promise<Notice | null> => {
   const repository = getRepository(Notice);
   const notification = await repository.findOne({ id: id });
   if (!notification) return null;

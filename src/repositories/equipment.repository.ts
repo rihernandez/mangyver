@@ -22,7 +22,7 @@ export const createEquipment = async (payload: IEquipmentPayload): Promise<Equip
   });
 };
 
-export const getEquipment = async (id: number): Promise<Equipment | null> => {
+export const getEquipment = async (id: string): Promise<Equipment | null> => {
   const equipmentRepository = getRepository(Equipment);
   const equipment = await equipmentRepository.findOne({ id: id });
   if (!equipment) return null;

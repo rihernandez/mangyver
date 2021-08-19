@@ -8,8 +8,8 @@ import {
   @Entity("Priority")
   export class Priority {
     @Column({ name: "PriorityID" })
-    @PrimaryGeneratedColumn()
-    id!: number;
+    @PrimaryGeneratedColumn("uuid")
+    id!: string;
   
     @Column({ name: "Name" })
     name!: string;

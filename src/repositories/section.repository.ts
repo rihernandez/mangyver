@@ -21,7 +21,7 @@ export const createSection = async (payload: ISectionPayload): Promise<Section> 
   });
 };
 
-export const getSection = async (id: number): Promise<Section | null> => {
+export const getSection = async (id: string): Promise<Section | null> => {
   const repository = getRepository(Section);
   const section = await repository.findOne({ id: id });
   if (!section) return null;

@@ -9,8 +9,8 @@ import { LineMachine } from "./line-machine";
   
   @Entity("Component")
   export class Component {
-    @PrimaryGeneratedColumn()
-    id!: number;
+    @PrimaryGeneratedColumn("uuid")
+    id!: string;
 
     @ManyToOne(() => LineMachine, machine => machine.id)
     machine!: LineMachine;

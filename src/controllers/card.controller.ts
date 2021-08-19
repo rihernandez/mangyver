@@ -17,6 +17,6 @@ export default class CardController {
 
   @Get("/:id")
   public async getCard(@Path() id: string): Promise<Card | null> {
-    return getCard(Number(id))
+    return getCard(id)
   }
 }

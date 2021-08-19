@@ -22,7 +22,7 @@ export const createLine = async (payload: ILinePayload): Promise<Line> => {
   });
 };
 
-export const getLine = async (id: number): Promise<Line | null> => {
+export const getLine = async (id: string): Promise<Line | null> => {
   const repository = getRepository(Line);
   const line = await repository.findOne({ id: id });
   if (!line) return null;

@@ -17,6 +17,6 @@ export default class EquipmentController {
 
   @Get("/:id")
   public async getEquipment(@Path() id: string): Promise<Equipment | null> {
-    return getEquipment(Number(id))
+    return getEquipment(id)
   }
 }

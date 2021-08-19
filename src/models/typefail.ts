@@ -8,8 +8,8 @@ import {
   @Entity("TypeFail")
   export class TypeFail {
     @Column({ name: "AreaID" })
-    @PrimaryGeneratedColumn()
-    id!: number;
+    @PrimaryGeneratedColumn("uuid")
+    id!: string;
   
     @Column({ name: "Name" })
     name!: string;

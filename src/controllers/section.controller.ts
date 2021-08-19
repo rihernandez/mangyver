@@ -17,6 +17,6 @@ export default class SectionController {
 
   @Get("/:id")
   public async getSection(@Path() id: string): Promise<Section | null> {
-    return getSection(Number(id))
+    return getSection(id)
   }
 }

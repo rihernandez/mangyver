@@ -22,7 +22,7 @@ export const createUbication = async (payload: IUbicationPayload): Promise<Ubica
   });
 };
 
-export const getUbication = async (id: number): Promise<Ubication | null> => {
+export const getUbication = async (id: string): Promise<Ubication | null> => {
   const ubicationRepository = getRepository(Ubication);
   const ubication = await ubicationRepository.findOne({ id: id });
   if (!ubication) return null;

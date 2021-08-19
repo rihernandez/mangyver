@@ -17,6 +17,6 @@ export default class ProcessController {
 
   @Get("/:id")
   public async getProcess(@Path() id: string): Promise<Process | null> {
-    return getProcess(Number(id))
+    return getProcess(id)
   }
 }

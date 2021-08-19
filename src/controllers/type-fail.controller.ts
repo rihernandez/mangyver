@@ -17,6 +17,6 @@ export default class TypeFailController {
 
   @Get("/:id")
   public async getTypeFail(@Path() id: string): Promise<TypeFail | null> {
-    return getTypeFail(Number(id))
+    return getTypeFail(id)
   }
 }

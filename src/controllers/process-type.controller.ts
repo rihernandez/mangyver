@@ -17,6 +17,6 @@ export default class ProcessTypeController {
 
   @Get("/:id")
   public async getProcessType(@Path() id: string): Promise<ProcessType | null> {
-    return getProcessType(Number(id))
+    return getProcessType(id)
   }
 }

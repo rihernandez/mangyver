@@ -17,6 +17,6 @@ export default class PriorityController {
 
   @Get("/:id")
   public async getPriority(@Path() id: string): Promise<Priority | null> {
-    return getPriority(Number(id))
+    return getPriority(id)
   }
 }

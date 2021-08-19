@@ -13,7 +13,7 @@ import { Bus } from "./bus";
   export class Operation {
     @Column({ name: "OperationID" })
     @PrimaryGeneratedColumn("uuid")
-    id!: number;
+    id!: string;
   
     @Column({ name: "Name", length: 300 })
     name!: string;

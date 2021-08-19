@@ -21,7 +21,7 @@ export const createAffect = async (payload: IAffectPayload): Promise<Affect> => 
   });
 };
 
-export const getAffect = async (id: number): Promise<Affect | null> => {
+export const getAffect = async (id: string): Promise<Affect | null> => {
   const repository = getRepository(Affect);
   const affect = await repository.findOne({ id: id });
   if (!affect) return null;

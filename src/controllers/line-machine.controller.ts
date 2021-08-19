@@ -17,6 +17,6 @@ export default class LineMachineController {
 
   @Get("/:id")
   public async getLineMachine(@Path() id: string): Promise<LineMachine | null> {
-    return getLineMachine(Number(id))
+    return getLineMachine(id)
   }
 }

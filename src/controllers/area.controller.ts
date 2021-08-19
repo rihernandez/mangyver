@@ -17,6 +17,6 @@ export default class AreaController {
 
   @Get("/:id")
   public async getArea(@Path() id: string): Promise<Area | null> {
-    return getArea(Number(id))
+    return getArea(id)
   }
 }

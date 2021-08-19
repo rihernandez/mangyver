@@ -11,7 +11,7 @@ import { Area } from "./area";
   export class Subarea {
     @Column({ name: "SubAreaID" })
     @PrimaryGeneratedColumn("uuid")
-    id!: number;
+    id!: string;
   
     @Column({ name: "Name", length: 300 })
     name!: string;

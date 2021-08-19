@@ -25,7 +25,7 @@ export const createUser = async (payload: IUserPayload): Promise<User> => {
   });
 };
 
-export const getUser = async (id: number): Promise<User | null> => {
+export const getUser = async (id: string): Promise<User | null> => {
   const userRepository = getRepository(User);
   const user = await userRepository.findOne({ id: id });
   if (!user) return null;

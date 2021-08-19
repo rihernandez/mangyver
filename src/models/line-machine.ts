@@ -12,8 +12,8 @@ import { Line } from "./line";
   @Entity("LineMachine")
   export class LineMachine {
     @Column({ name: "MachineID" })
-    @PrimaryGeneratedColumn()
-    id!: number;
+    @PrimaryGeneratedColumn("uuid")
+    id!: string;
 
     // @ManyToOne(() => Line, line => line.lineId)
     // @JoinTable({

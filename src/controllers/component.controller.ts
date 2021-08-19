@@ -17,6 +17,6 @@ export default class ComponentController {
 
   @Get("/:id")
   public async getComponent(@Path() id: string): Promise<Component | null> {
-    return getComponent(Number(id))
+    return getComponent(id)
   }
 }

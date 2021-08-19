@@ -25,7 +25,7 @@ export const createField = async (payload: IFieldPayload): Promise<Field> => {
   });
 };
 
-export const getField = async (id: number): Promise<Field | null> => {
+export const getField = async (id: string): Promise<Field | null> => {
   const repository = getRepository(Field);
   const field = await repository.findOne({ id: id });
   if (!field) return null;

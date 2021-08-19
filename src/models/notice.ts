@@ -10,7 +10,7 @@ import {
   export class Notice {
     @Column({ name: "NoticeID" })
     @PrimaryGeneratedColumn("uuid")
-    id!: number;
+    id!: string;
     @Column({ name: "Type" })
     type!: string;
     @Column({ name: "Order" })

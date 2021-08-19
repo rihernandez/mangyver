@@ -17,6 +17,6 @@ export default class ConsecutiveController {
 
   @Get("/:id")
   public async getConsecutive(@Path() id: string): Promise<Consecutive | null> {
-    return getConsecutive(Number(id))
+    return getConsecutive(id)
   }
 }

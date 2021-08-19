@@ -25,6 +25,6 @@ export default class UserController {
 
   @Get("/:id")
   public async getUser(@Path() id: string): Promise<User | null> {
-    return getUser(Number(id))
+    return getUser(id)
   }
 }

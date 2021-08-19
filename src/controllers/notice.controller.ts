@@ -17,6 +17,6 @@ export default class NoticeController {
 
   @Get("/:id")
   public async getNotice(@Path() id: string): Promise<Notice | null> {
-    return getNotice(Number(id))
+    return getNotice(id)
   }
 }

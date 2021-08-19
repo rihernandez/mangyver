@@ -11,7 +11,7 @@ import { Subarea } from "./subarea";
   export class Ubication {
     @Column({ name: "UbicationID" })
     @PrimaryGeneratedColumn("uuid")
-    id!: number;
+    id!: string;
   
     @Column({ name: "Name", length: 300 })
     name!: string;

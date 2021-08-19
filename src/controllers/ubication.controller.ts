@@ -17,6 +17,6 @@ export default class UbicationController {
 
   @Get("/:id")
   public async getUbication(@Path() id: string): Promise<Ubication | null> {
-    return getUbication(Number(id))
+    return getUbication(id)
   }
 }

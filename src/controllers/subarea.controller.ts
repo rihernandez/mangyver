@@ -17,6 +17,6 @@ export default class SubareaController {
 
   @Get("/:id")
   public async getSubarea(@Path() id: string): Promise<Subarea | null> {
-    return getSubarea(Number(id))
+    return getSubarea(id)
   }
 }

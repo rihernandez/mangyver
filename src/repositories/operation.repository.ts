@@ -25,7 +25,7 @@ export const createOperation = async (payload: IOperationPayload): Promise<Opera
   });
 };
 
-export const getOperation = async (id: number): Promise<Operation | null> => {
+export const getOperation = async (id: string): Promise<Operation | null> => {
   const operationRepository = getRepository(Operation);
   const operation = await operationRepository.findOne({ id: id });
   if (!operation) return null;

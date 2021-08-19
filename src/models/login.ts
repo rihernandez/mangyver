@@ -9,7 +9,7 @@ import {
   export class Login {
     @Column({ name: "LoginID" })
     @PrimaryGeneratedColumn("uuid")
-    id!: number;
+    id!: string;
   
     @Column({ name: "Login" })
     login!: string;
