@@ -33,7 +33,7 @@ const initRoute = router.get("/", async (req, res) => {
 });
 
 const metadata = router.get(`/metadata/forms/notices`, async (req, res) => {
-  res.send(data);
+  res.send(data.sections);
 });
 
 router.use("/auth", AuthRouter);
