@@ -13,6 +13,6 @@
         "test/*": ["test/*"]
       }
     },
-    "include": [ "src/**/*"],
+    "include": [ "src/**/*", "src/repositories/.repository.ts"],
     "exclude" : ["src/**/*.test.ts"]
   }

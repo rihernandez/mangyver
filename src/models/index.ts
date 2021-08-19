@@ -20,6 +20,7 @@ import { ProcessType } from "./process-type";
 import { TypeFail } from "./typefail";
 import { Process } from "./process";
 import { Affect } from "./affect";
+import { Breakdown } from "./breakdown"
 export {
   User,
   Bus,
@@ -43,5 +44,6 @@ export {
   ProcessType,
   TypeFail,
   Process,
-  Affect
+  Affect,
+  Breakdown
 };

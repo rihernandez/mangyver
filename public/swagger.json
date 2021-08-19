@@ -1179,6 +1179,51 @@
 				],
 				"type": "object",
 				"additionalProperties": false
+			},
+			"Breakdown": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"IBreakdownPayload": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"name",
+					"SAPCode",
+					"isActive"
+				],
+				"type": "object",
+				"additionalProperties": false
 			}
 		},
 		"securitySchemes": {}
@@ -3092,6 +3137,97 @@
 				},
 				"tags": [
 					"Affect"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/breakdowns": {
+			"get": {
+				"operationId": "GetBreakdowns",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/Breakdown"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Breakdown"
+				],
+				"security": [],
+				"parameters": []
+			},
+			"post": {
+				"operationId": "CreateBreakdown",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Breakdown"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Breakdown"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/IBreakdownPayload"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/breakdowns/{id}": {
+			"get": {
+				"operationId": "GetBreakdown",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/Breakdown"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Breakdown"
 				],
 				"security": [],
 				"parameters": [

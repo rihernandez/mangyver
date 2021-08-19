@@ -20,7 +20,8 @@ import { Priority } from "../models";
 import { ProcessType } from "../models";
 import { TypeFail } from "../models";
 import { Process } from "../models";
-import { Affect } from "../models"
+import { Affect } from "../models";
+import { Breakdown } from "../models"
 dotenv.config();
 
 const config: ConnectionOptions = {
@@ -34,7 +35,7 @@ const config: ConnectionOptions = {
     User, Zone, Bus, Ubication, Subarea, Operation, 
     Equipment, Area, Field, Section, Card, Component,
     Consecutive,Line,LineMachine,Priority, Process, ProcessType,
-    TypeFail, Affect
+    TypeFail, Affect,Breakdown
   ],
   synchronize: true,
 };

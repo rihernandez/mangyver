@@ -25,6 +25,7 @@ import ProcessTypeRouter from "./process-type.router"
 import TypeFailRouter from "./type-fail.router"
 import ProcessRouter from "./process.router"
 import AffectRouter from "./affect.router"
+import BreakdownRouter  from "./breakdown.router";
 
 const router = express.Router();
 
@@ -59,7 +60,7 @@ router.use("/process-types", [checkJwt], ProcessTypeRouter)
 router.use("/type-fails", [checkJwt], TypeFailRouter)
 router.use("/processes", [checkJwt], ProcessRouter)
 router.use("/affects", [checkJwt], AffectRouter)
-
+router.use("/breakdowns", [checkJwt], BreakdownRouter)
 
 export default router;
 export { initRoute, metadata };
