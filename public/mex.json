@@ -6,7 +6,7 @@
     "fields": [
       {
         "label": "Elige el proceso",
-        "fieldData": "eligeElProceso",
+        "fieldData": "id",
         "type": "select",
         "optionsEndpoint": "/processes",
         "options": [
@@ -54,7 +54,7 @@
     "fields": [
       {
         "label": "No. de OT",
-        "fieldData": "noOT",
+        "fieldData": "OTCode",
         "type": "text",
         "validations": [
           "required"
@@ -73,7 +73,7 @@
     "fields": [
       {
         "label": "Tipo de tarjeta",
-        "fieldData": "tipoDeTarjeta",
+        "fieldData": "cardType",
         "type": "select",
         "validations": [
           "required"
@@ -96,7 +96,7 @@
       },
       {
         "label": "Título de la tarjeta",
-        "fieldData": "tituloDeLaTarjeta",
+        "fieldData": "cardTittle",
         "type": "text",
         "validations": [
           "required"
@@ -104,7 +104,7 @@
       },
       {
         "label": "Prioridad",
-        "fieldData": "prioridad",
+        "fieldData": "priority",
         "type": "select",
         "validations": [
           "required"
@@ -131,7 +131,7 @@
       },
       {
         "label": "Componente dañado",
-        "fieldData": "componenteDanado",
+        "fieldData": "components",
         "type": "select",
         "validations": [
           "required"
@@ -154,7 +154,7 @@
       },
       {
         "label": "Causa Avería",
-        "fieldData": "causaAveria",
+        "fieldData": "breakdown",
         "type": "select",
         "validations": [
           "required"
@@ -177,7 +177,7 @@
       },
       {
         "label": "Tipo de falla",
-        "fieldData": "tipoDeFalla",
+        "fieldData": "failureType",
         "type": "select",
         "validations": [
           "required"
@@ -200,7 +200,7 @@
       },
       {
         "label": "Descripción de la tarjeta",
-        "fieldData": "descripcionDeLaTarjeta",
+        "fieldData": "cardDescription",
         "type": "text",
         "validations": [
           "required"
@@ -208,7 +208,7 @@
       },
       {
         "label": "Afecta A",
-        "fieldData": "afectaA",
+        "fieldData": "affects",
         "type": "select",
         "validations": [
           "required"
@@ -242,7 +242,7 @@
     "fields": [
       {
         "label": "¿Se realizó la tarjeta?",
-        "fieldData": "seRealizoLaTarjeta",
+        "fieldData": "didCard",
         "type": "select",
         "staticOptions": [
           {
@@ -261,7 +261,7 @@
           {
             "toMatch": "si",
             "label": "Duración de la falla",
-            "fieldData": "duracionDeLaFalla",
+            "fieldData": "failureTime",
             "type": "numeric",
             "validations": [
               "required"
@@ -281,7 +281,7 @@
     "fields": [
       {
         "label": "Departamento",
-        "fieldData": "departamento",
+        "fieldData": "department",
         "type": "select",
         "validations": [
           "required"
@@ -320,7 +320,7 @@
     "fields": [
       {
         "label": "Línea",
-        "fieldData": "linea",
+        "fieldData": "line",
         "type": "select",
         "validations": [
           "required"
@@ -343,7 +343,7 @@
       },
       {
         "label": "Tipo de Equipo",
-        "fieldData": "tipoDeEquipo",
+        "fieldData": "equipmentCode",
         "type": "select",
         "validations": [
           "required"
@@ -366,7 +366,7 @@
       },
       {
         "label": "Consecutivo",
-        "fieldData": "consecutivo",
+        "fieldData": "consecutive",
         "type": "select",
         "validations": [
           "required"
@@ -399,7 +399,7 @@
     "fields": [
       {
         "label": "Código de equipo",
-        "fieldData": "codigoDeEquipo",
+        "fieldData": "equipmentCode",
         "type": "text",
         "validations": [
           "required"
@@ -418,7 +418,7 @@
     "fields": [
       {
         "label": "Tipo de tarjeta",
-        "fieldData": "tipoDeTarjeta",
+        "fieldData": "cardType",
         "type": "select",
         "validations": [
           "required"
@@ -441,7 +441,7 @@
       },
       {
         "label": "Título de la tarjeta",
-        "fieldData": "tituloDeLaTarjeta",
+        "fieldData": "cardTittle",
         "type": "text",
         "validations": [
           "required"
@@ -449,7 +449,7 @@
       },
       {
         "label": "Prioridad",
-        "fieldData": "prioridad",
+        "fieldData": "priority",
         "type": "select",
         "validations": [
           "required"
@@ -476,7 +476,7 @@
       },
       {
         "label": "Componente dañado",
-        "fieldData": "componenteDanado",
+        "fieldData": "components",
         "type": "select",
         "validations": [
           "required"
@@ -499,7 +499,7 @@
       },
       {
         "label": "Causa Avería",
-        "fieldData": "causaAveria",
+        "fieldData": "breakdown",
         "type": "select",
         "validations": [
           "required"
@@ -522,7 +522,7 @@
       },
       {
         "label": "Tipo de falla",
-        "fieldData": "tipoDeFalla",
+        "fieldData": "failureType",
         "type": "select",
         "validations": [
           "required"
@@ -545,7 +545,7 @@
       },
       {
         "label": "Descripción de la tarjeta",
-        "fieldData": "descripcionDeLaTarjeta",
+        "fieldData": "cardDescription",
         "type": "text",
         "validations": [
           "required"
@@ -553,7 +553,7 @@
       },
       {
         "label": "Afecta A",
-        "fieldData": "afectaA",
+        "fieldData": "affects",
         "type": "select",
         "validations": [
           "required"
@@ -587,7 +587,7 @@
     "fields": [
       {
         "label": "Duración de la falla",
-        "fieldData": "duracionDeLaFalla",
+        "fieldData": "failureTime",
         "type": "numeric",
         "validations": [
           "required"
@@ -605,7 +605,7 @@
     "fields": [
       {
         "label": "Departamento",
-        "fieldData": "departamento",
+        "fieldData": "department",
         "type": "select",
         "validations": [
           "required"
@@ -644,7 +644,7 @@
     "fields": [
       {
         "label": "Línea",
-        "fieldData": "linea",
+        "fieldData": "line",
         "type": "select",
         "validations": [
           "required"
@@ -667,7 +667,7 @@
       },
       {
         "label": "Tipo de Equipo",
-        "fieldData": "tipoDeEquipo",
+        "fieldData": "equipmentType",
         "type": "select",
         "validations": [
           "required"
@@ -690,7 +690,7 @@
       },
       {
         "label": "Consecutivo",
-        "fieldData": "consecutivo",
+        "fieldData": "consecutive",
         "type": "select",
         "validations": [
           "required"
@@ -723,7 +723,7 @@
     "fields": [
       {
         "label": "Código de equipo",
-        "fieldData": "codigoDeEquipo",
+        "fieldData": "equipmentCode",
         "type": "text",
         "validations": [
           "required"
@@ -742,7 +742,7 @@
     "fields": [
       {
         "label": "Tipo de tarjeta",
-        "fieldData": "tipoDeTarjeta",
+        "fieldData": "cardType",
         "type": "select",
         "validations": [
           "required"
@@ -765,7 +765,7 @@
       },
       {
         "label": "Título de la tarjeta",
-        "fieldData": "tituloDeLaTarjeta",
+        "fieldData": "cardTittle",
         "type": "text",
         "validations": [
           "required"
@@ -773,7 +773,7 @@
       },
       {
         "label": "Prioridad",
-        "fieldData": "prioridad",
+        "fieldData": "priority",
         "type": "select",
         "validations": [
           "required"
@@ -800,7 +800,7 @@
       },
       {
         "label": "Componente dañado",
-        "fieldData": "componenteDanado",
+        "fieldData": "components",
         "type": "select",
         "validations": [
           "required"
@@ -823,7 +823,7 @@
       },
       {
         "label": "Causa Avería",
-        "fieldData": "causaAveria",
+        "fieldData": "breakdown",
         "type": "select",
         "validations": [
           "required"
@@ -846,7 +846,7 @@
       },
       {
         "label": "Tipo de falla",
-        "fieldData": "tipoDeFalla",
+        "fieldData": "failureType",
         "type": "select",
         "validations": [
           "required"
@@ -869,7 +869,7 @@
       },
       {
         "label": "Descripción de la tarjeta",
-        "fieldData": "descripcionDeLaTarjeta",
+        "fieldData": "cardDescription",
         "type": "text",
         "validations": [
           "required"
@@ -877,7 +877,7 @@
       },
       {
         "label": "Afecta A",
-        "fieldData": "afectaA",
+        "fieldData": "affects",
         "type": "select",
         "validations": [
           "required"
