@@ -36,7 +36,7 @@ export interface INoticePayload {
 
 export const getNotices = async (): Promise<Array<Notice>> => {
   const repository = getRepository(Notice);
-  return repository.find();
+  return repository.find({ relations: ['line', 'consecutive', 'cardType', 'priority', 'components', 'breakdown', 'failureType', 'affects', 'processType'] });
 };
 
 export const createNotice = async (
@@ -52,7 +52,7 @@ export const createNotice = async (
 
 export const getNotice = async (id: string): Promise<Notice | null> => {
   const repository = getRepository(Notice);
-  const notification = await repository.findOne({ id: id });
+  const notification = await repository.findOne({ id: id }, { relations: ['line', 'consecutive', 'cardType', 'priority', 'components', 'breakdown', 'failureType', 'affects', 'processType'] });
   if (!notification) return null;
   return notification;
 };
