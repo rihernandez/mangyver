@@ -1,3 +1,4 @@
+import { Process } from './process';
 import {
     Entity,
     PrimaryGeneratedColumn,
@@ -53,6 +54,8 @@ import { Equipment } from "./equipment";
     affectsFile!: string;
     @Column({name: "cardDescription"})
     cardDescription!: string;
+    @ManyToOne(type => Process, process => process.id)
+    processType!: Process;
 
     // @Column({ name: "Type" })
     // type!: string;

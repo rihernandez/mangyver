@@ -9,6 +9,7 @@ import {
   Notice,
   Priority,
   TypeFail,
+  Process
 } from "../models";
 
 export interface INoticePayload {
@@ -30,6 +31,7 @@ export interface INoticePayload {
   affectsFile: string;
   isActive: boolean;
   cardDescription: string;
+  processType: Process
 }
 
 export const getNotices = async (): Promise<Array<Notice>> => {
