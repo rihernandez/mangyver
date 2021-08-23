@@ -29,7 +29,7 @@ export interface INoticePayload {
   failureType: TypeFail;
   affects: Affect;
   affectsFile: string;
-  isActive: boolean;
+  isActive?: boolean;
   cardDescription: string;
   processType: Process
 }
