@@ -20,25 +20,25 @@ import { Equipment } from "./equipment";
   export class Notice {
     @PrimaryGeneratedColumn("uuid")
     id!: string;
-    @Column({name: "OTCode"})
+    @Column({name: "OTCode", nullable: true})
     OTCode!: string;
-    @Column({name: "didCard"})
+    @Column({name: "didCard", nullable: true})
     didCard! : string;
-    @Column({name: "failureTime"})
+    @Column({name: "failureTime", nullable: true})
     failureTime!: string;
-    @Column({name: "department"})
+    @Column({name: "department", nullable: true})
     department!: string;
-    @Column({name: "equipmentCode"})
+    @Column({name: "equipmentCode", nullable: true})
     equipmentCode!: string;
     @ManyToOne(type => Line, line => line.id)
     line!: Line;
-    @Column({name: "Equipment"})
+    @Column({name: "Equipment", nullable: true})
     equipmentType!: string;
     @ManyToOne(type => Consecutive, cn => cn.id)
     consecutive!: Consecutive;
     @ManyToOne(type => Card, card => card.id)
     cardType!: Card;
-    @Column({name: "cardTittle"})
+    @Column({name: "cardTittle", nullable: true})
     cardTittle!: string;
     @ManyToOne(type => Priority, priority => priority.id)
     priority!: Priority;
@@ -50,9 +50,9 @@ import { Equipment } from "./equipment";
     failureType!: TypeFail;
     @ManyToOne(type => Affect, affect => affect.id)
     affects!: Affect;
-    @Column({name: "affectsFile"})
+    @Column({name: "affectsFile", nullable: true})
     affectsFile!: string;
-    @Column({name: "cardDescription"})
+    @Column({name: "cardDescription", nullable: true})
     cardDescription!: string;
     @ManyToOne(type => Process, process => process.id)
     processType!: Process;

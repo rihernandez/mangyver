@@ -557,6 +557,64 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"ProcessType": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Process": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"processType": {
+						"$ref": "#/components/schemas/ProcessType"
+					},
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"processType",
+					"name",
+					"SAPCode",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"Notice": {
 				"properties": {
 					"id": {
@@ -613,6 +671,9 @@
 					"cardDescription": {
 						"type": "string"
 					},
+					"processType": {
+						"$ref": "#/components/schemas/Process"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -640,6 +701,7 @@
 					"affects",
 					"affectsFile",
 					"cardDescription",
+					"processType",
 					"isActive",
 					"created"
 				],
@@ -701,6 +763,9 @@
 					},
 					"cardDescription": {
 						"type": "string"
+					},
+					"processType": {
+						"$ref": "#/components/schemas/Process"
 					}
 				},
 				"required": [
@@ -720,8 +785,8 @@
 					"failureType",
 					"affects",
 					"affectsFile",
-					"isActive",
-					"cardDescription"
+					"cardDescription",
+					"processType"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1126,31 +1191,6 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"ProcessType": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"isActive",
-					"created"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
 			"IProcessTypePayload": {
 				"properties": {
 					"name": {
@@ -1183,39 +1223,6 @@
 					"name",
 					"SAPCode",
 					"isActive"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"Process": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"processType": {
-						"$ref": "#/components/schemas/ProcessType"
-					},
-					"name": {
-						"type": "string"
-					},
-					"SAPCode": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"processType",
-					"name",
-					"SAPCode",
-					"isActive",
-					"created"
 				],
 				"type": "object",
 				"additionalProperties": false
