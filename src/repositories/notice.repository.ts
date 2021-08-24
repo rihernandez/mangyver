@@ -52,7 +52,7 @@ export const createNotice = async (
 };
 
 export const getNotice = async (id: string): Promise<Notice | null> => {
-  const repository = await getRepository(Notice).query("SP_Select_Notices", ["null",id])
+  const repository = await getRepository(Notice).query("SP_Select_Notices @userid='"+null +"', @id='"+id +"'")
   //"SP_Select_Notices @id='"+id +"'"
   //const notification = await repository.findOne({ id: id }, { relations: ['line', 'consecutive', 'cardType', 'priority', 'components', 'breakdown', 'failureType', 'affects', 'process'] });
   // if (!notification) return null;
