@@ -31,7 +31,7 @@ export interface INoticePayload {
   affectsFile: string;
   isActive?: boolean;
   cardDescription: string;
-  processType: Process
+  process: Process
 }
 
 export const getNotices = async (): Promise<Array<Notice>> => {

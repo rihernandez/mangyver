@@ -671,7 +671,7 @@
 					"cardDescription": {
 						"type": "string"
 					},
-					"processType": {
+					"process": {
 						"$ref": "#/components/schemas/Process"
 					},
 					"isActive": {
@@ -701,7 +701,7 @@
 					"affects",
 					"affectsFile",
 					"cardDescription",
-					"processType",
+					"process",
 					"isActive",
 					"created"
 				],
@@ -764,7 +764,7 @@
 					"cardDescription": {
 						"type": "string"
 					},
-					"processType": {
+					"process": {
 						"$ref": "#/components/schemas/Process"
 					}
 				},
@@ -786,7 +786,7 @@
 					"affects",
 					"affectsFile",
 					"cardDescription",
-					"processType"
+					"process"
 				],
 				"type": "object",
 				"additionalProperties": false

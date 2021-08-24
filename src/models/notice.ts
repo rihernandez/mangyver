@@ -54,8 +54,8 @@ import { Equipment } from "./equipment";
     affectsFile!: string;
     @Column({name: "cardDescription", nullable: true})
     cardDescription!: string;
-    @ManyToOne(type => Process, process => process.id)
-    processType!: Process;
+    @ManyToOne(type => Process, process => process.id, {nullable: true})
+    process!: Process;
 
     // @Column({ name: "Type" })
     // type!: string;
