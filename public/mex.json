@@ -7,7 +7,7 @@
     "fields": [
       {
         "label": "Elige el proceso",
-        "fieldData": "processType",
+        "fieldData": "process",
         "type": "select",
         "optionsEndpoint": "/processes",
         "options": [
@@ -442,7 +442,7 @@
       },
       {
         "label": "Título de la tarjeta",
-        "fieldData": "cardTittle",
+        "fieldData": "cardTitle",
         "type": "text",
         "validations": [
           "required"
@@ -766,7 +766,7 @@
       },
       {
         "label": "Título de la tarjeta",
-        "fieldData": "cardTittle",
+        "fieldData": "cardTitle",
         "type": "text",
         "validations": [
           "required"
