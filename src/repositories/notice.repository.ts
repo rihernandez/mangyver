@@ -36,7 +36,7 @@ export interface INoticePayload {
 
 export const getNotices = async (): Promise<Array<Notice>> => {
   const repository = getRepository(Notice);
-  return repository.find({ relations: ['line', 'consecutive', 'cardType', 'priority', 'components', 'breakdown', 'failureType', 'affects', 'processType'] });
+  return repository.find({ relations: ['line', 'consecutive', 'cardType', 'priority', 'components', 'breakdown', 'failureType', 'affects', 'process'] });
 };
 
 export const createNotice = async (
