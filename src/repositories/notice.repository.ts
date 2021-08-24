@@ -35,8 +35,9 @@ export interface INoticePayload {
 }
 
 export const getNotices = async (): Promise<Array<Notice>> => {
-  const repository = getRepository(Notice);
-  return repository.find({ relations: ['line', 'consecutive', 'cardType', 'priority', 'components', 'breakdown', 'failureType', 'affects', 'process'] });
+  const repository = getRepository(Notice).query("SP_Select_Notices")
+  //return repository.find({ relations: ['line', 'consecutive', 'cardType', 'priority', 'components', 'breakdown', 'failureType', 'affects', 'process']});
+  return repository;
 };
 
 export const createNotice = async (
@@ -51,8 +52,16 @@ export const createNotice = async (
 };
 
 export const getNotice = async (id: string): Promise<Notice | null> => {
-  const repository = getRepository(Notice);
-  const notification = await repository.findOne({ id: id }, { relations: ['line', 'consecutive', 'cardType', 'priority', 'components', 'breakdown', 'failureType', 'affects', 'processType'] });
-  if (!notification) return null;
-  return notification;
+  const repository = await getRepository(Notice).query("SP_Select_Notices", ["null",id])
+  //"SP_Select_Notices @id='"+id +"'"
+  //const notification = await repository.findOne({ id: id }, { relations: ['line', 'consecutive', 'cardType', 'priority', 'components', 'breakdown', 'failureType', 'affects', 'process'] });
+  // if (!notification) return null;
+  // const entries = Object.entries(notification);
+  //  entries.map(entry => 
+    
+  //   console.log(Object.assign(entry, { 9: +entry[0] })));
+
+  // return notification;
+  console.log(repository);
+  return repository;
 };
