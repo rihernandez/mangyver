@@ -22,7 +22,7 @@ export interface INoticePayload {
   equipmentType: string;
   consecutive: Consecutive;
   cardType: Card;
-  cardTittle: string;
+  cardTitle: string;
   priority: Priority;
   components: Component;
   breakdown:Breakdown;

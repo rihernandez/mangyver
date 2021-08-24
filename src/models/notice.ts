@@ -38,8 +38,8 @@ import { Equipment } from "./equipment";
     consecutive!: Consecutive;
     @ManyToOne(type => Card, card => card.id)
     cardType!: Card;
-    @Column({name: "cardTittle", nullable: true})
-    cardTittle!: string;
+    @Column({name: "cardTitle", nullable: true})
+    cardTitle!: string;
     @ManyToOne(type => Priority, priority => priority.id)
     priority!: Priority;
     @ManyToOne(type => Component, cp => cp.id)
