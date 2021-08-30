@@ -1,4 +1,4 @@
-import { Get, Route, Tags,  Post, Body, Path } from "tsoa";
+import { Get, Route, Tags,  Post, Body, Path, Query } from "tsoa";
 import {Notice} from '../models'
 import {getNotice, getNotices, createNotice, INoticePayload} from '../repositories/notice.repository'
 
@@ -16,7 +16,7 @@ export default class NoticeController {
   }
 
   @Get("/:id")
-  public async getNotice(@Path() id: string): Promise<Notice | null> {
-    return getNotice(id)
+  public async getNotice(@Path() id: string, @Query() top: unknown,  @Query() from: unknown, @Query() dateFrom: unknown, @Query() dateEnd: unknown, @Query() sapForm: boolean ): Promise<Notice | null> {
+    return getNotice(id, Number(top), Number(from), String(dateFrom), String(dateEnd), sapForm)
   }
 }
