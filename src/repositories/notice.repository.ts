@@ -37,12 +37,13 @@ export interface INoticePayload {
 
 export const getNotices = async (
   userId: string,
-  top: number,
-  from: number,
-  dateFrom: string,
-  dateEnd: string,
-  sapForm: boolean
+  top?: number,
+  from?: number,
+  dateFrom?: string,
+  dateEnd?: string,
+  sapForm?: boolean
 ): Promise<Array<Notice>> => {
+
   const repository = getRepository(Notice).query(
     "SP_Select_Notices @userid='" +
     userId +

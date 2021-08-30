@@ -8,7 +8,7 @@ import {getNotice, getNotices, createNotice, INoticePayload} from '../repositori
 export default class NoticeController {
   @Get("/")
   public async getNotices(@Query() profileId: string, @Query() top: unknown,  @Query() from: unknown, @Query() dateFrom: unknown, @Query() dateEnd: unknown, @Query() sapForm: boolean ): Promise<Array<Notice>> {
-    return getNotices(profileId, Number(top), Number(from), String(dateFrom), String(dateEnd), sapForm);
+    return getNotices(profileId, Number(top || 0), Number(from || 0), String(dateFrom || "19000101"), String(dateEnd || "19000101"), sapForm);
   }
 
   @Post("/")
