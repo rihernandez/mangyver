@@ -35,9 +35,33 @@ export interface INoticePayload {
   process: Process;
 }
 
-export const getNotices = async (): Promise<Array<Notice>> => {
-  const repository = getRepository(Notice).query("SP_Select_Notices");
+export const getNotices = async (
+  userId: string,
+  top: number,
+  from: number,
+  dateFrom: string,
+  dateEnd: string,
+  sapForm: boolean
+): Promise<Array<Notice>> => {
+  const repository = getRepository(Notice).query(
+    "SP_Select_Notices @userid='" +
+    userId +
+    "', @id=" +
+    null +
+    ", @top='" +
+    top +
+    "', @from='" +
+    from +
+    "', @DateFrom='" +
+    dateFrom +
+    "', @DateEnd='" +
+    dateEnd +
+    "',@SAPForm='" +
+    sapForm +
+    "'"
+  );
   //return repository.find({ relations: ['line', 'consecutive', 'cardType', 'priority', 'components', 'breakdown', 'failureType', 'affects', 'process']});
+
   return repository;
 };
 
@@ -62,20 +86,20 @@ export const getNotice = async (
 ): Promise<Notice | null> => {
   const repository = await getRepository(Notice).query(
     "SP_Select_Notices @userid='" +
-      null +
-      "', @id='" +
-      id +
-      "', @top='" +
-      top +
-      "', @from='" +
-      from +
-      "', @DateFrom='" +
-      dateFrom +
-      "', @DateEnd='" +
-      dateEnd +
-      "',@SAPForm='" +
-      sapForm +
-      "'"
+    null +
+    "', @id='" +
+    id +
+    "', @top='" +
+    top +
+    "', @from='" +
+    from +
+    "', @DateFrom='" +
+    dateFrom +
+    "', @DateEnd='" +
+    dateEnd +
+    "',@SAPForm='" +
+    sapForm +
+    "'"
   );
   //"SP_Select_Notices @id='"+id +"'"
   //const notification = await repository.findOne({ id: id }, { relations: ['line', 'consecutive', 'cardType', 'priority', 'components', 'breakdown', 'failureType', 'affects', 'process'] });
