@@ -79,27 +79,12 @@ export const createNotice = async (
 
 export const getNotice = async (
   id: string,
-  top: number,
-  from: number,
-  dateFrom: string,
-  dateEnd: string,
-  sapForm: boolean
 ): Promise<Notice | null> => {
   const repository = await getRepository(Notice).query(
     "SP_Select_Notices @userid='" +
     null +
     "', @id='" +
     id +
-    "', @top='" +
-    top +
-    "', @from='" +
-    from +
-    "', @DateFrom='" +
-    dateFrom +
-    "', @DateEnd='" +
-    dateEnd +
-    "',@SAPForm='" +
-    sapForm +
     "'"
   );
   //"SP_Select_Notices @id='"+id +"'"

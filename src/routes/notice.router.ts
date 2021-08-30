@@ -14,7 +14,7 @@ router.get("/", async (_req, res) => {
   const profileId: any = await getUser((objectValues[0]));
 
   const controller = new NoticeController();
-  const response = await controller.getNotices( profileId.id, _req.query.top, _req.query.from, _req.query.dateFrom, _req.query.dateEnd, Boolean(_req.query.sapForm));
+  const response = await controller.getNotices( profileId.id, _req.query.top, _req.query.from, _req.query.dateFrom, _req.query.dateEnd, _req.query.sapForm);
   return res.send(response);
 });
 
@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   const controller = new NoticeController();
-  const response = await controller.getNotice(req.params.id, req.query.top, req.query.from, req.query.dateFrom, req.query.dateEnd, Boolean(req.query.sapForm));
+  const response = await controller.getNotice(req.params.id);
   if (!response) res.status(404).send({message: "No Notice found"})
   return res.send(response);
 });
