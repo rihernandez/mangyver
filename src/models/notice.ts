@@ -15,7 +15,8 @@ import { Line } from "./line";
 import { Priority } from "./priority";
 import { TypeFail } from "./typefail";
 import { Equipment } from "./equipment";
-  
+import { User } from "./user";
+
   @Entity("Notice")
   export class Notice {
     @PrimaryGeneratedColumn("uuid")
@@ -56,6 +57,8 @@ import { Equipment } from "./equipment";
     cardDescription!: string;
     @ManyToOne(type => Process, process => process.id, {nullable: true})
     process!: Process;
+    @ManyToOne(type => User, user => user.id, {nullable: true})
+    user!: User;
 
     // @Column({ name: "Type" })
     // type!: string;

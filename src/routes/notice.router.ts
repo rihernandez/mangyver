@@ -2,23 +2,22 @@ import { getUser } from '../repositories/user.repository'
 import express from "express";
 import NoticeController from "../controllers/notice.controller";
 import jwt_decode from "jwt-decode";
-import { Any } from 'typeorm';
+import UserInfo from "../middlewares/getUserFromToken"
 
 const router = express.Router();
 
-router.get("/", async (_req, res) => {
-  const headers = _req.headers;
-  const token = headers.auth;
-  const decoded : object = jwt_decode(JSON.stringify(token));
-  const objectValues = Object.values(decoded);
-  const profileId: any = await getUser((objectValues[0]));
-
+router.get("/", async (_req, res) => {   
+  const userInfo = new UserInfo()
+  const user = await userInfo.getUserFromToken(_req);
   const controller = new NoticeController();
-  const response = await controller.getNotices( profileId.id, _req.query.top, _req.query.from, _req.query.dateFrom, _req.query.dateEnd, _req.query.sapForm);
+  const response = await controller.getNotices( user.id, _req.query.top, _req.query.from, _req.query.dateFrom, _req.query.dateEnd, _req.query.sapForm);
   return res.send(response);
 });
 
 router.post("/", async (req, res) => {
+  const userInfo = new UserInfo()
+  const user = await userInfo.getUserFromToken(req);
+  req.body.user = user.id;
   const controller = new NoticeController();
   const response = await controller.createNotice(req.body);
   return res.send(response);

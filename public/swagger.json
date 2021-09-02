@@ -6,79 +6,6 @@
 		"requestBodies": {},
 		"responses": {},
 		"schemas": {
-			"User": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"username": {
-						"type": "string"
-					},
-					"password": {
-						"type": "string"
-					},
-					"email": {
-						"type": "string"
-					},
-					"role": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"username",
-					"password",
-					"email",
-					"role",
-					"isActive",
-					"created"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"IUserPayload": {
-				"properties": {
-					"name": {
-						"type": "string"
-					},
-					"username": {
-						"type": "string"
-					},
-					"password": {
-						"type": "string"
-					},
-					"email": {
-						"type": "string"
-					},
-					"role": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					}
-				},
-				"required": [
-					"name",
-					"username",
-					"password",
-					"email",
-					"role",
-					"isActive"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
 			"Zone": {
 				"properties": {
 					"id": {
@@ -141,6 +68,202 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"Operation": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"bus": {
+						"$ref": "#/components/schemas/Bus"
+					},
+					"code": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"bus",
+					"code",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"User": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"username": {
+						"type": "string"
+					},
+					"password": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"role": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
+					"area": {
+						"$ref": "#/components/schemas/Area"
+					},
+					"line": {
+						"$ref": "#/components/schemas/Line"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"username",
+					"password",
+					"email",
+					"role",
+					"isActive",
+					"created",
+					"operation",
+					"area",
+					"line"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Area": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"code": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
+					"user": {
+						"$ref": "#/components/schemas/User"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"code",
+					"isActive",
+					"created",
+					"operation",
+					"user"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Line": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"area": {
+						"$ref": "#/components/schemas/Area"
+					},
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
+					"user": {
+						"$ref": "#/components/schemas/User"
+					}
+				},
+				"required": [
+					"id",
+					"area",
+					"name",
+					"SAPCode",
+					"isActive",
+					"created",
+					"operation",
+					"user"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"IUserPayload": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"username": {
+						"type": "string"
+					},
+					"password": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"role": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"name",
+					"username",
+					"password",
+					"email",
+					"role",
+					"isActive"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"IBusPayload": {
 				"properties": {
 					"zone": {
@@ -181,35 +304,6 @@
 					"name",
 					"code",
 					"isActive"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"Area": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"code": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"code",
-					"isActive",
-					"created"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -287,39 +381,6 @@
 					"password",
 					"email",
 					"isActive"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"Line": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"area": {
-						"$ref": "#/components/schemas/Area"
-					},
-					"name": {
-						"type": "string"
-					},
-					"SAPCode": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"area",
-					"name",
-					"SAPCode",
-					"isActive",
-					"created"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -674,6 +735,9 @@
 					"process": {
 						"$ref": "#/components/schemas/Process"
 					},
+					"user": {
+						"$ref": "#/components/schemas/User"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -702,6 +766,7 @@
 					"affectsFile",
 					"cardDescription",
 					"process",
+					"user",
 					"isActive",
 					"created"
 				],
@@ -787,39 +852,6 @@
 					"affectsFile",
 					"cardDescription",
 					"process"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"Operation": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"bus": {
-						"$ref": "#/components/schemas/Bus"
-					},
-					"code": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"bus",
-					"code",
-					"isActive",
-					"created"
 				],
 				"type": "object",
 				"additionalProperties": false

@@ -6,6 +6,9 @@ import {
   ManyToOne
 } from "typeorm";
 import * as bcrypt from "bcryptjs";
+import { Operation } from "./operation";
+import { Area } from "./area";
+import { Line } from "./line";
 
 // enum Roles {
 //   Male,
@@ -41,6 +44,15 @@ export class User {
 
   @CreateDateColumn()
   created!: Date;
+
+  @ManyToOne(type => Operation, operation => operation.id, {nullable: true})
+  operation!: Operation;
+
+  @ManyToOne(type => Area, area => area.id, {nullable: true})
+  area!: Area;
+
+  @ManyToOne(type => Line, line => line.id, {nullable: true})
+  line!: Line;
 
   hashPassword() {
     this.password = bcrypt.hashSync(this.password, 8);

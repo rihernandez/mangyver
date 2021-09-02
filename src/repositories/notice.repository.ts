@@ -11,6 +11,7 @@ import {
   Priority,
   TypeFail,
   Process,
+  User
 } from "../models";
 
 export interface INoticePayload {

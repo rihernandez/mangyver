@@ -6,6 +6,8 @@ import {
     ManyToOne
   } from "typeorm";
 import { Area } from "./area";
+import { Operation } from "./operation";
+import { User } from "./user";
   
   @Entity("Line")
   export class Line {
@@ -27,5 +29,12 @@ import { Area } from "./area";
     @Column({ nullable: true, name: "Created" })
     @CreateDateColumn()
     created!: Date;
+
+    @ManyToOne(type => Operation, operation => operation.id, {nullable: true})
+    operation!: Operation;
+
+    @ManyToOne(type => User, user => user.id, {nullable: true})
+    user!: User;
+
   }
 
