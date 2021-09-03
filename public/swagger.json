@@ -136,6 +136,12 @@
 					},
 					"line": {
 						"$ref": "#/components/schemas/Line"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"SAPUser": {
+						"type": "string"
 					}
 				},
 				"required": [
@@ -149,7 +155,9 @@
 					"created",
 					"operation",
 					"area",
-					"line"
+					"line",
+					"SAPCode",
+					"SAPUser"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -346,6 +354,9 @@
 					"isActive": {
 						"type": "boolean"
 					},
+					"area": {
+						"$ref": "#/components/schemas/Area"
+					},
 					"created": {
 						"type": "string",
 						"format": "date-time"
@@ -356,6 +367,7 @@
 					"name",
 					"code",
 					"isActive",
+					"area",
 					"created"
 				],
 				"type": "object",
@@ -473,9 +485,8 @@
 					"id": {
 						"type": "string"
 					},
-					"Line": {
-						"type": "number",
-						"format": "double"
+					"line": {
+						"$ref": "#/components/schemas/Line"
 					},
 					"name": {
 						"type": "string"
@@ -493,7 +504,7 @@
 				},
 				"required": [
 					"id",
-					"Line",
+					"line",
 					"name",
 					"SAPCode",
 					"isActive",

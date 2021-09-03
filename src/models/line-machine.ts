@@ -25,8 +25,8 @@ import { Line } from "./line";
     // @JoinColumn({ name: "LineID" })
     // LineID: Line;
 
-    @Column({ name: "LineID" })
-    Line!: number;
+    @ManyToOne(() => Line, line => line.id)
+    line!: Line;
 
     @Column({ name: "Name" })
     name!: string;

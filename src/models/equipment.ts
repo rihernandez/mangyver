@@ -2,8 +2,10 @@ import {
     Entity,
     PrimaryGeneratedColumn,
     Column,
-    CreateDateColumn
+    CreateDateColumn,
+    ManyToOne
   } from "typeorm";
+import { Area } from "./area";
   
   @Entity("Equipment")
   export class Equipment {
@@ -19,6 +21,9 @@ import {
   
     @Column({ name: "Status", default: true })
     isActive!: boolean;
+
+    @ManyToOne(() => Area, area => area.id)
+    area!: Area;
 
     @Column({ nullable: true, name: "Created" })
     @CreateDateColumn()

@@ -54,6 +54,12 @@ export class User {
   @ManyToOne(type => Line, line => line.id, {nullable: true})
   line!: Line;
 
+  @Column({ nullable: true, name: "SAPCode" })
+  SAPCode!: string;
+
+  @Column({ nullable: true, name: "SAPUser" })
+  SAPUser!: string;
+
   hashPassword() {
     this.password = bcrypt.hashSync(this.password, 8);
   }
