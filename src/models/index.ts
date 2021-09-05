@@ -21,6 +21,7 @@ import { TypeFail } from "./typefail";
 import { Process } from "./process";
 import { Affect } from "./affect";
 import { Breakdown } from "./breakdown"
+import { Role } from "./role"
 export {
   User,
   Bus,
@@ -45,5 +46,6 @@ export {
   TypeFail,
   Process,
   Affect,
-  Breakdown
+  Breakdown,
+  Role
 };

@@ -6,6 +6,31 @@
 		"requestBodies": {},
 		"responses": {},
 		"schemas": {
+			"Role": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"Zone": {
 				"properties": {
 					"id": {
@@ -119,7 +144,7 @@
 						"type": "string"
 					},
 					"role": {
-						"type": "string"
+						"$ref": "#/components/schemas/Role"
 					},
 					"isActive": {
 						"type": "boolean"
@@ -255,7 +280,7 @@
 						"type": "string"
 					},
 					"role": {
-						"type": "string"
+						"$ref": "#/components/schemas/Role"
 					},
 					"isActive": {
 						"type": "boolean"
@@ -408,6 +433,9 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -420,6 +448,7 @@
 					"id",
 					"name",
 					"SAPCode",
+					"operation",
 					"isActive",
 					"created"
 				],
@@ -434,6 +463,9 @@
 					"name": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -445,6 +477,7 @@
 				"required": [
 					"id",
 					"name",
+					"operation",
 					"isActive",
 					"created"
 				],
@@ -462,6 +495,9 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -474,6 +510,7 @@
 					"id",
 					"name",
 					"SAPCode",
+					"operation",
 					"isActive",
 					"created"
 				],
@@ -527,6 +564,9 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -540,6 +580,7 @@
 					"machine",
 					"name",
 					"SAPCode",
+					"operation",
 					"isActive",
 					"created"
 				],
@@ -554,6 +595,9 @@
 					"name": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -565,6 +609,7 @@
 				"required": [
 					"id",
 					"name",
+					"operation",
 					"isActive",
 					"created"
 				],
@@ -611,6 +656,9 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -623,6 +671,7 @@
 					"id",
 					"name",
 					"SAPCode",
+					"operation",
 					"isActive",
 					"created"
 				],
@@ -668,6 +717,9 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -681,6 +733,7 @@
 					"processType",
 					"name",
 					"SAPCode",
+					"operation",
 					"isActive",
 					"created"
 				],
@@ -1111,12 +1164,16 @@
 					"name": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					}
 				},
 				"required": [
 					"name",
+					"operation",
 					"isActive"
 				],
 				"type": "object",
@@ -1133,6 +1190,9 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					}
@@ -1141,6 +1201,7 @@
 					"machine",
 					"name",
 					"SAPCode",
+					"operation",
 					"isActive"
 				],
 				"type": "object",
@@ -1154,6 +1215,9 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					}
@@ -1161,6 +1225,7 @@
 				"required": [
 					"name",
 					"SAPCode",
+					"operation",
 					"isActive"
 				],
 				"type": "object",
@@ -1222,6 +1287,9 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					}
@@ -1229,6 +1297,7 @@
 				"required": [
 					"name",
 					"SAPCode",
+					"operation",
 					"isActive"
 				],
 				"type": "object",
@@ -1281,6 +1350,9 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					}
@@ -1289,6 +1361,7 @@
 					"processType",
 					"name",
 					"SAPCode",
+					"operation",
 					"isActive"
 				],
 				"type": "object",
@@ -1302,6 +1375,9 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					}
@@ -1309,6 +1385,7 @@
 				"required": [
 					"name",
 					"SAPCode",
+					"operation",
 					"isActive"
 				],
 				"type": "object",
@@ -1322,6 +1399,9 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					}
@@ -1329,6 +1409,7 @@
 				"required": [
 					"name",
 					"SAPCode",
+					"operation",
 					"isActive"
 				],
 				"type": "object",

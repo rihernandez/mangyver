@@ -1,9 +1,10 @@
 import { getRepository } from "typeorm";
-import { Affect } from "../models";
+import { Affect, Operation } from "../models";
 
 export interface IAffectPayload {
   name: string;
   SAPCode: string;
+  operation: Operation
   isActive: boolean;
 }
 

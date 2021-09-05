@@ -11,11 +11,11 @@ import {
     @PrimaryGeneratedColumn("uuid",{ name: "RoleID" })
     id!: string;
   
-    @Column({ nullable: false, name: "Role" })
-    role!: string;
+    @Column({ nullable: false, name: "Name" })
+    name!: string;
 
-    @Column({ name: "Description" })
-    description!: string;
+    /* @Column({ name: "Description" })
+    description!: string; */
   
     @Column({ default: false, name: "Status" })
     isActive!: boolean;
