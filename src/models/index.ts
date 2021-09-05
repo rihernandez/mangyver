@@ -1,3 +1,6 @@
+import { MenuRole } from './menu-role';
+import { Menu } from './menu';
+import { SubAreaMachine } from './subareamachines';
 import { User } from "./user";
 import { Bus } from "./bus";
 import { Zone } from "./zone";
@@ -47,5 +50,8 @@ export {
   Process,
   Affect,
   Breakdown,
-  Role
+  Role,
+  SubAreaMachine,
+  Menu,
+  MenuRole
 };

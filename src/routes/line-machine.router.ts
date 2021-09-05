@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/", async (_req, res) => {
   const controller = new LineMachineController();
-  const response = await controller.getLineMachines();
+  const response = await controller.getLineMachines(<string>_req.query.line);
   return res.send(response);
 });
 
