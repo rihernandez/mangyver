@@ -1,10 +1,11 @@
 import { getRepository } from "typeorm";
-import { Component, LineMachine } from "../models";
+import { Component, LineMachine, Operation } from "../models";
 
 export interface IComponentPayload {
   machine: LineMachine;
   name: string;
   SAPCode: string;
+  operation: Operation;
   isActive: boolean;
 }
 

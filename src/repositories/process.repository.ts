@@ -1,10 +1,11 @@
 import { getRepository } from "typeorm";
-import { Process, ProcessType } from "../models";
+import { Process, ProcessType,Operation } from "../models";
 
 export interface IProcessPayload {
   processType: ProcessType;
   name: string;
   SAPCode: string;
+  operation: Operation
   isActive: boolean;
 
 }

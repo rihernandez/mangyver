@@ -1,4 +1,4 @@
-import { Get, Route, Tags,  Post, Body, Path } from "tsoa";
+import { Get, Route, Tags,  Post, Body, Path, Query } from "tsoa";
 import {LineMachine} from '../models'
 import {getLineMachines, createLineMachine, ILineMachinePayload, getLineMachine} from '../repositories/line-machine.repository'
 
@@ -6,8 +6,8 @@ import {getLineMachines, createLineMachine, ILineMachinePayload, getLineMachine}
 @Tags("LineMachine")
 export default class LineMachineController {
   @Get("/")
-  public async getLineMachines(): Promise<Array<LineMachine>> {
-    return getLineMachines()
+  public async getLineMachines(@Query() line?: string): Promise<Array<LineMachine>> {
+    return getLineMachines(line)
   }
 
   @Post("/")

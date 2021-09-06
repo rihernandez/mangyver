@@ -6,6 +6,103 @@
 		"requestBodies": {},
 		"responses": {},
 		"schemas": {
+			"MenuRole": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"menu": {
+						"$ref": "#/components/schemas/Menu"
+					},
+					"role": {
+						"$ref": "#/components/schemas/Role"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"menu",
+					"role",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Menu": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"URL": {
+						"type": "string"
+					},
+					"roles": {
+						"items": {
+							"$ref": "#/components/schemas/MenuRole"
+						},
+						"type": "array"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"URL",
+					"roles",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Role": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"menus": {
+						"items": {
+							"$ref": "#/components/schemas/MenuRole"
+						},
+						"type": "array"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"menus",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"Zone": {
 				"properties": {
 					"id": {
@@ -119,7 +216,7 @@
 						"type": "string"
 					},
 					"role": {
-						"type": "string"
+						"$ref": "#/components/schemas/Role"
 					},
 					"isActive": {
 						"type": "boolean"
@@ -255,7 +352,7 @@
 						"type": "string"
 					},
 					"role": {
-						"type": "string"
+						"$ref": "#/components/schemas/Role"
 					},
 					"isActive": {
 						"type": "boolean"
@@ -408,6 +505,9 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -420,6 +520,7 @@
 					"id",
 					"name",
 					"SAPCode",
+					"operation",
 					"isActive",
 					"created"
 				],
@@ -434,6 +535,9 @@
 					"name": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -445,6 +549,7 @@
 				"required": [
 					"id",
 					"name",
+					"operation",
 					"isActive",
 					"created"
 				],
@@ -462,6 +567,9 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -474,6 +582,7 @@
 					"id",
 					"name",
 					"SAPCode",
+					"operation",
 					"isActive",
 					"created"
 				],
@@ -527,6 +636,9 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -540,6 +652,7 @@
 					"machine",
 					"name",
 					"SAPCode",
+					"operation",
 					"isActive",
 					"created"
 				],
@@ -554,6 +667,9 @@
 					"name": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -565,6 +681,7 @@
 				"required": [
 					"id",
 					"name",
+					"operation",
 					"isActive",
 					"created"
 				],
@@ -611,6 +728,9 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -623,6 +743,7 @@
 					"id",
 					"name",
 					"SAPCode",
+					"operation",
 					"isActive",
 					"created"
 				],
@@ -668,6 +789,9 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -681,6 +805,7 @@
 					"processType",
 					"name",
 					"SAPCode",
+					"operation",
 					"isActive",
 					"created"
 				],
@@ -910,6 +1035,9 @@
 					"code": {
 						"type": "string"
 					},
+					"SAPCode": {
+						"type": "string"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -925,6 +1053,7 @@
 					"id",
 					"name",
 					"code",
+					"SAPCode",
 					"isActive",
 					"area",
 					"created"
@@ -1111,12 +1240,16 @@
 					"name": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					}
 				},
 				"required": [
 					"name",
+					"operation",
 					"isActive"
 				],
 				"type": "object",
@@ -1133,6 +1266,9 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					}
@@ -1141,6 +1277,7 @@
 					"machine",
 					"name",
 					"SAPCode",
+					"operation",
 					"isActive"
 				],
 				"type": "object",
@@ -1154,6 +1291,9 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					}
@@ -1161,6 +1301,7 @@
 				"required": [
 					"name",
 					"SAPCode",
+					"operation",
 					"isActive"
 				],
 				"type": "object",
@@ -1222,6 +1363,9 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					}
@@ -1229,6 +1373,7 @@
 				"required": [
 					"name",
 					"SAPCode",
+					"operation",
 					"isActive"
 				],
 				"type": "object",
@@ -1281,6 +1426,9 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					}
@@ -1289,6 +1437,7 @@
 					"processType",
 					"name",
 					"SAPCode",
+					"operation",
 					"isActive"
 				],
 				"type": "object",
@@ -1302,6 +1451,9 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					}
@@ -1309,6 +1461,7 @@
 				"required": [
 					"name",
 					"SAPCode",
+					"operation",
 					"isActive"
 				],
 				"type": "object",
@@ -1322,6 +1475,9 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					}
@@ -1329,6 +1485,7 @@
 				"required": [
 					"name",
 					"SAPCode",
+					"operation",
 					"isActive"
 				],
 				"type": "object",
@@ -2785,7 +2942,16 @@
 					"LineMachine"
 				],
 				"security": [],
-				"parameters": []
+				"parameters": [
+					{
+						"in": "query",
+						"name": "line",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
 			},
 			"post": {
 				"operationId": "CreateLineMachine",

@@ -1,8 +1,10 @@
+import { Operation } from '../models';
 import { getRepository } from "typeorm";
 import { Card } from "../models";
 
 export interface ICardPayload {
   name: string;
+  operation: Operation
   isActive: boolean;
 }
 

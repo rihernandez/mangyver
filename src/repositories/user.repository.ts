@@ -1,4 +1,4 @@
-import { Role } from "src/models/role";
+import { Role } from "../models";
 import { getRepository } from "typeorm";
 import { User } from "../models";
 
@@ -7,7 +7,7 @@ export interface IUserPayload {
   username: string;
   password: string;
   email: string;
-  role: string;
+  role: Role;
   isActive: boolean;
 }
 
