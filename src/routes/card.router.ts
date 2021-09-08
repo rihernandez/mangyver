@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/", async (_req, res) => {
   const controller = new CardController();
-  const response = await controller.getCards();
+  const response = await controller.getCards(<string>_req.query.process);
   return res.send(response);
 });
 

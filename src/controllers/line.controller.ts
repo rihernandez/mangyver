@@ -1,4 +1,4 @@
-import { Get, Route, Tags,  Post, Body, Path } from "tsoa";
+import { Get, Route, Tags,  Post, Body, Path, Query } from "tsoa";
 import {Line} from '../models'
 import {getLines, createLine, ILinePayload, getLine} from '../repositories/line.repository'
 
@@ -6,8 +6,8 @@ import {getLines, createLine, ILinePayload, getLine} from '../repositories/line.
 @Tags("Line")
 export default class LineController {
   @Get("/")
-  public async getLines(): Promise<Array<Line>> {
-    return getLines()
+  public async getLines(@Query() area?: string): Promise<Array<Line>> {
+    return getLines(area)
   }
 
   @Post("/")

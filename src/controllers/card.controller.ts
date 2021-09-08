@@ -1,4 +1,4 @@
-import { Get, Route, Tags,  Post, Body, Path, Put } from "tsoa";
+import { Get, Route, Tags,  Post, Body, Path, Put, Query } from "tsoa";
 import {Card} from '../models'
 import {getCards, createCard, ICardPayload, getCard} from '../repositories/card.repository'
 
@@ -6,8 +6,8 @@ import {getCards, createCard, ICardPayload, getCard} from '../repositories/card.
 @Tags("Card")
 export default class CardController {
   @Get("/")
-  public async getCards(): Promise<Array<Card>> {
-    return getCards()
+  public async getCards(@Query() process?: string): Promise<Array<Card>> {
+    return getCards(process)
   }
 
   @Post("/")

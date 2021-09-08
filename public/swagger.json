@@ -527,12 +527,43 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"Card": {
+			"ProcessType": {
 				"properties": {
 					"id": {
 						"type": "string"
 					},
 					"name": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Process": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"processType": {
+						"$ref": "#/components/schemas/ProcessType"
+					},
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
 						"type": "string"
 					},
 					"operation": {
@@ -548,8 +579,43 @@
 				},
 				"required": [
 					"id",
+					"processType",
+					"name",
+					"SAPCode",
+					"operation",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Card": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
+					"process": {
+						"$ref": "#/components/schemas/Process"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
 					"name",
 					"operation",
+					"process",
 					"isActive",
 					"created"
 				],
@@ -741,68 +807,6 @@
 				},
 				"required": [
 					"id",
-					"name",
-					"SAPCode",
-					"operation",
-					"isActive",
-					"created"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"ProcessType": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"isActive",
-					"created"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"Process": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"processType": {
-						"$ref": "#/components/schemas/ProcessType"
-					},
-					"name": {
-						"type": "string"
-					},
-					"SAPCode": {
-						"type": "string"
-					},
-					"operation": {
-						"$ref": "#/components/schemas/Operation"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"processType",
 					"name",
 					"SAPCode",
 					"operation",
@@ -1801,7 +1805,16 @@
 					"Area"
 				],
 				"security": [],
-				"parameters": []
+				"parameters": [
+					{
+						"in": "query",
+						"name": "operation",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
 			},
 			"post": {
 				"operationId": "CreateArea",
@@ -2578,7 +2591,16 @@
 					"Card"
 				],
 				"security": [],
-				"parameters": []
+				"parameters": [
+					{
+						"in": "query",
+						"name": "process",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
 			},
 			"post": {
 				"operationId": "CreateCard",
@@ -2851,7 +2873,16 @@
 					"Line"
 				],
 				"security": [],
-				"parameters": []
+				"parameters": [
+					{
+						"in": "query",
+						"name": "area",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
 			},
 			"post": {
 				"operationId": "CreateLine",

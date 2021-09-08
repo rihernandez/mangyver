@@ -8,8 +8,11 @@ export interface IAreaPayload {
   isActive: boolean;
 }
 
-export const getAreas = async (): Promise<Array<Area>> => {
+export const getAreas = async (operation?: string): Promise<Array<Area>> => {
   const areaRepository = getRepository(Area);
+  if (operation) {
+    return areaRepository.find({ operation: { id: operation } });
+  }
   return areaRepository.find();
 };
 

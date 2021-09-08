@@ -6,6 +6,7 @@ import {
     CreateDateColumn,
     ManyToOne
   } from "typeorm";
+import { Process } from './process';
   
   @Entity("Card")
   export class Card {
@@ -18,6 +19,9 @@ import {
 
     @ManyToOne(type => Operation, operation => operation.id)
     operation!: Operation;
+    
+    @ManyToOne(type => Process, process => process.id)
+    process!: Process;
   
     @Column({ name: "Status", default: true })
     isActive!: boolean;

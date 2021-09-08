@@ -1,11 +1,18 @@
 import express from "express";
+import UserInfo from "../middlewares/getUserFromToken";
 import AreaController from "../controllers/area.controller";
 
 const router = express.Router();
 
 router.get("/", async (_req, res) => {
   const controller = new AreaController();
-  const response = await controller.getAreas();
+
+  const userInfo = new UserInfo()
+  const user = await userInfo.getUserFromToken(_req);
+
+  // console.log("debuging", user.operation.id);
+
+  const response = await controller.getAreas(<string>user.operation.id);
   return res.send(response);
 });
 

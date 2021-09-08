@@ -1,4 +1,4 @@
-import { Get, Route, Tags,  Post, Body, Path } from "tsoa";
+import { Get, Route, Tags,  Post, Body, Path, Query} from "tsoa";
 import {Area} from '../models'
 import {getArea, getAreas, createArea, IAreaPayload} from '../repositories/area.repository'
 
@@ -6,8 +6,8 @@ import {getArea, getAreas, createArea, IAreaPayload} from '../repositories/area.
 @Tags("Area")
 export default class AreaController {
   @Get("/")
-  public async getAreas(): Promise<Array<Area>> {
-    return getAreas();
+  public async getAreas(@Query() operation?: string): Promise<Array<Area>> {
+    return getAreas(operation);
   }
 
   @Post("/")
