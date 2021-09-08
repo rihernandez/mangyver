@@ -10,7 +10,7 @@ import { ProcessType } from "./process-type";
 
 @Entity("Process")
 export class Process {
-  @PrimaryGeneratedColumn("uuid", { name: "AreaID" })
+  @PrimaryGeneratedColumn("uuid")
   id!: string;
 
   @ManyToOne(() => ProcessType, type => type.id)
