@@ -1,9 +1,10 @@
 import { getRepository } from "typeorm";
-import { Breakdown } from "../models";
+import { Breakdown, Operation } from "../models";
 
 export interface IBreakdownPayload {
   name: string;
   SAPCode: string;
+  operation: Operation
   isActive: boolean;
 }
 

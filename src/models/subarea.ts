@@ -18,6 +18,9 @@ import { Area } from "./area";
     @Column({ name: "Code" })
     code!: string;
   
+    @Column({ name: "SAPCode" })
+    SAPCode!: string;
+  
     @Column({ name: "Status", default: true })
     isActive!: boolean;
 

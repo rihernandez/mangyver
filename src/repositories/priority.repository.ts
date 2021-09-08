@@ -1,9 +1,10 @@
 import { getRepository } from "typeorm";
-import { Priority } from "../models";
+import { Priority, Operation } from "../models";
 
 export interface IPriorityPayload {
   name: string;
   SAPCode: string;
+  operation: Operation
   isActive: boolean;
 }
 

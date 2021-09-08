@@ -1,3 +1,6 @@
+import { MenuRole } from './menu-role';
+import { Menu } from './menu';
+import { SubAreaMachine } from './subareamachines';
 import { User } from "./user";
 import { Bus } from "./bus";
 import { Zone } from "./zone";
@@ -21,6 +24,7 @@ import { TypeFail } from "./typefail";
 import { Process } from "./process";
 import { Affect } from "./affect";
 import { Breakdown } from "./breakdown"
+import { Role } from "./role"
 export {
   User,
   Bus,
@@ -45,5 +49,9 @@ export {
   TypeFail,
   Process,
   Affect,
-  Breakdown
+  Breakdown,
+  Role,
+  SubAreaMachine,
+  Menu,
+  MenuRole
 };

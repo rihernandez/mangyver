@@ -1,3 +1,4 @@
+import { Operation } from './operation';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -20,6 +21,9 @@ export class Process {
 
   @Column({ name: "SAPCode" })
   SAPCode!: string;
+
+  @ManyToOne(type => Operation, operation => operation.id)
+    operation!: Operation;
 
   @Column({ name: "Status", default: true })
   isActive!: boolean;

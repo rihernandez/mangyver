@@ -1,3 +1,4 @@
+import { Menu, MenuRole, SubAreaMachine } from '../models';
 import { ConnectionOptions } from "typeorm";
 import * as dotenv from "dotenv";
 dotenv.config();
@@ -23,6 +24,7 @@ import { Process } from "../models";
 import { Affect } from "../models";
 import { Breakdown } from "../models";
 import { Notice } from "../models";
+import { Role } from "../models";
 
 dotenv.config();
 
@@ -37,7 +39,7 @@ const config: ConnectionOptions = {
     User, Zone, Bus, Ubication, Subarea, Operation, 
     Equipment, Area, Field, Section, Card, Component,
     Consecutive,Line,LineMachine,Priority, Process, ProcessType,
-    TypeFail, Affect,Breakdown, Notice
+    TypeFail, Affect,Breakdown, Notice, Role, SubAreaMachine, Menu, MenuRole
   ],
   synchronize: true,
 };

@@ -1,9 +1,10 @@
 import { getRepository } from "typeorm";
-import { Consecutive } from "../models";
+import { Consecutive, Operation } from "../models";
 
 export interface IConsecutivePayload {
   name: string;
   SAPCode: string;
+  operation: Operation
   isActive: boolean;
 }
 
