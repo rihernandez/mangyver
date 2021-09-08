@@ -30,11 +30,11 @@ dotenv.config();
 
 const config: ConnectionOptions = {
   type: "mssql",
-  host: process.env.MSSQL_HOST || "localhost",
-  port: Number(process.env.MSSQL_PORT) || 5432,
-  username: process.env.MSSQL_USER || "admin",
-  password: process.env.MSSQL_PASSWORD || "1234",
-  database: process.env.MSSQL_DB || "fixmaint",
+  host: process.env.MSSQL_HOST || process.env.HOST,
+  port: Number(process.env.MSSQL_PORT) || Number(process.env.PORT),
+  username: process.env.MSSQL_USER || process.env.USER,
+  password: process.env.MSSQL_PASSWORD || process.env.PASSWORD,
+  database: process.env.MSSQL_DB || process.env.DB,
   entities: [
     User, Zone, Bus, Ubication, Subarea, Operation, 
     Equipment, Area, Field, Section, Card, Component,
