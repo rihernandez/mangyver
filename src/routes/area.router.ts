@@ -13,7 +13,11 @@ router.get("/", async (_req, res) => {
   // console.log("debuging", user.operation.id);
 
   const response = await controller.getAreas(<string>user.operation.id);
-  return res.send(response);
+  const results = JSON.parse(JSON.stringify(response));
+  results.map( (result :any) => {
+    result.label = result.name;
+  })
+  return res.send(results);
 });
 
 router.post("/", async (req, res) => {

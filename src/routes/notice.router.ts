@@ -11,7 +11,11 @@ router.get("/", async (_req, res) => {
   const user = await userInfo.getUserFromToken(_req);
   const controller = new NoticeController();
   const response = await controller.getNotices( user.id, _req.query.top, _req.query.from, _req.query.dateFrom, _req.query.dateEnd, _req.query.sapForm);
-  return res.send(response);
+  const results = JSON.parse(JSON.stringify(response));
+  results.map( (result :any) => {
+    result.label = result.name;
+  })
+  return res.send(results);
 });
 
 router.post("/", async (req, res) => {

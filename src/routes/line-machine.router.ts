@@ -6,7 +6,11 @@ const router = express.Router();
 router.get("/", async (_req, res) => {
   const controller = new LineMachineController();
   const response = await controller.getLineMachines(<string>_req.query.line);
-  return res.send(response);
+  const results = JSON.parse(JSON.stringify(response));
+  results.map( (result :any) => {
+    result.label = result.name;
+  })
+  return res.send(results);
 });
 
 router.post("/", async (req, res) => {
