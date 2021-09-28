@@ -13,7 +13,7 @@ export interface IUserPayload {
 
 export const getUsers = async (): Promise<Array<User>> => {
   const userRepository = getRepository(User);
-  return userRepository.find();
+  return userRepository.find({ relations: ['operation', 'area', 'line', 'role']});
 };
 
 export const createUser = async (payload: IUserPayload): Promise<User> => {
