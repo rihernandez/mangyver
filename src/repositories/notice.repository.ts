@@ -11,6 +11,7 @@ import {
   Priority,
   TypeFail,
   Process,
+  Equipment,
   User
 } from "../models";
 
@@ -34,6 +35,24 @@ export interface INoticePayload {
   isActive?: boolean;
   cardDescription: string;
   process: Process;
+}
+
+export interface INoticenPayloadNewFormat {
+  processId: Process,
+  didCard: string,
+  failureTime: string,
+  department: string,
+  lineId: Line,
+  equipment: Equipment,
+  cardTypeId: Card,
+  cardTitle: string,
+  priorityId: Priority,
+  componentsId: Component,
+  breakdownId: Breakdown,
+  failureTypeId: TypeFail,
+  cardDescription: string,
+  affectsId: Affect,
+  oTCode: string
 }
 
 export const getNotices = async (
@@ -69,6 +88,17 @@ export const getNotices = async (
 
 export const createNotice = async (
   payload: INoticePayload
+): Promise<Notice> => {
+  const repository = getRepository(Notice);
+  const notice = new Notice();
+  return repository.save({
+    ...notice,
+    ...payload,
+  });
+};
+
+export const createnewNoticeFormat = async (
+  payload: INoticenPayloadNewFormat
 ): Promise<Notice> => {
   const repository = getRepository(Notice);
   const notice = new Notice();

@@ -27,6 +27,15 @@ router.post("/", async (req, res) => {
   return res.send(response);
 });
 
+router.post("/new-format", async (req, res) => {
+  const userInfo = new UserInfo()
+  const user = await userInfo.getUserFromToken(req);
+  req.body.user = user.id;
+  const controller = new NoticeController();
+  const response = await controller.createNoticeNewFormat(req.body);
+  return res.send(response);
+});
+
 router.get("/:id", async (req, res) => {
   const controller = new NoticeController();
   const response = await controller.getNotice(req.params.id);

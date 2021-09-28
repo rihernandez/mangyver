@@ -996,6 +996,74 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"INoticenPayloadNewFormat": {
+				"properties": {
+					"processId": {
+						"$ref": "#/components/schemas/Process"
+					},
+					"didCard": {
+						"type": "string"
+					},
+					"failureTime": {
+						"type": "string"
+					},
+					"department": {
+						"type": "string"
+					},
+					"lineId": {
+						"$ref": "#/components/schemas/Line"
+					},
+					"equipment": {
+						"$ref": "#/components/schemas/Equipment"
+					},
+					"cardTypeId": {
+						"$ref": "#/components/schemas/Card"
+					},
+					"cardTitle": {
+						"type": "string"
+					},
+					"priorityId": {
+						"$ref": "#/components/schemas/Priority"
+					},
+					"componentsId": {
+						"$ref": "#/components/schemas/Component"
+					},
+					"breakdownId": {
+						"$ref": "#/components/schemas/Breakdown"
+					},
+					"failureTypeId": {
+						"$ref": "#/components/schemas/TypeFail"
+					},
+					"cardDescription": {
+						"type": "string"
+					},
+					"affectsId": {
+						"$ref": "#/components/schemas/Affect"
+					},
+					"oTCode": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"processId",
+					"didCard",
+					"failureTime",
+					"department",
+					"lineId",
+					"equipment",
+					"cardTypeId",
+					"cardTitle",
+					"priorityId",
+					"componentsId",
+					"breakdownId",
+					"failureTypeId",
+					"cardDescription",
+					"affectsId",
+					"oTCode"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"IOperationPayload": {
 				"properties": {
 					"name": {
@@ -2072,6 +2140,38 @@
 						"application/json": {
 							"schema": {
 								"$ref": "#/components/schemas/INoticePayload"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/notices/new-format": {
+			"post": {
+				"operationId": "CreateNoticeNewFormat",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Notice"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Notice"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/INoticenPayloadNewFormat"
 							}
 						}
 					}

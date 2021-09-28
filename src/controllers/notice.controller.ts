@@ -1,7 +1,7 @@
 import { profile } from "console";
 import { Get, Route, Tags,  Post, Body, Path, Query } from "tsoa";
 import {Notice} from '../models'
-import {getNotice, getNotices, createNotice, INoticePayload} from '../repositories/notice.repository'
+import {getNotice, getNotices, createNotice, INoticePayload, INoticenPayloadNewFormat, createnewNoticeFormat} from '../repositories/notice.repository'
 
 @Route("notices")
 @Tags("Notice")
@@ -14,6 +14,11 @@ export default class NoticeController {
   @Post("/")
   public async createNotice(@Body() body: INoticePayload): Promise<Notice> {
     return createNotice(body)
+  }
+
+  @Post("/new-format")
+  public async createNoticeNewFormat(@Body() body: INoticenPayloadNewFormat): Promise<Notice> {
+    return createnewNoticeFormat(body)
   }
 
   @Get("/:id")

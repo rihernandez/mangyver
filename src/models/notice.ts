@@ -31,25 +31,25 @@ import { User } from "./user";
     department!: string;
     @Column({name: "equipmentCode", nullable: true})
     equipmentCode!: string;
-    @ManyToOne(type => Line, line => line.id)
+    @ManyToOne(type => Line, line => line.id, {nullable: true})
     line!: Line;
     @Column({name: "Equipment", nullable: true})
     equipmentType!: string;
-    @ManyToOne(type => Consecutive, cn => cn.id)
+    @ManyToOne(type => Consecutive, cn => cn.id, {nullable: true})
     consecutive!: Consecutive;
-    @ManyToOne(type => Card, card => card.id)
+    @ManyToOne(type => Card, card => card.id, {nullable: true})
     cardType!: Card;
     @Column({name: "cardTitle", nullable: true})
     cardTitle!: string;
-    @ManyToOne(type => Priority, priority => priority.id)
+    @ManyToOne(type => Priority, priority => priority.id, {nullable: true})
     priority!: Priority;
-    @ManyToOne(type => Component, cp => cp.id)
+    @ManyToOne(type => Component, cp => cp.id, {nullable: true})
     components!: Component;
-    @ManyToOne(type => Breakdown, bdwn => bdwn.id)
+    @ManyToOne(type => Breakdown, bdwn => bdwn.id, {nullable: true})
     breakdown!:Breakdown;
-    @ManyToOne(type => TypeFail, tp => tp.id)
+    @ManyToOne(type => TypeFail, tp => tp.id, {nullable: true})
     failureType!: TypeFail;
-    @ManyToOne(type => Affect, affect => affect.id)
+    @ManyToOne(type => Affect, affect => affect.id, {nullable: true})
     affects!: Affect;
     @Column({name: "affectsFile", nullable: true})
     affectsFile!: string;
