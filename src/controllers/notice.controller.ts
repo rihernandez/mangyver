@@ -11,12 +11,12 @@ export default class NoticeController {
     return getNotices(profileId, Number(top || 0), Number(from || 0), String(dateFrom || "19000101"), String(dateEnd || "19000101"), Boolean(sapForm || 0));
   }
 
-  @Post("/")
+  @Post("/old_notice")
   public async createNotice(@Body() body: INoticePayload): Promise<Notice> {
     return createNotice(body)
   }
 
-  @Post("/new-format")
+  @Post("/")
   public async createNoticeNewFormat(@Body() body: INoticenPayloadNewFormat): Promise<Notice> {
     return createnewNoticeFormat(body)
   }

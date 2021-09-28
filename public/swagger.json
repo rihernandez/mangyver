@@ -2154,38 +2154,6 @@
 				]
 			},
 			"post": {
-				"operationId": "CreateNotice",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/Notice"
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"Notice"
-				],
-				"security": [],
-				"parameters": [],
-				"requestBody": {
-					"required": true,
-					"content": {
-						"application/json": {
-							"schema": {
-								"$ref": "#/components/schemas/INoticePayload"
-							}
-						}
-					}
-				}
-			}
-		},
-		"/notices/new-format": {
-			"post": {
 				"operationId": "CreateNoticeNewFormat",
 				"responses": {
 					"200": {
@@ -2210,6 +2178,38 @@
 						"application/json": {
 							"schema": {
 								"$ref": "#/components/schemas/INoticenPayloadNewFormat"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/notices/old_notice": {
+			"post": {
+				"operationId": "CreateNotice",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Notice"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Notice"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/INoticePayload"
 							}
 						}
 					}
