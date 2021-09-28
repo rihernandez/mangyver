@@ -43,6 +43,9 @@ export class User {
   @Column({ default: false, name: "Status" })
   isActive!: boolean;
 
+  @Column({ default: "pending", name: "auth" })
+  auth!: string;
+
   @CreateDateColumn()
   created!: Date;
 

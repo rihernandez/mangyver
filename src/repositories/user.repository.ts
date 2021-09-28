@@ -31,3 +31,12 @@ export const getUser = async (id: string): Promise<User | null> => {
   if (!user) return null;
   return user;
 };
+
+export const updateUserStatus = async (id: string): Promise<User | null> => {
+  const userRepository = getRepository(User);
+  const user = await userRepository.findOne({ id: id },{ relations: ['operation', 'area', 'line', 'role']});
+  if (!user) return null;
+  user.auth = "active";
+  await userRepository.save(user);
+  return user;
+};

@@ -221,6 +221,9 @@
 					"isActive": {
 						"type": "boolean"
 					},
+					"auth": {
+						"type": "string"
+					},
 					"created": {
 						"type": "string",
 						"format": "date-time"
@@ -249,6 +252,7 @@
 					"email",
 					"role",
 					"isActive",
+					"auth",
 					"created",
 					"operation",
 					"area",
@@ -1634,6 +1638,40 @@
 			}
 		},
 		"/users/{id}": {
+			"put": {
+				"operationId": "UpdateUserStatus",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/User"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"User"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			},
 			"get": {
 				"operationId": "GetUser",
 				"responses": {
