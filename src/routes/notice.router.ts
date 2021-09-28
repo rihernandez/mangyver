@@ -18,7 +18,7 @@ router.get("/", async (_req, res) => {
   return res.send(results);
 });
 
-router.post("/old", async (req, res) => {
+router.post("/old_notice", async (req, res) => {
   const userInfo = new UserInfo()
   const user = await userInfo.getUserFromToken(req);
   req.body.user = user.id;
