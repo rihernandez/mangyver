@@ -18,7 +18,7 @@ router.get("/", async (_req, res) => {
   return res.send(results);
 });
 
-router.post("/", async (req, res) => {
+router.post("/old_notice", async (req, res) => {
   const userInfo = new UserInfo()
   const user = await userInfo.getUserFromToken(req);
   req.body.user = user.id;
@@ -27,7 +27,7 @@ router.post("/", async (req, res) => {
   return res.send(response);
 });
 
-router.post("/new-format", async (req, res) => {
+router.post("/", async (req, res) => {
   const userInfo = new UserInfo()
   const user = await userInfo.getUserFromToken(req);
   req.body.user = user.id;
