@@ -1,3 +1,4 @@
+import { Notification } from './notification';
 import { OperationNumber } from './operation-number';
 import { Deviation } from './deviation';
 import { MenuRole } from './menu-role';
@@ -57,5 +58,6 @@ export {
   Menu,
   MenuRole,
   Deviation,
-  OperationNumber
+  OperationNumber,
+  Notification
 };
