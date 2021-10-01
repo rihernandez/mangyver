@@ -1,3 +1,4 @@
+import { Deviation } from './../models/deviation';
 import { Menu, MenuRole, SubAreaMachine } from '../models';
 import { ConnectionOptions } from "typeorm";
 import * as dotenv from "dotenv";
@@ -39,7 +40,7 @@ const config: ConnectionOptions = {
     User, Zone, Bus, Ubication, Subarea, Operation, 
     Equipment, Area, Field, Section, Card, Component,
     Consecutive,Line,LineMachine,Priority, Process, ProcessType,
-    TypeFail, Affect,Breakdown, Notice, Role, SubAreaMachine, Menu, MenuRole
+    TypeFail, Affect,Breakdown, Notice, Role, SubAreaMachine, Menu, MenuRole, Deviation
   ],
   synchronize: true,
 };

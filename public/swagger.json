@@ -1566,6 +1566,55 @@
 				],
 				"type": "object",
 				"additionalProperties": false
+			},
+			"Deviation": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"operation",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"IDeviationPayload": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
+					"isActive": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"name",
+					"operation",
+					"isActive"
+				],
+				"type": "object",
+				"additionalProperties": false
 			}
 		},
 		"securitySchemes": {}
@@ -3721,6 +3770,106 @@
 				},
 				"tags": [
 					"Breakdown"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/deviations": {
+			"get": {
+				"operationId": "GetDeviations",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/Deviation"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Deviation"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "operation",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			},
+			"post": {
+				"operationId": "CreateDeviation",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Deviation"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Deviation"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/IDeviationPayload"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/deviations/{id}": {
+			"get": {
+				"operationId": "GetDeviation",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/Deviation"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Deviation"
 				],
 				"security": [],
 				"parameters": [
