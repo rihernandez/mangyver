@@ -1615,6 +1615,55 @@
 				],
 				"type": "object",
 				"additionalProperties": false
+			},
+			"OperationNumber": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"operation",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"IOperationNumberPayload": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
+					"isActive": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"name",
+					"operation",
+					"isActive"
+				],
+				"type": "object",
+				"additionalProperties": false
 			}
 		},
 		"securitySchemes": {}
@@ -3870,6 +3919,106 @@
 				},
 				"tags": [
 					"Deviation"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/operation-number": {
+			"get": {
+				"operationId": "GetOperationNumbers",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/OperationNumber"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"OperationNumber"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "operation",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			},
+			"post": {
+				"operationId": "CreateOperationNumber",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/OperationNumber"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"OperationNumber"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/IOperationNumberPayload"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/operation-number/{id}": {
+			"get": {
+				"operationId": "GetOperationNumber",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/OperationNumber"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"OperationNumber"
 				],
 				"security": [],
 				"parameters": [

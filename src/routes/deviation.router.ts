@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
     const controller = new DeviationController();
     const response = await controller.getDeviation(req.params.id);
-    if (!response) res.status(404).send({message: "No affect found"})
+    if (!response) res.status(404).send({message: "No deviation found"})
     return res.send(response);
 });
   

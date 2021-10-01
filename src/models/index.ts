@@ -1,3 +1,4 @@
+import { OperationNumber } from './operation-number';
 import { Deviation } from './deviation';
 import { MenuRole } from './menu-role';
 import { Menu } from './menu';
@@ -55,5 +56,6 @@ export {
   SubAreaMachine,
   Menu,
   MenuRole,
-  Deviation
+  Deviation,
+  OperationNumber
 };
