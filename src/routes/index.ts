@@ -26,6 +26,9 @@ import TypeFailRouter from "./type-fail.router"
 import ProcessRouter from "./process.router"
 import AffectRouter from "./affect.router"
 import BreakdownRouter  from "./breakdown.router";
+import DeviationRouter  from "./deviation.router";
+import OperatioNumberRouter from './operation-number.router'
+import NotificationRouter from './notification.router'
 
 const router = express.Router();
 
@@ -61,6 +64,9 @@ router.use("/type-fails", [checkJwt], TypeFailRouter)
 router.use("/processes", [checkJwt], ProcessRouter)
 router.use("/affects", [checkJwt], AffectRouter)
 router.use("/breakdowns", [checkJwt], BreakdownRouter)
+router.use("/deviations", [checkJwt], DeviationRouter)
+router.use("/operation-numbers", [checkJwt], OperatioNumberRouter)
+router.use("/notifications", [checkJwt], NotificationRouter)
 
 export default router;
 export { initRoute, metadata };

@@ -1566,6 +1566,183 @@
 				],
 				"type": "object",
 				"additionalProperties": false
+			},
+			"Deviation": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"operation",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"IDeviationPayload": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
+					"isActive": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"name",
+					"operation",
+					"isActive"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"OperationNumber": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"operation",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"IOperationNumberPayload": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
+					"isActive": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"name",
+					"operation",
+					"isActive"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Notification": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"operationNum": {
+						"$ref": "#/components/schemas/OperationNumber"
+					},
+					"deviation": {
+						"$ref": "#/components/schemas/Deviation"
+					},
+					"OTCode": {
+						"type": "string"
+					},
+					"startHour": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"endHour": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"isDone": {
+						"type": "boolean"
+					},
+					"comments": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"operationNum",
+					"deviation",
+					"OTCode",
+					"startHour",
+					"endHour",
+					"isDone",
+					"comments"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"INotificationPayload": {
+				"properties": {
+					"deviation": {
+						"$ref": "#/components/schemas/Deviation"
+					},
+					"operationNum": {
+						"$ref": "#/components/schemas/OperationNumber"
+					},
+					"OTCode": {
+						"type": "string"
+					},
+					"startHour": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"endHour": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"isDone": {
+						"type": "boolean"
+					},
+					"comments": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"deviation",
+					"operationNum",
+					"OTCode",
+					"startHour",
+					"endHour",
+					"isDone"
+				],
+				"type": "object",
+				"additionalProperties": false
 			}
 		},
 		"securitySchemes": {}
@@ -3721,6 +3898,297 @@
 				},
 				"tags": [
 					"Breakdown"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/deviations": {
+			"get": {
+				"operationId": "GetDeviations",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/Deviation"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Deviation"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "operation",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			},
+			"post": {
+				"operationId": "CreateDeviation",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Deviation"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Deviation"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/IDeviationPayload"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/deviations/{id}": {
+			"get": {
+				"operationId": "GetDeviation",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/Deviation"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Deviation"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/operation-number": {
+			"get": {
+				"operationId": "GetOperationNumbers",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/OperationNumber"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"OperationNumber"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "operation",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			},
+			"post": {
+				"operationId": "CreateOperationNumber",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/OperationNumber"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"OperationNumber"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/IOperationNumberPayload"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/operation-number/{id}": {
+			"get": {
+				"operationId": "GetOperationNumber",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/OperationNumber"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"OperationNumber"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/notifications": {
+			"get": {
+				"operationId": "GetNotifications",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/Notification"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Notification"
+				],
+				"security": [],
+				"parameters": []
+			},
+			"post": {
+				"operationId": "CreateNotification",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Notification"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Notification"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/INotificationPayload"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/notifications/{id}": {
+			"get": {
+				"operationId": "GetNotification",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/Notification"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Notification"
 				],
 				"security": [],
 				"parameters": [
