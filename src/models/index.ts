@@ -28,6 +28,7 @@ import { Process } from "./process";
 import { Affect } from "./affect";
 import { Breakdown } from "./breakdown"
 import { Role } from "./role"
+import {Session} from "./session"
 export {
   User,
   Bus,
@@ -59,5 +60,6 @@ export {
   MenuRole,
   Deviation,
   OperationNumber,
-  Notification
+  Notification,
+  Session
 };

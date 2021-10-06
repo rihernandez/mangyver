@@ -28,6 +28,7 @@ import { Affect } from "../models";
 import { Breakdown } from "../models";
 import { Notice } from "../models";
 import { Role } from "../models";
+import { Session } from "../models";
 
 dotenv.config();
 
@@ -43,7 +44,7 @@ const config: ConnectionOptions = {
     Equipment, Area, Field, Section, Card, Component,
     Consecutive,Line,LineMachine,Priority, Process, ProcessType,
     TypeFail, Affect,Breakdown, Notice, Role, SubAreaMachine, Menu, MenuRole, 
-    Deviation, OperationNumber, Notification
+    Deviation, OperationNumber, Notification, Session
   ],
   synchronize: true,
 };

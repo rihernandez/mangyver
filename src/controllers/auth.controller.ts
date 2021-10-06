@@ -4,9 +4,12 @@ import * as jwt from "jsonwebtoken";
 import { getRepository } from "typeorm";
 
 
-import { User } from "../models";
+import { User, Session } from "../models";
 import secret from "../config/jwt.secret";
 import { ILoginPayload } from "src/repositories/login.repository";
+import { createSession, ISessionPayload } from "../repositories/session.repository"
+
+
 
 
 @Route("auth")
@@ -15,6 +18,7 @@ class AuthController {
 
 
   public static async login (req: Request, res: Response) {
+  
     //Check if username and password are set
     
   
@@ -46,10 +50,34 @@ class AuthController {
       { expiresIn: "24h" }
     );
 
+    const payload = {
+      token: token,
+      Session: "",
+      ip: "",
+      mac: "",
+      os: "",
+      device: "",
+      navigator: "",
+      appVersion: "",
+      isActive:true
+    }
+    
+    createSession(payload)
     //Send the jwt in the response
     res.send(token);
     // return token;
   };
+
+  public static async logout(req: Request, res: Response){
+
+    const repository = getRepository(Session);
+    const session = await repository.findOne({ token: <string>req.headers["auth"] });
+    if (!session) return null;
+    session.isActive = false;
+    await repository.save(session);
+    res.send({msg:"token inactived!"});
+
+  }
 
   // @Post("/")
   // public static login = async (req: Request, res: Response) => {
@@ -130,3 +158,7 @@ class AuthController {
   // };
 }
 export default AuthController;
+
+function payload(payload: any) {
+  throw new Error("Function not implemented.");
+}
