@@ -4,7 +4,7 @@ import { Session } from "../models";
 
 export interface ISessionPayload {
     token: string
-    Session: string;
+    session: string;
     ip: string;
     mac: string;
     os: string;

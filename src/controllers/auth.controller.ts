@@ -52,13 +52,13 @@ class AuthController {
 
     const payload = {
       token: token,
-      Session: "",
-      ip: "",
-      mac: "",
-      os: "",
-      device: "",
-      navigator: "",
-      appVersion: "",
+      session: req.params.session,
+      ip: req.params.ip,
+      mac: req.params.mac,
+      os:req.params.os,
+      device:req.params.device,
+      navigator: req.params.navigator,
+      appVersion: req.params.appVersion,
       isActive:true
     }
     
