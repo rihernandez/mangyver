@@ -49,7 +49,7 @@ router.use("/areas", [checkJwt], AreaRouter);
 router.use("/subareas", [checkJwt], SubareaRouter);
 router.use("/equipments", [checkJwt], EquipmentRouter);
 router.use("/notices", [checkJwt], NoticeRouter);
-router.use("/operations", [checkJwt], OperationRouter);
+router.use("/operations", OperationRouter);
 router.use("/ubications", [checkJwt], UbicationRouter);
 router.use("/fields", [checkJwt], FieldRouter)
 router.use("/sections", [checkJwt], SectionRouter)
