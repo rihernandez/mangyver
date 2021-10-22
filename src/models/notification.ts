@@ -22,10 +22,10 @@ export class Notification {
     @Column({ name: "OTCode", length: 50 })
     OTCode!: string;
 
-    @Column('time', { name: "StartHour" })
+    @Column({ name: "StartHour", nullable: true })
     startHour!: Date;
 
-    @Column('time', { name: "EndHour" })
+    @Column({ name: "EndHour", nullable: true })
     endHour!: Date;
 
     @Column({ name: "IsDone" })

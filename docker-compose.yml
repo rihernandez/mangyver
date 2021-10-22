@@ -1,0 +1,8 @@
+version: '3.3'
+services:
+ mangyver:
+   image: mangyver-api #nombre de la imagen que hemos creado
+   restart: always
+   container_name: mangyver
+   ports:
+     - '8000:0000'

@@ -19,6 +19,7 @@ export const getNotifications = async (): Promise<Array<Notification>> => {
 export const createNotification = async (payload: INotificationPayload): Promise<Notification> => {
     const repository = getRepository(Notification);
     const notification = new Notification();
+    console.log( payload.startHour.toString());
     return repository.save({
         ...notification,
         ...payload,
