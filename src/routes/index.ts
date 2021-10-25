@@ -29,6 +29,7 @@ import BreakdownRouter  from "./breakdown.router";
 import DeviationRouter  from "./deviation.router";
 import OperatioNumberRouter from './operation-number.router'
 import NotificationRouter from './notification.router'
+import RoleRouter from './role.router'
 
 const router = express.Router();
 
@@ -67,6 +68,7 @@ router.use("/breakdowns", [checkJwt], BreakdownRouter)
 router.use("/deviations", [checkJwt], DeviationRouter)
 router.use("/operation-numbers", [checkJwt], OperatioNumberRouter)
 router.use("/notifications", [checkJwt], NotificationRouter)
+router.use("/roles", RoleRouter)
 
 export default router;
 export { initRoute, metadata };
