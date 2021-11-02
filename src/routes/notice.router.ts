@@ -6,6 +6,7 @@ import UserInfo from "../middlewares/getUserFromToken"
 
 const router = express.Router();
 
+
 router.get("/", async (_req, res) => {   
   const userInfo = new UserInfo()
   const user = await userInfo.getUserFromToken(_req);

@@ -5,9 +5,10 @@ import secret from "../config/jwt.secret";
 
 export const checkJwt = async (req: Request, res: Response, next: NextFunction) => {
   //Get the jwt token from the head
-  const token = <string>req.headers["auth"];
-  let jwtPayload;
- 
+  if(req.get("Content-Type")!="application/json") return res.status(401).send("Invalid header format."); 
+  const token = <string>req.headers['auth'];
+  let jwtPayload = null;
+   console.log(token);
   const existingToken = await getSession(token);
   if (existingToken?.isActive==false){
     return res.status(401).send({msg:"expired token!"});
@@ -18,7 +19,7 @@ export const checkJwt = async (req: Request, res: Response, next: NextFunction) 
     res.locals.jwtPayload = jwtPayload;
   } catch (error) {
     //If token is not valid, respond with 401 (unauthorized)
-    res.status(401).send();
+    res.status(401).send(error);
     return;
   }
   
@@ -26,7 +27,6 @@ export const checkJwt = async (req: Request, res: Response, next: NextFunction) 
   //We want to send a new token on every request
   const { userId, username } = jwtPayload;
   const newToken = jwt.sign({ userId, username }, secret.jwtSecret, { expiresIn: '24h' });
-    
   res.setHeader("token", newToken);
 
   //Call the next middleware or controller

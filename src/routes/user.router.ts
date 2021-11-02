@@ -56,7 +56,7 @@ router.get("/:id", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   const controller = new UserController();
-  const response = await controller.updateUserStatus(req.params.id);
+  const response = await controller.updateUserStatus(req.params.id, req.query.auth);
   if (!response) res.status(404).send({message: "No user found"})
   return res.send(response);
 });

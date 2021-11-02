@@ -32,11 +32,15 @@ export const getUser = async (id: string): Promise<User | null> => {
   return user;
 };
 
-export const updateUserStatus = async (id: string): Promise<User | null> => {
+export const updateUserStatus = async (id: string, status: string): Promise<User | null> => {
   const userRepository = getRepository(User);
   const user = await userRepository.findOne({ id: id },{ relations: ['operation', 'area', 'line', 'role']});
   if (!user) return null;
+  if (status=="true"){
   user.auth = "active";
+  }else{
+    user.auth = "pending"; 
+  }
   await userRepository.save(user);
   return user;
 };

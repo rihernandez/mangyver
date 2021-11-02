@@ -72,6 +72,7 @@ class AuthController {
 
     const repository = getRepository(Session);
     const session = await repository.findOne({ token: <string>req.headers["auth"] });
+    console.log(session);
     if (!session) return null;
     session.isActive = false;
     await repository.save(session);

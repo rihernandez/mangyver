@@ -1,4 +1,4 @@
-import { Get, Route, Tags,  Post, Body, Path, Put } from "tsoa";
+import { Get, Route, Tags,  Post, Body, Path, Put, Query } from "tsoa";
 import {User} from '../models'
 import {getUsers, createUser, IUserPayload, getUser, updateUserStatus} from '../repositories/user.repository';
 
@@ -24,8 +24,8 @@ export default class UserController {
   }
 
   @Put("/:id")
-  public async updateUserStatus(@Path() id: string): Promise<User | null>{
-    return updateUserStatus(id)
+  public async updateUserStatus(@Path() id: string, @Query() status:unknown): Promise<User | null>{
+    return updateUserStatus(id, String(status))
   }
 
   @Get("/:id")
