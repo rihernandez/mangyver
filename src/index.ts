@@ -22,7 +22,7 @@ export default class App {
 
   private middlewares() {
     this.app.use(cors());
-    this.app.use(helmet());
+    // this.app.use(helmet());
     this.app.use(morgan("dev"));
     this.app.use(express.static("public"));
     this.app.use(express.json());
