@@ -5,7 +5,7 @@ import secret from "../config/jwt.secret";
 
 export const checkJwt = async (req: Request, res: Response, next: NextFunction) => {
   //Get the jwt token from the head
-  if(req.get("Content-Type")!="application/json") return res.status(401).send("Invalid header format."); 
+  // if(req.get("Content-Type")!="application/json") return res.status(401).send("Invalid header format."); 
   const token = <string>req.headers['auth'];
   let jwtPayload = null;
    console.log(token);
