@@ -5,6 +5,7 @@ import {
     Column,
     CreateDateColumn,
     ManyToOne,
+    JoinColumn,
   } from "typeorm";
 import { Card } from "./card";
 import { Affect } from "./affect";
@@ -32,25 +33,33 @@ import { User } from "./user";
     @Column({name: "equipmentCode", nullable: true})
     equipmentCode!: string;
     @ManyToOne(type => Line, line => line.id, {nullable: true})
-    line!: Line;
+    @JoinColumn({ name: "lineId" })
+    lineId!: Line;
     @Column({name: "Equipment", nullable: true})
     equipmentType!: string;
     @ManyToOne(type => Consecutive, cn => cn.id, {nullable: true})
     consecutive!: Consecutive;
     @ManyToOne(type => Card, card => card.id, {nullable: true})
-    cardType!: Card;
+    @JoinColumn({ name: "cardTypeId" })
+    cardTypeId!: Card;
     @Column({name: "cardTitle", nullable: true})
     cardTitle!: string;
     @ManyToOne(type => Priority, priority => priority.id, {nullable: true})
     priority!: Priority;
     @ManyToOne(type => Component, cp => cp.id, {nullable: true})
-    components!: Component;
+    @JoinColumn({ name: "componentsId" })
+    componentsId!: Component;
+    @ManyToOne(type => Equipment, eq => eq.id, {nullable: true})
+    equipment!: Equipment;
     @ManyToOne(type => Breakdown, bdwn => bdwn.id, {nullable: true})
-    breakdown!:Breakdown;
+    @JoinColumn({ name: "breakdownId" })
+    breakdownId!:Breakdown;
     @ManyToOne(type => TypeFail, tp => tp.id, {nullable: true})
-    failureType!: TypeFail;
+    @JoinColumn({ name: "failureTypeId" })
+    failureTypeId!: TypeFail;
     @ManyToOne(type => Affect, affect => affect.id, {nullable: true})
-    affects!: Affect;
+    @JoinColumn({ name: "affectsId" })
+    affectsId!: Affect;
     @Column({name: "affectsFile", nullable: true})
     affectsFile!: string;
     @Column({name: "cardDescription", nullable: true})

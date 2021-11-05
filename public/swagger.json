@@ -840,7 +840,7 @@
 					"equipmentCode": {
 						"type": "string"
 					},
-					"line": {
+					"lineId": {
 						"$ref": "#/components/schemas/Line"
 					},
 					"equipmentType": {
@@ -849,7 +849,7 @@
 					"consecutive": {
 						"$ref": "#/components/schemas/Consecutive"
 					},
-					"cardType": {
+					"cardTypeId": {
 						"$ref": "#/components/schemas/Card"
 					},
 					"cardTitle": {
@@ -858,16 +858,19 @@
 					"priority": {
 						"$ref": "#/components/schemas/Priority"
 					},
-					"components": {
+					"componentsId": {
 						"$ref": "#/components/schemas/Component"
 					},
-					"breakdown": {
+					"equipment": {
+						"$ref": "#/components/schemas/Equipment"
+					},
+					"breakdownId": {
 						"$ref": "#/components/schemas/Breakdown"
 					},
-					"failureType": {
+					"failureTypeId": {
 						"$ref": "#/components/schemas/TypeFail"
 					},
-					"affects": {
+					"affectsId": {
 						"$ref": "#/components/schemas/Affect"
 					},
 					"affectsFile": {
@@ -897,16 +900,17 @@
 					"failureTime",
 					"department",
 					"equipmentCode",
-					"line",
+					"lineId",
 					"equipmentType",
 					"consecutive",
-					"cardType",
+					"cardTypeId",
 					"cardTitle",
 					"priority",
-					"components",
-					"breakdown",
-					"failureType",
-					"affects",
+					"componentsId",
+					"equipment",
+					"breakdownId",
+					"failureTypeId",
+					"affectsId",
 					"affectsFile",
 					"cardDescription",
 					"process",
