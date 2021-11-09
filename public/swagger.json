@@ -3227,7 +3227,7 @@
 				"parameters": [
 					{
 						"in": "query",
-						"name": "area",
+						"name": "areaId",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -3327,7 +3327,7 @@
 				"parameters": [
 					{
 						"in": "query",
-						"name": "line",
+						"name": "lineId",
 						"required": false,
 						"schema": {
 							"type": "string"

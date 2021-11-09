@@ -6,8 +6,8 @@ import {getLines, createLine, ILinePayload, getLine} from '../repositories/line.
 @Tags("Line")
 export default class LineController {
   @Get("/")
-  public async getLines(@Query() area?: string): Promise<Array<Line>> {
-    return getLines(area)
+  public async getLines(@Query() areaId?: string): Promise<Array<Line>> {
+    return getLines(areaId)
   }
 
   @Post("/")

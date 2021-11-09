@@ -9,10 +9,10 @@ export interface ILineMachinePayload {
 
 }
 
-export const getLineMachines = async (line?: string): Promise<Array<LineMachine>> => {
+export const getLineMachines = async (lineId?: string): Promise<Array<LineMachine>> => {
   const repository = getRepository(LineMachine);
-  if (line) {
-    return repository.find({ line: { id: line } });
+  if (lineId) {
+    return repository.find({ line: { id: lineId } });
   }
   
   return repository.find();
