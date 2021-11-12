@@ -840,6 +840,9 @@
 					"user": {
 						"$ref": "#/components/schemas/User"
 					},
+					"equipment": {
+						"$ref": "#/components/schemas/LineMachine"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -866,6 +869,7 @@
 					"cardDescription",
 					"process",
 					"user",
+					"equipment",
 					"isActive",
 					"created"
 				],
@@ -3235,7 +3239,7 @@
 				"parameters": [
 					{
 						"in": "query",
-						"name": "area",
+						"name": "areaId",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -3335,7 +3339,7 @@
 				"parameters": [
 					{
 						"in": "query",
-						"name": "line",
+						"name": "lineId",
 						"required": false,
 						"schema": {
 							"type": "string"

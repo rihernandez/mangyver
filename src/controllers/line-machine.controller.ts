@@ -6,8 +6,8 @@ import {getLineMachines, createLineMachine, ILineMachinePayload, getLineMachine}
 @Tags("LineMachine")
 export default class LineMachineController {
   @Get("/")
-  public async getLineMachines(@Query() line?: string): Promise<Array<LineMachine>> {
-    return getLineMachines(line)
+  public async getLineMachines(@Query() lineId?: string): Promise<Array<LineMachine>> {
+    return getLineMachines(lineId)
   }
 
   @Post("/")

@@ -8,10 +8,10 @@ export interface ILinePayload {
   isActive: boolean;
 }
 
-export const getLines = async (area?: string): Promise<Array<Line>> => {
+export const getLines = async (areaId?: string): Promise<Array<Line>> => {
   const repository = getRepository(Line);
-  if (area) {
-    return repository.find({ area: { id: area } });
+  if (areaId) {
+    return repository.find({ area: { id: areaId } });
   }
   
   return repository.find();

@@ -16,6 +16,7 @@ import { Priority } from "./priority";
 import { TypeFail } from "./typefail";
 import { Equipment } from "./equipment";
 import { User } from "./user";
+import { LineMachine } from '.';
 
   @Entity("Notice")
   export class Notice {
@@ -60,6 +61,8 @@ import { User } from "./user";
     @ManyToOne(type => User, user => user.id, {nullable: true})
     user!: User;
 
+    @ManyToOne(type => LineMachine, lineMachine => lineMachine.id, {nullable: true})
+    equipment!: LineMachine;
     // @Column({ name: "Type" })
     // type!: string;
     // @Column({ name: "Order" })

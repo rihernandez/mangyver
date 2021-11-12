@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/", async (_req, res) => {
   const controller = new LineController();
-  const response = await controller.getLines(<string>_req.query.area);
+  const response = await controller.getLines(<string>_req.query.areaId);
 
   const results = JSON.parse(JSON.stringify(response));
   results.map( (result :any) => {
