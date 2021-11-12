@@ -29,14 +29,14 @@ import { User } from "./user";
     failureTime!: string;
     @Column({name: "department", nullable: true})
     department!: string;
-    @Column({name: "equipmentCode", nullable: true})
-    equipmentCode!: string;
+    // @Column({name: "equipmentCode", nullable: true})
+    // equipmentCode!: string;
     @ManyToOne(type => Line, line => line.id, {nullable: true})
     line!: Line;
-    @Column({name: "Equipment", nullable: true})
-    equipmentType!: string;
-    @ManyToOne(type => Consecutive, cn => cn.id, {nullable: true})
-    consecutive!: Consecutive;
+    // @Column({name: "Equipment", nullable: true})
+    // equipmentType!: string;
+    // @ManyToOne(type => Consecutive, cn => cn.id, {nullable: true})
+    // consecutive!: Consecutive;
     @ManyToOne(type => Card, card => card.id, {nullable: true})
     cardType!: Card;
     @Column({name: "cardTitle", nullable: true})

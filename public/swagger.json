@@ -498,39 +498,6 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"Consecutive": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"SAPCode": {
-						"type": "string"
-					},
-					"operation": {
-						"$ref": "#/components/schemas/Operation"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"SAPCode",
-					"operation",
-					"isActive",
-					"created"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
 			"ProcessType": {
 				"properties": {
 					"id": {
@@ -837,17 +804,8 @@
 					"department": {
 						"type": "string"
 					},
-					"equipmentCode": {
-						"type": "string"
-					},
 					"line": {
 						"$ref": "#/components/schemas/Line"
-					},
-					"equipmentType": {
-						"type": "string"
-					},
-					"consecutive": {
-						"$ref": "#/components/schemas/Consecutive"
 					},
 					"cardType": {
 						"$ref": "#/components/schemas/Card"
@@ -896,10 +854,7 @@
 					"didCard",
 					"failureTime",
 					"department",
-					"equipmentCode",
 					"line",
-					"equipmentType",
-					"consecutive",
 					"cardType",
 					"cardTitle",
 					"priority",
@@ -931,17 +886,8 @@
 					"department": {
 						"type": "string"
 					},
-					"equipmentCode": {
-						"type": "string"
-					},
 					"line": {
 						"$ref": "#/components/schemas/Line"
-					},
-					"equipmentType": {
-						"type": "string"
-					},
-					"consecutive": {
-						"$ref": "#/components/schemas/Consecutive"
 					},
 					"cardType": {
 						"$ref": "#/components/schemas/Card"
@@ -975,6 +921,9 @@
 					},
 					"process": {
 						"$ref": "#/components/schemas/Process"
+					},
+					"user": {
+						"$ref": "#/components/schemas/User"
 					}
 				},
 				"required": [
@@ -982,10 +931,7 @@
 					"didCard",
 					"failureTime",
 					"department",
-					"equipmentCode",
 					"line",
-					"equipmentType",
-					"consecutive",
 					"cardType",
 					"cardTitle",
 					"priority",
@@ -995,7 +941,8 @@
 					"affects",
 					"affectsFile",
 					"cardDescription",
-					"process"
+					"process",
+					"user"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1046,6 +993,26 @@
 					},
 					"oTCode": {
 						"type": "string"
+					},
+					"id": {
+						"type": "string"
+					},
+					"affectsFile": {
+						"type": "string"
+					},
+					"userId": {
+						"type": "number",
+						"enum": [
+							null
+						],
+						"nullable": true
+					},
+					"isActive": {
+						"type": "boolean",
+						"enum": [
+							"true"
+						],
+						"nullable": false
 					}
 				},
 				"required": [
@@ -1063,7 +1030,11 @@
 					"failureTypeId",
 					"cardDescription",
 					"affectsId",
-					"oTCode"
+					"oTCode",
+					"id",
+					"affectsFile",
+					"userId",
+					"isActive"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1355,6 +1326,39 @@
 					"SAPCode",
 					"operation",
 					"isActive"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Consecutive": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"SAPCode",
+					"operation",
+					"isActive",
+					"created"
 				],
 				"type": "object",
 				"additionalProperties": false

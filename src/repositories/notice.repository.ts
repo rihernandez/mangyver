@@ -20,10 +20,10 @@ export interface INoticePayload {
   didCard: string;
   failureTime: string;
   department: string;
-  equipmentCode: string;
+  // equipmentCode: string;
   line: Line;
-  equipmentType: string;
-  consecutive: Consecutive;
+  // equipmentType: string;
+  // consecutive: Consecutive;
   cardType: Card;
   cardTitle: string;
   priority: Priority;
@@ -35,6 +35,8 @@ export interface INoticePayload {
   isActive?: boolean;
   cardDescription: string;
   process: Process;
+  user: User;
+
 }
 
 export interface INoticenPayloadNewFormat {
@@ -53,6 +55,10 @@ export interface INoticenPayloadNewFormat {
   cardDescription: string,
   affectsId: Affect,
   oTCode: string
+  id: string,
+  affectsFile: string,
+  userId: null,
+  isActive: true
 }
 
 export const getNotices = async (
