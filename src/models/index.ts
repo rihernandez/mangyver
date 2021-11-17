@@ -28,7 +28,8 @@ import { Process } from "./process";
 import { Affect } from "./affect";
 import { Breakdown } from "./breakdown"
 import { Role } from "./role"
-import {Session} from "./session"
+import { Session } from "./session";
+import { SapLog } from "./SAPlog";
 export {
   User,
   Bus,
@@ -61,5 +62,6 @@ export {
   Deviation,
   OperationNumber,
   Notification,
-  Session
+  Session,
+  SapLog
 };

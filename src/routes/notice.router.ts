@@ -3,8 +3,48 @@ import express from "express";
 import NoticeController from "../controllers/notice.controller";
 import jwt_decode from "jwt-decode";
 import UserInfo from "../middlewares/getUserFromToken"
+import axios from "axios";
+import { getAllSapLog, getSapLog, createSapLog, ISapLogPayload} from "../repositories/saplog.repository"
+import { Notice } from 'src/models';
+
 
 const router = express.Router();
+
+const sapuri = "http://azuspo20q.modelo.gmodelo.com.mx:50000/RESTAdapter/CreaAvisosMantenimiento";
+const body = {
+  "IV_AVISOS": {
+      "ERNAM":"",
+      "QMART":"M2",
+      "ERDAT":"2021-10-08",
+      "BTPLN":"CE-CEN-G-TDA-020-030",
+      "EQUNR":"10209513",
+      "AUSWK":"3",
+      "INGRP":"CE4",
+      "IWERK":"PC29",
+      "AUSZT":"0",
+      "INDTX":"PRUEBA",
+      "QMTXT":"PRUEBA",
+      "URCOD":"1000",
+      "URGRP":"VALVULA",
+      "QMNAM":"32168600",
+      "ESTATUS":"",
+      "ARTPR":"",
+      "PRIOK":"1",
+      "MNCOD":"1000",
+      "MNGRP":"VALVULA",
+      "MATXT":"ICM2-TIEMPO",
+      "PSTER":"2021-10-08",
+      "QMGRP ":"TRANSPOR",
+      "QMCOD ":"0030",
+      "ARBPL":"TRANSPOR",
+      "OTEIL":"1000",
+      "OTGRP":"VALVULA",
+      "INSPK":"",
+      "FEGRP":"",
+      "FETXT":"TEXT",
+      "URSTX ":""
+  }
+}
 
 
 router.get("/", async (_req, res) => {   
@@ -34,6 +74,29 @@ router.post("/", async (req, res) => {
   req.body.user = user.id;
   const controller = new NoticeController();
   const response = await controller.createNoticeNewFormat(req.body);
+  try {
+    const sapResponse = await axios.post(<string>process.env.SAP_URI || sapuri, {body}, {
+      auth: {
+        username: <string>process.env.SAP_USER || "MX003967" ,
+        password: <string>process.env.SAP_KEY || "B@bySh2021!"
+      }
+    });
+
+    const payload = {
+      id: "",
+      notice: response,
+      SAPnoticeId:sapResponse.data,
+      statusResult:"null",
+      errorCode:"null",
+      username: "null",
+      created: new Date(Date.now())
+    }
+    createSapLog(payload);
+
+  } catch (error) {
+    
+    console.log("error with external service ", error);
+  }
   return res.send(response);
 });
 
