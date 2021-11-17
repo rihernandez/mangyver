@@ -82,6 +82,8 @@ router.post("/", async (req, res) => {
       }
     });
 
+    console.log("response from server ",sapResponse);
+
     const payload = {
       id: "",
       notice: response,
