@@ -3,7 +3,6 @@ import { SapLog } from "../models";
 import { Notice } from "../models";
 
 export interface ISapLogPayload {
-    id: string;
     notice: string;
     SAPnoticeId:string;
     statusResult:string;
