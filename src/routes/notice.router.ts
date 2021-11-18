@@ -84,13 +84,13 @@ router.post("/", async (req, res) => {
     
     console.log("response this is body ",body);
     console.log("response from server ",sapResponse);
-
+  
     const payload = {
-      notice: "null",
-      SAPnoticeId: "null",
-      statusResult:"null",
-      errorCode:"null",
-      username: "null",
+      notice: response.id,
+      SAPnoticeId: sapResponse.data.MT_CreaAvisosMtto_ManRes.EV_QMNUM,
+      statusResult: "200",
+      errorCode:"",
+      username: String(response.user),
       created: new Date(Date.now())
     }
     createSapLog(payload);
