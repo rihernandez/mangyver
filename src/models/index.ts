@@ -29,7 +29,7 @@ import { Affect } from "./affect";
 import { Breakdown } from "./breakdown"
 import { Role } from "./role"
 import { Session } from "./session";
-import { SapLog } from "./SAPlog";
+import { SapLog } from "./saplog";
 export {
   User,
   Bus,
