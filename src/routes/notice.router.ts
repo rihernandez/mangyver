@@ -75,19 +75,20 @@ router.post("/", async (req, res) => {
   const controller = new NoticeController();
   const response = await controller.createNoticeNewFormat(req.body);
   try {
-    const sapResponse = await axios.post(<string>process.env.SAP_URI || sapuri, {body}, {
+    const sapResponse = await axios.post(<string>process.env.SAP_URI || sapuri, body, {
       auth: {
         username: <string>process.env.SAP_USER || "MX003967" ,
         password: <string>process.env.SAP_KEY || "B@bySh2021!"
       }
     });
-
+    
+    console.log("response this is body ",body);
     console.log("response from server ",sapResponse);
 
     const payload = {
       id: "",
-      notice: response,
-      SAPnoticeId:sapResponse.data,
+      notice: "null",
+      SAPnoticeId: "null",
       statusResult:"null",
       errorCode:"null",
       username: "null",

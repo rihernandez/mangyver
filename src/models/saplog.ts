@@ -14,8 +14,8 @@ import { Notice } from ".";
     @PrimaryGeneratedColumn("uuid")
     id!: string;
 
-    @ManyToOne((type) => Notice, (notice) => notice.id)
-    notice!: Notice;
+    @Column({ name: "notice", nullable: true })
+    notice!: string;
 
     @Column({ name: "SAPnoticeId", nullable: true })
     SAPnoticeId!:string;

@@ -4,7 +4,7 @@ import { Notice } from "../models";
 
 export interface ISapLogPayload {
     id: string;
-    notice: Notice;
+    notice: string;
     SAPnoticeId:string;
     statusResult:string;
     errorCode:string;
