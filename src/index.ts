@@ -7,8 +7,10 @@ import * as dotenv from "dotenv";
 import cors from "cors";
 import helmet from "helmet";
 
+
 import Router, { initRoute, metadata } from "./routes";
 import dbConfig from "./config/database";
+
 
 export default class App {
   app: Application;
@@ -26,15 +28,15 @@ export default class App {
     this.app.use(morgan("dev"));
     this.app.use(express.static("public"));
     this.app.use(express.json());
-    this.app.use(
-      `${process.env.API_VERSION}/docs`,
-      swaggerUi.serve,
-      swaggerUi.setup(undefined, {
-        swaggerOptions: {
-          url: "/swagger.json",
-        },
-      })
-    );
+    // this.app.use(
+    //   `${process.env.API_VERSION}/docs`,
+    //   swaggerUi.serve,
+    //   swaggerUi.setup(undefined, {
+    //     swaggerOptions: {
+    //       url: "/swagger.json",
+    //     },
+    //   })
+    // );
   }
 
   private async settings() {
@@ -43,6 +45,7 @@ export default class App {
       .then((_connection) => {
         console.log(_connection.isConnected);
         this.app.listen(process.env.PORT || this.port, () => {
+          
           console.log("Server is running on port", process.env.PORT || this.port);
         });
       })
