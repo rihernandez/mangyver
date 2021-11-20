@@ -13,7 +13,7 @@ export const checkJwt = async (
   // if(req.get("Content-Type")!="application/json") return res.status(401).send("Invalid header format.");
   const token = <string>req.headers["auth"];
   let jwtPayload = null;
-  console.log(token);
+  // console.log(token);
   const existingToken = await getSession(token);
   if (existingToken?.isActive == false) {
     return res.status(401).send({ msg: "expired token!" });

@@ -1,8 +1,8 @@
 /* eslint-disable */
-/* eslint-disable */
 import express from "express";
 import UserController from "../controllers/user.controller";
 import passwordValidator from "password-validator";
+import { log } from "../config/logger";
 
 const router = express.Router();
 
@@ -45,6 +45,7 @@ router.get("/", async (_req, res) => {
   results.map((result: any) => {
     result.label = result.name;
   });
+  log.silly(results);
   return res.send(results);
 });
 
@@ -52,8 +53,10 @@ router.post("/", async (req, res) => {
   const controller = new UserController();
   if (schema.validate(req.body.password) == true) {
     const response = await controller.createUser(req.body);
+    log.silly(response);
     return res.send(response);
   } else {
+    log.warn(malformedPassword);
     return res.status(400).send({ msg: malformedPassword });
   }
 });
@@ -61,7 +64,11 @@ router.post("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const controller = new UserController();
   const response = await controller.getUser(req.params.id);
-  if (!response) res.status(404).send({ message: "No user found" });
+  if (!response) {
+    log.warn(response);
+    return res.status(404).send({ message: "No User found" });
+  }
+  log.silly(response);
   return res.send(response);
 });
 
@@ -71,9 +78,12 @@ router.put("/:id", async (req, res) => {
     req.params.id,
     req.query.auth
   );
-  if (!response) res.status(404).send({ message: "No user found" });
+  if (!response) {
+    log.warn(response);
+    return res.status(404).send({ message: "No User found" });
+  }
+  log.silly(response);
   return res.send(response);
 });
 
 export default router;
-/* eslint-disable */

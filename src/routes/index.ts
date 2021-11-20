@@ -73,4 +73,3 @@ router.use("/roles", RoleRouter);
 
 export default router;
 export { initRoute, metadata };
-/* eslint-disable */

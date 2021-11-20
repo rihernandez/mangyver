@@ -1,27 +1,32 @@
 /* eslint-disable */
 import express from "express";
 import NotificationController from "../controllers/notification.controller";
-
+import { log } from "../config/logger";
 const router = express.Router();
 
 router.get("/", async (_req, res) => {
   const controller = new NotificationController();
   const response = await controller.getNotifications();
+  log.silly(response);
   return res.send(response);
 });
 
 router.post("/", async (req, res) => {
   const controller = new NotificationController();
   const response = await controller.createNotification(req.body);
+  log.silly(response);
   return res.send(response);
 });
 
 router.get("/:id", async (req, res) => {
   const controller = new NotificationController();
   const response = await controller.getNotification(req.params.id);
-  if (!response) res.status(404).send({ message: "No notification found" });
+  if (!response) {
+    log.warn(response);
+    return res.status(404).send({ message: "No Notification found" });
+  }
+  log.silly(response);
   return res.send(response);
 });
 
 export default router;
-/* eslint-disable */

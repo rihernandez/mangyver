@@ -1,5 +1,4 @@
 /* eslint-disable */
-/* eslint-disable */
 import { getUser } from "../repositories/user.repository";
 import express from "express";
 import NoticeController from "../controllers/notice.controller";
@@ -13,6 +12,7 @@ import {
   ISapLogPayload,
 } from "../repositories/saplog.repository";
 import { Notice } from "src/models";
+import { log } from "../config/logger";
 
 const router = express.Router();
 
@@ -69,6 +69,7 @@ router.get("/", async (_req, res) => {
   results.map((result: any) => {
     result.label = result.name;
   });
+  log.silly(results);
   return res.send(results);
 });
 
@@ -99,8 +100,7 @@ router.post("/", async (req, res) => {
       }
     );
 
-    console.log("response this is body ", body);
-    console.log("response from server ", sapResponse);
+    log.info("response from server ", sapResponse);
 
     const payload = {
       notice: response.id,
@@ -112,15 +112,20 @@ router.post("/", async (req, res) => {
     };
     createSapLog(payload);
   } catch (error) {
-    console.log("error with external service ", error);
+    log.error("error with external service ", error);
   }
+  log.silly(response);
   return res.send(response);
 });
 
 router.get("/:id", async (req, res) => {
   const controller = new NoticeController();
   const response = await controller.getNotice(req.params.id);
-  if (!response) res.status(404).send({ message: "No Notice found" });
+  if (!response) {
+    log.warn(response);
+    return res.status(404).send({ message: "No Notice found" });
+  }
+  log.silly(response);
   return res.send(response);
 });
 

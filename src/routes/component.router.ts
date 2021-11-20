@@ -1,6 +1,7 @@
 /* eslint-disable */
 import express from "express";
 import ComponentController from "../controllers/component.controller";
+import { log } from "../config/logger";
 
 const router = express.Router();
 
@@ -11,21 +12,26 @@ router.get("/", async (_req, res) => {
   results.map((result: any) => {
     result.label = result.name;
   });
+  log.silly(results);
   return res.send(results);
 });
 
 router.post("/", async (req, res) => {
   const controller = new ComponentController();
   const response = await controller.createComponent(req.body);
+  log.silly(response);
   return res.send(response);
 });
 
 router.get("/:id", async (req, res) => {
   const controller = new ComponentController();
   const response = await controller.getComponent(req.params.id);
-  if (!response) res.status(404).send({ message: "No Component found" });
+  if (!response) {
+    log.warn(response);
+    return res.status(404).send({ message: "No Component found" });
+  }
+  log.silly(response);
   return res.send(response);
 });
 
 export default router;
-/* eslint-disable */

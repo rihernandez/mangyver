@@ -1,27 +1,33 @@
 /* eslint-disable */
 import express from "express";
 import FieldController from "../controllers/field.controller";
+import { log } from "../config/logger";
 
 const router = express.Router();
 
 router.get("/", async (_req, res) => {
   const controller = new FieldController();
   const response = await controller.getFields();
+  log.silly(response);
   return res.send(response);
 });
 
 router.post("/", async (req, res) => {
   const controller = new FieldController();
   const response = await controller.createField(req.body);
+  log.silly(response);
   return res.send(response);
 });
 
 router.get("/:id", async (req, res) => {
   const controller = new FieldController();
   const response = await controller.getField(req.params.id);
-  if (!response) res.status(404).send({ message: "No field found" });
+  if (!response) {
+    log.warn(response);
+    return res.status(404).send({ message: "No Field found" });
+  }
+  log.silly(response);
   return res.send(response);
 });
 
 export default router;
-/* eslint-disable */

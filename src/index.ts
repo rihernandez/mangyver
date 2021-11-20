@@ -7,6 +7,8 @@ import swaggerUi from "swagger-ui-express";
 import * as dotenv from "dotenv";
 import cors from "cors";
 import helmet from "helmet";
+import { Logger } from "tslog";
+import { log } from "./config/logger";
 
 import Router, { initRoute, metadata } from "./routes";
 import dbConfig from "./config/database";
@@ -42,16 +44,13 @@ export default class App {
     dotenv.config();
     createConnection(dbConfig)
       .then(_connection => {
-        console.log(_connection.isConnected);
+        log.info("Database connected:", _connection.isConnected);
         this.app.listen(process.env.PORT || this.port, () => {
-          console.log(
-            "Server is running on port",
-            process.env.PORT || this.port
-          );
+          log.info("Server is running on port:", process.env.PORT || this.port);
         });
       })
       .catch(err => {
-        console.log("Unable to connect to db", err);
+        log.error("Unable to connect to db", err);
         process.exit(1);
       });
   }
@@ -64,4 +63,3 @@ export default class App {
 }
 
 const app = new App();
-/* eslint-disable */
