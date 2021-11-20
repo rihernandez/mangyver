@@ -1,10 +1,11 @@
+/* eslint-disable */
 import { getRepository } from "typeorm";
 import { Consecutive, Operation } from "../models";
 
 export interface IConsecutivePayload {
   name: string;
   SAPCode: string;
-  operation: Operation
+  operation: Operation;
   isActive: boolean;
 }
 
@@ -13,7 +14,9 @@ export const getConsecutives = async (): Promise<Array<Consecutive>> => {
   return repository.find();
 };
 
-export const createConsecutive = async (payload: IConsecutivePayload): Promise<Consecutive> => {
+export const createConsecutive = async (
+  payload: IConsecutivePayload
+): Promise<Consecutive> => {
   const repository = getRepository(Consecutive);
   const consecutive = new Consecutive();
   return repository.save({
@@ -22,9 +25,12 @@ export const createConsecutive = async (payload: IConsecutivePayload): Promise<C
   });
 };
 
-export const getConsecutive = async (id: string): Promise<Consecutive | null> => {
+export const getConsecutive = async (
+  id: string
+): Promise<Consecutive | null> => {
   const repository = getRepository(Consecutive);
   const consecutive = await repository.findOne({ id: id });
   if (!consecutive) return null;
   return consecutive;
 };
+/* eslint-disable */

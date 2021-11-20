@@ -1,3 +1,4 @@
+/* eslint-disable */
 import express from "express";
 import SubareaController from "../controllers/subarea.controller";
 
@@ -18,8 +19,9 @@ router.post("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const controller = new SubareaController();
   const response = await controller.getSubarea(req.params.id);
-  if (!response) res.status(404).send({message: "No Subarea found"})
+  if (!response) res.status(404).send({ message: "No Subarea found" });
   return res.send(response);
 });
 
-export default router
+export default router;
+/* eslint-disable */

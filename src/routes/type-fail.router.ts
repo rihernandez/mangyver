@@ -1,3 +1,4 @@
+/* eslint-disable */
 import express from "express";
 import TypeFail from "../controllers/type-fail.controller";
 
@@ -7,9 +8,9 @@ router.get("/", async (_req, res) => {
   const controller = new TypeFail();
   const response = await controller.getTypeFails();
   const results = JSON.parse(JSON.stringify(response));
-  results.map( (result :any) => {
+  results.map((result: any) => {
     result.label = result.name;
-  })
+  });
   return res.send(results);
 });
 
@@ -22,8 +23,9 @@ router.post("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const controller = new TypeFail();
   const response = await controller.getTypeFail(req.params.id);
-  if (!response) res.status(404).send({message: "No type fail found"})
+  if (!response) res.status(404).send({ message: "No type fail found" });
   return res.send(response);
 });
 
-export default router
+export default router;
+/* eslint-disable */

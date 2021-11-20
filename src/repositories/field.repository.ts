@@ -1,14 +1,13 @@
-
+/* eslint-disable */
 import { getRepository } from "typeorm";
 import { Field, Ichildfield } from "../models";
 
 export interface IFieldPayload {
-    fieldType: string;
-    label: string;
-    optionsEndpoint: string;
-    validations: string;
-    childfield: string;
-
+  fieldType: string;
+  label: string;
+  optionsEndpoint: string;
+  validations: string;
+  childfield: string;
 }
 
 export const getFields = async (): Promise<Array<Field>> => {
@@ -31,3 +30,4 @@ export const getField = async (id: string): Promise<Field | null> => {
   if (!field) return null;
   return field;
 };
+/* eslint-disable */

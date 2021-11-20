@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { getRepository } from "typeorm";
 import { Area, Subarea } from "../models";
 
@@ -13,7 +14,9 @@ export const getSubareas = async (): Promise<Array<Subarea>> => {
   return subareaRepository.find();
 };
 
-export const createSubarea = async (payload: ISubareaPayload): Promise<Subarea> => {
+export const createSubarea = async (
+  payload: ISubareaPayload
+): Promise<Subarea> => {
   const subareaRepository = getRepository(Subarea);
   const subarea = new Subarea();
   return subareaRepository.save({
@@ -28,3 +31,4 @@ export const getSubarea = async (id: string): Promise<Subarea | null> => {
   if (!subarea) return null;
   return subarea;
 };
+/* eslint-disable */

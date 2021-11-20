@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { getRepository } from "typeorm";
 import { Component, LineMachine, Operation } from "../models";
 
@@ -14,7 +15,9 @@ export const getComponents = async (): Promise<Array<Component>> => {
   return repository.find();
 };
 
-export const createComponent = async (payload: IComponentPayload): Promise<Component> => {
+export const createComponent = async (
+  payload: IComponentPayload
+): Promise<Component> => {
   const repository = getRepository(Component);
   const component = new Component();
   return repository.save({
@@ -29,3 +32,4 @@ export const getComponent = async (id: string): Promise<Component | null> => {
   if (!component) return null;
   return component;
 };
+/* eslint-disable */

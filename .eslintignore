@@ -1,0 +1,17 @@
+node_modules
+dist
+build
+public
+.dockerignore
+.env
+.gitattributes
+docker-compose.yml
+Dockerfile
+LICENSE
+package-lock.json
+package.json
+Procfile
+README.md 
+tsconfig.json 
+tsoa.json
+.prettierrc

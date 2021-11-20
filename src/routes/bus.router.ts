@@ -1,3 +1,4 @@
+/* eslint-disable */
 import express from "express";
 import BusController from "../controllers/bus.controller";
 
@@ -18,8 +19,9 @@ router.post("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const controller = new BusController();
   const response = await controller.getBus(req.params.id);
-  if (!response) res.status(404).send({message: "No user found"})
+  if (!response) res.status(404).send({ message: "No user found" });
   return res.send(response);
 });
 
-export default router
+export default router;
+/* eslint-disable */

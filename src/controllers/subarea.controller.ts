@@ -1,6 +1,12 @@
-import { Get, Route, Tags,  Post, Body, Path } from "tsoa";
-import {Subarea} from '../models'
-import {getSubarea, getSubareas, createSubarea, ISubareaPayload} from '../repositories/subarea.repository'
+/* eslint-disable */
+import { Get, Route, Tags, Post, Body, Path } from "tsoa";
+import { Subarea } from "../models";
+import {
+  getSubarea,
+  getSubareas,
+  createSubarea,
+  ISubareaPayload,
+} from "../repositories/subarea.repository";
 
 @Route("subareas")
 @Tags("Subarea")
@@ -12,11 +18,12 @@ export default class SubareaController {
 
   @Post("/")
   public async createSubarea(@Body() body: ISubareaPayload): Promise<Subarea> {
-    return createSubarea(body)
+    return createSubarea(body);
   }
 
   @Get("/:id")
   public async getSubarea(@Path() id: string): Promise<Subarea | null> {
-    return getSubarea(id)
+    return getSubarea(id);
   }
 }
+/* eslint-disable */

@@ -1,10 +1,11 @@
+/* eslint-disable */
 import { getRepository } from "typeorm";
 import { Breakdown, Operation } from "../models";
 
 export interface IBreakdownPayload {
   name: string;
   SAPCode: string;
-  operation: Operation
+  operation: Operation;
   isActive: boolean;
 }
 
@@ -13,7 +14,9 @@ export const getBreakdowns = async (): Promise<Array<Breakdown>> => {
   return repository.find();
 };
 
-export const createBreakdown = async (payload: IBreakdownPayload): Promise<Breakdown> => {
+export const createBreakdown = async (
+  payload: IBreakdownPayload
+): Promise<Breakdown> => {
   const repository = getRepository(Breakdown);
   const breackdown = new Breakdown();
   return repository.save({
@@ -28,3 +31,4 @@ export const getBreakdown = async (id: string): Promise<Breakdown | null> => {
   if (!breackdown) return null;
   return breackdown;
 };
+/* eslint-disable */

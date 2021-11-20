@@ -1,9 +1,9 @@
-
+/* eslint-disable */
 import { getRepository } from "typeorm";
 import { Field, Section } from "../models";
 
 export interface ISectionPayload {
-    fields: Field;
+  fields: Field;
 }
 
 export const getSections = async (): Promise<Array<Section>> => {
@@ -11,7 +11,9 @@ export const getSections = async (): Promise<Array<Section>> => {
   return repository.find();
 };
 
-export const createSection = async (payload: ISectionPayload): Promise<Section> => {
+export const createSection = async (
+  payload: ISectionPayload
+): Promise<Section> => {
   const repository = getRepository(Section);
   const section = new Section();
   return repository.save({
@@ -26,3 +28,4 @@ export const getSection = async (id: string): Promise<Section | null> => {
   if (!section) return null;
   return section;
 };
+/* eslint-disable */

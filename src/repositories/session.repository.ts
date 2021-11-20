@@ -1,17 +1,18 @@
+/* eslint-disable */
 import { Role } from "../models";
 import { getRepository } from "typeorm";
 import { Session } from "../models";
 
 export interface ISessionPayload {
-    token: string
-    session: string;
-    ip: string;
-    mac: string;
-    os: string;
-    device: string;
-    navigator: string;
-    appVersion: string;
-    isActive: boolean;
+  token: string;
+  session: string;
+  ip: string;
+  mac: string;
+  os: string;
+  device: string;
+  navigator: string;
+  appVersion: string;
+  isActive: boolean;
 }
 
 export const getSessions = async (): Promise<Array<Session>> => {
@@ -19,7 +20,9 @@ export const getSessions = async (): Promise<Array<Session>> => {
   return repository.find();
 };
 
-export const createSession = async (payload: ISessionPayload): Promise<Session> => {
+export const createSession = async (
+  payload: ISessionPayload
+): Promise<Session> => {
   const repository = getRepository(Session);
   const session = new Session();
   return repository.save({
@@ -42,3 +45,4 @@ export const updateUserStatus = async (id: string): Promise<Session | null> => {
   await repository.save(session);
   return session;
 };
+/* eslint-disable */

@@ -1,10 +1,10 @@
+/* eslint-disable */
 import { getRepository } from "typeorm";
 import { ProcessType } from "../models";
 
 export interface IProcessTypePayload {
   name: string;
   isActive: boolean;
-  
 }
 
 export const getProcessTypes = async (): Promise<Array<ProcessType>> => {
@@ -12,7 +12,9 @@ export const getProcessTypes = async (): Promise<Array<ProcessType>> => {
   return repository.find();
 };
 
-export const createProcessType = async (payload: IProcessTypePayload): Promise<ProcessType> => {
+export const createProcessType = async (
+  payload: IProcessTypePayload
+): Promise<ProcessType> => {
   const repository = getRepository(ProcessType);
   const processType = new ProcessType();
   return repository.save({
@@ -21,9 +23,12 @@ export const createProcessType = async (payload: IProcessTypePayload): Promise<P
   });
 };
 
-export const getProcessType = async (id: string): Promise<ProcessType | null> => {
+export const getProcessType = async (
+  id: string
+): Promise<ProcessType | null> => {
   const repository = getRepository(ProcessType);
   const processType = await repository.findOne({ id: id });
   if (!processType) return null;
   return processType;
 };
+/* eslint-disable */

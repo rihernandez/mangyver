@@ -1,9 +1,10 @@
+/* eslint-disable */
 import { getRepository } from "typeorm";
 import { Subarea, Ubication } from "../models";
 
 export interface IUbicationPayload {
   name: string;
-  code: string; 
+  code: string;
   subarea: Subarea;
   isActive: boolean;
 }
@@ -13,7 +14,9 @@ export const getUbications = async (): Promise<Array<Ubication>> => {
   return ubicationRepository.find();
 };
 
-export const createUbication = async (payload: IUbicationPayload): Promise<Ubication> => {
+export const createUbication = async (
+  payload: IUbicationPayload
+): Promise<Ubication> => {
   const ubicationRepository = getRepository(Ubication);
   const ubication = new Ubication();
   return ubicationRepository.save({
@@ -28,3 +31,4 @@ export const getUbication = async (id: string): Promise<Ubication | null> => {
   if (!ubication) return null;
   return ubication;
 };
+/* eslint-disable */

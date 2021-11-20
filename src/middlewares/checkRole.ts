@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Request, Response, NextFunction } from "express";
 import { getRepository } from "typeorm";
 
@@ -24,3 +25,4 @@ export const checkRole = (roles: Array<string>) => {
     else res.status(401).send();
   };
 };
+/* eslint-disable */

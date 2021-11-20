@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { getRepository } from "typeorm";
 import { Area } from "../models";
 
@@ -31,3 +32,4 @@ export const getArea = async (id: string): Promise<Area | null> => {
   if (!area) return null;
   return area;
 };
+/* eslint-disable */

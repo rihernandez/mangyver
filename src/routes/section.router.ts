@@ -1,3 +1,4 @@
+/* eslint-disable */
 import express from "express";
 import SectionController from "../controllers/section.controller";
 
@@ -18,8 +19,9 @@ router.post("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const controller = new SectionController();
   const response = await controller.getSection(req.params.id);
-  if (!response) res.status(404).send({message: "No Section found"})
+  if (!response) res.status(404).send({ message: "No Section found" });
   return res.send(response);
 });
 
-export default router
+export default router;
+/* eslint-disable */

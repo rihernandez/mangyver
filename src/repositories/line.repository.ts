@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { getRepository } from "typeorm";
 import { Line, Area } from "../models";
 
@@ -13,7 +14,7 @@ export const getLines = async (areaId?: string): Promise<Array<Line>> => {
   if (areaId) {
     return repository.find({ area: { id: areaId } });
   }
-  
+
   return repository.find();
 };
 
@@ -32,3 +33,4 @@ export const getLine = async (id: string): Promise<Line | null> => {
   if (!line) return null;
   return line;
 };
+/* eslint-disable */

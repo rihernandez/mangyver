@@ -1,30 +1,27 @@
-import { Get, Route, Tags,  Post, Body, Path } from "tsoa";
+/* eslint-disable */
+/* eslint-disable */
+import { Get, Route, Tags, Post, Body, Path } from "tsoa";
 import { Request, Response } from "express";
 import * as jwt from "jsonwebtoken";
 import { getRepository } from "typeorm";
 
-
 import { User, Session } from "../models";
 import secret from "../config/jwt.secret";
 import { ILoginPayload } from "src/repositories/login.repository";
-import { createSession, ISessionPayload } from "../repositories/session.repository"
-
-
-
+import {
+  createSession,
+  ISessionPayload,
+} from "../repositories/session.repository";
 
 @Route("auth")
 @Tags("Auth")
 class AuthController {
-
-
-  public static async login (req: Request, res: Response) {
-  
+  public static async login(req: Request, res: Response) {
     //Check if username and password are set
-    
-  
-    let { username, password } = req.body;
+
+    const { username, password } = req.body;
     if (!(username && password)) {
-      res.status(400).send({message:"Formato de solicitud incorrecta"});
+      res.status(400).send({ message: "Formato de solicitud incorrecta" });
     }
     //Get user from database
     const userRepository = getRepository(User);
@@ -34,7 +31,7 @@ class AuthController {
     try {
       user = await userRepository.findOneOrFail({ where: { username } });
     } catch (error) {
-      res.status(401).send({message: "Usuario o Contraseña incorrectos" });
+      res.status(401).send({ message: "Usuario o Contraseña incorrectos" });
     }
 
     //Check if encrypted password match
@@ -55,29 +52,29 @@ class AuthController {
       session: <string>req.body.username,
       ip: <string>req.headers["ip"],
       mac: <string>req.headers["mac"],
-      os:<string>req.headers["os"],
-      device:<string>req.headers["device"],
+      os: <string>req.headers["os"],
+      device: <string>req.headers["device"],
       navigator: <string>req.headers["navigator"],
       appVersion: <string>req.headers["appVersion"],
-      isActive:true
-    }
-    
-    createSession(payload)
+      isActive: true,
+    };
+
+    createSession(payload);
     //Send the jwt in the response
     res.send(token);
     // return token;
-  };
+  }
 
-  public static async logout(req: Request, res: Response){
-
+  public static async logout(req: Request, res: Response) {
     const repository = getRepository(Session);
-    const session = await repository.findOne({ token: <string>req.headers["auth"] });
+    const session = await repository.findOne({
+      token: <string>req.headers["auth"],
+    });
     console.log(session);
     if (!session) return null;
     session.isActive = false;
     await repository.save(session);
-    res.send({msg:"token inactived!"});
-
+    res.send({ msg: "token inactived!" });
   }
 
   // @Post("/")
@@ -163,3 +160,4 @@ export default AuthController;
 function payload(payload: any) {
   throw new Error("Function not implemented.");
 }
+/* eslint-disable */

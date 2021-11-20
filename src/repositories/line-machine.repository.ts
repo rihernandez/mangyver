@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { getRepository } from "typeorm";
 import { LineMachine, Line } from "../models";
 
@@ -6,19 +7,22 @@ export interface ILineMachinePayload {
   name: string;
   SAPCode: string;
   isActive: boolean;
-
 }
 
-export const getLineMachines = async (lineId?: string): Promise<Array<LineMachine>> => {
+export const getLineMachines = async (
+  lineId?: string
+): Promise<Array<LineMachine>> => {
   const repository = getRepository(LineMachine);
   if (lineId) {
     return repository.find({ line: { id: lineId } });
   }
-  
+
   return repository.find();
 };
 
-export const createLineMachine = async (payload: ILineMachinePayload): Promise<LineMachine> => {
+export const createLineMachine = async (
+  payload: ILineMachinePayload
+): Promise<LineMachine> => {
   const repository = getRepository(LineMachine);
   const lineMachine = new LineMachine();
   return repository.save({
@@ -27,9 +31,12 @@ export const createLineMachine = async (payload: ILineMachinePayload): Promise<L
   });
 };
 
-export const getLineMachine = async (id: string): Promise<LineMachine | null> => {
+export const getLineMachine = async (
+  id: string
+): Promise<LineMachine | null> => {
   const repository = getRepository(LineMachine);
   const lineMachine = await repository.findOne({ id: id });
   if (!lineMachine) return null;
   return lineMachine;
 };
+/* eslint-disable */

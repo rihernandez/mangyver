@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { getRepository } from "typeorm";
 import { Login } from "../models";
 
@@ -26,3 +27,4 @@ export const getLogin = async (id: string): Promise<Login | null> => {
   if (!login) return null;
   return login;
 };
+/* eslint-disable */

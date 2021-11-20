@@ -1,3 +1,4 @@
+/* eslint-disable */
 import express from "express";
 import Priority from "../controllers/priority.controller";
 
@@ -18,8 +19,9 @@ router.post("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const controller = new Priority();
   const response = await controller.getPriority(req.params.id);
-  if (!response) res.status(404).send({message: "No Priority found"})
+  if (!response) res.status(404).send({ message: "No Priority found" });
   return res.send(response);
 });
 
-export default router
+export default router;
+/* eslint-disable */

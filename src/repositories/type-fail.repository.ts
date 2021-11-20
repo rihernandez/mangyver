@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { getRepository } from "typeorm";
 import { TypeFail } from "../models";
 
@@ -12,7 +13,9 @@ export const getTypeFails = async (): Promise<Array<TypeFail>> => {
   return repository.find();
 };
 
-export const createTypeFail = async (payload: ITypeFailPayload): Promise<TypeFail> => {
+export const createTypeFail = async (
+  payload: ITypeFailPayload
+): Promise<TypeFail> => {
   const repository = getRepository(TypeFail);
   const typeFail = new TypeFail();
   return repository.save({
@@ -27,3 +30,4 @@ export const getTypeFail = async (id: string): Promise<TypeFail | null> => {
   if (!typeFail) return null;
   return typeFail;
 };
+/* eslint-disable */

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import express from "express";
 import LineController from "../controllers/line.controller";
 
@@ -8,11 +9,10 @@ router.get("/", async (_req, res) => {
   const response = await controller.getLines(<string>_req.query.areaId);
 
   const results = JSON.parse(JSON.stringify(response));
-  results.map( (result :any) => {
+  results.map((result: any) => {
     result.label = result.name;
-  })
+  });
   return res.send(results);
-  
 });
 
 router.post("/", async (req, res) => {
@@ -24,8 +24,9 @@ router.post("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const controller = new LineController();
   const response = await controller.getLine(req.params.id);
-  if (!response) res.status(404).send({message: "No Line found"})
+  if (!response) res.status(404).send({ message: "No Line found" });
   return res.send(response);
 });
 
-export default router
+export default router;
+/* eslint-disable */

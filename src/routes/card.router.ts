@@ -1,3 +1,4 @@
+/* eslint-disable */
 import express from "express";
 import CardController from "../controllers/card.controller";
 
@@ -7,9 +8,9 @@ router.get("/", async (_req, res) => {
   const controller = new CardController();
   const response = await controller.getCards(<string>_req.query.process);
   const results = JSON.parse(JSON.stringify(response));
-  results.map( (result :any) => {
+  results.map((result: any) => {
     result.label = result.name;
-  })
+  });
   return res.send(results);
 });
 
@@ -22,8 +23,9 @@ router.post("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const controller = new CardController();
   const response = await controller.getCard(req.params.id);
-  if (!response) res.status(404).send({message: "No Card found"})
+  if (!response) res.status(404).send({ message: "No Card found" });
   return res.send(response);
 });
 
-export default router
+export default router;
+/* eslint-disable */

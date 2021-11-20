@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Role } from "../models";
 import { getRepository } from "typeorm";
 import { User } from "../models";
@@ -13,7 +14,9 @@ export interface IUserPayload {
 
 export const getUsers = async (): Promise<Array<User>> => {
   const userRepository = getRepository(User);
-  return userRepository.find({ relations: ['operation', 'area', 'line', 'role']});
+  return userRepository.find({
+    relations: ["operation", "area", "line", "role"],
+  });
 };
 
 export const createUser = async (payload: IUserPayload): Promise<User> => {
@@ -27,20 +30,30 @@ export const createUser = async (payload: IUserPayload): Promise<User> => {
 
 export const getUser = async (id: string): Promise<User | null> => {
   const userRepository = getRepository(User);
-  const user = await userRepository.findOne({ id: id },{ relations: ['operation', 'area', 'line', 'role']});
+  const user = await userRepository.findOne(
+    { id: id },
+    { relations: ["operation", "area", "line", "role"] }
+  );
   if (!user) return null;
   return user;
 };
 
-export const updateUserStatus = async (id: string, status: string): Promise<User | null> => {
+export const updateUserStatus = async (
+  id: string,
+  status: string
+): Promise<User | null> => {
   const userRepository = getRepository(User);
-  const user = await userRepository.findOne({ id: id },{ relations: ['operation', 'area', 'line', 'role']});
+  const user = await userRepository.findOne(
+    { id: id },
+    { relations: ["operation", "area", "line", "role"] }
+  );
   if (!user) return null;
-  if (status=="true"){
-  user.auth = "active";
-  }else{
-    user.auth = "pending"; 
+  if (status == "true") {
+    user.auth = "active";
+  } else {
+    user.auth = "pending";
   }
   await userRepository.save(user);
   return user;
 };
+/* eslint-disable */

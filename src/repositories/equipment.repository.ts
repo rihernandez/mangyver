@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { getRepository } from "typeorm";
 import { Equipment } from "../models";
 
@@ -13,7 +14,9 @@ export const getEquipments = async (): Promise<Array<Equipment>> => {
   return equipmentRepository.find();
 };
 
-export const createEquipment = async (payload: IEquipmentPayload): Promise<Equipment> => {
+export const createEquipment = async (
+  payload: IEquipmentPayload
+): Promise<Equipment> => {
   const equipmentRepository = getRepository(Equipment);
   const equipment = new Equipment();
   return equipmentRepository.save({
@@ -28,3 +31,4 @@ export const getEquipment = async (id: string): Promise<Equipment | null> => {
   if (!equipment) return null;
   return equipment;
 };
+/* eslint-disable */

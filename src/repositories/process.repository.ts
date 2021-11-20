@@ -1,13 +1,13 @@
+/* eslint-disable */
 import { getRepository } from "typeorm";
-import { Process, ProcessType,Operation } from "../models";
+import { Process, ProcessType, Operation } from "../models";
 
 export interface IProcessPayload {
   processType: ProcessType;
   name: string;
   SAPCode: string;
-  operation: Operation
+  operation: Operation;
   isActive: boolean;
-
 }
 
 export const getProcesss = async (): Promise<Array<Process>> => {
@@ -15,7 +15,9 @@ export const getProcesss = async (): Promise<Array<Process>> => {
   return repository.find();
 };
 
-export const createProcess = async (payload: IProcessPayload): Promise<Process> => {
+export const createProcess = async (
+  payload: IProcessPayload
+): Promise<Process> => {
   const repository = getRepository(Process);
   const process = new Process();
   return repository.save({
@@ -30,3 +32,4 @@ export const getProcess = async (id: string): Promise<Process | null> => {
   if (!process) return null;
   return process;
 };
+/* eslint-disable */

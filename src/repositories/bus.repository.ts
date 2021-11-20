@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { getRepository } from "typeorm";
 import { Bus } from "../models";
 import { Zone } from "../models";
@@ -29,3 +30,4 @@ export const getBus = async (id: string): Promise<Bus | null> => {
   if (!bus) return null;
   return bus;
 };
+/* eslint-disable */

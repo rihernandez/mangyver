@@ -1,10 +1,11 @@
+/* eslint-disable */
 import { getRepository } from "typeorm";
 import { Priority, Operation } from "../models";
 
 export interface IPriorityPayload {
   name: string;
   SAPCode: string;
-  operation: Operation
+  operation: Operation;
   isActive: boolean;
 }
 
@@ -13,7 +14,9 @@ export const getPrioritys = async (): Promise<Array<Priority>> => {
   return repository.find();
 };
 
-export const createPriority = async (payload: IPriorityPayload): Promise<Priority> => {
+export const createPriority = async (
+  payload: IPriorityPayload
+): Promise<Priority> => {
   const repository = getRepository(Priority);
   const priority = new Priority();
   return repository.save({
@@ -28,3 +31,4 @@ export const getPriority = async (id: string): Promise<Priority | null> => {
   if (!priority) return null;
   return priority;
 };
+/* eslint-disable */

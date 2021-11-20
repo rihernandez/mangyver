@@ -1,9 +1,10 @@
-import { Notification } from './notification';
-import { OperationNumber } from './operation-number';
-import { Deviation } from './deviation';
-import { MenuRole } from './menu-role';
-import { Menu } from './menu';
-import { SubAreaMachine } from './subareamachines';
+/* eslint-disable */
+import { Notification } from "./notification";
+import { OperationNumber } from "./operation-number";
+import { Deviation } from "./deviation";
+import { MenuRole } from "./menu-role";
+import { Menu } from "./menu";
+import { SubAreaMachine } from "./subareamachines";
 import { User } from "./user";
 import { Bus } from "./bus";
 import { Zone } from "./zone";
@@ -26,8 +27,8 @@ import { ProcessType } from "./process-type";
 import { TypeFail } from "./typefail";
 import { Process } from "./process";
 import { Affect } from "./affect";
-import { Breakdown } from "./breakdown"
-import { Role } from "./role"
+import { Breakdown } from "./breakdown";
+import { Role } from "./role";
 import { Session } from "./session";
 import { SapLog } from "./saplog";
 export {
@@ -63,5 +64,6 @@ export {
   OperationNumber,
   Notification,
   Session,
-  SapLog
+  SapLog,
 };
+/* eslint-disable */

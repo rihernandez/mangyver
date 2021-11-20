@@ -1,6 +1,12 @@
-import { Get, Route, Tags,  Post, Body, Path } from "tsoa";
-import {Field} from '../models'
-import {getField, createField, IFieldPayload, getFields} from '../repositories/field.repository'
+/* eslint-disable */
+import { Get, Route, Tags, Post, Body, Path } from "tsoa";
+import { Field } from "../models";
+import {
+  getField,
+  createField,
+  IFieldPayload,
+  getFields,
+} from "../repositories/field.repository";
 
 @Route("fields")
 @Tags("Field")
@@ -12,11 +18,12 @@ export default class FieldController {
 
   @Post("/")
   public async createField(@Body() body: IFieldPayload): Promise<Field> {
-    return createField(body)
+    return createField(body);
   }
 
   @Get("/:id")
   public async getField(@Path() id: string): Promise<Field | null> {
-    return getField(id)
+    return getField(id);
   }
 }
+/* eslint-disable */

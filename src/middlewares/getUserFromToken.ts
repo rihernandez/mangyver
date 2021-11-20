@@ -1,3 +1,4 @@
+/* eslint-disable */
 import jwt_decode from "jwt-decode";
 import { getUser } from "../repositories/user.repository";
 
@@ -8,6 +9,6 @@ export default class userFromToken {
     const decoded: object = jwt_decode(JSON.stringify(token));
     const objectValues = Object.values(decoded);
     return await getUser(objectValues[0]);
-    
   }
 }
+/* eslint-disable */

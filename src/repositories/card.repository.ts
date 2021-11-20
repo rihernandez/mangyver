@@ -1,10 +1,11 @@
-import { Operation } from '../models';
+/* eslint-disable */
+import { Operation } from "../models";
 import { getRepository } from "typeorm";
 import { Card } from "../models";
 
 export interface ICardPayload {
   name: string;
-  operation: Operation
+  operation: Operation;
   isActive: boolean;
 }
 
@@ -13,7 +14,7 @@ export const getCards = async (process?: string): Promise<Array<Card>> => {
   if (process) {
     return repository.find({ process: { id: process } });
   }
-  
+
   return repository.find();
 };
 
@@ -32,3 +33,4 @@ export const getCard = async (id: string): Promise<Card | null> => {
   if (!card) return null;
   return card;
 };
+/* eslint-disable */

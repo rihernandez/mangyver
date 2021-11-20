@@ -1,3 +1,4 @@
+/* eslint-disable */
 import express from "express";
 import ConsecutiveController from "../controllers/consecutive.controller";
 
@@ -18,8 +19,9 @@ router.post("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const controller = new ConsecutiveController();
   const response = await controller.getConsecutive(req.params.id);
-  if (!response) res.status(404).send({message: "No Consecutive found"})
+  if (!response) res.status(404).send({ message: "No Consecutive found" });
   return res.send(response);
 });
 
-export default router
+export default router;
+/* eslint-disable */

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import internal from "stream";
 import { getRepository } from "typeorm";
 import {
@@ -12,7 +13,7 @@ import {
   TypeFail,
   Process,
   Equipment,
-  User
+  User,
 } from "../models";
 
 export interface INoticePayload {
@@ -36,29 +37,28 @@ export interface INoticePayload {
   cardDescription: string;
   process: Process;
   user: User;
-
 }
 
 export interface INoticenPayloadNewFormat {
-  processId: Process,
-  didCard: string,
-  failureTime: string,
-  department: string,
-  lineId: Line,
-  equipment: Equipment,
-  cardTypeId: Card,
-  cardTitle: string,
-  priorityId: Priority,
-  componentsId: Component,
-  breakdownId: Breakdown,
-  failureTypeId: TypeFail,
-  cardDescription: string,
-  affectsId: Affect,
-  oTCode: string
-  id: string,
-  affectsFile: string,
-  userId: null,
-  isActive: true
+  processId: Process;
+  didCard: string;
+  failureTime: string;
+  department: string;
+  lineId: Line;
+  equipment: Equipment;
+  cardTypeId: Card;
+  cardTitle: string;
+  priorityId: Priority;
+  componentsId: Component;
+  breakdownId: Breakdown;
+  failureTypeId: TypeFail;
+  cardDescription: string;
+  affectsId: Affect;
+  oTCode: string;
+  id: string;
+  affectsFile: string;
+  userId: null;
+  isActive: true;
 }
 
 export const getNotices = async (
@@ -69,26 +69,25 @@ export const getNotices = async (
   dateEnd?: string,
   sapForm?: boolean
 ): Promise<Array<Notice>> => {
-
   const repository = await getRepository(Notice).query(
     "SP_Select_Notices @userid='" +
-    userId +
-    "', @id=" +
-    null +
-    ", @top='" +
-    top +
-    "', @from='" +
-    from +
-    "', @DateFrom='" +
-    dateFrom +
-    "', @DateEnd='" +
-    dateEnd +
-    "',@SAPForm='" +
-    sapForm +
-    "'"
+      userId +
+      "', @id=" +
+      null +
+      ", @top='" +
+      top +
+      "', @from='" +
+      from +
+      "', @DateFrom='" +
+      dateFrom +
+      "', @DateEnd='" +
+      dateEnd +
+      "',@SAPForm='" +
+      sapForm +
+      "'"
   );
   //return repository.find({ relations: ['line', 'consecutive', 'cardType', 'priority', 'components', 'breakdown', 'failureType', 'affects', 'process']});
-  console.log(repository)
+  console.log(repository);
   return repository;
 };
 
@@ -114,15 +113,9 @@ export const createnewNoticeFormat = async (
   });
 };
 
-export const getNotice = async (
-  id: string,
-): Promise<Notice | null> => {
+export const getNotice = async (id: string): Promise<Notice | null> => {
   const repository = await getRepository(Notice).query(
-    "SP_Select_Notices @userid='" +
-    null +
-    "', @id='" +
-    id +
-    "'"
+    "SP_Select_Notices @userid='" + null + "', @id='" + id + "'"
   );
   //"SP_Select_Notices @id='"+id +"'"
   //const notification = await repository.findOne({ id: id }, { relations: ['line', 'consecutive', 'cardType', 'priority', 'components', 'breakdown', 'failureType', 'affects', 'process'] });
@@ -136,3 +129,4 @@ export const getNotice = async (
   console.log(repository);
   return repository;
 };
+/* eslint-disable */

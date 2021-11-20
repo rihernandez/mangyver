@@ -1,10 +1,11 @@
-import { Role } from '../models';
+/* eslint-disable */
+import { Role } from "../models";
 import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
-  ManyToOne
+  ManyToOne,
 } from "typeorm";
 import * as bcrypt from "bcryptjs";
 import { Operation } from "./operation";
@@ -34,7 +35,7 @@ export class User {
   @Column({ type: "varchar", length: 200, unique: true, name: "Email" })
   email!: string;
 
-  @ManyToOne((type) => Role, (role) => role.id)
+  @ManyToOne(type => Role, role => role.id)
   role!: Role;
 
   /* @Column({ name: "Role" })
@@ -49,13 +50,13 @@ export class User {
   @CreateDateColumn()
   created!: Date;
 
-  @ManyToOne(type => Operation, operation => operation.id, {nullable: true})
+  @ManyToOne(type => Operation, operation => operation.id, { nullable: true })
   operation!: Operation;
 
-  @ManyToOne(type => Area, area => area.id, {nullable: true})
+  @ManyToOne(type => Area, area => area.id, { nullable: true })
   area!: Area;
 
-  @ManyToOne(type => Line, line => line.id, {nullable: true})
+  @ManyToOne(type => Line, line => line.id, { nullable: true })
   line!: Line;
 
   @Column({ nullable: true, name: "SAPCode" })
@@ -71,3 +72,4 @@ export class User {
     return bcrypt.compareSync(unencryptedPassword, this.password);
   }
 }
+/* eslint-disable */

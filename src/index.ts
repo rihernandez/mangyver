@@ -1,3 +1,4 @@
+/* eslint-disable */
 import "reflect-metadata";
 import { createConnection } from "typeorm";
 import express, { Application } from "express";
@@ -7,10 +8,8 @@ import * as dotenv from "dotenv";
 import cors from "cors";
 import helmet from "helmet";
 
-
 import Router, { initRoute, metadata } from "./routes";
 import dbConfig from "./config/database";
-
 
 export default class App {
   app: Application;
@@ -42,14 +41,16 @@ export default class App {
   private async settings() {
     dotenv.config();
     createConnection(dbConfig)
-      .then((_connection) => {
+      .then(_connection => {
         console.log(_connection.isConnected);
         this.app.listen(process.env.PORT || this.port, () => {
-          
-          console.log("Server is running on port", process.env.PORT || this.port);
+          console.log(
+            "Server is running on port",
+            process.env.PORT || this.port
+          );
         });
       })
-      .catch((err) => {
+      .catch(err => {
         console.log("Unable to connect to db", err);
         process.exit(1);
       });
@@ -60,7 +61,7 @@ export default class App {
     this.app.use(metadata);
     this.app.use(`${process.env.API_VERSION}`, Router);
   }
-
 }
 
 const app = new App();
+/* eslint-disable */

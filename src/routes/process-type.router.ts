@@ -1,3 +1,4 @@
+/* eslint-disable */
 import express from "express";
 import ProcessType from "../controllers/process-type.controller";
 
@@ -7,9 +8,9 @@ router.get("/", async (_req, res) => {
   const controller = new ProcessType();
   const response = await controller.getProcessTypes();
   const results = JSON.parse(JSON.stringify(response));
-  results.map( (result :any) => {
+  results.map((result: any) => {
     result.label = result.name;
-  })
+  });
   return res.send(results);
 });
 
@@ -22,8 +23,9 @@ router.post("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const controller = new ProcessType();
   const response = await controller.getProcessType(req.params.id);
-  if (!response) res.status(404).send({message: "No process type found"})
+  if (!response) res.status(404).send({ message: "No process type found" });
   return res.send(response);
 });
 
-export default router
+export default router;
+/* eslint-disable */

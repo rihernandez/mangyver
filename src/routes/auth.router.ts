@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Router } from "express";
 import AuthController from "../controllers/auth.controller";
 import { checkJwt } from "../middlewares/checkJwt";
@@ -11,3 +12,4 @@ router.post("/logout", AuthController.logout);
 // router.post("/change-password", [checkJwt], AuthController.changePassword);
 
 export default router;
+/* eslint-disable */

@@ -1,11 +1,12 @@
+/* eslint-disable */
 import express from "express";
 import { decode } from "jsonwebtoken";
 import jwt_decode from "jwt-decode";
-import { getUser } from '../repositories/user.repository'
+import { getUser } from "../repositories/user.repository";
 import { Logger } from "tslog";
 
 const router = express.Router();
-const log :Logger = new Logger({ name: "myLogger" });
+const log: Logger = new Logger({ name: "myLogger" });
 
 // Documentation here: https://tslog.js.org/#/
 // log.silly("I am a silly log.");
@@ -16,24 +17,23 @@ const log :Logger = new Logger({ name: "myLogger" });
 // log.error("I am an error log.");
 //log.fatal(new Error("I am a pretty Error with a stacktrace."));
 
-
 router.get("/", async (_req, res) => {
   try {
     const headers = _req.headers;
     const token = headers.auth;
-    const decoded : object = jwt_decode(JSON.stringify(token));
+    const decoded: object = jwt_decode(JSON.stringify(token));
     const objectValues = Object.values(decoded);
-    const profile = await getUser((objectValues[0]));
+    const profile = await getUser(objectValues[0]);
     const response = {
-      ...headers ,
-       profile
-    }
- 
-  return res.send(response);
-    
+      ...headers,
+      profile,
+    };
+
+    return res.send(response);
   } catch (error) {
-    res.send({msg : "not token have been provided!"});
+    res.send({ msg: "not token have been provided!" });
   }
 });
 
 export default router;
+/* eslint-disable */

@@ -1,7 +1,8 @@
-import { Notification } from './../models/notification';
-import { OperationNumber } from './../models/operation-number';
-import { Deviation } from './../models/deviation';
-import { Menu, MenuRole, SubAreaMachine } from '../models';
+/* eslint-disable */
+import { Notification } from "./../models/notification";
+import { OperationNumber } from "./../models/operation-number";
+import { Deviation } from "./../models/deviation";
+import { Menu, MenuRole, SubAreaMachine } from "../models";
 import { ConnectionOptions } from "typeorm";
 import * as dotenv from "dotenv";
 dotenv.config();
@@ -41,11 +42,37 @@ const config: ConnectionOptions = {
   password: process.env.MSSQL_PASSWORD || process.env.DB_PASSWORD,
   database: process.env.MSSQL_DB || process.env.DB_INSTANCE,
   entities: [
-    User, Zone, Bus, Ubication, Subarea, Operation, 
-    Equipment, Area, Field, Section, Card, Component,
-    Consecutive,Line,LineMachine,Priority, Process, ProcessType,
-    TypeFail, Affect,Breakdown, Notice, Role, SubAreaMachine, Menu, MenuRole, 
-    Deviation, OperationNumber, Notification, Session, SapLog
+    User,
+    Zone,
+    Bus,
+    Ubication,
+    Subarea,
+    Operation,
+    Equipment,
+    Area,
+    Field,
+    Section,
+    Card,
+    Component,
+    Consecutive,
+    Line,
+    LineMachine,
+    Priority,
+    Process,
+    ProcessType,
+    TypeFail,
+    Affect,
+    Breakdown,
+    Notice,
+    Role,
+    SubAreaMachine,
+    Menu,
+    MenuRole,
+    Deviation,
+    OperationNumber,
+    Notification,
+    Session,
+    SapLog,
   ],
   synchronize: true,
 };

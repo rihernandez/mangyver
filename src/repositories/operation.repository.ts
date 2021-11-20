@@ -1,9 +1,10 @@
+/* eslint-disable */
 import { getRepository } from "typeorm";
 import { Bus, Operation } from "../models";
 
 export interface IOperationPayload {
   name: string;
-  bus: Bus
+  bus: Bus;
   code: string;
   password: string;
   email: string;
@@ -13,10 +14,13 @@ export interface IOperationPayload {
 export const getOperations = async (): Promise<Operation[]> => {
   const operationRepository = getRepository(Operation);
   return operationRepository.find({
-    select: ['id', 'name']});
+    select: ["id", "name"],
+  });
 };
 
-export const createOperation = async (payload: IOperationPayload): Promise<Operation> => {
+export const createOperation = async (
+  payload: IOperationPayload
+): Promise<Operation> => {
   const operationRepository = getRepository(Operation);
   const operation = new Operation();
   return operationRepository.save({
@@ -31,3 +35,4 @@ export const getOperation = async (id: string): Promise<Operation | null> => {
   if (!operation) return null;
   return operation;
 };
+/* eslint-disable */

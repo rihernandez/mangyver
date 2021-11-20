@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -19,7 +20,7 @@ export class Bus {
   //   @Column({ name: "ZoneID", nullable: false })
   //   zone!: string;
 
-  @ManyToOne((type) => Zone, (zone) => zone.id)
+  @ManyToOne(type => Zone, zone => zone.id)
   zone!: Zone;
 
   @Column({ name: "Name", nullable: false })
@@ -35,3 +36,4 @@ export class Bus {
   @CreateDateColumn()
   created!: Date;
 }
+/* eslint-disable */

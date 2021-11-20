@@ -1,10 +1,11 @@
-import { Operation } from './operation';
+/* eslint-disable */
+import { Operation } from "./operation";
 import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
-  ManyToOne
+  ManyToOne,
 } from "typeorm";
 import { ProcessType } from "./process-type";
 
@@ -23,7 +24,7 @@ export class Process {
   SAPCode!: string;
 
   @ManyToOne(type => Operation, operation => operation.id)
-    operation!: Operation;
+  operation!: Operation;
 
   @Column({ name: "Status", default: true })
   isActive!: boolean;
@@ -32,3 +33,4 @@ export class Process {
   @CreateDateColumn()
   created!: Date;
 }
+/* eslint-disable */

@@ -1,5 +1,6 @@
+/* eslint-disable */
 import express from "express";
-import RoleController from "../controllers/role.controller"
+import RoleController from "../controllers/role.controller";
 
 const router = express.Router();
 
@@ -18,8 +19,9 @@ router.post("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const controller = new RoleController();
   const response = await controller.getRole(req.params.id);
-  if (!response) res.status(404).send({message: "No Section found"})
+  if (!response) res.status(404).send({ message: "No Section found" });
   return res.send(response);
 });
 
-export default router
+export default router;
+/* eslint-disable */

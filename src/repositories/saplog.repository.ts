@@ -1,14 +1,15 @@
+/* eslint-disable */
 import { getRepository } from "typeorm";
 import { SapLog } from "../models";
 import { Notice } from "../models";
 
 export interface ISapLogPayload {
-    notice: string;
-    SAPnoticeId:string;
-    statusResult:string;
-    errorCode:string;
-    username: string;
-    created: Date;
+  notice: string;
+  SAPnoticeId: string;
+  statusResult: string;
+  errorCode: string;
+  username: string;
+  created: Date;
 }
 
 export const getAllSapLog = async (): Promise<Array<SapLog>> => {
@@ -16,7 +17,9 @@ export const getAllSapLog = async (): Promise<Array<SapLog>> => {
   return repository.find();
 };
 
-export const createSapLog = async (payload: ISapLogPayload): Promise<SapLog> => {
+export const createSapLog = async (
+  payload: ISapLogPayload
+): Promise<SapLog> => {
   const repository = getRepository(SapLog);
   const sapLog = new SapLog();
   return repository.save({
@@ -31,3 +34,4 @@ export const getSapLog = async (id: string): Promise<SapLog | null> => {
   if (!sapLog) return null;
   return sapLog;
 };
+/* eslint-disable */

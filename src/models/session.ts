@@ -1,10 +1,10 @@
-
+/* eslint-disable */
 import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
-  ManyToOne
+  ManyToOne,
 } from "typeorm";
 
 @Entity("Session")
@@ -13,12 +13,12 @@ export class Session {
   id!: string;
 
   @Column({ nullable: true, name: "Token" })
-  token!: string
+  token!: string;
 
   @Column({ nullable: true, name: "UserId" })
   user!: string;
 
-  @Column({ nullable: true, name: "IpAddress"})
+  @Column({ nullable: true, name: "IpAddress" })
   ip!: string;
 
   @Column({ nullable: true, name: "MacAddress" })
@@ -37,9 +37,9 @@ export class Session {
   appVersion!: string;
 
   @Column({ default: false, name: "Status" })
-  isActive!: Boolean;
+  isActive!: boolean;
 
   @CreateDateColumn()
   created!: Date;
-
 }
+/* eslint-disable */

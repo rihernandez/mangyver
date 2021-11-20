@@ -1,3 +1,4 @@
+/* eslint-disable */
 import express from "express";
 import BreakdownController from "../controllers/breakdown.controller";
 
@@ -18,8 +19,9 @@ router.post("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const controller = new BreakdownController();
   const response = await controller.getBreakdown(req.params.id);
-  if (!response) res.status(404).send({message: "No BreackDown found"})
+  if (!response) res.status(404).send({ message: "No BreackDown found" });
   return res.send(response);
 });
 
-export default router
+export default router;
+/* eslint-disable */
