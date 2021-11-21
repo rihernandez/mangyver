@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "env": "echo $ENV_TOKEN | sed -e 's/^.//' | base64 -D >>.env",
+    "env": "echo $ENV_TOKEN | sed -e 's/^.//' | base64 -d >>.env",
     "preinstall": "npm run env:check",
     "postinstall": "npx husky-init && touch .husky/pre-commit && npm run precommit:replace && npm run env",
     "precommit:replace": "sed -i.bank 's/npm test/npx lint-staged/g' '.husky/pre-commit'",
@@ -12,7 +12,6 @@
     "start": "npm run env:check && node build/src/index.js",
     "predev": "npm run swagger",
     "prebuild": "npm run swagger",
-    "prepare": "husky install",
     "prod": "npm run build && node build/src/index.js",
     "build": "tsc",
     "dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec\"",
@@ -22,7 +21,8 @@
     "prettier:check": "prettier . --check",
     "lint": "eslint . --ext .ts; exit 0",
     "lint-debug": "eslint --debug; exit 0",
-    "lint-fix": "eslint . --fix; exit 0"
+    "lint-fix": "eslint . --fix; exit 0",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "Richard HC",
@@ -78,7 +78,7 @@
     "typescript-logger": "^5.0.1"
   },
   "engines": {
-    "node": "12.18.3"
+    "node": "12.22.0"
   },
   "nodemonConfig": {
     "watch": [
