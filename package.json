@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node build/src/index.js", 
+    "postinstall": "npx husky-init && touch .husky/pre-commit && npm run precommit-replace",
+    "precommit-replace": "sed -i.bank 's/npm test/npx lint-staged/g' '.husky/pre-commit'",
+    "start": "node build/src/index.js",
     "predev": "npm run swagger",
     "prebuild": "npm run swagger",
     "prepare": "husky install",
