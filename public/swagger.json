@@ -801,31 +801,31 @@
 					"failureTime": {
 						"type": "string"
 					},
-					"department": {
+					"departmentId": {
 						"type": "string"
 					},
-					"line": {
+					"lineId": {
 						"$ref": "#/components/schemas/Line"
 					},
-					"cardType": {
+					"cardTypeId": {
 						"$ref": "#/components/schemas/Card"
 					},
 					"cardTitle": {
 						"type": "string"
 					},
-					"priority": {
+					"priorityId": {
 						"$ref": "#/components/schemas/Priority"
 					},
-					"components": {
+					"componentsId": {
 						"$ref": "#/components/schemas/Component"
 					},
-					"breakdown": {
+					"breakdownId": {
 						"$ref": "#/components/schemas/Breakdown"
 					},
-					"failureType": {
+					"failureTypeId": {
 						"$ref": "#/components/schemas/TypeFail"
 					},
-					"affects": {
+					"affectsId": {
 						"$ref": "#/components/schemas/Affect"
 					},
 					"affectsFile": {
@@ -834,13 +834,13 @@
 					"cardDescription": {
 						"type": "string"
 					},
-					"process": {
+					"processId": {
 						"$ref": "#/components/schemas/Process"
 					},
 					"user": {
 						"$ref": "#/components/schemas/User"
 					},
-					"equipment": {
+					"equipmentId": {
 						"$ref": "#/components/schemas/LineMachine"
 					},
 					"isActive": {
@@ -856,20 +856,20 @@
 					"OTCode",
 					"didCard",
 					"failureTime",
-					"department",
-					"line",
-					"cardType",
+					"departmentId",
+					"lineId",
+					"cardTypeId",
 					"cardTitle",
-					"priority",
-					"components",
-					"breakdown",
-					"failureType",
-					"affects",
+					"priorityId",
+					"componentsId",
+					"breakdownId",
+					"failureTypeId",
+					"affectsId",
 					"affectsFile",
 					"cardDescription",
-					"process",
+					"processId",
 					"user",
-					"equipment",
+					"equipmentId",
 					"isActive",
 					"created"
 				],

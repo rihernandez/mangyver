@@ -6,6 +6,7 @@ import {
   Column,
   CreateDateColumn,
   ManyToOne,
+  JoinColumn,
 } from "typeorm";
 import { Card } from "./card";
 import { Affect } from "./affect";
@@ -29,43 +30,52 @@ export class Notice {
   didCard!: string;
   @Column({ name: "failureTime", nullable: true })
   failureTime!: string;
-  @Column({ name: "department", nullable: true })
-  department!: string;
+  @Column({ name: "departmentId", nullable: true })
+  departmentId!: string;
   // @Column({name: "equipmentCode", nullable: true})
   // equipmentCode!: string;
   @ManyToOne(type => Line, line => line.id, { nullable: true })
-  line!: Line;
+  @JoinColumn({ name: "lineId" })
+  lineId!: Line;
   // @Column({name: "Equipment", nullable: true})
   // equipmentType!: string;
   // @ManyToOne(type => Consecutive, cn => cn.id, {nullable: true})
   // consecutive!: Consecutive;
   @ManyToOne(type => Card, card => card.id, { nullable: true })
-  cardType!: Card;
+  @JoinColumn({ name: "cardTypeId" })
+  cardTypeId!: Card;
   @Column({ name: "cardTitle", nullable: true })
   cardTitle!: string;
   @ManyToOne(type => Priority, priority => priority.id, { nullable: true })
-  priority!: Priority;
+  @JoinColumn({ name: "priorityId" })
+  priorityId!: Priority;
   @ManyToOne(type => Component, cp => cp.id, { nullable: true })
-  components!: Component;
+  @JoinColumn({ name: "componentsId" })
+  componentsId!: Component;
   @ManyToOne(type => Breakdown, bdwn => bdwn.id, { nullable: true })
-  breakdown!: Breakdown;
+  @JoinColumn({ name: "breakdownId" })
+  breakdownId!: Breakdown;
   @ManyToOne(type => TypeFail, tp => tp.id, { nullable: true })
-  failureType!: TypeFail;
+  @JoinColumn({ name: "failureTypeId" })
+  failureTypeId!: TypeFail;
   @ManyToOne(type => Affect, affect => affect.id, { nullable: true })
-  affects!: Affect;
+  @JoinColumn({ name: "affectsId" })
+  affectsId!: Affect;
   @Column({ name: "affectsFile", nullable: true })
   affectsFile!: string;
   @Column({ name: "cardDescription", nullable: true })
   cardDescription!: string;
   @ManyToOne(type => Process, process => process.id, { nullable: true })
-  process!: Process;
+  @JoinColumn({ name: "processId" })
+  processId!: Process;
   @ManyToOne(type => User, user => user.id, { nullable: true })
   user!: User;
 
   @ManyToOne(type => LineMachine, lineMachine => lineMachine.id, {
     nullable: true,
   })
-  equipment!: LineMachine;
+  @JoinColumn({ name: "equipmentId" })
+  equipmentId!: LineMachine;
   // @Column({ name: "Type" })
   // type!: string;
   // @Column({ name: "Order" })

@@ -29,15 +29,15 @@ export default class App {
     this.app.use(morgan("dev"));
     this.app.use(express.static("public"));
     this.app.use(express.json());
-    // this.app.use(
-    //   `${process.env.API_VERSION}/docs`,
-    //   swaggerUi.serve,
-    //   swaggerUi.setup(undefined, {
-    //     swaggerOptions: {
-    //       url: "/swagger.json",
-    //     },
-    //   })
-    // );
+    this.app.use(
+      `${process.env.API_VERSION}/docs`,
+      swaggerUi.serve,
+      swaggerUi.setup(undefined, {
+        swaggerOptions: {
+          url: "/swagger.json",
+        },
+      })
+    );
   }
 
   private async settings() {
