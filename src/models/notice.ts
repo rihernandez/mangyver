@@ -24,7 +24,7 @@ import { LineMachine } from ".";
 export class Notice {
   @PrimaryGeneratedColumn("uuid")
   id!: string;
-  @Column({ name: "OTCode", nullable: true })
+  @Column({ name: "otCode", nullable: true })
   otCode!: string;
   @Column({ name: "didCard", nullable: true })
   didCard!: string;
