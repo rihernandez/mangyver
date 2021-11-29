@@ -792,7 +792,7 @@
 					"id": {
 						"type": "string"
 					},
-					"OTCode": {
+					"otCode": {
 						"type": "string"
 					},
 					"didCard": {
@@ -853,7 +853,7 @@
 				},
 				"required": [
 					"id",
-					"OTCode",
+					"otCode",
 					"didCard",
 					"failureTime",
 					"departmentId",
@@ -878,7 +878,7 @@
 			},
 			"INoticePayload": {
 				"properties": {
-					"OTCode": {
+					"otCode": {
 						"type": "string"
 					},
 					"didCard": {
@@ -931,7 +931,7 @@
 					}
 				},
 				"required": [
-					"OTCode",
+					"otCode",
 					"didCard",
 					"failureTime",
 					"department",
@@ -995,7 +995,7 @@
 					"affectsId": {
 						"$ref": "#/components/schemas/Affect"
 					},
-					"oTCode": {
+					"otCode": {
 						"type": "string"
 					},
 					"id": {
@@ -1034,7 +1034,7 @@
 					"failureTypeId",
 					"cardDescription",
 					"affectsId",
-					"oTCode",
+					"otCode",
 					"id",
 					"affectsFile",
 					"userId",

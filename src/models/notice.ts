@@ -25,7 +25,7 @@ export class Notice {
   @PrimaryGeneratedColumn("uuid")
   id!: string;
   @Column({ name: "OTCode", nullable: true })
-  OTCode!: string;
+  otCode!: string;
   @Column({ name: "didCard", nullable: true })
   didCard!: string;
   @Column({ name: "failureTime", nullable: true })

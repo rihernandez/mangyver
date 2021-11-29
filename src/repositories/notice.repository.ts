@@ -17,7 +17,7 @@ import {
 } from "../models";
 
 export interface INoticePayload {
-  OTCode: string;
+  otCode: string;
   didCard: string;
   failureTime: string;
   department: string;
@@ -54,7 +54,7 @@ export interface INoticenPayloadNewFormat {
   failureTypeId: TypeFail;
   cardDescription: string;
   affectsId: Affect;
-  oTCode: string;
+  otCode: string;
   id: string;
   affectsFile: string;
   userId: null;
