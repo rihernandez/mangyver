@@ -12,9 +12,32 @@ export interface INotificationPayload {
   comments?: string;
 }
 
-export const getNotifications = async (): Promise<Array<Notification>> => {
-  const repository = getRepository(Notification);
-  return repository.find();
+export const getNotifications = async (
+  userId: string,
+  top?: number,
+  from?: number,
+  dateFrom?: string,
+  dateEnd?: string,
+  sapForm?: boolean
+): Promise<Array<Notification>> => {
+  const repository = getRepository(Notification).query(
+    "SP_Select_Notification @userid='" +
+      userId +
+      "', @id=" +
+      null +
+      ", @top='" +
+      top +
+      "', @from='" +
+      from +
+      "', @DateFrom='" +
+      dateFrom +
+      "', @DateEnd='" +
+      dateEnd +
+      "',@SAPForm='" +
+      sapForm +
+      "'"
+  );
+  return repository;
 };
 
 export const createNotification = async (
