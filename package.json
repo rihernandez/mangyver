@@ -65,6 +65,7 @@
     "express-pino-logger": "^6.0.0",
     "express-sanitizer": "^1.0.6",
     "express-validator": "^6.13.0",
+    "express-xss-sanitizer": "^1.1.1",
     "fs": "^0.0.1-security",
     "helmet": "^4.6.0",
     "jsonwebtoken": "^8.5.1",
@@ -82,7 +83,9 @@
     "tslog": "^3.2.2",
     "tsoa": "^3.3.0",
     "typeorm": "^0.2.29",
-    "typescript-logger": "^5.0.1"
+    "typescript-logger": "^5.0.1",
+    "xss": "^1.0.10",
+    "xss-advanced": "^1.0.2"
   },
   "engines": {
     "node": "12.22.0"
