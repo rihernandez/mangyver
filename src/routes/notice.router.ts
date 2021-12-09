@@ -1,11 +1,12 @@
 /* eslint-disable */
 import { getUser } from "../repositories/user.repository";
-import express from "express";
+import express, { Request, Response } from "express";
 import NoticeController from "../controllers/notice.controller";
 import jwt_decode from "jwt-decode";
 import UserInfo from "../middlewares/getUserFromToken";
 import axios from "axios";
 import moment from "moment";
+import { body, validationResult, check } from "express-validator";
 
 import {
   getAllSapLog,
@@ -41,7 +42,7 @@ router.get("/", async (_req, res) => {
   return res.send(results);
 });
 
-router.post("/old_notice", async (req, res) => {
+router.post("/old_notice", async (req: Request, res: Response) => {
   const userInfo = new UserInfo();
   const user = await userInfo.getUserFromToken(req);
   req.body.user = user.id;
@@ -50,84 +51,110 @@ router.post("/old_notice", async (req, res) => {
   return res.send(response);
 });
 
-router.post("/", async (req, res) => {
-  const userInfo = new UserInfo();
-  const user = await userInfo.getUserFromToken(req);
-  req.body.user = user.id;
-  const controller = new NoticeController();
-  const response = await controller.createNoticeNewFormat(req.body);
+router.post(
+  "/",
+  [
+    check("otCode").isAlphanumeric(),
+    check("didCard").isAlphanumeric(),
+    check("failureTime").isAlphanumeric(),
+    check("cardTitle").isAlphanumeric(),
+    check("affectsFile").isAlphanumeric(),
+    check("cardDescription").isAlphanumeric(),
+    check("created").isAlphanumeric(),
+    check("technicalLocation").isAlphanumeric(),
+    check("cardtype").isAlphanumeric(),
+    check("priority").isAlphanumeric(),
+    check("priorityColor").isAlphanumeric(),
+    check("components").isAlphanumeric(),
+    check("breakdown").isAlphanumeric(),
+    check("failureType").isAlphanumeric(),
+    check("affects").isAlphanumeric(),
+    check("userName").isAlphanumeric(),
+    check("userId").isAlphanumeric(),
+    check("line").isAlphanumeric(),
+    check("equipment").isAlphanumeric(),
+    check("department").isAlphanumeric(),
+    check("process").isAlphanumeric(),
+  ],
+  async (req: Request, res: Response) => {
+    const userInfo = new UserInfo();
+    const user = await userInfo.getUserFromToken(req);
+    req.body.user = user.id;
+    const controller = new NoticeController();
+    const response = await controller.createNoticeNewFormat(req.body);
 
-  let body = {
-    IV_AVISOS: {
-      "ERNAM": "",
-      "QMART": "M2",
-      "ERDAT": moment(Date.now())
-        .format("YYYY/MM/DD")
-        .toString()
-        .replace(/[/]/g, "-"),
-      "BTPLN": "CE-CEN-G-TDA-020-030",
-      "EQUNR": "10209513",
-      "AUSWK": "3",
-      "INGRP": "CE4",
-      "IWERK": "PC29",
-      "AUSZT": "0",
-      "INDTX": response.cardTitle,
-      "QMTXT": response.cardDescription,
-      "URCOD": "1000",
-      "URGRP": "VALVULA",
-      "QMNAM": "32168600",
-      "ESTATUS": "",
-      "ARTPR": "",
-      "PRIOK": "1",
-      "MNCOD": "1000",
-      "MNGRP": "VALVULA",
-      "MATXT": "ICM2-TIEMPO",
-      "PSTER": moment(Date.now())
-        .format("YYYY/MM/DD")
-        .toString()
-        .replace(/[/]/g, "-"),
-      "QMGRP ": "TRANSPOR",
-      "QMCOD ": "0030",
-      "ARBPL": "TRANSPOR",
-      "OTEIL": "1000",
-      "OTGRP": "VALVULA",
-      "INSPK": "",
-      "FEGRP": "",
-      "FETXT": "TEXT",
-      "URSTX ": "",
-    },
-  };
-  try {
-    const sapResponse = await axios.post(
-      <string>process.env.SAP_URI || sapuri,
-      body,
-      {
-        auth: {
-          username: <string>process.env.SAP_USER || "MX003967",
-          password: <string>process.env.SAP_KEY || "B@bySh2021!",
-        },
-      }
-    );
-
-    log.info(new Date(moment(Date.now(), "YYYY/MM/DD").format()));
-
-    log.info("response from server ", sapResponse);
-
-    const payload = {
-      notice: response.id,
-      SAPnoticeId: sapResponse.data.MT_CreaAvisosMtto_ManRes.EV_QMNUM,
-      statusResult: "200",
-      errorCode: "",
-      username: String(response.user),
-      created: new Date(Date.now()),
+    let body = {
+      IV_AVISOS: {
+        "ERNAM": "",
+        "QMART": "M2",
+        "ERDAT": moment(Date.now())
+          .format("YYYY/MM/DD")
+          .toString()
+          .replace(/[/]/g, "-"),
+        "BTPLN": "CE-CEN-G-TDA-020-030",
+        "EQUNR": "10209513",
+        "AUSWK": "3",
+        "INGRP": "CE4",
+        "IWERK": "PC29",
+        "AUSZT": "0",
+        "INDTX": response.cardTitle,
+        "QMTXT": response.cardDescription,
+        "URCOD": "1000",
+        "URGRP": "VALVULA",
+        "QMNAM": "32168600",
+        "ESTATUS": "",
+        "ARTPR": "",
+        "PRIOK": "1",
+        "MNCOD": "1000",
+        "MNGRP": "VALVULA",
+        "MATXT": "ICM2-TIEMPO",
+        "PSTER": moment(Date.now())
+          .format("YYYY/MM/DD")
+          .toString()
+          .replace(/[/]/g, "-"),
+        "QMGRP ": "TRANSPOR",
+        "QMCOD ": "0030",
+        "ARBPL": "TRANSPOR",
+        "OTEIL": "1000",
+        "OTGRP": "VALVULA",
+        "INSPK": "",
+        "FEGRP": "",
+        "FETXT": "TEXT",
+        "URSTX ": "",
+      },
     };
-    createSapLog(payload);
-  } catch (error) {
-    log.error("error with external service ", error);
+    try {
+      const sapResponse = await axios.post(
+        <string>process.env.SAP_URI || sapuri,
+        body,
+        {
+          auth: {
+            username: <string>process.env.SAP_USER,
+            password: <string>process.env.SAP_KEY,
+          },
+        }
+      );
+
+      log.info(new Date(moment(Date.now(), "YYYY/MM/DD").format()));
+
+      log.info("response from server ", sapResponse);
+
+      const payload = {
+        notice: response.id,
+        SAPnoticeId: sapResponse.data.MT_CreaAvisosMtto_ManRes.EV_QMNUM,
+        statusResult: "200",
+        errorCode: "",
+        username: String(response.user),
+        created: new Date(Date.now()),
+      };
+      createSapLog(payload);
+    } catch (error) {
+      log.error("error with external service ", error);
+    }
+    log.silly(response);
+    return res.send(response);
   }
-  log.silly(response);
-  return res.send(response);
-});
+);
 
 router.get("/:id", async (req, res) => {
   const controller = new NoticeController();

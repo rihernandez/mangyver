@@ -9,6 +9,7 @@ import cors from "cors";
 import helmet from "helmet";
 import { Logger } from "tslog";
 import { log } from "./config/logger";
+import sanitizer from "sanitizer";
 
 import Router, { initRoute, metadata } from "./routes";
 import dbConfig from "./config/database";
