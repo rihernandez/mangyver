@@ -13,9 +13,16 @@ import {
 export default class LineMachineController {
   @Get("/")
   public async getLineMachines(
-    @Query() lineId?: string
+    @Query() lineId?: string,
+    @Query() qskip?: number,
+    @Query() qtake?: number
   ): Promise<Array<LineMachine>> {
-    return getLineMachines(lineId);
+    let skip: number = Number(qskip);
+    let take: number = Number(qtake);
+    if (isNaN(skip && take)) {
+    }
+    skip > 0 ? (skip = skip - 1) : skip;
+    return getLineMachines(lineId, skip, take);
   }
 
   @Post("/")

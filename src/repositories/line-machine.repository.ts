@@ -10,11 +10,30 @@ export interface ILineMachinePayload {
 }
 
 export const getLineMachines = async (
-  lineId?: string
+  lineId?: string,
+  skip?: number,
+  take?: number
 ): Promise<Array<LineMachine>> => {
   const repository = getRepository(LineMachine);
+
   if (lineId) {
-    return repository.find({ line: { id: lineId } });
+    return repository.find({
+      // relations: ["line"],
+      // line: {
+      //   id: lineId
+      // },
+      where: {
+        line: {
+          id: lineId,
+        },
+      },
+      // order: {
+      //   name: "ASC",
+      // },
+      skip: skip,
+      take: take,
+      cache: true,
+    });
   }
 
   return repository.find();
