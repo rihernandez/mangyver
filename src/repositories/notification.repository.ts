@@ -5,7 +5,7 @@ import { Notification, OperationNumber, Deviation } from "../models";
 export interface INotificationPayload {
   deviation: Deviation;
   operationNum: OperationNumber;
-  OTCode: string;
+  otCode: string;
   startHour: Date;
   endHour: Date;
   isDone: boolean;
