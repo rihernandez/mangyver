@@ -3,8 +3,8 @@ import { getRepository } from "typeorm";
 import { Notification, OperationNumber, Deviation } from "../models";
 
 export interface INotificationPayload {
-  deviation: Deviation;
-  operationNum: OperationNumber;
+  deviationId: Deviation;
+  operationNumId: OperationNumber;
   otCode: string;
   startHour: Date;
   endHour: Date;
@@ -45,6 +45,7 @@ export const createNotification = async (
 ): Promise<Notification> => {
   const repository = getRepository(Notification);
   const notification = new Notification();
+
   console.log(payload.startHour.toString());
   return repository.save({
     ...notification,

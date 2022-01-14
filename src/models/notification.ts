@@ -7,6 +7,7 @@ import {
   Column,
   CreateDateColumn,
   ManyToOne,
+  JoinColumn,
 } from "typeorm";
 
 @Entity("Notification")
@@ -17,13 +18,15 @@ export class Notification {
   @ManyToOne(type => OperationNumber, operationNum => operationNum.id, {
     nullable: false,
   })
-  operationNum!: OperationNumber;
+  @JoinColumn({ name: "operationNumId" })
+  operationNumId!: OperationNumber;
 
   @ManyToOne(type => Deviation, deviation => deviation.id, { nullable: false })
-  deviation!: Deviation;
+  @JoinColumn({ name: "deviationId" })
+  deviationId!: Deviation;
 
-  @Column({ name: "OTCode", length: 50 })
-  OTCode!: string;
+  @Column({ name: "otCode", length: 50 })
+  otCode!: string;
 
   @Column({ name: "StartHour", nullable: true })
   startHour!: Date;
