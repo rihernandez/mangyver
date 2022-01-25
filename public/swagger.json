@@ -360,6 +360,21 @@
 					},
 					"isActive": {
 						"type": "boolean"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"SAPUser": {
+						"type": "string"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
+					"area": {
+						"$ref": "#/components/schemas/Area"
+					},
+					"line": {
+						"$ref": "#/components/schemas/Line"
 					}
 				},
 				"required": [
@@ -368,7 +383,12 @@
 					"password",
 					"email",
 					"role",
-					"isActive"
+					"isActive",
+					"SAPCode",
+					"SAPUser",
+					"operation",
+					"area",
+					"line"
 				],
 				"type": "object",
 				"additionalProperties": false

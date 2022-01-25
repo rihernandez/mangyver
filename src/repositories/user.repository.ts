@@ -1,8 +1,8 @@
 /* eslint-disable */
-import { Role } from "../models";
+import { Line, Operation, Role } from "../models";
 import { getRepository } from "typeorm";
 import { User } from "../models";
-
+import { Area } from "../models";
 export interface IUserPayload {
   name: string;
   username: string;
@@ -10,6 +10,11 @@ export interface IUserPayload {
   email: string;
   role: Role;
   isActive: boolean;
+  SAPCode: string;
+  SAPUser: string;
+  operation: Operation;
+  area: Area;
+  line: Line;
 }
 
 export const getUsers = async (): Promise<Array<User>> => {

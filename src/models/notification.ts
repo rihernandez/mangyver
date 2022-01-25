@@ -16,12 +16,12 @@ export class Notification {
   id!: string;
 
   @ManyToOne(type => OperationNumber, operationNum => operationNum.id, {
-    nullable: false,
+    nullable: true,
   })
   @JoinColumn({ name: "operationNumId" })
   operationNumId!: OperationNumber;
 
-  @ManyToOne(type => Deviation, deviation => deviation.id, { nullable: false })
+  @ManyToOne(type => Deviation, deviation => deviation.id, { nullable: true })
   @JoinColumn({ name: "deviationId" })
   deviationId!: Deviation;
 

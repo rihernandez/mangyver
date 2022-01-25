@@ -56,9 +56,13 @@ export const createNotification = async (
 export const getNotification = async (
   id: string
 ): Promise<Notification | null> => {
-  const repository = getRepository(Notification);
-  const notification = await repository.findOne({ id: id });
-  if (!notification) return null;
-  return notification;
+  // const repository = getRepository(Notification);
+  // const notification = await repository.findOne({ id: id });
+  // if (!notification) return null;
+  // return notification;
+  const repository = await getRepository(Notification).query(
+    "SP_Select_Notification @userid='" + null + "', @id='" + id + "'"
+  );
+  return repository;
 };
 /* eslint-disable */

@@ -26,6 +26,11 @@ export default class UserController {
     user.email = body.email;
     user.role = body.role;
     user.isActive = body.isActive;
+    user.SAPCode = body.SAPCode;
+    user.SAPUser = body.SAPUser;
+    user.operation = body.operation;
+    user.area = body.area;
+    user.line = body.line;
     user.hashPassword();
     return createUser(user);
   }
