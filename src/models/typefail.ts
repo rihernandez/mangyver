@@ -4,7 +4,9 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
+  ManyToOne,
 } from "typeorm";
+import { Operation } from ".";
 
 @Entity("TypeFail")
 export class TypeFail {
@@ -23,5 +25,8 @@ export class TypeFail {
   @Column({ nullable: true, name: "Created" })
   @CreateDateColumn()
   created!: Date;
+
+  @ManyToOne(type => Operation, operation => operation.id, { nullable: true })
+  operation!: Operation;
 }
 /* eslint-disable */

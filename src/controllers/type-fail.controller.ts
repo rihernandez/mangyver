@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { Get, Route, Tags, Post, Body, Path } from "tsoa";
+import { Get, Route, Tags, Post, Body, Path, Query } from "tsoa";
 import { TypeFail } from "../models";
 import {
   getTypeFails,
@@ -12,8 +12,10 @@ import {
 @Tags("TypeFail")
 export default class TypeFailController {
   @Get("/")
-  public async getTypeFails(): Promise<Array<TypeFail>> {
-    return getTypeFails();
+  public async getTypeFails(
+    @Query() profile?: string
+  ): Promise<Array<TypeFail>> {
+    return getTypeFails(profile);
   }
 
   @Post("/")

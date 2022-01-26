@@ -762,6 +762,9 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
 					}
 				},
 				"required": [
@@ -769,7 +772,8 @@
 					"name",
 					"SAPCode",
 					"isActive",
-					"created"
+					"created",
+					"operation"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1509,12 +1513,16 @@
 					},
 					"isActive": {
 						"type": "boolean"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
 					}
 				},
 				"required": [
 					"name",
 					"SAPCode",
-					"isActive"
+					"isActive",
+					"operation"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -3656,7 +3664,16 @@
 					"TypeFail"
 				],
 				"security": [],
-				"parameters": []
+				"parameters": [
+					{
+						"in": "query",
+						"name": "profile",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
 			},
 			"post": {
 				"operationId": "CreateTypeFail",

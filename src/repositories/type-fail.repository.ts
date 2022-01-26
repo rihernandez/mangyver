@@ -1,16 +1,21 @@
 /* eslint-disable */
 import { getRepository } from "typeorm";
-import { TypeFail } from "../models";
+import { Operation, TypeFail } from "../models";
 
 export interface ITypeFailPayload {
   name: string;
   SAPCode: string;
   isActive: boolean;
+  operation: Operation;
 }
 
-export const getTypeFails = async (): Promise<Array<TypeFail>> => {
+export const getTypeFails = async (
+  operationId?: string
+): Promise<Array<TypeFail>> => {
   const repository = getRepository(TypeFail);
-  return repository.find();
+  return repository.find({
+    where: [{ operation: operationId }],
+  });
 };
 
 export const createTypeFail = async (
