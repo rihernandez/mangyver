@@ -759,12 +759,12 @@
 					"isActive": {
 						"type": "boolean"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"created": {
 						"type": "string",
 						"format": "date-time"
-					},
-					"operation": {
-						"$ref": "#/components/schemas/Operation"
 					}
 				},
 				"required": [
@@ -772,8 +772,8 @@
 					"name",
 					"SAPCode",
 					"isActive",
-					"created",
-					"operation"
+					"operation",
+					"created"
 				],
 				"type": "object",
 				"additionalProperties": false

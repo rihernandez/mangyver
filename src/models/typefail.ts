@@ -22,11 +22,11 @@ export class TypeFail {
   @Column({ name: "Status", default: true })
   isActive!: boolean;
 
+  @ManyToOne(type => Operation, operation => operation.id, { nullable: true })
+  operation!: Operation;
+
   @Column({ nullable: true, name: "Created" })
   @CreateDateColumn()
   created!: Date;
-
-  @ManyToOne(type => Operation, operation => operation.id, { nullable: true })
-  operation!: Operation;
 }
 /* eslint-disable */
