@@ -2,12 +2,19 @@
 import express from "express";
 import Process from "../controllers/process.controller";
 import { log } from "../config/logger";
-
+import jwt_decode from "jwt-decode";
+import { getUser } from "../repositories/user.repository";
 const router = express.Router();
 
 router.get("/", async (_req, res) => {
+  const headers = _req.headers;
+  const token = headers.auth;
+  const decoded: object = jwt_decode(JSON.stringify(token));
+  const objectValues = Object.values(decoded);
+  const profile = await getUser(objectValues[0]);
+
   const controller = new Process();
-  const response = await controller.getProceses();
+  const response = await controller.getProceses(profile?.operation.id);
   const results = JSON.parse(JSON.stringify(response));
   results.map((result: any) => {
     result.label = result.name;

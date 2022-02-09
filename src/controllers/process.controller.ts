@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { Get, Route, Tags, Post, Body, Path } from "tsoa";
+import { Get, Route, Tags, Post, Body, Path, Query } from "tsoa";
 import { Process } from "../models";
 import {
   getProcesss,
@@ -12,8 +12,8 @@ import {
 @Tags("Process")
 export default class ProcessController {
   @Get("/")
-  public async getProceses(): Promise<Array<Process>> {
-    return getProcesss();
+  public async getProceses(@Query() profile?: string): Promise<Array<Process>> {
+    return getProcesss(profile);
   }
 
   @Post("/")

@@ -10,9 +10,11 @@ export interface IProcessPayload {
   isActive: boolean;
 }
 
-export const getProcesss = async (): Promise<Array<Process>> => {
+export const getProcesss = async (
+  operationId?: string
+): Promise<Array<Process>> => {
   const repository = getRepository(Process);
-  return repository.find();
+  return repository.find({ where: [{ operation: operationId }] });
 };
 
 export const createProcess = async (
