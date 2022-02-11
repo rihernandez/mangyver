@@ -12,7 +12,7 @@ export interface ICardPayload {
 export const getCards = async (process?: string): Promise<Array<Card>> => {
   const repository = getRepository(Card);
   if (process) {
-    return repository.find({ process: { id: process } });
+    return repository.find({ process: { processId: process } });
   }
 
   return repository.find();

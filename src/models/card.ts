@@ -6,6 +6,7 @@ import {
   Column,
   CreateDateColumn,
   ManyToOne,
+  JoinColumn,
 } from "typeorm";
 import { Process } from "./process";
 
@@ -21,7 +22,8 @@ export class Card {
   @ManyToOne(type => Operation, operation => operation.id)
   operation!: Operation;
 
-  @ManyToOne(type => Process, process => process.id)
+  @ManyToOne(type => Process, process => process.processId)
+  @JoinColumn({ name: "processId" })
   process!: Process;
 
   @Column({ name: "Status", default: true })

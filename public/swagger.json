@@ -548,6 +548,9 @@
 					"id": {
 						"type": "string"
 					},
+					"processId": {
+						"type": "string"
+					},
 					"processType": {
 						"$ref": "#/components/schemas/ProcessType"
 					},
@@ -570,6 +573,7 @@
 				},
 				"required": [
 					"id",
+					"processId",
 					"processType",
 					"name",
 					"SAPCode",
@@ -858,7 +862,7 @@
 					"cardDescription": {
 						"type": "string"
 					},
-					"processId": {
+					"process": {
 						"$ref": "#/components/schemas/Process"
 					},
 					"user": {
@@ -891,7 +895,7 @@
 					"affectsId",
 					"affectsFile",
 					"cardDescription",
-					"processId",
+					"process",
 					"user",
 					"equipmentId",
 					"isActive",

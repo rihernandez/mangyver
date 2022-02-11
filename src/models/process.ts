@@ -11,8 +11,11 @@ import { ProcessType } from "./process-type";
 
 @Entity("Process")
 export class Process {
-  @PrimaryGeneratedColumn("uuid")
+  @Column({ name: "id", nullable: true })
   id!: string;
+
+  @PrimaryGeneratedColumn("uuid")
+  processId!: string;
 
   @ManyToOne(() => ProcessType, type => type.id)
   processType!: ProcessType;
@@ -33,4 +36,3 @@ export class Process {
   @CreateDateColumn()
   created!: Date;
 }
-/* eslint-disable */

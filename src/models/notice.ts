@@ -67,7 +67,7 @@ export class Notice {
   cardDescription!: string;
   @ManyToOne(type => Process, process => process.id, { nullable: true })
   @JoinColumn({ name: "processId" })
-  processId!: Process;
+  process!: Process;
   @ManyToOne(type => User, user => user.id, { nullable: true })
   user!: User;
 

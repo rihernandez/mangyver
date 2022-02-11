@@ -30,8 +30,7 @@ export const createProcess = async (
 
 export const getProcess = async (id: string): Promise<Process | null> => {
   const repository = getRepository(Process);
-  const process = await repository.findOne({ id: id });
+  const process = await repository.findOne({ processId: id });
   if (!process) return null;
   return process;
 };
-/* eslint-disable */
