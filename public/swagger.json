@@ -862,7 +862,7 @@
 					"cardDescription": {
 						"type": "string"
 					},
-					"process": {
+					"processId": {
 						"$ref": "#/components/schemas/Process"
 					},
 					"user": {
@@ -895,7 +895,7 @@
 					"affectsId",
 					"affectsFile",
 					"cardDescription",
-					"process",
+					"processId",
 					"user",
 					"equipmentId",
 					"isActive",
