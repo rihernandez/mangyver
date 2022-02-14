@@ -13,8 +13,11 @@ import {
 @Tags("Card")
 export default class CardController {
   @Get("/")
-  public async getCards(@Query() process?: string): Promise<Array<Card>> {
-    return getCards(process);
+  public async getCards(
+    @Query() process?: string,
+    @Query() profile?: string
+  ): Promise<Array<Card>> {
+    return getCards(process, profile);
   }
 
   @Post("/")

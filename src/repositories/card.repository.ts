@@ -9,13 +9,16 @@ export interface ICardPayload {
   isActive: boolean;
 }
 
-export const getCards = async (process?: string): Promise<Array<Card>> => {
+export const getCards = async (
+  process?: string,
+  operationId?: string
+): Promise<Array<Card>> => {
   const repository = getRepository(Card);
   if (process) {
     return repository.find({ process: { processId: process } });
   }
 
-  return repository.find();
+  return repository.find({ where: [{ operation: operationId }] });
 };
 
 export const createCard = async (payload: ICardPayload): Promise<Card> => {
