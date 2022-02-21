@@ -7,6 +7,8 @@ import UserInfo from "../middlewares/getUserFromToken";
 import axios from "axios";
 import moment from "moment";
 import { body, validationResult, check } from "express-validator";
+import { getRepository } from "typeorm";
+
 // import xss from "xss"
 // // import * as pp from "express-sanitizer"
 // // import { xxx } from "express-xss-sanitizer"
@@ -18,13 +20,13 @@ import {
   createSapLog,
   ISapLogPayload,
 } from "../repositories/saplog.repository";
-import { Notice } from "src/models";
+import { Notice } from "../models";
 import { log } from "../config/logger";
 
 const router = express.Router();
 
-const sapuri =
-  "http://azuspo20q.modelo.gmodelo.com.mx:50000/RESTAdapter/CreaAvisosMantenimiento";
+// const sapuri =
+//   "http://azuspo20q.modelo.gmodelo.com.mx:50000/RESTAdapter/CreaAvisosMantenimiento";
 
 router.get("/", async (_req, res) => {
   const userInfo = new UserInfo();
@@ -62,50 +64,53 @@ router.post("/", async (req: any, res) => {
   const controller = new NoticeController();
   const response = await controller.createNoticeNewFormat(req.body);
 
-  let body = {
-    IV_AVISOS: {
-      "ERNAM": "",
-      "QMART": "M2",
-      "ERDAT": moment(Date.now())
-        .format("YYYY/MM/DD")
-        .toString()
-        .replace(/[/]/g, "-"),
-      "BTPLN": "CE-CEN-G-TDA-020-030",
-      "EQUNR": "10209513",
-      "AUSWK": "3",
-      "INGRP": "CE4",
-      "IWERK": "PC29",
-      "AUSZT": "0",
-      "INDTX": response.cardTitle,
-      "QMTXT": response.cardDescription,
-      "URCOD": "1000",
-      "URGRP": "VALVULA",
-      "QMNAM": "32168600",
-      "ESTATUS": "",
-      "ARTPR": "",
-      "PRIOK": "1",
-      "MNCOD": "1000",
-      "MNGRP": "VALVULA",
-      "MATXT": "ICM2-TIEMPO",
-      "PSTER": moment(Date.now())
-        .format("YYYY/MM/DD")
-        .toString()
-        .replace(/[/]/g, "-"),
-      "QMGRP ": "TRANSPOR",
-      "QMCOD ": "0030",
-      "ARBPL": "TRANSPOR",
-      "OTEIL": "1000",
-      "OTGRP": "VALVULA",
-      "INSPK": "",
-      "FEGRP": "",
-      "FETXT": "TEXT",
-      "URSTX ": "",
-    },
-  };
+  // let body = {
+  //   IV_AVISOS: {
+  //     "ERNAM": "",
+  //     "QMART": "M2",
+  //     "ERDAT": moment(Date.now())
+  //       .format("YYYY/MM/DD")
+  //       .toString()
+  //       .replace(/[/]/g, "-"),
+  //     "BTPLN": "CE-CEN-G-TDA-020-030",
+  //     "EQUNR": "10209513",
+  //     "AUSWK": "3",
+  //     "INGRP": "CE4",
+  //     "IWERK": "PC29",
+  //     "AUSZT": "0",
+  //     "INDTX": response.cardTitle,
+  //     "QMTXT": response.cardDescription,
+  //     "URCOD": "1000",
+  //     "URGRP": "VALVULA",
+  //     "QMNAM": "32168600",
+  //     "ESTATUS": "",
+  //     "ARTPR": "",
+  //     "PRIOK": "1",
+  //     "MNCOD": "1000",
+  //     "MNGRP": "VALVULA",
+  //     "MATXT": "ICM2-TIEMPO",
+  //     "PSTER": moment(Date.now())
+  //       .format("YYYY/MM/DD")
+  //       .toString()
+  //       .replace(/[/]/g, "-"),
+  //     "QMGRP ": "TRANSPOR",
+  //     "QMCOD ": "0030",
+  //     "ARBPL": "TRANSPOR",
+  //     "OTEIL": "1000",
+  //     "OTGRP": "VALVULA",
+  //     "INSPK": "",
+  //     "FEGRP": "",
+  //     "FETXT": "TEXT",
+  //     "URSTX ": "",
+  //   },
+  // };
   try {
+    const repository = await getRepository(Notice).query(
+      "SP_noticeSAPRequest @id='" + response.id + "'"
+    );
     const sapResponse = await axios.post(
-      <string>process.env.SAP_URI || sapuri,
-      body,
+      repository[0].SAPURLRequest,
+      repository[0].SAPRequest,
       {
         auth: {
           username: <string>process.env.SAP_USER,
