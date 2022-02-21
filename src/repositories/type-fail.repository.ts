@@ -7,6 +7,7 @@ export interface ITypeFailPayload {
   SAPCode: string;
   isActive: boolean;
   operation: Operation;
+  shortname: string;
 }
 
 export const getTypeFails = async (

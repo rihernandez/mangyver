@@ -3,6 +3,8 @@ import express from "express";
 import UserController from "../controllers/user.controller";
 import passwordValidator from "password-validator";
 import { log } from "../config/logger";
+import jwt_decode from "jwt-decode";
+import { getUser } from "../repositories/user.repository";
 
 const router = express.Router();
 
@@ -39,8 +41,22 @@ const malformedPassword = {
 };
 
 router.get("/", async (_req, res) => {
+  const headers = _req.headers;
+  const token = headers.auth;
+  const decoded: object = jwt_decode(JSON.stringify(token));
+  const objectValues = Object.values(decoded);
+  const profile = await getUser(objectValues[0]);
+  _req.query.top,
+    _req.query.from,
+    _req.query.dateFrom,
+    _req.query.dateEnd,
+    _req.query.sapForm;
   const controller = new UserController();
-  const response = await controller.getUsers();
+  const response = await controller.getUsers(
+    profile?.operation.id,
+    Number(_req.query?.skip),
+    Number(_req.query?.take)
+  );
   const results = JSON.parse(JSON.stringify(response));
   results.map((result: any) => {
     result.label = result.name;

@@ -763,6 +763,9 @@
 					"isActive": {
 						"type": "boolean"
 					},
+					"shortName": {
+						"type": "string"
+					},
 					"operation": {
 						"$ref": "#/components/schemas/Operation"
 					},
@@ -776,6 +779,7 @@
 					"name",
 					"SAPCode",
 					"isActive",
+					"shortName",
 					"operation",
 					"created"
 				],
@@ -819,6 +823,10 @@
 				"properties": {
 					"id": {
 						"type": "string"
+					},
+					"numNotice": {
+						"type": "number",
+						"format": "double"
 					},
 					"otCode": {
 						"type": "string"
@@ -868,6 +876,9 @@
 					"user": {
 						"$ref": "#/components/schemas/User"
 					},
+					"sapId": {
+						"type": "string"
+					},
 					"equipmentId": {
 						"$ref": "#/components/schemas/LineMachine"
 					},
@@ -897,6 +908,7 @@
 					"cardDescription",
 					"processId",
 					"user",
+					"sapId",
 					"equipmentId",
 					"isActive",
 					"created"
@@ -956,6 +968,9 @@
 					},
 					"user": {
 						"$ref": "#/components/schemas/User"
+					},
+					"sapId": {
+						"type": "string"
 					}
 				},
 				"required": [
@@ -974,7 +989,8 @@
 					"affectsFile",
 					"cardDescription",
 					"process",
-					"user"
+					"user",
+					"sapId"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1045,6 +1061,9 @@
 							"true"
 						],
 						"nullable": false
+					},
+					"sapId": {
+						"type": "string"
 					}
 				},
 				"required": [
@@ -1066,7 +1085,8 @@
 					"id",
 					"affectsFile",
 					"userId",
-					"isActive"
+					"isActive",
+					"sapId"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1520,13 +1540,17 @@
 					},
 					"operation": {
 						"$ref": "#/components/schemas/Operation"
+					},
+					"shortname": {
+						"type": "string"
 					}
 				},
 				"required": [
 					"name",
 					"SAPCode",
 					"isActive",
-					"operation"
+					"operation",
+					"shortname"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1853,7 +1877,34 @@
 					"User"
 				],
 				"security": [],
-				"parameters": []
+				"parameters": [
+					{
+						"in": "query",
+						"name": "profile",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "skip",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "take",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
 			},
 			"post": {
 				"operationId": "CreateUser",

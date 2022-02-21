@@ -37,6 +37,7 @@ export interface INoticePayload {
   cardDescription: string;
   process: Process;
   user: User;
+  sapId: string;
 }
 
 export interface INoticenPayloadNewFormat {
@@ -59,6 +60,7 @@ export interface INoticenPayloadNewFormat {
   affectsFile: string;
   userId: null;
   isActive: true;
+  sapId: string;
 }
 
 export const getNotices = async (

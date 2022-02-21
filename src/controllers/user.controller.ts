@@ -13,8 +13,12 @@ import {
 @Tags("User")
 export default class UserController {
   @Get("/")
-  public async getUsers(): Promise<Array<User>> {
-    return getUsers();
+  public async getUsers(
+    @Query() profile?: string,
+    @Query() skip?: number,
+    @Query() take?: number
+  ): Promise<Array<User>> {
+    return getUsers(profile, skip, take);
   }
 
   @Post("/")

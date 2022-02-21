@@ -22,6 +22,9 @@ export class TypeFail {
   @Column({ name: "Status", default: true })
   isActive!: boolean;
 
+  @Column({ name: "ShortName", nullable: true })
+  shortName!: string;
+
   @ManyToOne(type => Operation, operation => operation.id, { nullable: true })
   operation!: Operation;
 

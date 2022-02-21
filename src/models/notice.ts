@@ -7,6 +7,7 @@ import {
   CreateDateColumn,
   ManyToOne,
   JoinColumn,
+  Generated,
 } from "typeorm";
 import { Card } from "./card";
 import { Affect } from "./affect";
@@ -24,6 +25,9 @@ import { LineMachine } from ".";
 export class Notice {
   @PrimaryGeneratedColumn("uuid")
   id!: string;
+  @Column({ name: "numNotice" })
+  @Generated("increment")
+  numNotice?: number;
   @Column({ name: "otCode", nullable: true })
   otCode!: string;
   @Column({ name: "didCard", nullable: true })
@@ -70,7 +74,8 @@ export class Notice {
   processId!: Process;
   @ManyToOne(type => User, user => user.id, { nullable: true })
   user!: User;
-
+  @Column({ name: "SapId", nullable: true })
+  sapId!: string;
   @ManyToOne(type => LineMachine, lineMachine => lineMachine.id, {
     nullable: true,
   })

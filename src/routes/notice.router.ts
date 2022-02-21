@@ -61,7 +61,7 @@ router.post("/", async (req: any, res) => {
   req.body.user = user.id;
   const controller = new NoticeController();
   const response = await controller.createNoticeNewFormat(req.body);
-  console.log("richard", req.body);
+
   let body = {
     IV_AVISOS: {
       "ERNAM": "",
@@ -120,7 +120,7 @@ router.post("/", async (req: any, res) => {
 
     const payload = {
       notice: response.id,
-      SAPnoticeId: sapResponse.data.MT_CreaAvisosMtto_ManRes.EV_QMNUM,
+      SAPnoticeId: sapResponse.data.MT_CreaAvisosMtto_ManRes.EV_QMNUM, // pending to keep this on the new server call structure
       statusResult: "200",
       errorCode: "",
       username: String(response.user),

@@ -17,10 +17,17 @@ export interface IUserPayload {
   line: Line;
 }
 
-export const getUsers = async (): Promise<Array<User>> => {
+export const getUsers = async (
+  operationId?: string,
+  skip?: number,
+  take?: number
+): Promise<Array<User>> => {
   const userRepository = getRepository(User);
   return userRepository.find({
     relations: ["operation", "area", "line", "role"],
+    where: [{ operation: operationId }],
+    skip: skip,
+    take: take,
   });
 };
 
