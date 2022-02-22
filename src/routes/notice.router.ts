@@ -104,11 +104,14 @@ router.post("/", async (req: any, res) => {
   //     "URSTX ": "",
   //   },
   // };
+  let sapResponse: any = "";
+  let payload: any = "";
+
   try {
     const repository = await getRepository(Notice).query(
       "SP_noticeSAPRequest @id='" + response.id + "'"
     );
-    const sapResponse = await axios.post(
+    sapResponse = await axios.post(
       repository[0].SAPURLRequest,
       repository[0].SAPRequest,
       {
@@ -119,11 +122,11 @@ router.post("/", async (req: any, res) => {
       }
     );
 
-    log.info(new Date(moment(Date.now(), "YYYY/MM/DD").format()));
+    // log.info(new Date(moment(Date.now(), "YYYY/MM/DD").format()));
 
-    log.info("response from server ", sapResponse);
+    // log.info("response from server ", sapResponse);
 
-    const payload = {
+    payload = {
       notice: response.id,
       SAPnoticeId: sapResponse.data.MT_CreaAvisosMtto_ManRes.EV_QMNUM, // pending to keep this on the new server call structure
       statusResult: "200",
@@ -131,11 +134,19 @@ router.post("/", async (req: any, res) => {
       username: String(response.user),
       created: new Date(Date.now()),
     };
-    createSapLog(payload);
   } catch (error) {
-    log.error("error with external service ", error);
+    payload = {
+      notice: response.id,
+      SAPnoticeId: "", // pending to keep this on the new server call structure
+      statusResult: "500",
+      errorCode: String(error),
+      username: String(response.user),
+      created: new Date(Date.now()),
+    };
   }
-  log.silly(response);
+
+  // log.silly(response);
+  createSapLog(payload);
   return res.send(response);
 });
 

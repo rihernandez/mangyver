@@ -17,9 +17,7 @@ export const getAllSapLog = async (): Promise<Array<SapLog>> => {
   return repository.find();
 };
 
-export const createSapLog = async (
-  payload: ISapLogPayload
-): Promise<SapLog> => {
+export const createSapLog = (payload: ISapLogPayload): Promise<SapLog> => {
   const repository = getRepository(SapLog);
   const sapLog = new SapLog();
   return repository.save({
