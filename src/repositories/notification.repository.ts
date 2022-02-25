@@ -3,8 +3,8 @@ import { getRepository } from "typeorm";
 import { Notification, OperationNumber, Deviation, Operation } from "../models";
 
 export interface INotificationPayload {
-  deviationId: Deviation;
-  operationNumId: OperationNumber;
+  deviation: Deviation;
+  operationNum: OperationNumber;
   operation: Operation;
   otCode: string;
   startHour: Date;

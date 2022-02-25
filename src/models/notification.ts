@@ -22,7 +22,7 @@ export class Notification {
     nullable: true,
   })
   @JoinColumn({ name: "operationNumId" })
-  operationNumId!: OperationNumber;
+  operationNum!: OperationNumber;
 
   @ManyToOne(type => Operation, operation => operation.id, {
     nullable: true,
@@ -32,7 +32,7 @@ export class Notification {
 
   @ManyToOne(type => Deviation, deviation => deviation.id, { nullable: true })
   @JoinColumn({ name: "deviationId" })
-  deviationId!: Deviation;
+  deviation!: Deviation;
 
   @Column({ name: "otCode", length: 50 })
   otCode!: string;

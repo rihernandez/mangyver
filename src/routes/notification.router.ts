@@ -35,6 +35,10 @@ router.post("/", async (req, res) => {
   const objectValues = Object.values(decoded);
   const profile = await getUser(objectValues[0]);
   req.body.operation = profile?.operation.id;
+
+  const userInfo = new UserInfo();
+  const user = await userInfo.getUserFromToken(req);
+  req.body.user = user.id;
   const controller = new NotificationController();
   const response = await controller.createNotification(req.body);
 
