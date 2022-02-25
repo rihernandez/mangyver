@@ -31,6 +31,7 @@ import { Breakdown } from "./breakdown";
 import { Role } from "./role";
 import { Session } from "./session";
 import { SapLog } from "./saplog";
+import { SapLogNotification } from "./saplognotification";
 export {
   User,
   Bus,
@@ -65,5 +66,6 @@ export {
   Notification,
   Session,
   SapLog,
+  SapLogNotification,
 };
 /* eslint-disable */

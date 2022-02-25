@@ -1,6 +1,9 @@
 /* eslint-disable */
 import { Deviation } from "./deviation";
 import { OperationNumber } from "./operation-number";
+import { User } from "./user";
+import { Operation } from "./operation";
+
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -21,6 +24,12 @@ export class Notification {
   @JoinColumn({ name: "operationNumId" })
   operationNumId!: OperationNumber;
 
+  @ManyToOne(type => Operation, operation => operation.id, {
+    nullable: true,
+  })
+  @JoinColumn({ name: "operationId" })
+  operation!: Operation;
+
   @ManyToOne(type => Deviation, deviation => deviation.id, { nullable: true })
   @JoinColumn({ name: "deviationId" })
   deviationId!: Deviation;
@@ -39,6 +48,8 @@ export class Notification {
 
   @Column({ name: "Comments", length: 255, nullable: true })
   comments!: string;
+  @ManyToOne(type => User, user => user.id, { nullable: true })
+  user!: User;
 
   /* @Column({ name: "Status", default: true })
     isActive!: boolean;
@@ -46,5 +57,9 @@ export class Notification {
     @Column({ nullable: true, name: "Created" })
     @CreateDateColumn()
     created!: Date; */
+  @Column({ name: "Status", default: true })
+  isActive!: boolean;
+  @CreateDateColumn()
+  created!: Date;
 }
 /* eslint-disable */

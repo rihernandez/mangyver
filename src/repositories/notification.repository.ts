@@ -1,10 +1,11 @@
 /* eslint-disable */
 import { getRepository } from "typeorm";
-import { Notification, OperationNumber, Deviation } from "../models";
+import { Notification, OperationNumber, Deviation, Operation } from "../models";
 
 export interface INotificationPayload {
   deviationId: Deviation;
   operationNumId: OperationNumber;
+  operation: Operation;
   otCode: string;
   startHour: Date;
   endHour: Date;

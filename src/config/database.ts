@@ -31,6 +31,7 @@ import { Notice } from "../models";
 import { Role } from "../models";
 import { Session } from "../models";
 import { SapLog } from "../models";
+import { SapLogNotification } from "../models";
 
 dotenv.config();
 
@@ -73,6 +74,7 @@ const config: ConnectionOptions = {
     Notification,
     Session,
     SapLog,
+    SapLogNotification,
   ],
   synchronize: true,
 };

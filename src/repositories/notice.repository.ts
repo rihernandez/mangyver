@@ -14,6 +14,7 @@ import {
   Process,
   Equipment,
   User,
+  Operation,
 } from "../models";
 
 export interface INoticePayload {
@@ -38,6 +39,7 @@ export interface INoticePayload {
   process: Process;
   user: User;
   sapId: string;
+  operation: Operation;
 }
 
 export interface INoticenPayloadNewFormat {
@@ -61,6 +63,7 @@ export interface INoticenPayloadNewFormat {
   userId: null;
   isActive: true;
   sapId: string;
+  operation: Operation;
 }
 
 export const getNotices = async (

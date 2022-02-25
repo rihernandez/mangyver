@@ -19,7 +19,8 @@ import { Priority } from "./priority";
 import { TypeFail } from "./typefail";
 import { Equipment } from "./equipment";
 import { User } from "./user";
-import { LineMachine } from ".";
+import { LineMachine } from "./line-machine";
+import { Operation } from "./operation";
 
 @Entity("Notice")
 export class Notice {
@@ -81,6 +82,11 @@ export class Notice {
   })
   @JoinColumn({ name: "equipmentId" })
   equipmentId!: LineMachine;
+  @ManyToOne(type => Operation, operation => operation.id, {
+    nullable: true,
+  })
+  @JoinColumn({ name: "operationId" })
+  operation!: Operation;
   // @Column({ name: "Type" })
   // type!: string;
   // @Column({ name: "Order" })

@@ -8,6 +8,7 @@ import axios from "axios";
 import moment from "moment";
 import { body, validationResult, check } from "express-validator";
 import { getRepository } from "typeorm";
+import jwt_decode from "jwt-decode";
 
 // import xss from "xss"
 // // import * as pp from "express-sanitizer"
@@ -58,6 +59,13 @@ router.get("/", async (_req, res) => {
 // });
 
 router.post("/", async (req: any, res) => {
+  const headers = req.headers;
+  const token = headers.auth;
+  const decoded: object = jwt_decode(JSON.stringify(token));
+  const objectValues = Object.values(decoded);
+  const profile = await getUser(objectValues[0]);
+  req.body.operation = profile?.operation.id;
+
   const userInfo = new UserInfo();
   const user = await userInfo.getUserFromToken(req);
   req.body.user = user.id;

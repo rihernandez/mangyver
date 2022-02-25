@@ -882,6 +882,9 @@
 					"equipmentId": {
 						"$ref": "#/components/schemas/LineMachine"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -910,6 +913,7 @@
 					"user",
 					"sapId",
 					"equipmentId",
+					"operation",
 					"isActive",
 					"created"
 				],
@@ -971,6 +975,9 @@
 					},
 					"sapId": {
 						"type": "string"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
 					}
 				},
 				"required": [
@@ -990,7 +997,8 @@
 					"cardDescription",
 					"process",
 					"user",
-					"sapId"
+					"sapId",
+					"operation"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1064,6 +1072,9 @@
 					},
 					"sapId": {
 						"type": "string"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
 					}
 				},
 				"required": [
@@ -1086,7 +1097,8 @@
 					"affectsFile",
 					"userId",
 					"isActive",
-					"sapId"
+					"sapId",
+					"operation"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1737,6 +1749,9 @@
 					"operationNumId": {
 						"$ref": "#/components/schemas/OperationNumber"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"deviationId": {
 						"$ref": "#/components/schemas/Deviation"
 					},
@@ -1756,17 +1771,31 @@
 					},
 					"comments": {
 						"type": "string"
+					},
+					"user": {
+						"$ref": "#/components/schemas/User"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
 					"id",
 					"operationNumId",
+					"operation",
 					"deviationId",
 					"otCode",
 					"startHour",
 					"endHour",
 					"isDone",
-					"comments"
+					"comments",
+					"user",
+					"isActive",
+					"created"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1779,6 +1808,9 @@
 					"operationNumId": {
 						"$ref": "#/components/schemas/OperationNumber"
 					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
 					"otCode": {
 						"type": "string"
 					},
@@ -1800,6 +1832,7 @@
 				"required": [
 					"deviationId",
 					"operationNumId",
+					"operation",
 					"otCode",
 					"startHour",
 					"endHour",
