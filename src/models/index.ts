@@ -32,6 +32,7 @@ import { Role } from "./role";
 import { Session } from "./session";
 import { SapLog } from "./saplog";
 import { SapLogNotification } from "./saplognotification";
+import { Form } from "./notice-form";
 export {
   User,
   Bus,
@@ -67,5 +68,6 @@ export {
   Session,
   SapLog,
   SapLogNotification,
+  Form,
 };
 /* eslint-disable */

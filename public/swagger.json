@@ -2491,6 +2491,14 @@
 						"schema": {
 							"type": "string"
 						}
+					},
+					{
+						"in": "query",
+						"name": "isWeb",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
 					}
 				]
 			},
@@ -4544,6 +4552,35 @@
 						"in": "path",
 						"name": "id",
 						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/fnmobile": {
+			"get": {
+				"operationId": "GetForm",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Process"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "profile",
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
