@@ -72,7 +72,8 @@ export const getNotices = async (
   from?: number,
   dateFrom?: string,
   dateEnd?: string,
-  sapForm?: boolean
+  sapForm?: boolean,
+  isWeb?: boolean
 ): Promise<Array<Notice>> => {
   const repository = await getRepository(Notice).query(
     "SP_Select_Notices @userid='" +
@@ -89,6 +90,8 @@ export const getNotices = async (
       dateEnd +
       "',@SAPForm='" +
       sapForm +
+      "',@isWeb='" +
+      isWeb +
       "'"
   );
   //return repository.find({ relations: ['line', 'consecutive', 'cardType', 'priority', 'components', 'breakdown', 'failureType', 'affects', 'process']});
