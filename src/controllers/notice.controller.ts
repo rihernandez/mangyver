@@ -22,7 +22,10 @@ export default class NoticeController {
     @Query() dateFrom: unknown,
     @Query() dateEnd: unknown,
     @Query() sapForm: unknown,
-    @Query() isWeb: unknown
+    @Query() isWeb: unknown,
+    @Query() timeFrom: unknown,
+    @Query() timeEnd: unknown,
+    @Query() operationId: unknown
   ): Promise<Array<Notice>> {
     return getNotices(
       profileId,
@@ -31,7 +34,10 @@ export default class NoticeController {
       String(dateFrom || "19000101"),
       String(dateEnd || "19000101"),
       Boolean(sapForm || 0),
-      Boolean(isWeb || 0)
+      Boolean(isWeb || 0),
+      String(timeFrom || null),
+      String(timeEnd || null),
+      String(operationId || null)
     );
   }
 
