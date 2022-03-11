@@ -78,6 +78,7 @@ export const getNotices = async (
   timeEnd?: string,
   operationId?: string
 ): Promise<Array<Notice>> => {
+  console.log("isaac", timeFrom, timeEnd);
   const repository = await getRepository(Notice).query(
     "SP_Select_Notices @userid='" +
       userId +

@@ -5,7 +5,6 @@ import NoticeController from "../controllers/notice.controller";
 // import jwt_decode from "jwt-decode";
 import UserInfo from "../middlewares/getUserFromToken";
 import axios from "axios";
-import moment from "moment";
 import { body, validationResult, check } from "express-validator";
 import { getRepository } from "typeorm";
 import jwt_decode from "jwt-decode";
@@ -40,13 +39,16 @@ router.get("/", async (_req, res) => {
     _req.query.dateFrom,
     _req.query.dateEnd,
     _req.query.sapForm,
-    _req.query.isWeb
+    _req.query.isWeb,
+    _req.query.timeFrom,
+    _req.query.timeEnd,
+    _req.query.operationId
   );
   const results = JSON.parse(JSON.stringify(response));
   results.map((result: any) => {
     result.label = result.name;
   });
-  log.silly(results);
+  // log.silly(results);
   return res.send(results);
 });
 
