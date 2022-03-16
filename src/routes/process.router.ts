@@ -33,10 +33,10 @@ router.get("/mobile", async (_req, res) => {
   const controller = new Process();
   const response = await controller.getProcesesMobile(profile?.operation.id);
   const results = JSON.parse(JSON.stringify(response));
-  results.map((result: any) => {
-    result.label = result.name;
-  });
-  log.silly("you are printing from new method");
+  // results.map((result: any) => {
+  //   result.label = result.name;
+  // });
+  log.silly(results);
   return res.send(results);
 });
 
