@@ -3934,6 +3934,40 @@
 				}
 			}
 		},
+		"/processes/mobile": {
+			"get": {
+				"operationId": "GetProcesesMobile",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/Process"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Process"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "profile",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
 		"/processes/{id}": {
 			"get": {
 				"operationId": "GetProcess",

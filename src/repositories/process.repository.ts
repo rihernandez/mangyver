@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { getRepository } from "typeorm";
+import { getRepository, getConnection } from "typeorm";
 import { Process, ProcessType, Operation } from "../models";
 
 export interface IProcessPayload {
@@ -9,6 +9,28 @@ export interface IProcessPayload {
   operation: Operation;
   isActive: boolean;
 }
+
+// export const getProcesMobile = async (
+//   operationId?: string
+// ): Promise<Array<Process>> => {
+//   const repository = getRepository(Process);
+//   return repository.find({
+//     select: ["id", "processType", "name","SAPCode","operation","isActive","created"],
+//     where: { operation: operationId},
+//     });
+// };
+
+export const getProcesMobile = async (operationId?: string) => {
+  const connection = getConnection();
+  const result = await connection.query(
+    "SP_PorecessesMobile @operationId='" + operationId + "'"
+  );
+
+  if (!result) {
+    return { msg: "No hay Informacion disponible para mostrar." };
+  }
+  return result;
+};
 
 export const getProcesss = async (
   operationId?: string

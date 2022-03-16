@@ -6,6 +6,7 @@ import {
   createProcess,
   IProcessPayload,
   getProcess,
+  getProcesMobile,
 } from "../repositories/process.repository";
 
 @Route("processes")
@@ -14,6 +15,13 @@ export default class ProcessController {
   @Get("/")
   public async getProceses(@Query() profile?: string): Promise<Array<Process>> {
     return getProcesss(profile);
+  }
+
+  @Get("/mobile")
+  public async getProcesesMobile(
+    @Query() profile?: string
+  ): Promise<Array<Process>> {
+    return getProcesMobile(profile);
   }
 
   @Post("/")
