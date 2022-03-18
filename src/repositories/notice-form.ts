@@ -8,5 +8,6 @@ export const getForm = async (userId?: string) => {
     "SP_NoticeFormMobil @userid='" + userId + "'"
   );
 
+  console.log(result);
   return result;
 };

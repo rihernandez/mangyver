@@ -13,7 +13,7 @@ router.get("/", async (_req, res) => {
   const profile = await getUser(objectValues[0]);
 
   const controller = new FormController();
-  const response = await controller.getForm(profile?.operation.id);
+  const response = await controller.getForm(profile?.id);
 
   return res.json(JSON.parse(response[0].form));
 });
