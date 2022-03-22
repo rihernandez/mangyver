@@ -4676,40 +4676,6 @@
 				}
 			}
 		},
-		"/process-web/mobile": {
-			"get": {
-				"operationId": "GetProcesesMobile",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"items": {
-										"$ref": "#/components/schemas/Process"
-									},
-									"type": "array"
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"ProcessWeb"
-				],
-				"security": [],
-				"parameters": [
-					{
-						"in": "query",
-						"name": "profile",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					}
-				]
-			}
-		},
 		"/process-web/{id}": {
 			"get": {
 				"operationId": "GetProcess",

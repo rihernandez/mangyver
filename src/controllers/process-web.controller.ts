@@ -17,12 +17,12 @@ export default class ProcessController {
     return getProcesss(profile);
   }
 
-  @Get("/mobile")
-  public async getProcesesMobile(
-    @Query() profile?: string
-  ): Promise<Array<Process>> {
-    return getProcesMobile(profile);
-  }
+  // @Get("/mobile")
+  // public async getProcesesMobile(
+  //   @Query() profile?: string
+  // ): Promise<Array<Process>> {
+  //   return getProcesMobile(profile);
+  // }
 
   @Post("/")
   public async createProcess(@Body() body: IProcessPayload): Promise<Process> {
