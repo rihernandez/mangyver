@@ -1,6 +1,6 @@
 /* eslint-disable */
 import express from "express";
-import Process from "../controllers/process.controller";
+import Process from "../controllers/process-web.controller";
 import { log } from "../config/logger";
 import jwt_decode from "jwt-decode";
 import { getUser } from "../repositories/user.repository";
