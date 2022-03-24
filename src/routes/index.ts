@@ -32,7 +32,6 @@ import OperatioNumberRouter from "./operation-number.router";
 import NotificationRouter from "./notification.router";
 import RoleRouter from "./role.router";
 import noticeFormRouter from "./notice-form.router";
-// import ProcessWebRouter from "./process-web.router";
 const router = express.Router();
 
 const initRoute = router.get("/", async (req, res) => {
@@ -72,7 +71,5 @@ router.use("/operation-numbers", [checkJwt], OperatioNumberRouter);
 router.use("/notifications", [checkJwt], NotificationRouter);
 router.use("/roles", RoleRouter);
 router.use("/fnmobile", [checkJwt], noticeFormRouter);
-// router.use("/process-web", [checkJwt], ProcessWebRouter);
-
 export default router;
 export { initRoute, metadata };
