@@ -32,12 +32,12 @@ export const getProcesMobile = async (operationId?: string) => {
   return result;
 };
 
-// export const getProcesss = async (
-//   operationId?: string
-// ): Promise<Array<Process>> => {
-//   const repository = getRepository(Process);
-//   return repository.find({ where: [{ operation: operationId }] });
-// };
+export const getProcessWeb = async (
+  operationId?: string
+): Promise<Array<Process>> => {
+  const repository = getRepository(Process);
+  return repository.find({ where: [{ operation: operationId }] });
+};
 
 export const getProcesss = async (operationId?: string) => {
   const connection = getConnection();

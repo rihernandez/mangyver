@@ -7,7 +7,7 @@ import {
   IProcessPayload,
   getProcess,
   getProcesMobile,
-} from "../repositories/process.repository";
+} from "../repositories/process-web.repository";
 
 @Route("process-web")
 @Tags("ProcessWeb")
