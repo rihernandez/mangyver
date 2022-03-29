@@ -14,7 +14,7 @@ import {
 } from "typeorm";
 import { LineMachine } from "./line-machine";
 
-@Entity("cause")
+@Entity("Cause")
 export class Cause {
   @PrimaryGeneratedColumn("uuid", { name: "id" })
   id!: string;
@@ -25,7 +25,7 @@ export class Cause {
   @Column({ name: "SAPCode", length: 50 })
   SAPCode!: string;
 
-  @ManyToOne(type => LineMachine, line => line.id, { nullable: true })
+  @ManyToOne(type => LineMachine, line => line.groupCode, { nullable: true })
   @JoinColumn({ name: "groupCode" })
   groupCode!: String;
 

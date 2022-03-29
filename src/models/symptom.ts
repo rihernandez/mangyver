@@ -25,7 +25,7 @@ export class Symptom {
   @Column({ name: "SAPCode", length: 50 })
   SAPCode!: string;
 
-  @ManyToOne(type => LineMachine, line => line.id, { nullable: true })
+  @ManyToOne(type => LineMachine, line => line.groupCode, { nullable: true })
   @JoinColumn({ name: "groupCode" })
   groupCode!: string;
 
