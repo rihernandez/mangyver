@@ -70,7 +70,7 @@ router.use("/breakdowns", [checkJwt], BreakdownRouter);
 router.use("/deviations", [checkJwt], DeviationRouter);
 router.use("/operation-numbers", [checkJwt], OperatioNumberRouter);
 router.use("/notifications", [checkJwt], NotificationRouter);
-router.use("/helps", HelpRouter);
+router.use("/helps", [checkJwt], HelpRouter);
 router.use("/roles", RoleRouter);
 router.use("/fnmobile", [checkJwt], noticeFormRouter);
 export default router;
