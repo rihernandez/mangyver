@@ -7,6 +7,7 @@ export interface ILineMachinePayload {
   name: string;
   SAPCode: string;
   isActive: boolean;
+  groupCode: string;
 }
 
 export const getLineMachines = async (

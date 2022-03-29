@@ -40,6 +40,11 @@ export interface INoticePayload {
   user: User;
   sapId: string;
   operation: Operation;
+  objectId: String;
+  causeId: String;
+  symptomId: String;
+  textCause: string;
+  textSymptom: string;
 }
 
 export interface INoticenPayloadNewFormat {
@@ -64,6 +69,11 @@ export interface INoticenPayloadNewFormat {
   isActive: true;
   sapId: string;
   operation: Operation;
+  objectId: String;
+  causeId: String;
+  symptomId: String;
+  textCause: string;
+  textSymptom: string;
 }
 
 export const getNotices = async (

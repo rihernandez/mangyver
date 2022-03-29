@@ -33,6 +33,7 @@ import { Session } from "../models";
 import { SapLog } from "../models";
 import { SapLogNotification } from "../models";
 import { Form } from "../models";
+import { Cause, Symptom, ObjectParts } from "../models";
 
 dotenv.config();
 
@@ -77,7 +78,10 @@ const config: ConnectionOptions = {
     SapLog,
     SapLogNotification,
     Form,
-    Help
+    Help,
+    Cause,
+    ObjectParts,
+    Symptom,
   ],
   synchronize: true,
 };

@@ -34,6 +34,10 @@ import { Session } from "./session";
 import { SapLog } from "./saplog";
 import { SapLogNotification } from "./saplognotification";
 import { Form } from "./notice-form";
+import { Cause } from "./cause";
+import { Symptom } from "./symptom";
+import { ObjectParts } from "./object";
+
 export {
   User,
   Bus,
@@ -71,5 +75,8 @@ export {
   SapLogNotification,
   Form,
   Help
+  Cause,
+  ObjectParts,
+  Symptom,
 };
-/* eslint-disable */
+
