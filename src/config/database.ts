@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { Help } from './../models/help'
 import { Notification } from "./../models/notification";
 import { OperationNumber } from "./../models/operation-number";
 import { Deviation } from "./../models/deviation";
@@ -77,6 +78,7 @@ const config: ConnectionOptions = {
     SapLog,
     SapLogNotification,
     Form,
+    Help
   ],
   synchronize: true,
 };

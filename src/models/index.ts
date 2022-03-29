@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { Help } from './help'
 import { Notification } from "./notification";
 import { OperationNumber } from "./operation-number";
 import { Deviation } from "./deviation";
@@ -69,5 +70,6 @@ export {
   SapLog,
   SapLogNotification,
   Form,
+  Help
 };
 /* eslint-disable */
