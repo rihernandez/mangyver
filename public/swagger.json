@@ -3760,7 +3760,7 @@
 				]
 			}
 		},
-		"/line-machines": {
+		"/machines": {
 			"get": {
 				"operationId": "GetLineMachines",
 				"responses": {
@@ -3842,7 +3842,7 @@
 				}
 			}
 		},
-		"/line-machines/{id}": {
+		"/machines/{id}": {
 			"get": {
 				"operationId": "GetLineMachine",
 				"responses": {

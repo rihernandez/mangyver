@@ -12,8 +12,13 @@ router.get("/", async (_req, res) => {
   const userInfo = new UserInfo();
   const user = await userInfo.getUserFromToken(_req);
   const response = await controller.getDeviations(<string>user.operation.id);
-  log.silly(response);
-  return res.send(response);
+  const results = JSON.parse(JSON.stringify(response));
+  results.map((result: any) => {
+    result.label = result.name;
+    result.filter = result.id;
+  });
+  log.silly(results);
+  return res.send(results);
 });
 
 router.post("/", async (req, res) => {
