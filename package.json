@@ -82,7 +82,7 @@
     "swagger-ui-express": "^4.1.4",
     "tslog": "^3.2.2",
     "tsoa": "^3.3.0",
-    "typeorm": "^0.2.29",
+    "typeorm": "^0.2.45",
     "typescript-logger": "^5.0.1",
     "xss": "^1.0.10",
     "xss-advanced": "^1.0.2"
