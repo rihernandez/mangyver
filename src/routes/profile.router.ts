@@ -19,13 +19,18 @@ router.get("/", async (_req, res) => {
       ...headers,
       profile,
     };
+    const results = JSON.parse(JSON.stringify(response));
+    results.map((result: any) => {
+      result.label = result.name;
+      result.filter = result.id;
+    });
     // // log.info(response);
     // const cc = new copec();
     // const resultcc = await cc.createNotice("hello","hello","47ffa8fb-aa8d-ec11-a507-2818780ec867")
 
     // console.log(resultcc[0].SAPRequest+ "body")
     // console.log(resultcc[0].SAPURLRequest+ "uri")
-    return res.send(response);
+    return res.send(results);
   } catch (error) {
     log.error(error);
     res.send({ msg: "not token have been provided!" });
