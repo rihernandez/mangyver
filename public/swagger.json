@@ -1881,7 +1881,306 @@
 					},
 					"otCode": {
 						"type": "string"
-	",
+					},
+					"startHour": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"endHour": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"isDone": {
+						"type": "boolean"
+					},
+					"comments": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"deviationId",
+					"operationNumId",
+					"operation",
+					"otCode",
+					"startHour",
+					"endHour",
+					"isDone"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"IRolePayload": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"menus": {
+						"items": {
+							"$ref": "#/components/schemas/MenuRole"
+						},
+						"type": "array"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"menus",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Help": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"url": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					}
+				},
+				"required": [
+					"id",
+					"url",
+					"isActive",
+					"created",
+					"operation"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"IHelpPayload": {
+				"properties": {
+					"url": {
+						"type": "string"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
+					"isActive": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"url",
+					"operation",
+					"isActive"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ObjectParts": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"groupCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"SAPCode",
+					"groupCode",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"IObjectPartsPayload": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"groupCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"name",
+					"SAPCode",
+					"groupCode",
+					"isActive"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Cause": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"groupCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"SAPCode",
+					"groupCode",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ICausePayload": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"groupCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"name",
+					"SAPCode",
+					"groupCode",
+					"isActive"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Symptom": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"groupCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"SAPCode",
+					"groupCode",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ISymptomPayload": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"groupCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"name",
+					"SAPCode",
+					"groupCode",
+					"isActive"
+				],
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "fixmaint",
+		"version": "1.0.0",
+		"license": {
+			"name": "ISC"
+		},
+		"contact": {
+			"name": "Richard HC"
+		}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/users": {
+			"get": {
+				"operationId": "GetUsers",
 				"responses": {
 					"200": {
 						"description": "Ok",
