@@ -15,8 +15,13 @@ router.get("/", async (_req, res) => {
   const response = await controller.getOperationNumbers(
     <string>user.operation.id
   );
-  log.silly(response);
-  return res.send(response);
+  const results = JSON.parse(JSON.stringify(response));
+  results.map((result: any) => {
+    result.label = result.name;
+    result.filter = result.id;
+  });
+  log.silly(results);
+  return res.send(results);
 });
 
 router.post("/", async (req, res) => {

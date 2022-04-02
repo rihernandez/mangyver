@@ -667,6 +667,9 @@
 					"isActive": {
 						"type": "boolean"
 					},
+					"groupCode": {
+						"type": "string"
+					},
 					"created": {
 						"type": "string",
 						"format": "date-time"
@@ -678,6 +681,7 @@
 					"name",
 					"SAPCode",
 					"isActive",
+					"groupCode",
 					"created"
 				],
 				"type": "object",
@@ -885,6 +889,21 @@
 					"operation": {
 						"$ref": "#/components/schemas/Operation"
 					},
+					"objectId": {
+						"type": "string"
+					},
+					"causeId": {
+						"type": "string"
+					},
+					"symptomId": {
+						"type": "string"
+					},
+					"textCause": {
+						"type": "string"
+					},
+					"textSymptom": {
+						"type": "string"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -914,6 +933,11 @@
 					"sapId",
 					"equipmentId",
 					"operation",
+					"objectId",
+					"causeId",
+					"symptomId",
+					"textCause",
+					"textSymptom",
 					"isActive",
 					"created"
 				],
@@ -978,6 +1002,21 @@
 					},
 					"operation": {
 						"$ref": "#/components/schemas/Operation"
+					},
+					"objectId": {
+						"type": "string"
+					},
+					"causeId": {
+						"type": "string"
+					},
+					"symptomId": {
+						"type": "string"
+					},
+					"textCause": {
+						"type": "string"
+					},
+					"textSymptom": {
+						"type": "string"
 					}
 				},
 				"required": [
@@ -998,7 +1037,12 @@
 					"process",
 					"user",
 					"sapId",
-					"operation"
+					"operation",
+					"objectId",
+					"causeId",
+					"symptomId",
+					"textCause",
+					"textSymptom"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1075,6 +1119,21 @@
 					},
 					"operation": {
 						"$ref": "#/components/schemas/Operation"
+					},
+					"objectId": {
+						"type": "string"
+					},
+					"causeId": {
+						"type": "string"
+					},
+					"symptomId": {
+						"type": "string"
+					},
+					"textCause": {
+						"type": "string"
+					},
+					"textSymptom": {
+						"type": "string"
 					}
 				},
 				"required": [
@@ -1098,7 +1157,12 @@
 					"userId",
 					"isActive",
 					"sapId",
-					"operation"
+					"operation",
+					"objectId",
+					"causeId",
+					"symptomId",
+					"textCause",
+					"textSymptom"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1488,13 +1552,17 @@
 					},
 					"isActive": {
 						"type": "boolean"
+					},
+					"groupCode": {
+						"type": "string"
 					}
 				},
 				"required": [
 					"line",
 					"name",
 					"SAPCode",
-					"isActive"
+					"isActive",
+					"groupCode"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1869,6 +1937,226 @@
 					"menus",
 					"isActive",
 					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Help": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"url": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					}
+				},
+				"required": [
+					"id",
+					"url",
+					"isActive",
+					"created",
+					"operation"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"IHelpPayload": {
+				"properties": {
+					"url": {
+						"type": "string"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
+					"isActive": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"url",
+					"operation",
+					"isActive"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ObjectParts": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"groupCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"SAPCode",
+					"groupCode",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"IObjectPartsPayload": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"groupCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"name",
+					"SAPCode",
+					"groupCode",
+					"isActive"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Cause": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"groupCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"SAPCode",
+					"groupCode",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ICausePayload": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"groupCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"name",
+					"SAPCode",
+					"groupCode",
+					"isActive"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Symptom": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"groupCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"SAPCode",
+					"groupCode",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ISymptomPayload": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"groupCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"name",
+					"SAPCode",
+					"groupCode",
+					"isActive"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -3470,7 +3758,7 @@
 				]
 			}
 		},
-		"/line-machines": {
+		"/machines": {
 			"get": {
 				"operationId": "GetLineMachines",
 				"responses": {
@@ -3552,7 +3840,7 @@
 				}
 			}
 		},
-		"/line-machines/{id}": {
+		"/machines/{id}": {
 			"get": {
 				"operationId": "GetLineMachine",
 				"responses": {
@@ -4617,6 +4905,97 @@
 				]
 			}
 		},
+		"/helps": {
+			"get": {
+				"operationId": "GetAllHelps",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/Help"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Help"
+				],
+				"security": [],
+				"parameters": []
+			},
+			"post": {
+				"operationId": "CreateHelp",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Help"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Help"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/IHelpPayload"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/helps/{id}": {
+			"get": {
+				"operationId": "GetHelp",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/Help"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Help"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
 		"/fnmobile": {
 			"get": {
 				"operationId": "GetForm",
@@ -4639,6 +5018,306 @@
 						"in": "query",
 						"name": "profile",
 						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/objects": {
+			"get": {
+				"operationId": "GetObjectParts",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/ObjectParts"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Object"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "groupCode",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			},
+			"post": {
+				"operationId": "CreateObjectParts",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ObjectParts"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Object"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/IObjectPartsPayload"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/objects/{id}": {
+			"get": {
+				"operationId": "GetObjectPart",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/ObjectParts"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Object"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/causes": {
+			"get": {
+				"operationId": "GetCauses",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/Cause"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Cause"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "groupCode",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			},
+			"post": {
+				"operationId": "CreateCause",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Cause"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Cause"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/ICausePayload"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/causes/{id}": {
+			"get": {
+				"operationId": "GetCause",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/Cause"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Cause"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/symptoms": {
+			"get": {
+				"operationId": "GetSymptoms",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/Symptom"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Symptom"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "groupCode",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			},
+			"post": {
+				"operationId": "CreateSymptom",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Symptom"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Symptom"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/ISymptomPayload"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/symptoms/{id}": {
+			"get": {
+				"operationId": "GetSymptom",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/Symptom"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Symptom"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
 						"schema": {
 							"type": "string"
 						}

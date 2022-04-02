@@ -31,7 +31,12 @@ import DeviationRouter from "./deviation.router";
 import OperatioNumberRouter from "./operation-number.router";
 import NotificationRouter from "./notification.router";
 import RoleRouter from "./role.router";
+import HelpRouter from "./help.router";
 import noticeFormRouter from "./notice-form.router";
+import objectRouter from "./object.router";
+import causeRouter from "./cause.router";
+import symptomRouter from "./symptom.router";
+
 const router = express.Router();
 
 const initRoute = router.get("/", async (req, res) => {
@@ -69,7 +74,11 @@ router.use("/breakdowns", [checkJwt], BreakdownRouter);
 router.use("/deviations", [checkJwt], DeviationRouter);
 router.use("/operation-numbers", [checkJwt], OperatioNumberRouter);
 router.use("/notifications", [checkJwt], NotificationRouter);
+router.use("/helps", [checkJwt], HelpRouter);
 router.use("/roles", RoleRouter);
 router.use("/fnmobile", [checkJwt], noticeFormRouter);
+router.use("/symptoms", [checkJwt], symptomRouter);
+router.use("/causes", [checkJwt], causeRouter);
+router.use("/objects", [checkJwt], objectRouter);
 export default router;
 export { initRoute, metadata };

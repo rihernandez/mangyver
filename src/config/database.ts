@@ -2,7 +2,7 @@
 import { Notification } from "./../models/notification";
 import { OperationNumber } from "./../models/operation-number";
 import { Deviation } from "./../models/deviation";
-import { Menu, MenuRole, SubAreaMachine } from "../models";
+import { Help, Menu, MenuRole, SubAreaMachine } from "../models";
 import { ConnectionOptions } from "typeorm";
 import * as dotenv from "dotenv";
 dotenv.config();
@@ -33,6 +33,7 @@ import { Session } from "../models";
 import { SapLog } from "../models";
 import { SapLogNotification } from "../models";
 import { Form } from "../models";
+import { Cause, Symptom, ObjectParts } from "../models";
 
 dotenv.config();
 
@@ -77,6 +78,10 @@ const config: ConnectionOptions = {
     SapLog,
     SapLogNotification,
     Form,
+    Help,
+    Cause,
+    ObjectParts,
+    Symptom,
   ],
   synchronize: true,
 };

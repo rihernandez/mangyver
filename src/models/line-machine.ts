@@ -38,8 +38,10 @@ export class LineMachine {
   @Column({ name: "Status", default: true })
   isActive!: boolean;
 
+  @Column({ name: "groupCode", nullable: true })
+  groupCode!: string;
+
   @Column({ nullable: true, name: "Created" })
   @CreateDateColumn()
   created!: Date;
 }
-/* eslint-disable */

@@ -8,7 +8,7 @@ import {
   getLineMachine,
 } from "../repositories/line-machine.repository";
 
-@Route("line-machines")
+@Route("machines")
 @Tags("LineMachine")
 export default class LineMachineController {
   @Get("/")

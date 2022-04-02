@@ -21,6 +21,9 @@ import { Equipment } from "./equipment";
 import { User } from "./user";
 import { LineMachine } from "./line-machine";
 import { Operation } from "./operation";
+import { Symptom } from "./symptom";
+import { Cause } from "./cause";
+import { ObjectParts } from "./object";
 
 @Entity("Notice")
 export class Notice {
@@ -87,6 +90,25 @@ export class Notice {
   })
   @JoinColumn({ name: "operationId" })
   operation!: Operation;
+
+  @ManyToOne(type => ObjectParts, object => object.id, { nullable: true })
+  @JoinColumn({ name: "objectId" })
+  objectId!: String;
+
+  @ManyToOne(type => Cause, cause => cause.id, { nullable: true })
+  @JoinColumn({ name: "causeId" })
+  causeId!: String;
+
+  @ManyToOne(type => Symptom, symptom => symptom.id, { nullable: true })
+  @JoinColumn({ name: "symptomId" })
+  symptomId!: String;
+
+  @Column({ name: "textCause", nullable: true })
+  textCause!: string;
+
+  @Column({ name: "textSymptom", nullable: true })
+  textSymptom!: string;
+
   // @Column({ name: "Type" })
   // type!: string;
   // @Column({ name: "Order" })

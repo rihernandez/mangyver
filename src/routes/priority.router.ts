@@ -8,8 +8,13 @@ const router = express.Router();
 router.get("/", async (_req, res) => {
   const controller = new Priority();
   const response = await controller.getPriorities();
-  log.silly(response);
-  return res.send(response);
+  const results = JSON.parse(JSON.stringify(response));
+  results.map((result: any) => {
+    result.label = result.name;
+    result.filter = result.id;
+  });
+  log.silly(results);
+  return res.send(results);
 });
 
 router.post("/", async (req, res) => {
