@@ -109,6 +109,9 @@ export class Notice {
   @Column({ name: "textSymptom", nullable: true })
   textSymptom!: string;
 
+  @Column({ name: "urlPhoto", nullable: true })
+  urlPhoto!: string;
+
   // @Column({ name: "Type" })
   // type!: string;
   // @Column({ name: "Order" })

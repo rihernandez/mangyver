@@ -904,6 +904,9 @@
 					"textSymptom": {
 						"type": "string"
 					},
+					"urlPhoto": {
+						"type": "string"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -938,6 +941,7 @@
 					"symptomId",
 					"textCause",
 					"textSymptom",
+					"urlPhoto",
 					"isActive",
 					"created"
 				],
