@@ -1996,8 +1996,7 @@
 						"type": "string"
 					},
 					"name": {
-						"type": "string",
-						"format": "date-time"
+						"type": "string"
 					},
 					"SAPCode": {
 						"type": "string"
@@ -2054,8 +2053,7 @@
 						"type": "string"
 					},
 					"name": {
-						"type": "string",
-						"format": "date-time"
+						"type": "string"
 					},
 					"SAPCode": {
 						"type": "string"

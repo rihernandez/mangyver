@@ -20,13 +20,12 @@ export class ObjectParts {
   id!: string;
 
   @Column({ name: "name", nullable: true })
-  name!: Date;
+  name!: string;
 
   @Column({ name: "SAPCode", length: 50 })
   SAPCode!: string;
 
-  @ManyToOne(type => LineMachine, line => line.groupCode, { nullable: true })
-  @JoinColumn({ name: "groupCode" })
+  @Column({ name: "groupCode", nullable: true })
   groupCode!: String;
 
   @Column({ name: "status", default: true })
