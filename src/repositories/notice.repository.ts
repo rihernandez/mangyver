@@ -89,7 +89,9 @@ export const getNotices = async (
   isWeb?: boolean,
   timeFrom?: string,
   timeEnd?: string,
-  operationId?: string
+  operationId?: string,
+  filter?: string,
+  totalRows?: boolean
 ): Promise<Array<Notice>> => {
   console.log("isaac", timeFrom, timeEnd);
   const repository = await getRepository(Notice).query(
@@ -115,6 +117,10 @@ export const getNotices = async (
       timeEnd +
       "',@operationId='" +
       operationId +
+      "',@filter='" +
+      filter +
+      "',@totalRows='" +
+      totalRows +
       "'"
   );
   //return repository.find({ relations: ['line', 'consecutive', 'cardType', 'priority', 'components', 'breakdown', 'failureType', 'affects', 'process']});
