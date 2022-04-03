@@ -24,6 +24,7 @@ import { Operation } from "./operation";
 import { Symptom } from "./symptom";
 import { Cause } from "./cause";
 import { ObjectParts } from "./object";
+import { Area } from ".";
 
 @Entity("Notice")
 export class Notice {
@@ -38,8 +39,11 @@ export class Notice {
   didCard!: string;
   @Column({ name: "failureTime", nullable: true })
   failureTime!: string;
-  @Column({ name: "departmentId", nullable: true })
-  departmentId!: string;
+
+  @ManyToOne(type => Area, area => area.id, { nullable: true })
+  @JoinColumn({ name: "departmentId" })
+  departmentId!: Area;
+
   // @Column({name: "equipmentCode", nullable: true})
   // equipmentCode!: string;
   @ManyToOne(type => Line, line => line.id, { nullable: true })

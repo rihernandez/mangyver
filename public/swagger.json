@@ -842,7 +842,7 @@
 						"type": "string"
 					},
 					"departmentId": {
-						"type": "string"
+						"$ref": "#/components/schemas/Area"
 					},
 					"lineId": {
 						"$ref": "#/components/schemas/Line"
