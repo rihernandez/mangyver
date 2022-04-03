@@ -97,15 +97,15 @@ export class Notice {
 
   @ManyToOne(type => ObjectParts, object => object.id, { nullable: true })
   @JoinColumn({ name: "objectId" })
-  objectId!: String;
+  objectId!: ObjectParts;
 
   @ManyToOne(type => Cause, cause => cause.id, { nullable: true })
   @JoinColumn({ name: "causeId" })
-  causeId!: String;
+  causeId!: Cause;
 
   @ManyToOne(type => Symptom, symptom => symptom.id, { nullable: true })
   @JoinColumn({ name: "symptomId" })
-  symptomId!: String;
+  symptomId!: Symptom;
 
   @Column({ name: "textCause", nullable: true })
   textCause!: string;
