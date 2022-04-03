@@ -15,6 +15,9 @@ import {
   Equipment,
   User,
   Operation,
+  ObjectParts,
+  Cause,
+  Symptom,
 } from "../models";
 
 export interface INoticePayload {
@@ -40,9 +43,9 @@ export interface INoticePayload {
   user: User;
   sapId: string;
   operation: Operation;
-  objectId: String;
-  causeId: String;
-  symptomId: String;
+  objectId: ObjectParts;
+  causeId: Cause;
+  symptomId: Symptom;
   textCause: string;
   textSymptom: string;
 }
@@ -69,9 +72,9 @@ export interface INoticenPayloadNewFormat {
   isActive: true;
   sapId: string;
   operation: Operation;
-  objectId: String;
-  causeId: String;
-  symptomId: String;
+  objectId: ObjectParts;
+  causeId: Cause;
+  symptomId: Symptom;
   textCause: string;
   textSymptom: string;
 }

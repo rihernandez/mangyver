@@ -823,6 +823,105 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"ObjectParts": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"groupCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"SAPCode",
+					"groupCode",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Cause": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"groupCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"SAPCode",
+					"groupCode",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Symptom": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"groupCode": {
+						"type": "string"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"SAPCode",
+					"groupCode",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"Notice": {
 				"properties": {
 					"id": {
@@ -890,13 +989,13 @@
 						"$ref": "#/components/schemas/Operation"
 					},
 					"objectId": {
-						"type": "string"
+						"$ref": "#/components/schemas/ObjectParts"
 					},
 					"causeId": {
-						"type": "string"
+						"$ref": "#/components/schemas/Cause"
 					},
 					"symptomId": {
-						"type": "string"
+						"$ref": "#/components/schemas/Symptom"
 					},
 					"textCause": {
 						"type": "string"
@@ -1008,13 +1107,13 @@
 						"$ref": "#/components/schemas/Operation"
 					},
 					"objectId": {
-						"type": "string"
+						"$ref": "#/components/schemas/ObjectParts"
 					},
 					"causeId": {
-						"type": "string"
+						"$ref": "#/components/schemas/Cause"
 					},
 					"symptomId": {
-						"type": "string"
+						"$ref": "#/components/schemas/Symptom"
 					},
 					"textCause": {
 						"type": "string"
@@ -1125,13 +1224,13 @@
 						"$ref": "#/components/schemas/Operation"
 					},
 					"objectId": {
-						"type": "string"
+						"$ref": "#/components/schemas/ObjectParts"
 					},
 					"causeId": {
-						"type": "string"
+						"$ref": "#/components/schemas/Cause"
 					},
 					"symptomId": {
-						"type": "string"
+						"$ref": "#/components/schemas/Symptom"
 					},
 					"textCause": {
 						"type": "string"
@@ -1994,39 +2093,6 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"ObjectParts": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"SAPCode": {
-						"type": "string"
-					},
-					"groupCode": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"SAPCode",
-					"groupCode",
-					"isActive",
-					"created"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
 			"IObjectPartsPayload": {
 				"properties": {
 					"name": {
@@ -2051,39 +2117,6 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"Cause": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"SAPCode": {
-						"type": "string"
-					},
-					"groupCode": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"SAPCode",
-					"groupCode",
-					"isActive",
-					"created"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
 			"ICausePayload": {
 				"properties": {
 					"name": {
@@ -2104,39 +2137,6 @@
 					"SAPCode",
 					"groupCode",
 					"isActive"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"Symptom": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"SAPCode": {
-						"type": "string"
-					},
-					"groupCode": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"SAPCode",
-					"groupCode",
-					"isActive",
-					"created"
 				],
 				"type": "object",
 				"additionalProperties": false
