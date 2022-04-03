@@ -72,9 +72,9 @@ export interface INoticenPayloadNewFormat {
   isActive: true;
   sapId: string;
   operation: Operation;
-  objectId: ObjectParts;
-  causeId: Cause;
-  symptomId: Symptom;
+  objectId?: ObjectParts;
+  causeId?: Cause;
+  symptomId?: Symptom;
   textCause: string;
   textSymptom: string;
 }
