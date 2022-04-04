@@ -42,12 +42,13 @@ router.get("/", async (_req, res) => {
     _req.query.isWeb,
     _req.query.timeFrom,
     _req.query.timeEnd,
-    _req.query.operationId
+    _req.query.operationId,
+    _req.query.filter,
+    _req.query.totalRows
   );
   const results = JSON.parse(JSON.stringify(response));
   results.map((result: any) => {
     result.label = result.name;
-    result.filter = result.id;
   });
   // log.silly(results);
   return res.send(results);

@@ -27,7 +27,6 @@ router.get("/", async (_req, res) => {
   const results = JSON.parse(JSON.stringify(response));
   results.map((result: any) => {
     result.label = result.name;
-    result.filter = result.id;
   });
   log.silly(results);
   return res.send(results);

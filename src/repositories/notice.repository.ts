@@ -15,6 +15,9 @@ import {
   Equipment,
   User,
   Operation,
+  ObjectParts,
+  Cause,
+  Symptom,
 } from "../models";
 
 export interface INoticePayload {
@@ -40,9 +43,9 @@ export interface INoticePayload {
   user: User;
   sapId: string;
   operation: Operation;
-  objectId: String;
-  causeId: String;
-  symptomId: String;
+  objectId: ObjectParts;
+  causeId: Cause;
+  symptomId: Symptom;
   textCause: string;
   textSymptom: string;
 }
@@ -69,9 +72,9 @@ export interface INoticenPayloadNewFormat {
   isActive: true;
   sapId: string;
   operation: Operation;
-  objectId: String;
-  causeId: String;
-  symptomId: String;
+  objectId?: ObjectParts;
+  causeId?: Cause;
+  symptomId?: Symptom;
   textCause: string;
   textSymptom: string;
 }
@@ -86,7 +89,9 @@ export const getNotices = async (
   isWeb?: boolean,
   timeFrom?: string,
   timeEnd?: string,
-  operationId?: string
+  operationId?: string,
+  filter?: string,
+  totalRows?: boolean
 ): Promise<Array<Notice>> => {
   console.log("isaac", timeFrom, timeEnd);
   const repository = await getRepository(Notice).query(
@@ -112,6 +117,10 @@ export const getNotices = async (
       timeEnd +
       "',@operationId='" +
       operationId +
+      "',@filter='" +
+      filter +
+      "',@totalRows='" +
+      totalRows +
       "'"
   );
   //return repository.find({ relations: ['line', 'consecutive', 'cardType', 'priority', 'components', 'breakdown', 'failureType', 'affects', 'process']});
