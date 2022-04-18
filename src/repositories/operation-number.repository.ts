@@ -12,7 +12,7 @@ export const getOperationNumbers = async (
   operation?: string
 ): Promise<Array<OperationNumber>> => {
   const repository = getRepository(OperationNumber);
-  return repository.find({ operation: { id: operation } });
+  return repository.find({ order: { name: "DESC" } });
 };
 
 export const createOperationNumber = async (
