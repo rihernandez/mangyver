@@ -2194,6 +2194,26 @@
 				],
 				"type": "object",
 				"additionalProperties": false
+			},
+			"IResponsablePayload": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					}
+				},
+				"required": [
+					"name",
+					"SAPCode",
+					"operation"
+				],
+				"type": "object",
+				"additionalProperties": false
 			}
 		},
 		"securitySchemes": {}
@@ -5361,6 +5381,106 @@
 				},
 				"tags": [
 					"Symptom"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/responsables": {
+			"get": {
+				"operationId": "GetResponsables",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/Responsable"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Responsable"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "operation",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			},
+			"post": {
+				"operationId": "CreateResponsable",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Responsable"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Responsable"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/IResponsablePayload"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/responsables/{id}": {
+			"get": {
+				"operationId": "GetResponsable",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/Responsable"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Responsable"
 				],
 				"security": [],
 				"parameters": [

@@ -36,6 +36,7 @@ import noticeFormRouter from "./notice-form.router";
 import objectRouter from "./object.router";
 import causeRouter from "./cause.router";
 import symptomRouter from "./symptom.router";
+import responsableRouter from "./responsable.router";
 
 const router = express.Router();
 
@@ -80,5 +81,6 @@ router.use("/fnmobile", [checkJwt], noticeFormRouter);
 router.use("/symptoms", [checkJwt], symptomRouter);
 router.use("/causes", [checkJwt], causeRouter);
 router.use("/objects", [checkJwt], objectRouter);
+router.use("/responsables", [checkJwt], responsableRouter);
 export default router;
 export { initRoute, metadata };
