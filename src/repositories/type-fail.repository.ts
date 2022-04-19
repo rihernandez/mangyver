@@ -16,6 +16,7 @@ export const getTypeFails = async (
   const repository = getRepository(TypeFail);
   return repository.find({
     where: [{ operation: operationId }],
+    order: { name: "DESC" },
   });
 };
 

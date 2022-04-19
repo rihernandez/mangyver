@@ -14,9 +14,9 @@ export const getObjectParts = async (
 ): Promise<Array<ObjectParts>> => {
   const repository = getRepository(ObjectParts);
   if (groupCode) {
-    return repository.find({ where: { groupCode: groupCode } });
+    return repository.find({ where: { groupCode: groupCode }, order: { name: "DESC" } });
   }
-  return repository.find();
+  return repository.find({ order: { name: "DESC" } });
 };
 
 export const createObjectParts = async (
