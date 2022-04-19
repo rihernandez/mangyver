@@ -856,6 +856,35 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"Responsable": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"operationId": {
+						"$ref": "#/components/schemas/Operation"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"SAPCode",
+					"operationId",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"Cause": {
 				"properties": {
 					"id": {
@@ -991,6 +1020,9 @@
 					"objectId": {
 						"$ref": "#/components/schemas/ObjectParts"
 					},
+					"responsableId": {
+						"$ref": "#/components/schemas/Responsable"
+					},
 					"causeId": {
 						"$ref": "#/components/schemas/Cause"
 					},
@@ -1036,6 +1068,7 @@
 					"equipmentId",
 					"operation",
 					"objectId",
+					"responsableId",
 					"causeId",
 					"symptomId",
 					"textCause",

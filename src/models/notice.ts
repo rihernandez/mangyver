@@ -24,7 +24,7 @@ import { Operation } from "./operation";
 import { Symptom } from "./symptom";
 import { Cause } from "./cause";
 import { ObjectParts } from "./object";
-import { Area } from ".";
+import { Area, Responsable } from ".";
 
 @Entity("Notice")
 export class Notice {
@@ -98,6 +98,12 @@ export class Notice {
   @ManyToOne(type => ObjectParts, object => object.id, { nullable: true })
   @JoinColumn({ name: "objectId" })
   objectId!: ObjectParts;
+
+  @ManyToOne(type => Responsable, reponsable => reponsable.id, {
+    nullable: true,
+  })
+  @JoinColumn({ name: "responsableId" })
+  responsableId!: Responsable;
 
   @ManyToOne(type => Cause, cause => cause.id, { nullable: true })
   @JoinColumn({ name: "causeId" })

@@ -37,6 +37,7 @@ import { Form } from "./notice-form";
 import { Cause } from "./cause";
 import { Symptom } from "./symptom";
 import { ObjectParts } from "./object";
+import { Responsable } from "./responsable";
 
 export {
   User,
@@ -78,4 +79,5 @@ export {
   Cause,
   ObjectParts,
   Symptom,
+  Responsable,
 };
