@@ -12,9 +12,12 @@ export interface ICausePayload {
 export const getCauses = async (groupCode?: string): Promise<Array<Cause>> => {
   const repository = getRepository(Cause);
   if (groupCode) {
-    return repository.find({ where: { groupCode: groupCode } });
+    return repository.find({
+      where: { groupCode: groupCode },
+      order: { name: "DESC" },
+    });
   }
-  return repository.find();
+  return repository.find({ order: { name: "DESC" } });
 };
 
 export const createCause = async (payload: ICausePayload): Promise<Cause> => {

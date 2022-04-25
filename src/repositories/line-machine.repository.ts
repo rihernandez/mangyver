@@ -28,16 +28,16 @@ export const getLineMachines = async (
           id: lineId,
         },
       },
-      // order: {
-      //   name: "ASC",
-      // },
+      order: {
+        name: "DESC",
+      },
       skip: skip,
       take: take,
       cache: true,
     });
   }
 
-  return repository.find();
+  return repository.find({ order: { name: "DESC" } });
 };
 
 export const createLineMachine = async (
