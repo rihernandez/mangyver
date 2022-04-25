@@ -10,7 +10,7 @@ export interface IResponsablePayload {
 
 export const getResponsables = async (operation?: string): Promise<Array<Responsable>> => {
   const responsableRepository = getRepository(Responsable);
-  return responsableRepository.find({ order: { name: "DESC" } });
+  return responsableRepository.find({ where: { operationId: operation }, order: { name: "DESC" } });
 };
 
 export const createResponsable = async (payload: IResponsablePayload): Promise<Responsable> => {
