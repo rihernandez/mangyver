@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { Get, Route, Tags, Post, Body, Path } from "tsoa";
+import { Get, Route, Tags, Post, Body, Path, Query } from "tsoa";
 import { Priority } from "../models";
 import {
   getPrioritys,
@@ -12,8 +12,8 @@ import {
 @Tags("Priority")
 export default class PriorityController {
   @Get("/")
-  public async getPriorities(): Promise<Array<Priority>> {
-    return getPrioritys();
+  public async getPriorities(@Query() operation?: string): Promise<Array<Priority>> {
+    return getPrioritys(operation);
   }
 
   @Post("/")

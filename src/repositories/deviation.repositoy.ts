@@ -12,7 +12,7 @@ export const getDeviations = async (
   operation?: string
 ): Promise<Array<Deviation>> => {
   const repository = getRepository(Deviation);
-  return repository.find({ order: { name: "DESC" } });
+  return repository.find({ where: { operation }, order: { name: "DESC" } });
 };
 
 export const createDeviation = async (
