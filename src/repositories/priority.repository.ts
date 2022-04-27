@@ -11,7 +11,7 @@ export interface IPriorityPayload {
 
 export const getPrioritys = async (operation?: string): Promise<Array<Priority>> => {
   const repository = getRepository(Priority);
-  return repository.find({ where: { operationId: operation } });
+  return repository.find({ where: { operation } });
 };
 
 export const createPriority = async (
