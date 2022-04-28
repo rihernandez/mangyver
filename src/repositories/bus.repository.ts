@@ -12,7 +12,7 @@ export interface IBusPayload {
 
 export const getAllBus = async (): Promise<Array<Bus>> => {
   const busRepository = getRepository(Bus);
-  return busRepository.find({ order: { name: "DESC" } });
+  return busRepository.find({ order: { name: "ASC" } });
 };
 
 export const createBus = async (payload: IBusPayload): Promise<Bus> => {

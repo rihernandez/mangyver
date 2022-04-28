@@ -19,7 +19,7 @@ export const getObjectParts = async (
       order: { name: "DESC" },
     });
   }
-  return repository.find({ order: { name: "DESC" } });
+  return repository.find({ order: { name: "ASC" } });
 };
 
 export const createObjectParts = async (

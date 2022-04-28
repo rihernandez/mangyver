@@ -14,7 +14,7 @@ export const getResponsables = async (
   const responsableRepository = getRepository(Responsable);
   return responsableRepository.find({
     where: { operationId: operation },
-    order: { name: "DESC" },
+    order: { name: "ASC" },
   });
 };
 

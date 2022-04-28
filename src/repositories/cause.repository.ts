@@ -14,10 +14,10 @@ export const getCauses = async (groupCode?: string): Promise<Array<Cause>> => {
   if (groupCode) {
     return repository.find({
       where: { groupCode: groupCode },
-      order: { name: "DESC" },
+      order: { name: "ASC" },
     });
   }
-  return repository.find({ order: { name: "DESC" } });
+  return repository.find({ order: { name: "ASC" } });
 };
 
 export const createCause = async (payload: ICausePayload): Promise<Cause> => {

@@ -20,7 +20,7 @@ export const getCards = async (
 
   return repository.find({
     where: [{ operation: operationId }],
-    order: { name: "DESC" },
+    order: { name: "ASC" },
   });
 };
 

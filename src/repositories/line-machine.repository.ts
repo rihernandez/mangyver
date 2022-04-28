@@ -37,7 +37,7 @@ export const getLineMachines = async (
     });
   }
 
-  return repository.find({ order: { name: "DESC" } });
+  return repository.find({ order: { name: "ASC" } });
 };
 
 export const createLineMachine = async (
