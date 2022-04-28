@@ -16,7 +16,7 @@ export const getSymptoms = async (
   if (groupCode) {
     return repository.find({ where: { groupCode: groupCode }, order: { name: "DESC" } });
   }
-  return repository.find({ order: { name: "DESC" } });
+  return repository.find({ order: { name: "ASC" } });
 };
 
 export const createSymptom = async (

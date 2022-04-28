@@ -15,7 +15,7 @@ export const getLines = async (areaId?: string): Promise<Array<Line>> => {
     return repository.find({ area: { id: areaId } });
   }
 
-  return repository.find({ order: { name: "DESC" } });
+  return repository.find({ order: { name: "ASC" } });
 };
 
 export const createLine = async (payload: ILinePayload): Promise<Line> => {
