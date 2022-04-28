@@ -14,7 +14,7 @@ export const getOperationNumbers = async (
   const repository = getRepository(OperationNumber);
   return repository.find({
     where: { operation: operation },
-    order: { name: "DESC" },
+    order: { name: "ASC" },
   });
 };
 

@@ -14,7 +14,7 @@ export const getAreas = async (operation?: string): Promise<Array<Area>> => {
   if (operation) {
     return areaRepository.find({ operation: { id: operation } });
   }
-  return areaRepository.find({ order: { name: "DESC" } });
+  return areaRepository.find({ order: { name: "ASC" } });
 };
 
 export const createArea = async (payload: IAreaPayload): Promise<Area> => {

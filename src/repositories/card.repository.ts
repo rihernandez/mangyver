@@ -18,7 +18,7 @@ export const getCards = async (
     return repository.find({ process: { processId: process } });
   }
 
-  return repository.find({ where: [{ operation: operationId }], order: { name: "DESC" } });
+  return repository.find({ where: [{ operation: operationId }], order: { name: "ASC" } });
 };
 
 export const createCard = async (payload: ICardPayload): Promise<Card> => {
