@@ -3861,7 +3861,7 @@
 					},
 					{
 						"in": "query",
-						"name": "qskip",
+						"name": "from",
 						"required": false,
 						"schema": {
 							"format": "double",
@@ -3870,7 +3870,7 @@
 					},
 					{
 						"in": "query",
-						"name": "qtake",
+						"name": "top",
 						"required": false,
 						"schema": {
 							"format": "double",
