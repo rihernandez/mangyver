@@ -14,15 +14,15 @@ export default class LineMachineController {
   @Get("/")
   public async getLineMachines(
     @Query() lineId?: string,
-    @Query() qskip?: number,
-    @Query() qtake?: number
+    @Query() from?: number,
+    @Query() top?: number
   ): Promise<Array<LineMachine>> {
-    let skip: number = Number(qskip);
-    let take: number = Number(qtake);
-    if (isNaN(skip && take)) {
+    let _from: number = Number(from);
+    let _top: number = Number(top);
+    if (isNaN(_from && _top)) {
     }
-    skip > 0 ? (skip = skip - 1) : skip;
-    return getLineMachines(lineId, skip, take);
+    _from > 0 ? (_from = _from - 1) : _from;
+    return getLineMachines(lineId, _from, _top);
   }
 
   @Post("/")

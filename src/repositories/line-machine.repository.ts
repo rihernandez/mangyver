@@ -12,8 +12,8 @@ export interface ILineMachinePayload {
 
 export const getLineMachines = async (
   lineId?: string,
-  skip?: number,
-  take?: number
+  from?: number,
+  top?: number
 ): Promise<Array<LineMachine>> => {
   const repository = getRepository(LineMachine);
 
@@ -31,8 +31,8 @@ export const getLineMachines = async (
       order: {
         name: "DESC",
       },
-      skip: skip,
-      take: take,
+      skip: from,
+      take: top,
       cache: true,
     });
   }
