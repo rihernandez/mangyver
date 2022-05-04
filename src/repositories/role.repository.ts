@@ -13,7 +13,7 @@ export interface IRolePayload {
 
 export const getRoles = async (): Promise<Array<Role>> => {
   const repository = getRepository(Role);
-  return repository.find({ relations: ["menus"] });
+  return repository.find({ relations: ["menus"], order: { name: "ASC" } });
 };
 
 export const createRole = async (payload: IRolePayload): Promise<Role> => {

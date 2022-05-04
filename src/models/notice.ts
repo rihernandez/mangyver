@@ -21,6 +21,10 @@ import { Equipment } from "./equipment";
 import { User } from "./user";
 import { LineMachine } from "./line-machine";
 import { Operation } from "./operation";
+import { Symptom } from "./symptom";
+import { Cause } from "./cause";
+import { ObjectParts } from "./object";
+import { Area, Responsable } from ".";
 
 @Entity("Notice")
 export class Notice {
@@ -35,8 +39,11 @@ export class Notice {
   didCard!: string;
   @Column({ name: "failureTime", nullable: true })
   failureTime!: string;
-  @Column({ name: "departmentId", nullable: true })
-  departmentId!: string;
+
+  @ManyToOne(type => Area, area => area.id, { nullable: true })
+  @JoinColumn({ name: "departmentId" })
+  departmentId!: Area;
+
   // @Column({name: "equipmentCode", nullable: true})
   // equipmentCode!: string;
   @ManyToOne(type => Line, line => line.id, { nullable: true })
@@ -87,6 +94,34 @@ export class Notice {
   })
   @JoinColumn({ name: "operationId" })
   operation!: Operation;
+
+  @ManyToOne(type => ObjectParts, object => object.id, { nullable: true })
+  @JoinColumn({ name: "objectId" })
+  objectId!: ObjectParts;
+
+  @ManyToOne(type => Responsable, reponsable => reponsable.id, {
+    nullable: true,
+  })
+  @JoinColumn({ name: "responsableId" })
+  responsableId!: Responsable;
+
+  @ManyToOne(type => Cause, cause => cause.id, { nullable: true })
+  @JoinColumn({ name: "causeId" })
+  causeId!: Cause;
+
+  @ManyToOne(type => Symptom, symptom => symptom.id, { nullable: true })
+  @JoinColumn({ name: "symptomId" })
+  symptomId!: Symptom;
+
+  @Column({ name: "textCause", nullable: true })
+  textCause!: string;
+
+  @Column({ name: "textSymptom", nullable: true })
+  textSymptom!: string;
+
+  @Column({ name: "urlPhoto", nullable: true })
+  urlPhoto!: string;
+
   // @Column({ name: "Type" })
   // type!: string;
   // @Column({ name: "Order" })

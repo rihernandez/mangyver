@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { Help } from './help'
+import { Help } from "./help";
 import { Notification } from "./notification";
 import { OperationNumber } from "./operation-number";
 import { Deviation } from "./deviation";
@@ -34,6 +34,11 @@ import { Session } from "./session";
 import { SapLog } from "./saplog";
 import { SapLogNotification } from "./saplognotification";
 import { Form } from "./notice-form";
+import { Cause } from "./cause";
+import { Symptom } from "./symptom";
+import { ObjectParts } from "./object";
+import { Responsable } from "./responsable";
+
 export {
   User,
   Bus,
@@ -70,6 +75,9 @@ export {
   SapLog,
   SapLogNotification,
   Form,
-  Help
+  Help,
+  Cause,
+  ObjectParts,
+  Symptom,
+  Responsable,
 };
-/* eslint-disable */

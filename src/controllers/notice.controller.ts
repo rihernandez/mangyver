@@ -25,7 +25,9 @@ export default class NoticeController {
     @Query() isWeb: unknown,
     @Query() timeFrom: unknown,
     @Query() timeEnd: unknown,
-    @Query() operationId: unknown
+    @Query() operationId: unknown,
+    @Query() filter: unknown,
+    @Query() totalRows: unknown
   ): Promise<Array<Notice>> {
     return getNotices(
       profileId,
@@ -37,7 +39,9 @@ export default class NoticeController {
       Boolean(isWeb || 0),
       String(timeFrom || null),
       String(timeEnd || null),
-      String(operationId || null)
+      String(operationId || null),
+      String(filter || null),
+      Boolean(totalRows || 0)
     );
   }
 

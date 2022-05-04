@@ -9,12 +9,15 @@ router.get("/", async (_req, res) => {
   const controller = new LineMachineController();
   const response = await controller.getLineMachines(
     <string>_req.query.lineId,
-    Number(_req.query.skip),
-    Number(_req.query.take)
+    Number(_req.query.from),
+    Number(_req.query.top),
+    <string>_req.query.name,
+    <string>_req.query.SAPCode
   );
   const results = JSON.parse(JSON.stringify(response));
   results.map((result: any) => {
     result.label = result.name;
+    result.filter = result.groupCode;
   });
   log.silly(results);
   return res.send(results);

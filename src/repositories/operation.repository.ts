@@ -15,6 +15,7 @@ export const getOperations = async (): Promise<Operation[]> => {
   const operationRepository = getRepository(Operation);
   return operationRepository.find({
     select: ["id", "name"],
+    order: { name: "ASC" },
   });
 };
 

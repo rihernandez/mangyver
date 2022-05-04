@@ -1,9 +1,8 @@
 /* eslint-disable */
-import { Help } from './../models/help'
 import { Notification } from "./../models/notification";
 import { OperationNumber } from "./../models/operation-number";
 import { Deviation } from "./../models/deviation";
-import { Menu, MenuRole, SubAreaMachine } from "../models";
+import { Help, Menu, MenuRole, SubAreaMachine } from "../models";
 import { ConnectionOptions } from "typeorm";
 import * as dotenv from "dotenv";
 dotenv.config();
@@ -34,6 +33,10 @@ import { Session } from "../models";
 import { SapLog } from "../models";
 import { SapLogNotification } from "../models";
 import { Form } from "../models";
+import { ObjectParts } from "../models";
+import { Symptom } from "../models";
+import { Cause } from "../models";
+import { Responsable } from "../models";
 
 dotenv.config();
 
@@ -78,7 +81,11 @@ const config: ConnectionOptions = {
     SapLog,
     SapLogNotification,
     Form,
-    Help
+    Help,
+    Cause,
+    ObjectParts,
+    Symptom,
+    Responsable,
   ],
   synchronize: true,
 };

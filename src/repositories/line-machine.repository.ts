@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { getRepository } from "typeorm";
+import { getRepository, Like } from "typeorm";
 import { LineMachine, Line } from "../models";
 
 export interface ILineMachinePayload {
@@ -7,12 +7,15 @@ export interface ILineMachinePayload {
   name: string;
   SAPCode: string;
   isActive: boolean;
+  groupCode: string;
 }
 
 export const getLineMachines = async (
   lineId?: string,
-  skip?: number,
-  take?: number
+  from?: number,
+  top?: number,
+  name?: string,
+  SAPCode?: string
 ): Promise<Array<LineMachine>> => {
   const repository = getRepository(LineMachine);
 
@@ -26,17 +29,19 @@ export const getLineMachines = async (
         line: {
           id: lineId,
         },
+        ...(name && { name: Like(`%${name}%`) }),
+        ...(SAPCode && { SAPCode: Like(`%${SAPCode}%`) }),
       },
-      // order: {
-      //   name: "ASC",
-      // },
-      skip: skip,
-      take: take,
+      order: {
+        name: "ASC",
+      },
+      skip: from,
+      take: top,
       cache: true,
     });
   }
 
-  return repository.find();
+  return repository.find({ order: { name: "ASC" } });
 };
 
 export const createLineMachine = async (
