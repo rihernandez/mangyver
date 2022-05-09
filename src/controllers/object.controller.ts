@@ -12,9 +12,16 @@ import { ObjectParts } from "../models";
 export default class ObjectPartsController {
   @Get("/")
   public async getObjectParts(
-    @Query() groupCode?: string
+    @Query() groupCode?: string,
+    @Query() from?: number,
+    @Query() top?: number,
   ): Promise<Array<ObjectParts>> {
-    return getObjectParts(groupCode);
+    let _from: number = Number(from);
+    let _top: number = Number(top);
+    if (isNaN(_from && _top)) {
+    }
+    _from > 0 ? (_from = _from - 1) : _from;
+    return getObjectParts(groupCode, _from, _top);
   }
 
   @Post("/")
