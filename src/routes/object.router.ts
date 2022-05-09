@@ -10,7 +10,9 @@ const router = express.Router();
 router.get("/", async (_req, res) => {
   const controller = new ObjectParts();
   const response = await controller.getObjectParts(
-    <string>_req.query.groupCode
+    <string>_req.query.groupCode,
+    Number(_req.query.from),
+    Number(_req.query.top),
   );
   const results = JSON.parse(JSON.stringify(response));
   results.map((result: any) => {
