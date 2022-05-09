@@ -10,16 +10,20 @@ export interface IObjectPartsPayload {
 }
 
 export const getObjectParts = async (
-  groupCode?: string
+  groupCode?: string,
+  from?: number,
+  top?: number,
 ): Promise<Array<ObjectParts>> => {
   const repository = getRepository(ObjectParts);
   if (groupCode) {
     return repository.find({
       where: { groupCode: groupCode },
       order: { name: "DESC" },
+      skip: from,
+      take: top,
     });
   }
-  return repository.find({ order: { name: "ASC" } });
+  return repository.find({ order: { name: "ASC" }, skip: from, take: top, });
 };
 
 export const createObjectParts = async (

@@ -13,9 +13,16 @@ import {
 export default class SymptomController {
   @Get("/")
   public async getSymptoms(
-    @Query() groupCode?: string
+    @Query() groupCode?: string,
+    @Query() from?: number,
+    @Query() top?: number,
   ): Promise<Array<Symptom>> {
-    return getSymptoms(groupCode);
+    let _from: number = Number(from);
+    let _top: number = Number(top);
+    if (isNaN(_from && _top)) {
+    }
+    _from > 0 ? (_from = _from - 1) : _from;
+    return getSymptoms(groupCode, _from, _top);
   }
 
   @Post("/")

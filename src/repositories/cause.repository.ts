@@ -9,15 +9,17 @@ export interface ICausePayload {
   isActive: boolean;
 }
 
-export const getCauses = async (groupCode?: string): Promise<Array<Cause>> => {
+export const getCauses = async (groupCode?: string, from?: number, top?: number,): Promise<Array<Cause>> => {
   const repository = getRepository(Cause);
   if (groupCode) {
     return repository.find({
       where: { groupCode: groupCode },
       order: { name: "ASC" },
+      skip: from,
+      take: top,
     });
   }
-  return repository.find({ order: { name: "ASC" } });
+  return repository.find({ order: { name: "ASC" }, skip: from, take: top, });
 };
 
 export const createCause = async (payload: ICausePayload): Promise<Cause> => {

@@ -9,7 +9,11 @@ const router = express.Router();
 
 router.get("/", async (_req, res) => {
   const controller = new Cause();
-  const response = await controller.getCauses(<string>_req.query.groupCode);
+  const response = await controller.getCauses(
+    <string>_req.query.groupCode,
+    Number(_req.query.from),
+    Number(_req.query.top),
+  );
   const results = JSON.parse(JSON.stringify(response));
   results.map((result: any) => {
     result.label = result.name;

@@ -10,16 +10,20 @@ export interface ISymptomPayload {
 }
 
 export const getSymptoms = async (
-  groupCode?: string
+  groupCode?: string,
+  from?: number,
+  top?: number,
 ): Promise<Array<Symptom>> => {
   const repository = getRepository(Symptom);
   if (groupCode) {
     return repository.find({
       where: { groupCode: groupCode },
       order: { name: "DESC" },
+      skip: from,
+      take: top,
     });
   }
-  return repository.find({ order: { name: "ASC" } });
+  return repository.find({ order: { name: "ASC" }, skip: from, take: top, });
 };
 
 export const createSymptom = async (
