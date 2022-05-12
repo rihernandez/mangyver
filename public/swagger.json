@@ -1970,6 +1970,10 @@
 					"isDone": {
 						"type": "boolean"
 					},
+					"numPeople": {
+						"type": "number",
+						"format": "double"
+					},
 					"comments": {
 						"type": "string"
 					},
@@ -1993,6 +1997,7 @@
 					"startHour",
 					"endHour",
 					"isDone",
+					"numPeople",
 					"comments",
 					"user",
 					"isActive",
@@ -2028,6 +2033,10 @@
 					},
 					"comments": {
 						"type": "string"
+					},
+					"numPeople": {
+						"type": "number",
+						"format": "double"
 					}
 				},
 				"required": [
