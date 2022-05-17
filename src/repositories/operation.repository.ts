@@ -14,6 +14,7 @@ export interface IOperationPayload {
 export const getOperations = async (): Promise<Operation[]> => {
   const operationRepository = getRepository(Operation);
   return operationRepository.find({
+    where: { isActive: true },
     select: ["id", "name"],
     order: { name: "ASC" },
   });

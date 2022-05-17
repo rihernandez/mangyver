@@ -12,7 +12,7 @@ export interface IComponentPayload {
 
 export const getComponents = async (): Promise<Array<Component>> => {
   const repository = getRepository(Component);
-  return repository.find();
+  return repository.find({ where: { isActive: true } });
 };
 
 export const createComponent = async (
