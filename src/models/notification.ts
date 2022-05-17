@@ -46,6 +46,9 @@ export class Notification {
   @Column({ name: "IsDone" })
   isDone!: boolean;
 
+  @Column({ name: "NumPeople", nullable: true })
+  numPeople!: number;
+
   @Column({ name: "Comments", length: 255, nullable: true })
   comments!: string;
   @ManyToOne(type => User, user => user.id, { nullable: true })
