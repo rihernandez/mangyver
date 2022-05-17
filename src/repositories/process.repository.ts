@@ -36,7 +36,7 @@ export const getProcessWeb = async (
   operationId?: string
 ): Promise<Array<Process>> => {
   const repository = getRepository(Process);
-  return repository.find({ where: [{ operation: operationId }] });
+  return repository.find({ where: [{ operation: operationId, isActive: true }] });
 };
 
 export const getProcesss = async (operationId?: string) => {

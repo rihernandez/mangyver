@@ -12,9 +12,9 @@ export interface IAreaPayload {
 export const getAreas = async (operation?: string): Promise<Array<Area>> => {
   const areaRepository = getRepository(Area);
   if (operation) {
-    return areaRepository.find({ operation: { id: operation } });
+    return areaRepository.find({ where: { operation, isActive: true } });
   }
-  return areaRepository.find({ order: { name: "ASC" } });
+  return areaRepository.find({ order: { name: "ASC" }, where: { isActive: true } });
 };
 
 export const createArea = async (payload: IAreaPayload): Promise<Area> => {

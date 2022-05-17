@@ -15,7 +15,7 @@ export const getTypeFails = async (
 ): Promise<Array<TypeFail>> => {
   const repository = getRepository(TypeFail);
   return repository.find({
-    where: [{ operation: operationId }],
+    where: [{ operation: operationId, isActive: true }],
     order: { name: "ASC" },
   });
 };

@@ -29,6 +29,7 @@ export const getLineMachines = async (
         line: {
           id: lineId,
         },
+        isActive: true,
         ...(name && { name: Like(`%${name}%`) }),
         ...(SAPCode && { SAPCode: Like(`%${SAPCode}%`) }),
       },
@@ -41,7 +42,7 @@ export const getLineMachines = async (
     });
   }
 
-  return repository.find({ order: { name: "ASC" } });
+  return repository.find({ order: { name: "ASC" }, where: { isActive: true } });
 };
 
 export const createLineMachine = async (

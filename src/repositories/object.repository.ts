@@ -18,13 +18,13 @@ export const getObjectParts = async (
   const repository = getRepository(ObjectParts);
   if (groupCode) {
     return repository.find({
-      where: { groupCode: groupCode },
+      where: { groupCode: groupCode, isActive: true },
       order: { name: "DESC" },
       skip: from,
       take: top,
     });
   }
-  return repository.find({ order: { name: "ASC" }, skip: from, take: top, });
+  return repository.find({ where: { isActive: true }, order: { name: "ASC" }, skip: from, take: top, });
 };
 
 export const createObjectParts = async (

@@ -17,7 +17,7 @@ export interface ISessionPayload {
 
 export const getSessions = async (): Promise<Array<Session>> => {
   const repository = getRepository(Session);
-  return repository.find();
+  return repository.find({ where: { isActive: true } });
 };
 
 export const createSession = async (

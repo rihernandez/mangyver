@@ -13,7 +13,7 @@ export const getPrioritys = async (
   operation?: string
 ): Promise<Array<Priority>> => {
   const repository = getRepository(Priority);
-  return repository.find({ where: { operation } });
+  return repository.find({ where: { operation, isActive: true } });
 };
 
 export const createPriority = async (

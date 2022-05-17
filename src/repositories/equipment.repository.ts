@@ -11,7 +11,7 @@ export interface IEquipmentPayload {
 
 export const getEquipments = async (): Promise<Array<Equipment>> => {
   const equipmentRepository = getRepository(Equipment);
-  return equipmentRepository.find();
+  return equipmentRepository.find({ where: { isActive: true } });
 };
 
 export const createEquipment = async (

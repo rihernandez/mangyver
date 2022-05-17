@@ -11,7 +11,7 @@ export interface IBreakdownPayload {
 
 export const getBreakdowns = async (): Promise<Array<Breakdown>> => {
   const repository = getRepository(Breakdown);
-  return repository.find();
+  return repository.find({ where: { isActive: true } });
 };
 
 export const createBreakdown = async (

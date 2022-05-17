@@ -13,13 +13,13 @@ export const getCauses = async (groupCode?: string, from?: number, top?: number,
   const repository = getRepository(Cause);
   if (groupCode) {
     return repository.find({
-      where: { groupCode: groupCode },
+      where: { groupCode: groupCode, isActive: true },
       order: { name: "ASC" },
       skip: from,
       take: top,
     });
   }
-  return repository.find({ order: { name: "ASC" }, skip: from, take: top, });
+  return repository.find({ where: { isActive: true }, order: { name: "ASC" }, skip: from, take: top, });
 };
 
 export const createCause = async (payload: ICausePayload): Promise<Cause> => {

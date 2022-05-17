@@ -15,11 +15,11 @@ export const getCards = async (
 ): Promise<Array<Card>> => {
   const repository = getRepository(Card);
   if (process) {
-    return repository.find({ process: { processId: process } });
+    return repository.find({ where: { process, isActive: true } });
   }
 
   return repository.find({
-    where: [{ operation: operationId }],
+    where: [{ operation: operationId, isActive: true }],
     order: { name: "ASC" },
   });
 };

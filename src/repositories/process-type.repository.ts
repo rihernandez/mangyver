@@ -9,7 +9,7 @@ export interface IProcessTypePayload {
 
 export const getProcessTypes = async (): Promise<Array<ProcessType>> => {
   const repository = getRepository(ProcessType);
-  return repository.find();
+  return repository.find({ where: { isActive: true } });
 };
 
 export const createProcessType = async (
