@@ -837,6 +837,9 @@
 					"groupCode": {
 						"type": "string"
 					},
+					"buId": {
+						"$ref": "#/components/schemas/Bus"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -850,6 +853,7 @@
 					"name",
 					"SAPCode",
 					"groupCode",
+					"buId",
 					"isActive",
 					"created"
 				],
@@ -2143,6 +2147,9 @@
 					"groupCode": {
 						"type": "string"
 					},
+					"buId": {
+						"$ref": "#/components/schemas/Bus"
+					},
 					"isActive": {
 						"type": "boolean"
 					}
@@ -2151,6 +2158,7 @@
 					"name",
 					"SAPCode",
 					"groupCode",
+					"buId",
 					"isActive"
 				],
 				"type": "object",

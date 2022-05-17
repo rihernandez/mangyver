@@ -1,11 +1,12 @@
 /* eslint-disable */
 import { getRepository } from "typeorm";
-import { ObjectParts } from "../models";
+import { Bus, ObjectParts } from "../models";
 
 export interface IObjectPartsPayload {
   name: string;
   SAPCode: string;
   groupCode: String;
+  buId: Bus;
   isActive: boolean;
 }
 
