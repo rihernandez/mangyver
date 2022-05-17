@@ -11,7 +11,7 @@ export interface IUbicationPayload {
 
 export const getUbications = async (): Promise<Array<Ubication>> => {
   const ubicationRepository = getRepository(Ubication);
-  return ubicationRepository.find();
+  return ubicationRepository.find({ where: { isActive: true } });
 };
 
 export const createUbication = async (

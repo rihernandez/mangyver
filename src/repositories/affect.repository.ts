@@ -11,7 +11,7 @@ export interface IAffectPayload {
 
 export const getAffects = async (): Promise<Array<Affect>> => {
   const repository = getRepository(Affect);
-  return repository.find();
+  return repository.find({ where: { isActive: true } });
 };
 
 export const createAffect = async (

@@ -3,6 +3,7 @@ import { Deviation } from "./deviation";
 import { OperationNumber } from "./operation-number";
 import { User } from "./user";
 import { Operation } from "./operation";
+import { Bus } from "./bus";
 
 import {
   Entity,
@@ -27,6 +28,9 @@ export class ObjectParts {
 
   @Column({ name: "groupCode", nullable: true })
   groupCode!: String;
+
+  @ManyToOne(type => Bus, bus => bus.id)
+  buId!: Bus;
 
   @Column({ name: "status", default: true })
   isActive!: boolean;
