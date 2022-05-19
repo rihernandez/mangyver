@@ -7,6 +7,7 @@ import {
   ManyToOne,
   UpdateDateColumn,
 } from "typeorm";
+import { User } from './user';
 import { Notice } from ".";
 
 @Entity("SapLogNotification")
@@ -29,6 +30,9 @@ export class SapLogNotification {
 
   @Column({ name: "username", nullable: true })
   username!: string;
+
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
 
   @Column({ nullable: true, name: "Created" })
   @CreateDateColumn()

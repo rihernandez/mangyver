@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { User } from './user';
 import { Operation } from "./operation";
 import {
   Entity,
@@ -26,6 +27,9 @@ export class Component {
 
   @ManyToOne(type => Operation, operation => operation.id)
   operation!: Operation;
+
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
 
   @Column({ name: "Status", default: true })
   isActive!: boolean;

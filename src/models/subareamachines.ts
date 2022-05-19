@@ -8,6 +8,7 @@ import {
   UpdateDateColumn,
 } from "typeorm";
 import { Area } from "./area";
+import { User } from './user';
 import { Subarea } from "./subarea";
 
 @Entity("SubAreaMachines")
@@ -23,6 +24,9 @@ export class SubAreaMachine {
 
   @ManyToOne(type => Subarea, subarea => subarea.id)
   subArea!: Subarea;
+
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
 
   @Column({ name: "Status", default: true })
   isActive!: boolean;

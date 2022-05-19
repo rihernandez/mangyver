@@ -1,5 +1,6 @@
 /* eslint-disable */
 import { Operation } from "./operation";
+import { User } from './user';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -16,6 +17,9 @@ export class Form {
 
   @Column({ name: "form", nullable: true })
   form!: string;
+
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
 
   @Column({ name: "Status", default: true })
   isActive!: boolean;

@@ -1,5 +1,6 @@
 /* eslint-disable */
 import { Operation } from "./operation";
+import { User } from './user';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -22,6 +23,9 @@ export class Affect {
 
   @ManyToOne(type => Operation, operation => operation.id)
   operation!: Operation;
+
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
 
   @Column({ name: "Status", default: true })
   isActive!: boolean;

@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { User } from './user';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -28,6 +29,9 @@ export class Bus {
 
   @Column({ name: "Code", nullable: false })
   code!: string;
+
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
 
   @Column({ name: "Status", default: false })
   isActive!: boolean;

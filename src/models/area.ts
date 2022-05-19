@@ -22,6 +22,9 @@ export class Area {
   @Column({ name: "Code" })
   code!: string;
 
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
+
   @Column({ name: "Status", default: true })
   isActive!: boolean;
 

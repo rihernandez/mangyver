@@ -7,6 +7,7 @@ import {
   ManyToOne,
   UpdateDateColumn,
 } from "typeorm";
+import { User } from './user';
 import { Operation } from ".";
 
 @Entity("TypeFail")
@@ -28,6 +29,9 @@ export class TypeFail {
 
   @ManyToOne(type => Operation, operation => operation.id, { nullable: true })
   operation!: Operation;
+
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
 
   @Column({ nullable: true, name: "Created" })
   @CreateDateColumn()

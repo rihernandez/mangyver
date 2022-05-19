@@ -11,6 +11,7 @@ import {
   OneToMany,
   UpdateDateColumn,
 } from "typeorm";
+import { User } from './user';
 import { MenuRole } from "../models";
 
 @Entity("Menu")
@@ -27,6 +28,9 @@ export class Menu {
 
   @OneToMany(type => MenuRole, menuRole => menuRole.menu)
   roles!: MenuRole[];
+
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
 
   @Column({ name: "Status", default: true })
   isActive!: boolean;

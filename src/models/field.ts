@@ -1,13 +1,13 @@
 /* eslint-disable */
 /*
 
-		field: {
+field: {
 			fieldType: 'select',
 			label : 'Oficinas',
 			optionsEndpoint: 'https://endpoing.com',
 			validations: ['required'],
 			childfield : {
-				id: '',
+        id: '',
 				toMatch: 'asasd',
 				fieldType: 'select',
 				label : 'Número de telefono',
@@ -15,8 +15,9 @@
 				validations: ['required'],
 			}
 
-*/
-
+      */
+     
+import { User } from './user';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -63,6 +64,9 @@ export class Field {
 
   @Column({ name: "Childfield" })
   childfield!: string;
+
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
 
   @UpdateDateColumn({ nullable: true, name: "UpdatedDate" })
   updatedDate!: Date;

@@ -123,6 +123,9 @@ export class Notice {
   @Column({ name: "urlPhoto", nullable: true })
   urlPhoto!: string;
 
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
+
   // @Column({ name: "Type" })
   // type!: string;
   // @Column({ name: "Order" })

@@ -29,6 +29,9 @@ export class Cause {
   @Column({ name: "groupCode", nullable: true })
   groupCode!: String;
 
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
+
   @Column({ name: "status", default: true })
   isActive!: boolean;
 

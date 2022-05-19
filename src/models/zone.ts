@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { User } from './user';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -6,6 +7,7 @@ import {
   CreateDateColumn,
   OneToMany,
   UpdateDateColumn,
+  ManyToOne,
 } from "typeorm";
 
 @Entity("Zone")
@@ -18,6 +20,9 @@ export class Zone {
 
   @Column({ name: "Code" })
   code!: string;
+
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
 
   @Column({ name: "Status", default: true })
   isActive!: boolean;

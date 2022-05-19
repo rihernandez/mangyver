@@ -25,6 +25,9 @@ export class Line {
   @Column({ name: "SAPCode" })
   SAPCode!: string;
 
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
+
   @Column({ name: "Status", default: true })
   isActive!: boolean;
 

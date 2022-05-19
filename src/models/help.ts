@@ -7,6 +7,7 @@ import {
   ManyToOne,
   UpdateDateColumn,
 } from "typeorm";
+import { User } from './user';
 import { Operation } from "./operation";
 
 @Entity("Help")
@@ -17,6 +18,9 @@ export class Help {
 
   @Column({ name: "Url", length: 500 })
   url!: string;
+
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
 
   @Column({ name: "Status", default: true })
   isActive!: boolean;

@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { User } from './user';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -29,6 +30,9 @@ export class SapLog {
 
   @Column({ name: "username", nullable: true })
   username!: string;
+
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
 
   @Column({ nullable: true, name: "Created" })
   @CreateDateColumn()

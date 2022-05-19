@@ -55,6 +55,9 @@ export class Notification {
   @ManyToOne(type => User, user => user.id, { nullable: true })
   user!: User;
 
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
+
   /* @Column({ name: "Status", default: true })
     isActive!: boolean;
 

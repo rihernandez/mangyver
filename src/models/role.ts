@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { User } from './user';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -6,6 +7,7 @@ import {
   CreateDateColumn,
   OneToMany,
   UpdateDateColumn,
+  ManyToOne,
 } from "typeorm";
 import * as bcrypt from "bcryptjs";
 import { MenuRole } from "./menu-role";
@@ -20,6 +22,9 @@ export class Role {
 
   @OneToMany(type => MenuRole, menuRole => menuRole.role)
   menus!: MenuRole[];
+
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
 
   /* @Column({ name: "Description" })
     description!: string; */

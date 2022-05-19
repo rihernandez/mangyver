@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { User } from './user';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -26,6 +27,9 @@ export class Equipment {
 
   @ManyToOne(() => Area, area => area.id)
   area!: Area;
+
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
 
   @Column({ nullable: true, name: "Created" })
   @CreateDateColumn()

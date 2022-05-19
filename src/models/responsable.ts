@@ -8,6 +8,7 @@ import {
   JoinColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { User } from './user';
 import { Notice, Operation } from ".";
 
 @Entity("Responsable")
@@ -24,6 +25,9 @@ export class Responsable {
   @ManyToOne(type => Operation, object => object.id, { nullable: true })
   @JoinColumn({ name: "operationId" })
   operationId!: Operation;
+
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
 
   @Column({ nullable: true, name: "created" })
   @CreateDateColumn()

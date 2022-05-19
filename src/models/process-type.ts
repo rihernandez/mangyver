@@ -1,10 +1,12 @@
 /* eslint-disable */
+import { User } from './user';
 import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
   UpdateDateColumn,
+  ManyToOne,
 } from "typeorm";
 
 @Entity("ProcessType")
@@ -14,6 +16,9 @@ export class ProcessType {
 
   @Column({ name: "Name", length: 300 })
   name!: string;
+
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
 
   @Column({ name: "Status", default: true })
   isActive!: boolean;
