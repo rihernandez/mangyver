@@ -9,6 +9,7 @@ import {
   ManyToMany,
   JoinTable,
   OneToMany,
+  UpdateDateColumn,
 } from "typeorm";
 import { MenuRole } from "../models";
 
@@ -33,5 +34,8 @@ export class Menu {
   @Column({ nullable: true, name: "Created" })
   @CreateDateColumn()
   created!: Date;
+
+  @UpdateDateColumn({ nullable: true, name: "UpdatedDate" })
+  updatedDate!: Date;
 }
 /* eslint-disable */

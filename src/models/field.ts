@@ -23,6 +23,7 @@ import {
   Column,
   CreateDateColumn,
   ManyToOne,
+  UpdateDateColumn,
 } from "typeorm";
 import { Section } from "./section";
 
@@ -62,5 +63,8 @@ export class Field {
 
   @Column({ name: "Childfield" })
   childfield!: string;
+
+  @UpdateDateColumn({ nullable: true, name: "UpdatedDate" })
+  updatedDate!: Date;
 }
 /* eslint-disable */

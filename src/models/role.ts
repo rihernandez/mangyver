@@ -5,6 +5,7 @@ import {
   Column,
   CreateDateColumn,
   OneToMany,
+  UpdateDateColumn,
 } from "typeorm";
 import * as bcrypt from "bcryptjs";
 import { MenuRole } from "./menu-role";
@@ -28,5 +29,8 @@ export class Role {
 
   @CreateDateColumn()
   created!: Date;
+
+  @UpdateDateColumn({ nullable: true, name: "UpdatedDate" })
+  updatedDate!: Date;
 }
 /* eslint-disable */

@@ -23,6 +23,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -30,7 +34,8 @@
 					"menu",
 					"role",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -58,6 +63,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -66,7 +75,8 @@
 					"URL",
 					"roles",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -91,6 +101,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -98,7 +112,8 @@
 					"name",
 					"menus",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -120,6 +135,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -127,7 +146,8 @@
 					"name",
 					"code",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -152,6 +172,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -160,7 +184,8 @@
 					"name",
 					"code",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -185,6 +210,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -193,7 +222,8 @@
 					"bus",
 					"code",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -228,6 +258,10 @@
 						"type": "string",
 						"format": "date-time"
 					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
+					},
 					"operation": {
 						"$ref": "#/components/schemas/Operation"
 					},
@@ -254,6 +288,7 @@
 					"isActive",
 					"auth",
 					"created",
+					"updatedDate",
 					"operation",
 					"area",
 					"line",
@@ -281,6 +316,10 @@
 						"type": "string",
 						"format": "date-time"
 					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
+					},
 					"operation": {
 						"$ref": "#/components/schemas/Operation"
 					},
@@ -294,6 +333,7 @@
 					"code",
 					"isActive",
 					"created",
+					"updatedDate",
 					"operation",
 					"user"
 				],
@@ -321,6 +361,10 @@
 						"type": "string",
 						"format": "date-time"
 					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
+					},
 					"operation": {
 						"$ref": "#/components/schemas/Operation"
 					},
@@ -335,6 +379,7 @@
 					"SAPCode",
 					"isActive",
 					"created",
+					"updatedDate",
 					"operation",
 					"user"
 				],
@@ -481,6 +526,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -489,7 +538,8 @@
 					"code",
 					"isActive",
 					"area",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -532,13 +582,18 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
 					"id",
 					"name",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -569,6 +624,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -579,7 +638,8 @@
 					"SAPCode",
 					"operation",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -604,6 +664,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -612,7 +676,8 @@
 					"operation",
 					"process",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -637,6 +702,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -645,7 +714,8 @@
 					"SAPCode",
 					"operation",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -673,6 +743,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -682,7 +756,8 @@
 					"SAPCode",
 					"isActive",
 					"groupCode",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -710,6 +785,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -719,7 +798,8 @@
 					"SAPCode",
 					"operation",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -741,6 +821,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -748,7 +832,8 @@
 					"name",
 					"operation",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -776,6 +861,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -785,7 +874,8 @@
 					"isActive",
 					"shortName",
 					"operation",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -810,6 +900,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -818,7 +912,8 @@
 					"SAPCode",
 					"operation",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -846,6 +941,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -855,7 +954,8 @@
 					"groupCode",
 					"buId",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -877,6 +977,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -884,7 +988,8 @@
 					"name",
 					"SAPCode",
 					"operationId",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -909,6 +1014,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -917,7 +1026,8 @@
 					"SAPCode",
 					"groupCode",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -942,6 +1052,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -950,7 +1064,8 @@
 					"SAPCode",
 					"groupCode",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1048,6 +1163,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -1079,7 +1198,8 @@
 					"textSymptom",
 					"urlPhoto",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1359,6 +1479,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -1368,7 +1492,8 @@
 					"SAPCode",
 					"isActive",
 					"area",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1417,6 +1542,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -1425,7 +1554,8 @@
 					"code",
 					"subarea",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1473,6 +1603,10 @@
 					},
 					"childfield": {
 						"type": "string"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -1481,7 +1615,8 @@
 					"label",
 					"optionsEndpoint",
 					"validations",
-					"childfield"
+					"childfield",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1525,12 +1660,17 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
 					"id",
 					"fields",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1615,6 +1755,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -1623,7 +1767,8 @@
 					"SAPCode",
 					"operation",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1865,6 +2010,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -1872,7 +2021,8 @@
 					"name",
 					"operation",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1914,6 +2064,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -1921,7 +2075,8 @@
 					"name",
 					"operation",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1990,6 +2145,10 @@
 					"created": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -2005,7 +2164,8 @@
 					"comments",
 					"user",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -2102,6 +2262,10 @@
 						"type": "string",
 						"format": "date-time"
 					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
+					},
 					"operation": {
 						"$ref": "#/components/schemas/Operation"
 					}
@@ -2111,6 +2275,7 @@
 					"url",
 					"isActive",
 					"created",
+					"updatedDate",
 					"operation"
 				],
 				"type": "object",

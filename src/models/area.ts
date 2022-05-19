@@ -5,6 +5,7 @@ import {
   Column,
   CreateDateColumn,
   ManyToOne,
+  UpdateDateColumn,
 } from "typeorm";
 import { Operation } from "./operation";
 import { User } from "./user";
@@ -27,6 +28,9 @@ export class Area {
   @Column({ nullable: true, name: "Created" })
   @CreateDateColumn()
   created!: Date;
+
+  @UpdateDateColumn({ nullable: true, name: "UpdatedDate" })
+  updatedDate!: Date;
 
   @ManyToOne(type => Operation, operation => operation.id, { nullable: true })
   operation!: Operation;

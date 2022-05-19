@@ -8,6 +8,7 @@ import {
   ManyToOne,
   JoinColumn,
   Generated,
+  UpdateDateColumn,
 } from "typeorm";
 import { Card } from "./card";
 import { Affect } from "./affect";
@@ -142,5 +143,8 @@ export class Notice {
   isActive!: boolean;
   @CreateDateColumn()
   created!: Date;
+
+  @UpdateDateColumn({ nullable: true, name: "UpdatedDate" })
+  updatedDate!: Date;
 }
 /* eslint-disable */
