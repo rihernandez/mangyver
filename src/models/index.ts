@@ -3,8 +3,6 @@ import { Help } from "./help";
 import { Notification } from "./notification";
 import { OperationNumber } from "./operation-number";
 import { Deviation } from "./deviation";
-import { MenuRole } from "./menu-role";
-import { Menu } from "./menu";
 import { SubAreaMachine } from "./subareamachines";
 import { User } from "./user";
 import { Bus } from "./bus";
@@ -66,8 +64,6 @@ export {
   Breakdown,
   Role,
   SubAreaMachine,
-  Menu,
-  MenuRole,
   Deviation,
   OperationNumber,
   Notification,

@@ -1,8 +1,24 @@
-version: '3.3'
+version: '3'
 services:
- mangyver:
-   image: mangyver-api #nombre de la imagen que hemos creado
-   restart: always
-   container_name: mangyver
-   ports:
-     - '8000:0000'
+    nodejs:
+        container_name: ${COMPOSE_PROJECT_NAME}_${NODEJS_SERVER_NAME}
+        image: ${NODEJS_CONTAINER_IMAGE}
+        user: ${NODEJS_USER}
+        command: ${NODEJS_COMMAND}
+        ports:
+            - "4040:4040"
+        environment:
+            NODE_ENV: ${NODEJS_ENV}
+        volumes:
+            - ${PWD}:/home/node/project
+        working_dir: /home/node/project
+        networks:
+            app_net:
+                ipv4_address: ${IP_NODE_SERVER}
+networks:
+    app_net:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                -   subnet: ${IP_SUBNET}

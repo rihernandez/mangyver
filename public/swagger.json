@@ -6,71 +6,6 @@
 		"requestBodies": {},
 		"responses": {},
 		"schemas": {
-			"MenuRole": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"menu": {
-						"$ref": "#/components/schemas/Menu"
-					},
-					"role": {
-						"$ref": "#/components/schemas/Role"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"menu",
-					"role",
-					"isActive",
-					"created"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"Menu": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"URL": {
-						"type": "string"
-					},
-					"roles": {
-						"items": {
-							"$ref": "#/components/schemas/MenuRole"
-						},
-						"type": "array"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"URL",
-					"roles",
-					"isActive",
-					"created"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
 			"Role": {
 				"properties": {
 					"id": {
@@ -79,12 +14,6 @@
 					"name": {
 						"type": "string"
 					},
-					"menus": {
-						"items": {
-							"$ref": "#/components/schemas/MenuRole"
-						},
-						"type": "array"
-					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -96,7 +25,6 @@
 				"required": [
 					"id",
 					"name",
-					"menus",
 					"isActive",
 					"created"
 				],
@@ -2063,12 +1991,6 @@
 					"name": {
 						"type": "string"
 					},
-					"menus": {
-						"items": {
-							"$ref": "#/components/schemas/MenuRole"
-						},
-						"type": "array"
-					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -2080,7 +2002,6 @@
 				"required": [
 					"id",
 					"name",
-					"menus",
 					"isActive",
 					"created"
 				],

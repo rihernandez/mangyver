@@ -7,7 +7,6 @@ import {
   OneToMany,
 } from "typeorm";
 import * as bcrypt from "bcryptjs";
-import { MenuRole } from "./menu-role";
 
 @Entity("Role")
 export class Role {
@@ -16,9 +15,6 @@ export class Role {
 
   @Column({ nullable: false, name: "Name" })
   name!: string;
-
-  @OneToMany(type => MenuRole, menuRole => menuRole.role)
-  menus!: MenuRole[];
 
   /* @Column({ name: "Description" })
     description!: string; */

@@ -2,7 +2,7 @@
 import { Notification } from "./../models/notification";
 import { OperationNumber } from "./../models/operation-number";
 import { Deviation } from "./../models/deviation";
-import { Help, Menu, MenuRole, SubAreaMachine } from "../models";
+import { Help, SubAreaMachine } from "../models";
 import { ConnectionOptions } from "typeorm";
 import * as dotenv from "dotenv";
 dotenv.config();
@@ -72,8 +72,6 @@ const config: ConnectionOptions = {
     Notice,
     Role,
     SubAreaMachine,
-    Menu,
-    MenuRole,
     Deviation,
     OperationNumber,
     Notification,
