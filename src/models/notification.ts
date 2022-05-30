@@ -11,6 +11,7 @@ import {
   CreateDateColumn,
   ManyToOne,
   JoinColumn,
+  UpdateDateColumn,
 } from "typeorm";
 
 @Entity("Notification")
@@ -46,10 +47,16 @@ export class Notification {
   @Column({ name: "IsDone" })
   isDone!: boolean;
 
+  @Column({ name: "NumPeople", nullable: true })
+  numPeople!: number;
+
   @Column({ name: "Comments", length: 255, nullable: true })
   comments!: string;
   @ManyToOne(type => User, user => user.id, { nullable: true })
   user!: User;
+
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
 
   /* @Column({ name: "Status", default: true })
     isActive!: boolean;
@@ -61,5 +68,8 @@ export class Notification {
   isActive!: boolean;
   @CreateDateColumn()
   created!: Date;
+
+  @UpdateDateColumn({ nullable: true, name: "UpdatedDate" })
+  updatedDate!: Date;
 }
 /* eslint-disable */

@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { User } from './user';
 import { Operation } from "./operation";
 import {
   Entity,
@@ -6,6 +7,7 @@ import {
   Column,
   CreateDateColumn,
   ManyToOne,
+  UpdateDateColumn,
 } from "typeorm";
 import { ProcessType } from "./process-type";
 
@@ -29,10 +31,16 @@ export class Process {
   @ManyToOne(type => Operation, operation => operation.id)
   operation!: Operation;
 
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
+
   @Column({ name: "Status", default: true })
   isActive!: boolean;
 
   @Column({ nullable: true, name: "Created" })
   @CreateDateColumn()
   created!: Date;
+
+  @UpdateDateColumn({ nullable: true, name: "UpdatedDate" })
+  updatedDate!: Date;
 }

@@ -25,7 +25,7 @@ export const getUsers = async (
   const userRepository = getRepository(User);
   return userRepository.find({
     relations: ["operation", "area", "line", "role"],
-    where: [{ operation: operationId }],
+    where: [{ operation: operationId, isActive: true }],
     skip: skip,
     take: take,
   });

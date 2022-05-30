@@ -3,6 +3,7 @@ import { Deviation } from "./deviation";
 import { OperationNumber } from "./operation-number";
 import { User } from "./user";
 import { Operation } from "./operation";
+import { Bus } from "./bus";
 
 import {
   Entity,
@@ -11,6 +12,7 @@ import {
   CreateDateColumn,
   ManyToOne,
   JoinColumn,
+  UpdateDateColumn,
 } from "typeorm";
 import { LineMachine } from "./line-machine";
 
@@ -28,11 +30,20 @@ export class ObjectParts {
   @Column({ name: "groupCode", nullable: true })
   groupCode!: String;
 
+  @ManyToOne(type => Bus, bus => bus.id)
+  buId!: Bus;
+
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
+
   @Column({ name: "status", default: true })
   isActive!: boolean;
 
   @CreateDateColumn()
   created!: Date;
+
+  @UpdateDateColumn({ nullable: true, name: "UpdatedDate" })
+  updatedDate!: Date;
 
   //   @ManyToOne(type => OperationNumber, operationNum => operationNum.id, {
   //     nullable: true,

@@ -11,7 +11,7 @@ export interface IConsecutivePayload {
 
 export const getConsecutives = async (): Promise<Array<Consecutive>> => {
   const repository = getRepository(Consecutive);
-  return repository.find();
+  return repository.find({ where: { isActive: true } });
 };
 
 export const createConsecutive = async (

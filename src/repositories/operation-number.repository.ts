@@ -13,7 +13,7 @@ export const getOperationNumbers = async (
 ): Promise<Array<OperationNumber>> => {
   const repository = getRepository(OperationNumber);
   return repository.find({
-    where: { operation: operation },
+    where: { operation: operation, isActive: true },
     order: { name: "ASC" },
   });
 };

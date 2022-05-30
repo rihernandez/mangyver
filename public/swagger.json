@@ -17,10 +17,17 @@
 					"role": {
 						"$ref": "#/components/schemas/Role"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -29,171 +36,10 @@
 					"id",
 					"menu",
 					"role",
+					"userUpdate",
 					"isActive",
-					"created"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"Menu": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"URL": {
-						"type": "string"
-					},
-					"roles": {
-						"items": {
-							"$ref": "#/components/schemas/MenuRole"
-						},
-						"type": "array"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"URL",
-					"roles",
-					"isActive",
-					"created"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"Role": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"menus": {
-						"items": {
-							"$ref": "#/components/schemas/MenuRole"
-						},
-						"type": "array"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"menus",
-					"isActive",
-					"created"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"Zone": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"code": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"code",
-					"isActive",
-					"created"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"Bus": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"zone": {
-						"$ref": "#/components/schemas/Zone"
-					},
-					"name": {
-						"type": "string"
-					},
-					"code": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"zone",
-					"name",
-					"code",
-					"isActive",
-					"created"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"Operation": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"bus": {
-						"$ref": "#/components/schemas/Bus"
-					},
-					"code": {
-						"type": "string"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"bus",
-					"code",
-					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -228,6 +74,10 @@
 						"type": "string",
 						"format": "date-time"
 					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
+					},
 					"operation": {
 						"$ref": "#/components/schemas/Operation"
 					},
@@ -254,11 +104,220 @@
 					"isActive",
 					"auth",
 					"created",
+					"updatedDate",
 					"operation",
 					"area",
 					"line",
 					"SAPCode",
 					"SAPUser"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Menu": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"URL": {
+						"type": "string"
+					},
+					"roles": {
+						"items": {
+							"$ref": "#/components/schemas/MenuRole"
+						},
+						"type": "array"
+					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"URL",
+					"roles",
+					"userUpdate",
+					"isActive",
+					"created",
+					"updatedDate"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Role": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"menus": {
+						"items": {
+							"$ref": "#/components/schemas/MenuRole"
+						},
+						"type": "array"
+					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"menus",
+					"userUpdate",
+					"isActive",
+					"created",
+					"updatedDate"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Zone": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"code": {
+						"type": "string"
+					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"code",
+					"userUpdate",
+					"isActive",
+					"created",
+					"updatedDate"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Bus": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"zone": {
+						"$ref": "#/components/schemas/Zone"
+					},
+					"name": {
+						"type": "string"
+					},
+					"code": {
+						"type": "string"
+					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"zone",
+					"name",
+					"code",
+					"userUpdate",
+					"isActive",
+					"created",
+					"updatedDate"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Operation": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"bus": {
+						"$ref": "#/components/schemas/Bus"
+					},
+					"code": {
+						"type": "string"
+					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
+					"isActive": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"bus",
+					"code",
+					"userUpdate",
+					"isActive",
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -274,10 +333,17 @@
 					"code": {
 						"type": "string"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					},
@@ -292,8 +358,10 @@
 					"id",
 					"name",
 					"code",
+					"userUpdate",
 					"isActive",
 					"created",
+					"updatedDate",
 					"operation",
 					"user"
 				],
@@ -314,10 +382,17 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					},
@@ -333,8 +408,10 @@
 					"area",
 					"name",
 					"SAPCode",
+					"userUpdate",
 					"isActive",
 					"created",
+					"updatedDate",
 					"operation",
 					"user"
 				],
@@ -478,7 +555,14 @@
 					"area": {
 						"$ref": "#/components/schemas/Area"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -489,7 +573,9 @@
 					"code",
 					"isActive",
 					"area",
-					"created"
+					"userUpdate",
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -526,10 +612,17 @@
 					"name": {
 						"type": "string"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -537,8 +630,10 @@
 				"required": [
 					"id",
 					"name",
+					"userUpdate",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -563,10 +658,17 @@
 					"operation": {
 						"$ref": "#/components/schemas/Operation"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -578,8 +680,10 @@
 					"name",
 					"SAPCode",
 					"operation",
+					"userUpdate",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -598,10 +702,17 @@
 					"process": {
 						"$ref": "#/components/schemas/Process"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -611,8 +722,10 @@
 					"name",
 					"operation",
 					"process",
+					"userUpdate",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -631,10 +744,17 @@
 					"operation": {
 						"$ref": "#/components/schemas/Operation"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -644,8 +764,10 @@
 					"name",
 					"SAPCode",
 					"operation",
+					"userUpdate",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -670,7 +792,14 @@
 					"groupCode": {
 						"type": "string"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -682,7 +811,9 @@
 					"SAPCode",
 					"isActive",
 					"groupCode",
-					"created"
+					"userUpdate",
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -704,10 +835,17 @@
 					"operation": {
 						"$ref": "#/components/schemas/Operation"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -718,8 +856,10 @@
 					"name",
 					"SAPCode",
 					"operation",
+					"userUpdate",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -735,10 +875,17 @@
 					"operation": {
 						"$ref": "#/components/schemas/Operation"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -747,8 +894,10 @@
 					"id",
 					"name",
 					"operation",
+					"userUpdate",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -773,7 +922,14 @@
 					"operation": {
 						"$ref": "#/components/schemas/Operation"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -785,7 +941,9 @@
 					"isActive",
 					"shortName",
 					"operation",
-					"created"
+					"userUpdate",
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -804,10 +962,17 @@
 					"operation": {
 						"$ref": "#/components/schemas/Operation"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -817,8 +982,10 @@
 					"name",
 					"SAPCode",
 					"operation",
+					"userUpdate",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -837,10 +1004,20 @@
 					"groupCode": {
 						"type": "string"
 					},
+					"buId": {
+						"$ref": "#/components/schemas/Bus"
+					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -850,8 +1027,11 @@
 					"name",
 					"SAPCode",
 					"groupCode",
+					"buId",
+					"userUpdate",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -870,7 +1050,14 @@
 					"operationId": {
 						"$ref": "#/components/schemas/Operation"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -880,7 +1067,9 @@
 					"name",
 					"SAPCode",
 					"operationId",
-					"created"
+					"userUpdate",
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -899,10 +1088,17 @@
 					"groupCode": {
 						"type": "string"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -912,8 +1108,10 @@
 					"name",
 					"SAPCode",
 					"groupCode",
+					"userUpdate",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -932,10 +1130,17 @@
 					"groupCode": {
 						"type": "string"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -945,8 +1150,10 @@
 					"name",
 					"SAPCode",
 					"groupCode",
+					"userUpdate",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1038,10 +1245,17 @@
 					"urlPhoto": {
 						"type": "string"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -1074,8 +1288,10 @@
 					"textCause",
 					"textSymptom",
 					"urlPhoto",
+					"userUpdate",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1352,7 +1568,14 @@
 					"area": {
 						"$ref": "#/components/schemas/Area"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -1364,7 +1587,9 @@
 					"SAPCode",
 					"isActive",
 					"area",
-					"created"
+					"userUpdate",
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1407,10 +1632,17 @@
 					"subarea": {
 						"$ref": "#/components/schemas/Subarea"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -1420,8 +1652,10 @@
 					"name",
 					"code",
 					"subarea",
+					"userUpdate",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1469,6 +1703,13 @@
 					},
 					"childfield": {
 						"type": "string"
+					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
+					"updatedDate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -1477,7 +1718,9 @@
 					"label",
 					"optionsEndpoint",
 					"validations",
-					"childfield"
+					"childfield",
+					"userUpdate",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1518,7 +1761,14 @@
 					"fields": {
 						"$ref": "#/components/schemas/Field"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -1526,7 +1776,9 @@
 				"required": [
 					"id",
 					"fields",
-					"created"
+					"userUpdate",
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1605,10 +1857,17 @@
 					"operation": {
 						"$ref": "#/components/schemas/Operation"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -1618,8 +1877,10 @@
 					"name",
 					"SAPCode",
 					"operation",
+					"userUpdate",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1855,10 +2116,17 @@
 					"operation": {
 						"$ref": "#/components/schemas/Operation"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -1867,8 +2135,10 @@
 					"id",
 					"name",
 					"operation",
+					"userUpdate",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1904,10 +2174,17 @@
 					"operation": {
 						"$ref": "#/components/schemas/Operation"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -1916,8 +2193,10 @@
 					"id",
 					"name",
 					"operation",
+					"userUpdate",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1970,16 +2249,27 @@
 					"isDone": {
 						"type": "boolean"
 					},
+					"numPeople": {
+						"type": "number",
+						"format": "double"
+					},
 					"comments": {
 						"type": "string"
 					},
 					"user": {
 						"$ref": "#/components/schemas/User"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					}
@@ -1993,10 +2283,13 @@
 					"startHour",
 					"endHour",
 					"isDone",
+					"numPeople",
 					"comments",
 					"user",
+					"userUpdate",
 					"isActive",
-					"created"
+					"created",
+					"updatedDate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -2028,6 +2321,10 @@
 					},
 					"comments": {
 						"type": "string"
+					},
+					"numPeople": {
+						"type": "number",
+						"format": "double"
 					}
 				},
 				"required": [
@@ -2082,10 +2379,17 @@
 					"url": {
 						"type": "string"
 					},
+					"userUpdate": {
+						"$ref": "#/components/schemas/User"
+					},
 					"isActive": {
 						"type": "boolean"
 					},
 					"created": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
 					},
@@ -2096,8 +2400,10 @@
 				"required": [
 					"id",
 					"url",
+					"userUpdate",
 					"isActive",
 					"created",
+					"updatedDate",
 					"operation"
 				],
 				"type": "object",
@@ -2134,6 +2440,9 @@
 					"groupCode": {
 						"type": "string"
 					},
+					"buId": {
+						"$ref": "#/components/schemas/Bus"
+					},
 					"isActive": {
 						"type": "boolean"
 					}
@@ -2142,6 +2451,7 @@
 					"name",
 					"SAPCode",
 					"groupCode",
+					"buId",
 					"isActive"
 				],
 				"type": "object",
@@ -5150,6 +5460,24 @@
 						"schema": {
 							"type": "string"
 						}
+					},
+					{
+						"in": "query",
+						"name": "from",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "top",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
 					}
 				]
 			},
@@ -5250,6 +5578,24 @@
 						"schema": {
 							"type": "string"
 						}
+					},
+					{
+						"in": "query",
+						"name": "from",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "top",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
 					}
 				]
 			},
@@ -5349,6 +5695,24 @@
 						"required": false,
 						"schema": {
 							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "from",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "top",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
 						}
 					}
 				]

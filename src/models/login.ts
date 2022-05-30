@@ -4,7 +4,10 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
+  UpdateDateColumn,
+  ManyToOne,
 } from "typeorm";
+import { User } from './user';
 
 @Entity("Login")
 export class Login {
@@ -24,5 +27,11 @@ export class Login {
   @Column({ nullable: true, name: "Logged" })
   @CreateDateColumn()
   Login!: Date;
+
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
+
+  @UpdateDateColumn({ nullable: true, name: "UpdatedDate" })
+  updatedDate!: Date;
 }
 /* eslint-disable */

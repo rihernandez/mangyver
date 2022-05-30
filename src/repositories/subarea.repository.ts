@@ -11,7 +11,7 @@ export interface ISubareaPayload {
 
 export const getSubareas = async (): Promise<Array<Subarea>> => {
   const subareaRepository = getRepository(Subarea);
-  return subareaRepository.find();
+  return subareaRepository.find({ where: { isActive: true } });
 };
 
 export const createSubarea = async (

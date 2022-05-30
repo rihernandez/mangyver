@@ -10,7 +10,7 @@ export interface IZonePayload {
 
 export const getZones = async (): Promise<Array<Zone>> => {
   const zoneRepository = getRepository(Zone);
-  return zoneRepository.find();
+  return zoneRepository.find({ where: { isActive: true } });
 };
 
 export const createZone = async (payload: IZonePayload): Promise<Zone> => {

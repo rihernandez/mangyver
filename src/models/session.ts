@@ -5,7 +5,9 @@ import {
   Column,
   CreateDateColumn,
   ManyToOne,
+  UpdateDateColumn,
 } from "typeorm";
+import { User } from './user';
 
 @Entity("Session")
 export class Session {
@@ -36,10 +38,16 @@ export class Session {
   @Column({ nullable: true, name: "AppVersion" })
   appVersion!: string;
 
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
+
   @Column({ default: false, name: "Status" })
   isActive!: boolean;
 
   @CreateDateColumn()
   created!: Date;
+
+  @UpdateDateColumn({ nullable: true, name: "UpdatedDate" })
+  updatedDate!: Date;
 }
 /* eslint-disable */

@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { User } from './user';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -7,6 +8,7 @@ import {
   ManyToOne,
   OneToMany,
   PrimaryColumn,
+  UpdateDateColumn,
 } from "typeorm";
 import { Field } from "./field";
 
@@ -18,7 +20,13 @@ export class Section {
   @ManyToOne(type => Field, field => field.id)
   fields!: Field;
 
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
+
   @CreateDateColumn()
   created!: Date;
+
+  @UpdateDateColumn({ nullable: true, name: "UpdatedDate" })
+  updatedDate!: Date;
 }
 /* eslint-disable */

@@ -10,7 +10,7 @@ export interface IHelpPayload {
 
 export const getAllHelps = async (): Promise<Array<Help>> => {
   const helpRepository = getRepository(Help);
-  return helpRepository.find();
+  return helpRepository.find({ where: { isActive: true } });
 };
 
 export const createHelp = async (payload: IHelpPayload): Promise<Help> => {
