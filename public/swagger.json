@@ -6,134 +6,7 @@
 		"requestBodies": {},
 		"responses": {},
 		"schemas": {
-			"MenuRole": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"menu": {
-						"$ref": "#/components/schemas/Menu"
-					},
-					"role": {
-						"$ref": "#/components/schemas/Role"
-					},
-					"userUpdate": {
-						"$ref": "#/components/schemas/User"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					},
-					"updatedDate": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"menu",
-					"role",
-					"userUpdate",
-					"isActive",
-					"created",
-					"updatedDate"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"User": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"username": {
-						"type": "string"
-					},
-					"password": {
-						"type": "string"
-					},
-					"email": {
-						"type": "string"
-					},
-					"role": {
-						"$ref": "#/components/schemas/Role"
-					},
-					"isActive": {
-						"type": "boolean"
-					},
-					"auth": {
-						"type": "string"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					},
-					"updatedDate": {
-						"type": "string",
-						"format": "date-time"
-					},
-					"operation": {
-						"$ref": "#/components/schemas/Operation"
-					},
-					"area": {
-						"$ref": "#/components/schemas/Area"
-					},
-					"line": {
-						"$ref": "#/components/schemas/Line"
-					},
-					"SAPCode": {
-						"type": "string"
-					},
-					"SAPUser": {
-						"type": "string"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"username",
-					"password",
-					"email",
-					"role",
-					"isActive",
-					"auth",
-					"created",
-					"updatedDate",
-					"operation",
-					"area",
-					"line",
-					"SAPCode",
-					"SAPUser"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"Menu": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"URL": {
-						"type": "string"
-					},
-					"roles": {
-						"items": {
-							"$ref": "#/components/schemas/MenuRole"
-						},
-						"type": "array"
-					},
-					"userUpdate": {
-						"$ref": "#/components/schemas/User"
-					},
+			"Role": {
 					"isActive": {
 						"type": "boolean"
 					},
@@ -149,9 +22,6 @@
 				"required": [
 					"id",
 					"name",
-					"URL",
-					"roles",
-					"userUpdate",
 					"isActive",
 					"created",
 					"updatedDate"
@@ -2347,12 +2217,6 @@
 					"name": {
 						"type": "string"
 					},
-					"menus": {
-						"items": {
-							"$ref": "#/components/schemas/MenuRole"
-						},
-						"type": "array"
-					},
 					"isActive": {
 						"type": "boolean"
 					},
@@ -2364,7 +2228,6 @@
 				"required": [
 					"id",
 					"name",
-					"menus",
 					"isActive",
 					"created"
 				],

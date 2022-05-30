@@ -4,7 +4,7 @@ import { decode } from "jsonwebtoken";
 import jwt_decode from "jwt-decode";
 import { getUser } from "../repositories/user.repository";
 import { log } from "../config/logger";
-import copec from "../middlewares/copec-service";
+import Copec from "../middlewares/copec-service";
 
 const router = express.Router();
 
@@ -20,9 +20,13 @@ router.get("/", async (_req, res) => {
       profile,
     };
     const results = JSON.parse(JSON.stringify(response));
-    // // log.info(response);
-    // const cc = new copec();
-    // const resultcc = await cc.createNotice("hello","hello","47ffa8fb-aa8d-ec11-a507-2818780ec867")
+
+    const copec = new Copec();
+    await copec.createNotice(
+      "hello",
+      "hello",
+      "47ffa8fb-aa8d-ec11-a507-2818780ec867"
+    );
 
     // console.log(resultcc[0].SAPRequest+ "body")
     // console.log(resultcc[0].SAPURLRequest+ "uri")

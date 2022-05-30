@@ -1,19 +1,17 @@
 /* eslint-disable */
 import { Role } from "../models";
-import { MenuRole } from "src/models/menu-role";
 import { getRepository } from "typeorm";
 
 export interface IRolePayload {
   id: string;
   name: string;
-  menus: MenuRole[];
   isActive: boolean;
   created: Date;
 }
 
 export const getRoles = async (): Promise<Array<Role>> => {
   const repository = getRepository(Role);
-  return repository.find({ where: { isActive: true }, relations: ["menus"], order: { name: "ASC" } });
+  return repository.find({ where: { isActive: true }, order: { name: "ASC" } });
 };
 
 export const createRole = async (payload: IRolePayload): Promise<Role> => {
@@ -27,14 +25,14 @@ export const createRole = async (payload: IRolePayload): Promise<Role> => {
 
 export const getRole = async (id: string): Promise<Role | null> => {
   const repository = getRepository(Role);
-  const role = await repository.findOne({ id: id }, { relations: ["menus"] });
+  const role = await repository.findOne({ id: id });
   if (!role) return null;
   return role;
 };
 
 export const updateRoleStatus = async (id: string): Promise<Role | null> => {
   const repository = getRepository(Role);
-  const role = await repository.findOne({ id: id }, { relations: ["menus"] });
+  const role = await repository.findOne({ id: id });
   if (!role) return null;
   await repository.save(role);
   return role;
