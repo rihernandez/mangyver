@@ -5,8 +5,10 @@ import {
   Column,
   CreateDateColumn,
   ManyToOne,
+  UpdateDateColumn,
 } from "typeorm";
 import { Area } from "./area";
+import { User } from './user';
 
 @Entity("SubArea")
 export class Subarea {
@@ -28,8 +30,14 @@ export class Subarea {
   @ManyToOne(type => Area, area => area.id)
   area!: Area;
 
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
+
   @Column({ nullable: true, name: "Created" })
   @CreateDateColumn()
   created!: Date;
+
+  @UpdateDateColumn({ nullable: true, name: "UpdatedDate" })
+  updatedDate!: Date;
 }
 /* eslint-disable */

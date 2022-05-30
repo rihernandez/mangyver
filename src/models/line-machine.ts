@@ -7,7 +7,9 @@ import {
   CreateDateColumn,
   ManyToOne,
   JoinColumn,
+  UpdateDateColumn,
 } from "typeorm";
+import { User } from './user';
 import { Line } from "./line";
 
 @Entity("LineMachine")
@@ -41,7 +43,13 @@ export class LineMachine {
   @Column({ name: "groupCode", nullable: true })
   groupCode!: string;
 
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
+
   @Column({ nullable: true, name: "Created" })
   @CreateDateColumn()
   created!: Date;
+
+  @UpdateDateColumn({ nullable: true, name: "UpdatedDate" })
+  updatedDate!: Date;
 }

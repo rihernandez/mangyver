@@ -8,6 +8,7 @@ import {
   ManyToOne,
   JoinColumn,
   Generated,
+  UpdateDateColumn,
 } from "typeorm";
 import { Card } from "./card";
 import { Affect } from "./affect";
@@ -122,6 +123,9 @@ export class Notice {
   @Column({ name: "urlPhoto", nullable: true })
   urlPhoto!: string;
 
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
+
   // @Column({ name: "Type" })
   // type!: string;
   // @Column({ name: "Order" })
@@ -142,5 +146,8 @@ export class Notice {
   isActive!: boolean;
   @CreateDateColumn()
   created!: Date;
+
+  @UpdateDateColumn({ nullable: true, name: "UpdatedDate" })
+  updatedDate!: Date;
 }
 /* eslint-disable */

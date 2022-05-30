@@ -1,10 +1,13 @@
 /* eslint-disable */
+import { User } from './user';
 import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
   OneToMany,
+  UpdateDateColumn,
+  ManyToOne,
 } from "typeorm";
 import * as bcrypt from "bcryptjs";
 import { MenuRole } from "./menu-role";
@@ -20,6 +23,9 @@ export class Role {
   @OneToMany(type => MenuRole, menuRole => menuRole.role)
   menus!: MenuRole[];
 
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
+
   /* @Column({ name: "Description" })
     description!: string; */
 
@@ -28,5 +34,8 @@ export class Role {
 
   @CreateDateColumn()
   created!: Date;
+
+  @UpdateDateColumn({ nullable: true, name: "UpdatedDate" })
+  updatedDate!: Date;
 }
 /* eslint-disable */

@@ -11,6 +11,7 @@ import {
   CreateDateColumn,
   ManyToOne,
   JoinColumn,
+  UpdateDateColumn,
 } from "typeorm";
 import { LineMachine } from "./line-machine";
 
@@ -28,11 +29,17 @@ export class Cause {
   @Column({ name: "groupCode", nullable: true })
   groupCode!: String;
 
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
+
   @Column({ name: "status", default: true })
   isActive!: boolean;
 
   @CreateDateColumn()
   created!: Date;
+
+  @UpdateDateColumn({ nullable: true, name: "UpdatedDate" })
+  updatedDate!: Date;
 
   //   @ManyToOne(type => OperationNumber, operationNum => operationNum.id, {
   //     nullable: true,
