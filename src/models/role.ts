@@ -19,9 +19,6 @@ export class Role {
   @Column({ nullable: false, name: "Name" })
   name!: string;
 
-  @ManyToOne(type => User, user => user.id)
-  userUpdate!: User;
-
   /* @Column({ name: "Description" })
     description!: string; */
 
@@ -30,8 +27,5 @@ export class Role {
 
   @CreateDateColumn()
   created!: Date;
-
-  @UpdateDateColumn({ nullable: true, name: "UpdatedDate" })
-  updatedDate!: Date;
 }
 /* eslint-disable */
