@@ -51,6 +51,8 @@ typings/
 # Optional npm cache directory
 .npm
 
+public/swagger.json
+
 # Optional eslint cache
 .eslintcache
 

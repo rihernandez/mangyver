@@ -12,6 +12,7 @@ import {
   CreateDateColumn,
   ManyToOne,
   JoinColumn,
+  UpdateDateColumn,
 } from "typeorm";
 import { LineMachine } from "./line-machine";
 
@@ -32,11 +33,17 @@ export class ObjectParts {
   @ManyToOne(type => Bus, bus => bus.id)
   buId!: Bus;
 
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
+
   @Column({ name: "status", default: true })
   isActive!: boolean;
 
   @CreateDateColumn()
   created!: Date;
+
+  @UpdateDateColumn({ nullable: true, name: "UpdatedDate" })
+  updatedDate!: Date;
 
   //   @ManyToOne(type => OperationNumber, operationNum => operationNum.id, {
   //     nullable: true,

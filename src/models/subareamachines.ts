@@ -5,8 +5,10 @@ import {
   Column,
   CreateDateColumn,
   ManyToOne,
+  UpdateDateColumn,
 } from "typeorm";
 import { Area } from "./area";
+import { User } from './user';
 import { Subarea } from "./subarea";
 
 @Entity("SubAreaMachines")
@@ -23,11 +25,17 @@ export class SubAreaMachine {
   @ManyToOne(type => Subarea, subarea => subarea.id)
   subArea!: Subarea;
 
+  @ManyToOne(type => User, user => user.id)
+  userUpdate!: User;
+
   @Column({ name: "Status", default: true })
   isActive!: boolean;
 
   @Column({ nullable: true, name: "Created" })
   @CreateDateColumn()
   created!: Date;
+
+  @UpdateDateColumn({ nullable: true, name: "UpdatedDate" })
+  updatedDate!: Date;
 }
 /* eslint-disable */

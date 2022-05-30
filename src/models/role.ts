@@ -1,10 +1,13 @@
 /* eslint-disable */
+import { User } from './user';
 import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
   OneToMany,
+  UpdateDateColumn,
+  ManyToOne,
 } from "typeorm";
 import * as bcrypt from "bcryptjs";
 

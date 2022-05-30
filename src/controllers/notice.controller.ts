@@ -17,17 +17,17 @@ export default class NoticeController {
   @Get("/")
   public async getNotices(
     @Query() profileId: string,
-    @Query() top: unknown,
-    @Query() from: unknown,
-    @Query() dateFrom: unknown,
-    @Query() dateEnd: unknown,
-    @Query() sapForm: unknown,
-    @Query() isWeb: unknown,
-    @Query() timeFrom: unknown,
-    @Query() timeEnd: unknown,
-    @Query() operationId: unknown,
-    @Query() filter: unknown,
-    @Query() totalRows: unknown
+    @Query() top?: unknown,
+    @Query() from?: unknown,
+    @Query() dateFrom?: unknown,
+    @Query() dateEnd?: unknown,
+    @Query() sapForm?: unknown,
+    @Query() isWeb?: unknown,
+    @Query() timeFrom?: unknown,
+    @Query() timeEnd?: unknown,
+    @Query() operationId?: unknown,
+    @Query() filter?: unknown,
+    @Query() totalRows?: unknown
   ): Promise<Array<Notice>> {
     return getNotices(
       profileId,

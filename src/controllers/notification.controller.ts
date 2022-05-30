@@ -14,11 +14,11 @@ export default class NotificationController {
   @Get("/")
   public async getNotifications(
     @Query() profileId: string,
-    @Query() top: unknown,
-    @Query() from: unknown,
-    @Query() dateFrom: unknown,
-    @Query() dateEnd: unknown,
-    @Query() sapForm: unknown
+    @Query() top?: unknown,
+    @Query() from?: unknown,
+    @Query() dateFrom?: unknown,
+    @Query() dateEnd?: unknown,
+    @Query() sapForm?: unknown
   ): Promise<Array<Notification>> {
     return getNotifications(
       profileId,
