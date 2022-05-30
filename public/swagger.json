@@ -3107,7 +3107,7 @@
 					{
 						"in": "query",
 						"name": "top",
-						"required": true,
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -3115,7 +3115,7 @@
 					{
 						"in": "query",
 						"name": "from",
-						"required": true,
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -3123,7 +3123,7 @@
 					{
 						"in": "query",
 						"name": "dateFrom",
-						"required": true,
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -3131,7 +3131,7 @@
 					{
 						"in": "query",
 						"name": "dateEnd",
-						"required": true,
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -3139,7 +3139,7 @@
 					{
 						"in": "query",
 						"name": "sapForm",
-						"required": true,
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -3147,7 +3147,7 @@
 					{
 						"in": "query",
 						"name": "isWeb",
-						"required": true,
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -3155,7 +3155,7 @@
 					{
 						"in": "query",
 						"name": "timeFrom",
-						"required": true,
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -3163,7 +3163,7 @@
 					{
 						"in": "query",
 						"name": "timeEnd",
-						"required": true,
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -3171,7 +3171,7 @@
 					{
 						"in": "query",
 						"name": "operationId",
-						"required": true,
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -3179,7 +3179,7 @@
 					{
 						"in": "query",
 						"name": "filter",
-						"required": true,
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -3187,7 +3187,7 @@
 					{
 						"in": "query",
 						"name": "totalRows",
-						"required": true,
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -5113,7 +5113,7 @@
 					{
 						"in": "query",
 						"name": "top",
-						"required": true,
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -5121,7 +5121,7 @@
 					{
 						"in": "query",
 						"name": "from",
-						"required": true,
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -5129,7 +5129,7 @@
 					{
 						"in": "query",
 						"name": "dateFrom",
-						"required": true,
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -5137,7 +5137,7 @@
 					{
 						"in": "query",
 						"name": "dateEnd",
-						"required": true,
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -5145,7 +5145,7 @@
 					{
 						"in": "query",
 						"name": "sapForm",
-						"required": true,
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
