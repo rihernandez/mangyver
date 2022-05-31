@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getRepository } from "typeorm";
 import { Notice } from "../models";
-import { log } from "./config/logger";
+import { log } from "../config/logger";
 
 export default class Copec {
   createNotice = async (body: string, uri: string, id: string) => {

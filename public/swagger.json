@@ -7,29 +7,6 @@
 		"responses": {},
 		"schemas": {
 			"Role": {
-					"isActive": {
-						"type": "boolean"
-					},
-					"created": {
-						"type": "string",
-						"format": "date-time"
-					},
-					"updatedDate": {
-						"type": "string",
-						"format": "date-time"
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"isActive",
-					"created",
-					"updatedDate"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"Role": {
 				"properties": {
 					"id": {
 						"type": "string"
@@ -37,17 +14,48 @@
 					"name": {
 						"type": "string"
 					},
-					"menus": {
-						"items": {
-							"$ref": "#/components/schemas/MenuRole"
-						},
-						"type": "array"
+					"isActive": {
+						"type": "boolean"
 					},
-					"userUpdate": {
-						"$ref": "#/components/schemas/User"
+					"created": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"isActive",
+					"created"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"User": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"username": {
+						"type": "string"
+					},
+					"password": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"role": {
+						"$ref": "#/components/schemas/Role"
 					},
 					"isActive": {
 						"type": "boolean"
+					},
+					"auth": {
+						"type": "string"
 					},
 					"created": {
 						"type": "string",
@@ -56,16 +64,39 @@
 					"updatedDate": {
 						"type": "string",
 						"format": "date-time"
+					},
+					"operation": {
+						"$ref": "#/components/schemas/Operation"
+					},
+					"area": {
+						"$ref": "#/components/schemas/Area"
+					},
+					"line": {
+						"$ref": "#/components/schemas/Line"
+					},
+					"SAPCode": {
+						"type": "string"
+					},
+					"SAPUser": {
+						"type": "string"
 					}
 				},
 				"required": [
 					"id",
 					"name",
-					"menus",
-					"userUpdate",
+					"username",
+					"password",
+					"email",
+					"role",
 					"isActive",
+					"auth",
 					"created",
-					"updatedDate"
+					"updatedDate",
+					"operation",
+					"area",
+					"line",
+					"SAPCode",
+					"SAPUser"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -2970,23 +3001,25 @@
 					{
 						"in": "query",
 						"name": "top",
-						"required": false,
+						"required": true,
 						"schema": {
-							"type": "string"
+							"format": "double",
+							"type": "number"
 						}
 					},
 					{
 						"in": "query",
 						"name": "from",
-						"required": false,
+						"required": true,
 						"schema": {
-							"type": "string"
+							"format": "double",
+							"type": "number"
 						}
 					},
 					{
 						"in": "query",
 						"name": "dateFrom",
-						"required": false,
+						"required": true,
 						"schema": {
 							"type": "string"
 						}
@@ -2994,7 +3027,7 @@
 					{
 						"in": "query",
 						"name": "dateEnd",
-						"required": false,
+						"required": true,
 						"schema": {
 							"type": "string"
 						}
@@ -3002,23 +3035,23 @@
 					{
 						"in": "query",
 						"name": "sapForm",
-						"required": false,
+						"required": true,
 						"schema": {
-							"type": "string"
+							"type": "boolean"
 						}
 					},
 					{
 						"in": "query",
 						"name": "isWeb",
-						"required": false,
+						"required": true,
 						"schema": {
-							"type": "string"
+							"type": "boolean"
 						}
 					},
 					{
 						"in": "query",
 						"name": "timeFrom",
-						"required": false,
+						"required": true,
 						"schema": {
 							"type": "string"
 						}
@@ -3026,7 +3059,7 @@
 					{
 						"in": "query",
 						"name": "timeEnd",
-						"required": false,
+						"required": true,
 						"schema": {
 							"type": "string"
 						}
@@ -3034,7 +3067,7 @@
 					{
 						"in": "query",
 						"name": "operationId",
-						"required": false,
+						"required": true,
 						"schema": {
 							"type": "string"
 						}
@@ -3042,7 +3075,7 @@
 					{
 						"in": "query",
 						"name": "filter",
-						"required": false,
+						"required": true,
 						"schema": {
 							"type": "string"
 						}
@@ -3050,9 +3083,9 @@
 					{
 						"in": "query",
 						"name": "totalRows",
-						"required": false,
+						"required": true,
 						"schema": {
-							"type": "string"
+							"type": "boolean"
 						}
 					}
 				]

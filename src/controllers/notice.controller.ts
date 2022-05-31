@@ -17,32 +17,33 @@ export default class NoticeController {
   @Get("/")
   public async getNotices(
     @Query() profileId: string,
-    @Query() top?: unknown,
-    @Query() from?: unknown,
-    @Query() dateFrom?: unknown,
-    @Query() dateEnd?: unknown,
-    @Query() sapForm?: unknown,
-    @Query() isWeb?: unknown,
-    @Query() timeFrom?: unknown,
-    @Query() timeEnd?: unknown,
-    @Query() operationId?: unknown,
-    @Query() filter?: unknown,
-    @Query() totalRows?: unknown
+    @Query() top: number,
+    @Query() from: number,
+    @Query() dateFrom: string,
+    @Query() dateEnd: string,
+    @Query() sapForm: boolean,
+    @Query() isWeb: boolean,
+    @Query() timeFrom: string,
+    @Query() timeEnd: string,
+    @Query() operationId: string,
+    @Query() filter: string,
+    @Query() totalRows: boolean
   ): Promise<Array<Notice>> {
-    return getNotices(
+    const tt = getNotices(
       profileId,
-      Number(top || 0),
-      Number(from || 0),
-      String(dateFrom || "19000101"),
-      String(dateEnd || "19000101"),
-      Boolean(sapForm || 0),
-      Boolean(isWeb || 0),
-      String(timeFrom || null),
-      String(timeEnd || null),
-      String(operationId || null),
-      String(filter || null),
-      Boolean(totalRows || 0)
+      top,
+      from,
+      dateFrom,
+      dateEnd,
+      sapForm,
+      isWeb,
+      timeFrom,
+      timeEnd,
+      operationId,
+      filter,
+      totalRows
     );
+    return tt;
   }
 
   @Post("/old_notice")

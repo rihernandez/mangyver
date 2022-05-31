@@ -83,27 +83,43 @@ export const getNotices = async (
   userId: string,
   top?: number,
   from?: number,
-  dateFrom?: string,
-  dateEnd?: string,
+  dateFrom?: string | null,
+  dateEnd?: string | null,
   sapForm?: boolean,
   isWeb?: boolean,
-  timeFrom?: string,
-  timeEnd?: string,
-  operationId?: string,
-  filter?: string,
+  timeFrom?: string | null,
+  timeEnd?: string | null,
+  operationId?: string | null,
+  filter?: string | null,
   totalRows?: boolean
 ): Promise<Array<Notice>> => {
-  console.log("isaac", timeFrom, timeEnd);
+  console.log(
+    userId,
+    top,
+    from,
+    dateFrom,
+    dateEnd,
+    sapForm,
+    isWeb,
+    timeFrom,
+    timeEnd,
+    operationId,
+    filter,
+    totalRows
+  );
+
+  // const pp = new Date(Date.parse("19000101")).toDateString()
+
   const repository = await getRepository(Notice).query(
     "SP_Select_Notices @userid='" +
       userId +
       "', @id=" +
       null +
-      ", @top='" +
+      ", @top=" +
       top +
-      "', @from='" +
+      ", @from=" +
       from +
-      "', @DateFrom='" +
+      ", @DateFrom='" +
       dateFrom +
       "', @DateEnd='" +
       dateEnd +
@@ -115,17 +131,17 @@ export const getNotices = async (
       timeFrom +
       "',@timeEnd='" +
       timeEnd +
-      "',@operationId='" +
+      "',@operationId=" +
       operationId +
-      "',@filter='" +
+      ",@filter=" +
       filter +
-      "',@totalRows='" +
+      ",@totalRows=" +
       totalRows +
-      "'"
+      ""
   );
   //return repository.find({ relations: ['line', 'consecutive', 'cardType', 'priority', 'components', 'breakdown', 'failureType', 'affects', 'process']});
-  console.log(repository);
   return repository;
+  //  return [];
 };
 
 export const createNotice = async (

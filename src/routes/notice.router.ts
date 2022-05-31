@@ -34,17 +34,17 @@ router.get("/", async (_req, res) => {
   const controller = new NoticeController();
   const response = await controller.getNotices(
     user.id,
-    _req.query.top,
-    _req.query.from,
-    _req.query.dateFrom,
-    _req.query.dateEnd,
-    _req.query.sapForm,
-    _req.query.isWeb,
-    _req.query.timeFrom,
-    _req.query.timeEnd,
-    _req.query.operationId,
-    _req.query.filter,
-    _req.query.totalRows
+    Number(_req.query.top || 0),
+    Number(_req.query.from || 0),
+    String(_req.query.dateFrom || null),
+    String(_req.query.dateEnd || null),
+    Boolean(_req.query.sapForm || false),
+    Boolean(_req.query.isWeb || false),
+    String(_req.query.timeFrom || null),
+    String(_req.query.timeEnd || null),
+    String(_req.query.operationId || null),
+    String(_req.query.filter || null),
+    Boolean(_req.query.totalRows || false)
   );
   const results = JSON.parse(JSON.stringify(response));
   results.map((result: any) => {
