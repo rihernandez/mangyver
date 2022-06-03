@@ -124,6 +124,8 @@ router.post("/", async (req: any, res) => {
     const repository = await getRepository(Notice).query(
       "SP_noticeSAPRequest @id='" + response.id + "'"
     );
+
+    console.log(repository);
     sapResponse = await axios.post(
       repository[0].SAPURLRequest,
       repository[0].SAPRequest,
@@ -135,6 +137,7 @@ router.post("/", async (req: any, res) => {
       }
     );
 
+    console.log(repository);
     // log.info(new Date(moment(Date.now(), "YYYY/MM/DD").format()));
 
     // log.info("response from server ", sapResponse);
