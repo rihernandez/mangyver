@@ -5009,23 +5009,25 @@
 					{
 						"in": "query",
 						"name": "top",
-						"required": false,
+						"required": true,
 						"schema": {
-							"type": "string"
+							"format": "double",
+							"type": "number"
 						}
 					},
 					{
 						"in": "query",
 						"name": "from",
-						"required": false,
+						"required": true,
 						"schema": {
-							"type": "string"
+							"format": "double",
+							"type": "number"
 						}
 					},
 					{
 						"in": "query",
 						"name": "dateFrom",
-						"required": false,
+						"required": true,
 						"schema": {
 							"type": "string"
 						}
@@ -5033,7 +5035,7 @@
 					{
 						"in": "query",
 						"name": "dateEnd",
-						"required": false,
+						"required": true,
 						"schema": {
 							"type": "string"
 						}
@@ -5041,9 +5043,17 @@
 					{
 						"in": "query",
 						"name": "sapForm",
-						"required": false,
+						"required": true,
 						"schema": {
-							"type": "string"
+							"type": "boolean"
+						}
+					},
+					{
+						"in": "query",
+						"name": "isWeb",
+						"required": true,
+						"schema": {
+							"type": "boolean"
 						}
 					}
 				]

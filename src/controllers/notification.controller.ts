@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { query } from "express";
 import { Get, Route, Tags, Post, Body, Path, Query } from "tsoa";
 import { Notification } from "../models";
 import {
@@ -14,19 +15,22 @@ export default class NotificationController {
   @Get("/")
   public async getNotifications(
     @Query() profileId: string,
-    @Query() top?: unknown,
-    @Query() from?: unknown,
-    @Query() dateFrom?: unknown,
-    @Query() dateEnd?: unknown,
-    @Query() sapForm?: unknown
+    @Query() top: number,
+    @Query() from: number,
+    @Query() dateFrom: string,
+    @Query() dateEnd: string,
+    @Query() sapForm: boolean,
+    @Query() isWeb: boolean
   ): Promise<Array<Notification>> {
+    console.log(profileId, top, from, dateFrom, dateEnd, sapForm, isWeb);
     return getNotifications(
       profileId,
-      Number(top || 0),
-      Number(from || 0),
-      String(dateFrom || "19000101"),
-      String(dateEnd || "19000101"),
-      Boolean(sapForm || 0)
+      top,
+      from,
+      dateFrom,
+      dateEnd,
+      sapForm,
+      isWeb
     );
   }
 

@@ -18,26 +18,29 @@ export const getNotifications = async (
   userId: string,
   top?: number,
   from?: number,
-  dateFrom?: string,
-  dateEnd?: string,
-  sapForm?: boolean
+  dateFrom?: string | null,
+  dateEnd?: string | null,
+  sapForm?: boolean,
+  isWeb?: boolean
 ): Promise<Array<Notification>> => {
   const repository = getRepository(Notification).query(
     "SP_Select_Notification @userid='" +
       userId +
       "', @id=" +
       null +
-      ", @top='" +
+      ", @top=" +
       top +
-      "', @from='" +
+      ", @from=" +
       from +
-      "', @DateFrom='" +
+      ", @DateFrom='" +
       dateFrom +
       "', @DateEnd='" +
       dateEnd +
-      "',@SAPForm='" +
+      "',@SAPForm=" +
       sapForm +
-      "'"
+      ",@isWeb=" +
+      isWeb +
+      ""
   );
   return repository;
 };

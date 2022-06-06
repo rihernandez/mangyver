@@ -18,12 +18,14 @@ router.get("/", async (_req, res) => {
   const controller = new NotificationController();
   const response = await controller.getNotifications(
     user.id,
-    _req.query.top,
-    _req.query.from,
-    _req.query.dateFrom,
-    _req.query.dateEnd,
-    _req.query.sapForm
+    Number(_req.query.top || 0),
+    Number(_req.query.DateFrom || 0),
+    String(_req.query.dateFrom || null),
+    String(_req.query.dateEnd || null),
+    Boolean(_req.query.sapForm || 0),
+    Boolean(_req.query.isWeb || 0)
   );
+
   const results = JSON.parse(JSON.stringify(response));
   results.map((result: any) => {
     result.label = result.name;
