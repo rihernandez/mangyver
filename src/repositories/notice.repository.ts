@@ -119,11 +119,11 @@ export const getNotices = async (
       top +
       ", @from=" +
       from +
-      ", @DateFrom='" +
+      ", @DateFrom=" +
       dateFrom +
-      "', @DateEnd='" +
+      ", @DateEnd=" +
       dateEnd +
-      "',@SAPForm='" +
+      " ,@SAPForm='" +
       sapForm +
       "',@isWeb='" +
       isWeb +
