@@ -32,11 +32,11 @@ export const getNotifications = async (
       top +
       ", @from=" +
       from +
-      ", @DateFrom='" +
+      ", @DateFrom=" +
       dateFrom +
-      "', @DateEnd='" +
+      ", @DateEnd=" +
       dateEnd +
-      "',@SAPForm=" +
+      ",@SAPForm=" +
       sapForm +
       ",@isWeb=" +
       isWeb +
