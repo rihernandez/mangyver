@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { getRepository } from "typeorm";
+import { getRepository, Like } from "typeorm";
 import { Bus, ObjectParts } from "../models";
 
 export interface IObjectPartsPayload {
@@ -14,17 +14,22 @@ export const getObjectParts = async (
   groupCode?: string,
   from?: number,
   top?: number,
+  name?: string,
 ): Promise<Array<ObjectParts>> => {
   const repository = getRepository(ObjectParts);
   if (groupCode) {
     return repository.find({
-      where: { groupCode: groupCode, isActive: true },
+      where: { 
+        groupCode: groupCode, 
+        isActive: true,
+        ...(name && { name: Like(`%${name}%`) })
+      },
       order: { name: "DESC" },
       skip: from,
       take: top,
     });
   }
-  return repository.find({ where: { isActive: true }, order: { name: "ASC" }, skip: from, take: top, });
+  return repository.find({ where: { isActive: true, ...(name && { name: Like(`%${name}%`) }) }, order: { name: "ASC" }, skip: from, take: top, });
 };
 
 export const createObjectParts = async (
