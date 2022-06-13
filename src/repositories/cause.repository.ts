@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { getRepository } from "typeorm";
+import { getRepository, Like } from "typeorm";
 import { Cause } from "../models";
 
 export interface ICausePayload {
@@ -9,17 +9,21 @@ export interface ICausePayload {
   isActive: boolean;
 }
 
-export const getCauses = async (groupCode?: string, from?: number, top?: number,): Promise<Array<Cause>> => {
+export const getCauses = async (groupCode?: string, from?: number, top?: number, name?: string): Promise<Array<Cause>> => {
   const repository = getRepository(Cause);
   if (groupCode) {
     return repository.find({
-      where: { groupCode: groupCode, isActive: true },
+      where: { 
+        groupCode: groupCode, 
+        isActive: true,
+        ...(name && { name: Like(`%${name}%`) }) 
+      },
       order: { name: "ASC" },
       skip: from,
       take: top,
     });
   }
-  return repository.find({ where: { isActive: true }, order: { name: "ASC" }, skip: from, take: top, });
+  return repository.find({ where: { isActive: true, ...(name && { name: Like(`%${name}%`) }) }, order: { name: "ASC" }, skip: from, take: top, });
 };
 
 export const createCause = async (payload: ICausePayload): Promise<Cause> => {
