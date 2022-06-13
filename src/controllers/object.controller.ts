@@ -15,13 +15,14 @@ export default class ObjectPartsController {
     @Query() groupCode?: string,
     @Query() from?: number,
     @Query() top?: number,
+    @Query() name?: string,
   ): Promise<Array<ObjectParts>> {
     let _from: number = Number(from);
     let _top: number = Number(top);
     if (isNaN(_from && _top)) {
     }
     _from > 0 ? (_from = _from - 1) : _from;
-    return getObjectParts(groupCode, _from, _top);
+    return getObjectParts(groupCode, _from, _top, name);
   }
 
   @Post("/")

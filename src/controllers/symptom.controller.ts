@@ -16,13 +16,14 @@ export default class SymptomController {
     @Query() groupCode?: string,
     @Query() from?: number,
     @Query() top?: number,
+    @Query() name?: string,
   ): Promise<Array<Symptom>> {
     let _from: number = Number(from);
     let _top: number = Number(top);
     if (isNaN(_from && _top)) {
     }
     _from > 0 ? (_from = _from - 1) : _from;
-    return getSymptoms(groupCode, _from, _top);
+    return getSymptoms(groupCode, _from, _top, name);
   }
 
   @Post("/")
