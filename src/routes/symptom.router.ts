@@ -13,6 +13,7 @@ router.get("/", async (_req, res) => {
     <string>_req.query.groupCode,
     Number(_req.query.from),
     Number(_req.query.top),
+    <string>_req.query.name,
   );
   const results = JSON.parse(JSON.stringify(response));
   results.map((result: any) => {

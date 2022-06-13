@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { getRepository } from "typeorm";
+import { getRepository, Like } from "typeorm";
 import { Symptom } from "../models";
 
 export interface ISymptomPayload {
@@ -13,17 +13,22 @@ export const getSymptoms = async (
   groupCode?: string,
   from?: number,
   top?: number,
+  name?: string,
 ): Promise<Array<Symptom>> => {
   const repository = getRepository(Symptom);
   if (groupCode) {
     return repository.find({
-      where: { groupCode: groupCode, isActive: true },
+      where: { 
+        groupCode: groupCode, 
+        isActive: true,
+        ...(name && { name: Like(`%${name}%`) }), 
+      },
       order: { name: "DESC" },
       skip: from,
       take: top,
     });
   }
-  return repository.find({ where: { isActive: true }, order: { name: "ASC" }, skip: from, take: top, });
+  return repository.find({ where: { isActive: true, ...(name && { name: Like(`%${name}%`) }) }, order: { name: "ASC" }, skip: from, take: top, });
 };
 
 export const createSymptom = async (
