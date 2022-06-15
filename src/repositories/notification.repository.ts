@@ -7,8 +7,8 @@ export interface INotificationPayload {
   operationNumId: OperationNumber;
   operation: Operation;
   otCode: string;
-  startHour: Date;
-  endHour: Date;
+  startHour: string;
+  endHour: string;
   isDone: boolean;
   comments?: string;
   numPeople?: number;

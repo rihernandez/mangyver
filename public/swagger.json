@@ -2210,12 +2210,10 @@
 						"type": "string"
 					},
 					"startHour": {
-						"type": "string",
-						"format": "date-time"
+						"type": "string"
 					},
 					"endHour": {
-						"type": "string",
-						"format": "date-time"
+						"type": "string"
 					},
 					"isDone": {
 						"type": "boolean"
