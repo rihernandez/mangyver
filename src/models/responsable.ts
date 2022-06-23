@@ -22,6 +22,9 @@ export class Responsable {
   @Column({ name: "SAPCode", nullable: true })
   SAPCode!: string;
 
+  @Column({ name: "IsActive", default: true })
+  isActive!: boolean;
+
   @ManyToOne(type => Operation, object => object.id, { nullable: true })
   @JoinColumn({ name: "operationId" })
   operationId!: Operation;
