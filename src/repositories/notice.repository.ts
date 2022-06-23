@@ -91,7 +91,8 @@ export const getNotices = async (
   timeEnd?: string | null,
   operationId?: string | null,
   filter?: string | null,
-  totalRows?: boolean
+  totalRows?: boolean,
+  isActive?: boolean,
 ): Promise<Array<Notice>> => {
   console.log(
     userId,
@@ -135,6 +136,8 @@ export const getNotices = async (
       operationId +
       ",@filter=" +
       filter +
+      ",@isActive=" +
+      isActive +
       ",@totalRows=" +
       totalRows +
       ""

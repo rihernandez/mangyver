@@ -3089,6 +3089,14 @@
 						"schema": {
 							"type": "boolean"
 						}
+					},
+					{
+						"in": "query",
+						"name": "isActive",
+						"required": true,
+						"schema": {
+							"type": "boolean"
+						}
 					}
 				]
 			},

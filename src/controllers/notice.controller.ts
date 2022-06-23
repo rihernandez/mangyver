@@ -27,7 +27,8 @@ export default class NoticeController {
     @Query() timeEnd: string,
     @Query() operationId: string,
     @Query() filter: string,
-    @Query() totalRows: boolean
+    @Query() totalRows: boolean,
+    @Query() isActive: boolean
   ): Promise<Array<Notice>> {
     const tt = getNotices(
       profileId,
@@ -41,7 +42,8 @@ export default class NoticeController {
       timeEnd,
       operationId,
       filter,
-      totalRows
+      totalRows,
+      isActive
     );
     return tt;
   }
