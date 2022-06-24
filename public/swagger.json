@@ -594,6 +594,9 @@
 					"id": {
 						"type": "string"
 					},
+					"groupCode": {
+						"type": "string"
+					},
 					"name": {
 						"type": "string"
 					},
@@ -620,6 +623,7 @@
 				},
 				"required": [
 					"id",
+					"groupCode",
 					"name",
 					"operation",
 					"process",
@@ -820,6 +824,9 @@
 					"shortName": {
 						"type": "string"
 					},
+					"activity": {
+						"type": "string"
+					},
 					"operation": {
 						"$ref": "#/components/schemas/Operation"
 					},
@@ -841,6 +848,7 @@
 					"SAPCode",
 					"isActive",
 					"shortName",
+					"activity",
 					"operation",
 					"userUpdate",
 					"created",
@@ -1710,12 +1718,16 @@
 					},
 					"isActive": {
 						"type": "boolean"
+					},
+					"groupCode": {
+						"type": "string"
 					}
 				},
 				"required": [
 					"name",
 					"operation",
-					"isActive"
+					"isActive",
+					"groupCode"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -1922,6 +1934,9 @@
 					},
 					"shortname": {
 						"type": "string"
+					},
+					"activity": {
+						"type": "string"
 					}
 				},
 				"required": [
@@ -1929,7 +1944,8 @@
 					"SAPCode",
 					"isActive",
 					"operation",
-					"shortname"
+					"shortname",
+					"activity"
 				],
 				"type": "object",
 				"additionalProperties": false

@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { User } from './user';
+import { User } from "./user";
 import { Operation } from "./operation";
 import {
   Entity,
@@ -17,6 +17,9 @@ export class Card {
   @Column({ name: "CardId" })
   @PrimaryGeneratedColumn("uuid")
   id!: string;
+
+  @Column({ name: "groupCode", nullable: true })
+  groupCode!: string;
 
   @Column({ name: "Name" })
   name!: string;

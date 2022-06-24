@@ -8,6 +8,7 @@ export interface ITypeFailPayload {
   isActive: boolean;
   operation: Operation;
   shortname: string;
+  activity: string;
 }
 
 export const getTypeFails = async (

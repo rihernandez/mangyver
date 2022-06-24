@@ -7,6 +7,7 @@ export interface ICardPayload {
   name: string;
   operation: Operation;
   isActive: boolean;
+  groupCode: string;
 }
 
 export const getCards = async (
