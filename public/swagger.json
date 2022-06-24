@@ -948,6 +948,9 @@
 					"SAPCode": {
 						"type": "string"
 					},
+					"isActive": {
+						"type": "boolean"
+					},
 					"operationId": {
 						"$ref": "#/components/schemas/Operation"
 					},
@@ -967,6 +970,7 @@
 					"id",
 					"name",
 					"SAPCode",
+					"isActive",
 					"operationId",
 					"userUpdate",
 					"created",
@@ -2210,12 +2214,10 @@
 						"type": "string"
 					},
 					"startHour": {
-						"type": "string",
-						"format": "date-time"
+						"type": "string"
 					},
 					"endHour": {
-						"type": "string",
-						"format": "date-time"
+						"type": "string"
 					},
 					"isDone": {
 						"type": "boolean"
@@ -3083,6 +3085,14 @@
 					{
 						"in": "query",
 						"name": "totalRows",
+						"required": true,
+						"schema": {
+							"type": "boolean"
+						}
+					},
+					{
+						"in": "query",
+						"name": "isActive",
 						"required": true,
 						"schema": {
 							"type": "boolean"
