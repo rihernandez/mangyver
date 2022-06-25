@@ -5089,6 +5089,14 @@
 						"schema": {
 							"type": "string"
 						}
+					},
+					{
+						"in": "query",
+						"name": "totalRows",
+						"required": true,
+						"schema": {
+							"type": "boolean"
+						}
 					}
 				]
 			},

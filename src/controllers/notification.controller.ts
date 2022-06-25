@@ -22,6 +22,7 @@ export default class NotificationController {
     @Query() sapForm: boolean,
     @Query() isWeb: boolean,
     @Query() filter: string | null,
+    @Query() totalRows: boolean,
   ): Promise<Array<Notification>> {
     console.log(profileId, top, from, dateFrom, dateEnd, sapForm, isWeb, filter);
 
@@ -47,7 +48,8 @@ export default class NotificationController {
       dateEnd,
       sapForm,
       isWeb,
-      filter
+      filter,
+      totalRows
     );
   }
 
