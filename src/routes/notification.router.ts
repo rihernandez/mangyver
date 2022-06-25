@@ -23,7 +23,8 @@ router.get("/", async (_req, res) => {
     String(_req.query.dateFrom || null),
     String(_req.query.dateEnd || null),
     Boolean(_req.query.sapForm || 0),
-    Boolean(_req.query.isWeb || 0)
+    Boolean(_req.query.isWeb || 0),
+    String(_req.query.filter || null),
   );
 
   const results = JSON.parse(JSON.stringify(response));
