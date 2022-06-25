@@ -23,6 +23,7 @@ export const getNotifications = async (
   sapForm?: boolean,
   isWeb?: boolean
 ): Promise<Array<Notification>> => {
+  console.log(from, top, dateFrom, dateEnd, sapForm)
   const repository = getRepository(Notification).query(
     "SP_Select_Notification @userid='" +
       userId +
@@ -32,11 +33,11 @@ export const getNotifications = async (
       top +
       ", @from=" +
       from +
-      ", @DateFrom=" +
+      ", @DateFrom='" +
       dateFrom +
-      ", @DateEnd=" +
+      "', @DateEnd='" +
       dateEnd +
-      ",@SAPForm=" +
+      "',@SAPForm=" +
       sapForm +
       ",@isWeb=" +
       isWeb +
