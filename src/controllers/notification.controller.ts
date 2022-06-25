@@ -17,12 +17,21 @@ export default class NotificationController {
     @Query() profileId: string,
     @Query() top: number,
     @Query() from: number,
-    @Query() dateFrom: string,
-    @Query() dateEnd: string,
+    @Query() dateFrom: string | null,
+    @Query() dateEnd: string | null,
     @Query() sapForm: boolean,
     @Query() isWeb: boolean
   ): Promise<Array<Notification>> {
     console.log(profileId, top, from, dateFrom, dateEnd, sapForm, isWeb);
+
+    if (dateFrom === 'null') {
+      dateFrom = null
+      dateEnd = null
+    }else {
+      dateFrom = `'${dateFrom}'`
+      dateEnd = `'${dateEnd}'`
+    }
+
     return getNotifications(
       profileId,
       top,
