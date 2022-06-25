@@ -5081,6 +5081,14 @@
 						"schema": {
 							"type": "boolean"
 						}
+					},
+					{
+						"in": "query",
+						"name": "filter",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
 					}
 				]
 			},

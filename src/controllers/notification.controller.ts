@@ -20,9 +20,10 @@ export default class NotificationController {
     @Query() dateFrom: string | null,
     @Query() dateEnd: string | null,
     @Query() sapForm: boolean,
-    @Query() isWeb: boolean
+    @Query() isWeb: boolean,
+    @Query() filter: string | null,
   ): Promise<Array<Notification>> {
-    console.log(profileId, top, from, dateFrom, dateEnd, sapForm, isWeb);
+    console.log(profileId, top, from, dateFrom, dateEnd, sapForm, isWeb, filter);
 
     if (dateFrom === 'null') {
       dateFrom = null
@@ -32,6 +33,12 @@ export default class NotificationController {
       dateEnd = `'${dateEnd}'`
     }
 
+    if (filter === 'null') {
+      filter = null
+    }else {
+      filter = `'${filter}'`
+    }
+
     return getNotifications(
       profileId,
       top,
@@ -39,7 +46,8 @@ export default class NotificationController {
       dateFrom,
       dateEnd,
       sapForm,
-      isWeb
+      isWeb,
+      filter
     );
   }
 
