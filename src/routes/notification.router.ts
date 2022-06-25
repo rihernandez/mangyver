@@ -25,6 +25,7 @@ router.get("/", async (_req, res) => {
     Boolean(_req.query.sapForm || 0),
     Boolean(_req.query.isWeb || 0),
     String(_req.query.filter || null),
+    Boolean(_req.query.totalRows || 0)
   );
 
   const results = JSON.parse(JSON.stringify(response));

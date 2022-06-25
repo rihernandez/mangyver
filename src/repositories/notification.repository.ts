@@ -23,6 +23,7 @@ export const getNotifications = async (
   sapForm?: boolean,
   isWeb?: boolean,
   filter?: string | null,
+  totalRows?: boolean,
 ): Promise<Array<Notification>> => {
   console.log(from, top, dateFrom, dateEnd, sapForm, filter)
   const repository = getRepository(Notification).query(
@@ -44,6 +45,8 @@ export const getNotifications = async (
       isWeb +
       ",@filter=" +
       filter +
+      ",@totalRows=" +
+      totalRows +
       ""
   );
   return repository;
