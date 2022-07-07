@@ -92,7 +92,7 @@ export const getNotices = async (
   operationId?: string | null,
   filter?: string | null,
   totalRows?: boolean,
-  isActive?: boolean,
+  isActive?: boolean
 ): Promise<Array<Notice>> => {
   console.log(
     userId,
@@ -167,6 +167,17 @@ export const createnewNoticeFormat = async (
     ...notice,
     ...payload,
   });
+};
+
+export const updateNotice = async (
+  id: string,
+  payload: INoticenPayloadNewFormat
+): Promise<String> => {
+  const repository = getRepository(Notice);
+  const record = repository.findOne({ where: { id } });
+  if (!record) return "Notice not found";
+  await repository.update(id, payload);
+  return id;
 };
 
 export const getNotice = async (id: string): Promise<Notice | null> => {
