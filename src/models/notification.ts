@@ -66,7 +66,7 @@ export class Notification {
     created!: Date; */
   @Column({ name: "Status", default: true })
   isActive!: boolean;
-  @CreateDateColumn()
+  @CreateDateColumn({ type: "date" })
   created!: Date;
 
   @UpdateDateColumn({ nullable: true, name: "UpdatedDate" })
