@@ -13,7 +13,7 @@ export const getResponsables = async (
 ): Promise<Array<Responsable>> => {
   const responsableRepository = getRepository(Responsable);
   return responsableRepository.find({
-    where: { operationId: operation },
+    where: { operationId: operation, isActive: true },
     order: { name: "ASC" },
   });
 };
