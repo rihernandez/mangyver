@@ -3113,6 +3113,14 @@
 						"schema": {
 							"type": "boolean"
 						}
+					},
+					{
+						"in": "query",
+						"name": "timezone",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
 					}
 				]
 			},
@@ -5135,6 +5143,14 @@
 						"required": true,
 						"schema": {
 							"type": "boolean"
+						}
+					},
+					{
+						"in": "query",
+						"name": "timezone",
+						"required": true,
+						"schema": {
+							"type": "string"
 						}
 					}
 				]

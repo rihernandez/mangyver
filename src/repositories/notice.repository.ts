@@ -92,7 +92,8 @@ export const getNotices = async (
   operationId?: string | null,
   filter?: string | null,
   totalRows?: boolean,
-  isActive?: boolean
+  isActive?: boolean,
+  timezone?: string,
 ): Promise<Array<Notice>> => {
   console.log(
     userId,
