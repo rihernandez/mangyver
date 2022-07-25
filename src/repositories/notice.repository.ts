@@ -48,6 +48,8 @@ export interface INoticePayload {
   symptomId: Symptom;
   textCause: string;
   textSymptom: string;
+  failureTimeStartDate: string;
+  failureTimeStartTime: string;
 }
 
 export interface INoticenPayloadNewFormat {

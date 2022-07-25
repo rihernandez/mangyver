@@ -142,6 +142,12 @@ export class Notice {
   // user!: number;
   // @Column({ name: "Priority", length: 300 })
   // priority!: string;
+  @Column({ name: "FailureTimeStartDate", nullable: true })
+  failureTimeStartDate!: string;
+
+  @Column({ name: "FailureTimeStartTime", nullable: true })
+  failureTimeStartTime!: string;
+
   @Column({ name: "Status", default: true })
   isActive!: boolean;
   @CreateDateColumn({ type: "date" })
