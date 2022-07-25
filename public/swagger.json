@@ -79,6 +79,13 @@
 					},
 					"SAPUser": {
 						"type": "string"
+					},
+					"requiredPassUpdate": {
+						"type": "boolean"
+					},
+					"datePassUpdate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -96,7 +103,9 @@
 					"area",
 					"line",
 					"SAPCode",
-					"SAPUser"
+					"SAPUser",
+					"requiredPassUpdate",
+					"datePassUpdate"
 				],
 				"type": "object",
 				"additionalProperties": false

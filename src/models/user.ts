@@ -69,6 +69,12 @@ export class User {
   @Column({ nullable: true, name: "SAPUser" })
   SAPUser!: string;
 
+  @Column({ default: true, nullable: true, name: "RequiredPassUpdate" })
+  requiredPassUpdate!: boolean;
+
+  @CreateDateColumn({ nullable: true, name: 'DatePassUpdate' })
+  datePassUpdate!: Date;
+
   hashPassword() {
     this.password = bcrypt.hashSync(this.password, 8);
   }
