@@ -1,11 +1,12 @@
 /* eslint-disable */
 import { profile } from "console";
-import { Get, Route, Tags, Post, Body, Path, Query } from "tsoa";
+import { Get, Route, Tags, Post, Body, Path, Query, Put } from "tsoa";
 import { Notice } from "../models";
 import {
   getNotice,
   getNotices,
   createNotice,
+  updateNotice,
   INoticePayload,
   INoticenPayloadNewFormat,
   createnewNoticeFormat,
@@ -75,6 +76,14 @@ export default class NoticeController {
     @Body() body: INoticenPayloadNewFormat
   ): Promise<Notice> {
     return createnewNoticeFormat(body);
+  }
+
+  @Put("/:id")
+  public async updateNotice(
+    @Path() id: string,
+    @Body() body: INoticenPayloadNewFormat
+  ): Promise<String> {
+    return updateNotice(id, body);
   }
 
   @Get("/:id")
