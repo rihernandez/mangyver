@@ -29,7 +29,8 @@ export default class NoticeController {
     @Query() operationId: string,
     @Query() filter: string,
     @Query() totalRows: boolean,
-    @Query() isActive: boolean
+    @Query() isActive: boolean,
+    @Query() timezone: string,
   ): Promise<Array<Notice>> {
 
     if (dateFrom === 'null') {
@@ -61,7 +62,8 @@ export default class NoticeController {
       operationId,
       filter,
       totalRows,
-      isActive
+      isActive,
+      timezone
     );
     return tt;
   }
