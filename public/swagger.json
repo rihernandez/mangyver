@@ -79,6 +79,13 @@
 					},
 					"SAPUser": {
 						"type": "string"
+					},
+					"requiredPassUpdate": {
+						"type": "boolean"
+					},
+					"datePassUpdate": {
+						"type": "string",
+						"format": "date-time"
 					}
 				},
 				"required": [
@@ -96,7 +103,9 @@
 					"area",
 					"line",
 					"SAPCode",
-					"SAPUser"
+					"SAPUser",
+					"requiredPassUpdate",
+					"datePassUpdate"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -3113,6 +3122,14 @@
 						"schema": {
 							"type": "boolean"
 						}
+					},
+					{
+						"in": "query",
+						"name": "timezone",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
 					}
 				]
 			},
@@ -3180,6 +3197,45 @@
 			}
 		},
 		"/notices/{id}": {
+			"put": {
+				"operationId": "UpdateNotice",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Notice"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/INoticenPayloadNewFormat"
+							}
+						}
+					}
+				}
+			},
 			"get": {
 				"operationId": "GetNotice",
 				"responses": {
@@ -5080,6 +5136,30 @@
 						"required": true,
 						"schema": {
 							"type": "boolean"
+						}
+					},
+					{
+						"in": "query",
+						"name": "filter",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "totalRows",
+						"required": true,
+						"schema": {
+							"type": "boolean"
+						}
+					},
+					{
+						"in": "query",
+						"name": "timezone",
+						"required": true,
+						"schema": {
+							"type": "string"
 						}
 					}
 				]

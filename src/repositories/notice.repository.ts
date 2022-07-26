@@ -48,6 +48,8 @@ export interface INoticePayload {
   symptomId: Symptom;
   textCause: string;
   textSymptom: string;
+  failureTimeStartDate: string;
+  failureTimeStartTime: string;
 }
 
 export interface INoticenPayloadNewFormat {
@@ -92,7 +94,8 @@ export const getNotices = async (
   operationId?: string | null,
   filter?: string | null,
   totalRows?: boolean,
-  isActive?: boolean
+  isActive?: boolean,
+  timezone?: string,
 ): Promise<Array<Notice>> => {
   console.log(
     userId,
@@ -124,19 +127,19 @@ export const getNotices = async (
       dateFrom +
       ", @DateEnd=" +
       dateEnd +
-      " ,@SAPForm='" +
+      " ,@SAPForm=" +
       sapForm +
-      "',@isWeb='" +
+      ",@isWeb=" +
       isWeb +
-      "',@timeFrom='" +
+      ",@timeFrom=" +
       timeFrom +
-      "',@timeEnd='" +
+      ",@timeEnd=" +
       timeEnd +
-      "',@operationId=" +
+      ",@operationId='" +
       operationId +
-      ",@filter=" +
+      "',@filter='" +
       filter +
-      ",@isActive=" +
+      "',@isActive=" +
       isActive +
       ",@totalRows=" +
       totalRows +

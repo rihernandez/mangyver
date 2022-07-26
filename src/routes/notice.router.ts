@@ -45,7 +45,8 @@ router.get("/", async (_req, res) => {
     String(_req.query.operationId || null),
     String(_req.query.filter || null),
     Boolean(_req.query.totalRows || false),
-    Boolean(Number(_req.query.isActive) || false)
+    Boolean(Number(_req.query.isActive) || false),
+    String(_req.headers.timezone || 'GTM-5')
   );
   const results = JSON.parse(JSON.stringify(response));
   results.map((result: any) => {

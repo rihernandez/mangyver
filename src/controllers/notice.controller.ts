@@ -20,17 +20,35 @@ export default class NoticeController {
     @Query() profileId: string,
     @Query() top: number,
     @Query() from: number,
-    @Query() dateFrom: string,
-    @Query() dateEnd: string,
+    @Query() dateFrom: string | null,
+    @Query() dateEnd: string | null,
     @Query() sapForm: boolean,
     @Query() isWeb: boolean,
-    @Query() timeFrom: string,
-    @Query() timeEnd: string,
+    @Query() timeFrom: string | null,
+    @Query() timeEnd: string | null,
     @Query() operationId: string,
     @Query() filter: string,
     @Query() totalRows: boolean,
-    @Query() isActive: boolean
+    @Query() isActive: boolean,
+    @Query() timezone: string,
   ): Promise<Array<Notice>> {
+
+    if (dateFrom === 'null') {
+      dateFrom = null
+      dateEnd = null
+    }else {
+      dateFrom = `'${dateFrom}'`
+      dateEnd = `'${dateEnd}'`
+    }
+  
+    if (timeFrom === 'null') {
+      timeFrom = null
+      timeEnd = null
+    }else {
+      timeFrom = `'${timeFrom}'`
+      timeEnd = `'${timeEnd}'`
+    }
+
     const tt = getNotices(
       profileId,
       top,
@@ -44,7 +62,8 @@ export default class NoticeController {
       operationId,
       filter,
       totalRows,
-      isActive
+      isActive,
+      timezone
     );
     return tt;
   }
